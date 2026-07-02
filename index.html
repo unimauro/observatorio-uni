@@ -150,6 +150,7 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
     <a href="#presupuesto">Presupuesto</a>
     <a href="#proveedores">Proveedores</a>
     <a href="#investigacion">Investigación</a>
+    <a href="#valor">Gasto↔valor</a>
     <a href="#admision">Admisión</a>
     <a href="#planilla">Planilla</a>
     <a href="#gasto">En qué se gasta</a>
@@ -213,6 +214,19 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
   <p class="note" id="invNote"></p>
 </div></section>
 
+<!-- GASTO ↔ VALOR PÚBLICO -->
+<section id="valor"><div class="wrap">
+  <div class="eyebrow">¿Rinde el dinero?</div>
+  <h2>Gasto ↔ valor público</h2>
+  <p class="lead">¿Cuánto valor público (investigación, formación) genera la UNI por cada sol? Cruzamos el presupuesto ejecutado con la producción científica y los ingresantes. Indicadores <strong>exploratorios</strong>: úsalos para preguntar, no como veredicto.</p>
+  <div class="kpis" id="valorKpis" style="margin-bottom:20px"></div>
+  <div class="grid2">
+    <div class="card"><h3>Presupuesto ejecutado vs. publicaciones por año</h3><div class="chart-box tall"><canvas id="cValor"></canvas></div></div>
+    <div class="card"><h3>Productividad: publicaciones por S/ 10 M ejecutados</h3><div class="chart-box tall"><canvas id="cCosto"></canvas></div></div>
+  </div>
+  <p class="note" id="valorNote"></p>
+</div></section>
+
 <!-- ADMISIÓN -->
 <section id="admision"><div class="wrap">
   <div class="eyebrow">Quiénes ingresan</div>
@@ -269,13 +283,13 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
         <li>Proveedores + dueños (338, S/86.6M)</li>
         <li>Planilla docentes/funcionarios + buscador</li>
         <li>Investigación (OpenAlex) y admisión</li>
+        <li>Gasto ↔ valor público (eficiencia)</li>
         <li>Bot IA + Google Analytics</li>
       </ul>
     </div>
     <div class="card">
       <h3>🔜 En cola</h3>
       <ul style="font-size:13.5px;padding-left:18px;margin:0">
-        <li>Gasto ↔ valor público (S/ por publicación, por egresado)</li>
         <li>Órdenes de compra &lt; 8 UIT</li>
         <li>Grafo proveedor → dueño</li>
         <li>Serie histórica de proveedores</li>

@@ -56,7 +56,47 @@ function opts(extra = {}) {
 }
 
 function render() {
-  renderKpis(); renderPresu(); renderGasto(); renderProv(); renderInv(); renderAdm(); renderPlan();
+  renderKpis(); renderPresu(); renderGasto(); renderProv(); renderInv(); renderValor(); renderAdm(); renderPlan();
+}
+
+// ---- Gasto ↔ valor público ----
+function renderValor() {
+  const serie = DATA.presu?.serie, by = DATA.biblio?.uni?.by_year;
+  if (!serie?.length || !by?.length) return;
+  const devByY = {}, worksByY = {};
+  serie.forEach(s => devByY[s.year] = s.dev);
+  by.forEach(b => worksByY[b.year] = b.works);
+  // años con ambos datos, hasta 2025 (2026 parcial)
+  const years = Object.keys(devByY).map(Number).filter(y => y <= 2025 && worksByY[y] > 0 && devByY[y] > 0).sort();
+  if (!years.length) return;
+  const dev = years.map(y => devByY[y] / 1e6), works = years.map(y => worksByY[y]);
+  const prodByY = years.map(y => worksByY[y] / (devByY[y] / 1e7)); // pubs por S/10M
+  new Chart(cValor, {
+    data: {
+      labels: years,
+      datasets: [
+        { type: 'bar', label: 'Devengado (S/ M)', data: dev, backgroundColor: GRANATE, yAxisID: 'y' },
+        { type: 'line', label: 'Publicaciones', data: works, borderColor: ORO, backgroundColor: 'transparent', tension: .3, yAxisID: 'y1' },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: grid() } }, y: { position: 'left', grid: { color: grid() }, beginAtZero: true, title: { display: true, text: 'S/ M' } }, y1: { position: 'right', grid: { drawOnChartArea: false }, beginAtZero: true, title: { display: true, text: 'pubs' } } } }
+  });
+  new Chart(cCosto, {
+    type: 'line', data: { labels: years, datasets: [{ label: 'Pubs por S/10M', data: prodByY, borderColor: TEAL, backgroundColor: 'rgba(14,124,134,.12)', fill: true, tension: .3 }] },
+    options: opts({ plugins: { legend: { display: false } } })
+  });
+  // KPIs — base I+D (justa) y base presupuesto total (contexto)
+  const ly = years[years.length - 1];
+  const idi = DATA.biblio?.presupuesto?.idi; // S/ millones de I+D
+  const wLy = worksByY[ly], devLy = devByY[ly];
+  const k = [];
+  if (idi) k.push(['Costo por publicación (I+D)', 'S/ ' + fmtN(Math.round(idi * 1e6 / wLy)), 'base partida I+D ' + (DATA.biblio.presupuesto.anio || ly)]);
+  k.push(['Publicaciones por S/10M', (wLy / (devLy / 1e7)).toFixed(1), 'ejecutado ' + ly]);
+  k.push(['Costo por pub (ppto total)', 'S/ ' + fmtM(devLy / wLy).replace('S/ ', ''), 'incluye planilla/pensiones']);
+  if (DATA.adm?._meta) k.push(['Presupuesto por ingresante', 'S/ ' + fmtN(Math.round(devLy / DATA.adm._meta.total_ingresantes)), 'referencial (' + ly + ')']);
+  document.getElementById('valorKpis').innerHTML = k.map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
+  document.getElementById('valorNote').innerHTML =
+    `La métrica <strong>justa</strong> de eficiencia investigadora es el <strong>costo por publicación con la partida de I+D</strong> (${idi ? 'S/ ' + idi + 'M en ' + (DATA.biblio.presupuesto.anio || ly) : 's/d'}), no el presupuesto total —que paga docencia, planilla, pensiones y servicios, no solo investigar—. El "costo por pub (ppto total)" se muestra solo como contexto y NO debe leerse como gasto en investigación. Fuentes: MEF/SIAF + OpenAlex.`;
 }
 
 // ---- KPIs ----

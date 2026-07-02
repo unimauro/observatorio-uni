@@ -17,13 +17,14 @@ Live: https://unimauro.github.io/observatorio-uni/ · Sugerencias: carlos@carden
   CAS con nombre y remuneración; buscador; plazas y sueldo promedio por régimen. Nunca estudiantes.
 - **Investigación** (OpenAlex): publicaciones, citas, h-index y UNI vs. pares.
 - **Admisión**: 922 ingresantes / 5,713 postulantes por especialidad y modalidad (solo agregados, sin nombres).
+- **Gasto ↔ valor público** — eficiencia investigadora: costo por publicación (base I+D, la métrica justa),
+  publicaciones por S/ 10M ejecutado, presupuesto por ingresante, y presupuesto vs. publicaciones por año
+  (pedido de Tobías: "gasto vs. valor público generado").
 - Asistente IA, barra de apoyo (WhatsApp/Yape/café), tema día/noche, Google Analytics, OG/SEO.
 
 ## 🔜 En cola (prioridad de valor)
 
-1. **Gasto ↔ valor público** — indicadores como S/ por publicación, S/ por egresado, costo por ingresante
-   (pedido de Tobías: "gasto vs. valor público generado").
-2. **Órdenes de compra < 8 UIT** — cola larga de proveedores pequeños (dataset CONOSCE aparte),
+1. **Órdenes de compra < 8 UIT** — cola larga de proveedores pequeños (dataset CONOSCE aparte),
    para completar el mapa de "a quién más le paga la UNI".
 3. **Grafo proveedor → dueño** — cruzar los proveedores con el [observatorio de poder económico](https://unimauro.github.io/observatorio-poder-economico/)
    y profundizar dueños más allá del top 15.
