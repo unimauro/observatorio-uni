@@ -74,6 +74,7 @@ function renderKpis() {
   }
   const b = DATA.biblio?.uni;
   if (b) { k.push(['Publicaciones', fmtN(b.works), 'histórico (OpenAlex)']); k.push(['Citas · h-index', fmtN(b.cited) + ' · ' + b.h_index, 'impacto científico']); }
+  if (DATA.prov?.totales) k.push(['Adjudicado a proveedores', fmtM(DATA.prov.totales.monto_total), fmtN(DATA.prov.totales.n_proveedores) + ' proveedores (' + (DATA.prov._meta?.periodo || '') + ')']);
   if (DATA.adm?._meta) k.push(['Ingresantes', fmtN(DATA.adm._meta.total_ingresantes), 'de ' + fmtN(DATA.adm._meta.total_postulantes) + ' postulantes']);
   const docAir = DATA.plan?.resumen?.por_regimen_airhsp?.find(x => /docente/i.test(x.nombre));
   if (docAir) k.push(['Docentes', fmtN(docAir.n), 'prom S/ ' + fmtN(docAir.sueldo_promedio) + ' (AIRHSP)']);
