@@ -140,11 +140,11 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
   <nav class="links" id="nav">
     <a href="#resumen">Resumen</a>
     <a href="#presupuesto">Presupuesto</a>
-    <a href="#gasto">En qué se gasta</a>
     <a href="#proveedores">Proveedores</a>
     <a href="#investigacion">Investigación</a>
     <a href="#admision">Admisión</a>
     <a href="#planilla">Planilla</a>
+    <a href="#gasto">En qué se gasta</a>
     <a href="#metodo">Metodología</a>
   </nav>
 </div></header>
@@ -176,18 +176,6 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
     <div class="card"><h3>Ejecución del gasto (Devengado / PIM)</h3><div class="chart-box"><canvas id="cEjec"></canvas></div></div>
   </div>
   <p class="note" id="presupNote"></p>
-</div></section>
-
-<!-- EN QUÉ SE GASTA -->
-<section id="gasto"><div class="wrap">
-  <div class="eyebrow">Anatomía del gasto</div>
-  <h2>En qué se gasta cada sol, por unidad</h2>
-  <p class="lead">Desglose del último año por unidad ejecutora, categoría, genérica de gasto y función. Responde: ¿cuánto va a planilla vs. bienes, servicios e inversión? ¿qué unidad concentra el gasto?</p>
-  <div class="grid2">
-    <div class="card"><h3>Por categoría / genérica de gasto</h3><div class="chart-box"><canvas id="cGen"></canvas></div></div>
-    <div class="card"><h3>Por unidad ejecutora</h3><div class="chart-box"><canvas id="cUni"></canvas></div></div>
-  </div>
-  <div class="card" style="margin-top:20px"><h3>Detalle por función</h3><div class="scroll"><table id="tFun"><thead><tr><th>Función</th><th class="n">PIM (S/)</th><th class="n">Devengado (S/)</th><th class="n">Ejec.</th></tr></thead><tbody></tbody></table></div></div>
 </div></section>
 
 <!-- PROVEEDORES -->
@@ -239,6 +227,21 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
     <div class="card"><h3>Sueldo promedio por régimen (S/)</h3><div class="chart-box"><canvas id="cRegS"></canvas></div></div>
   </div>
   <div id="planWrap" style="margin-top:20px"></div>
+</div></section>
+
+<!-- EN QUÉ SE GASTA (al final) -->
+<section id="gasto"><div class="wrap">
+  <div class="eyebrow">Anatomía del gasto</div>
+  <h2>En qué se gasta cada sol</h2>
+  <p class="lead">Desglose del ejercicio 2025 (cerrado) por genérica de gasto, unidad ejecutora y función. Responde: ¿cuánto va a planilla vs. bienes, servicios e inversión? ¿qué unidad concentra el gasto?</p>
+  <div id="gastoWrap">
+    <div class="grid2">
+      <div class="card"><h3>Por genérica de gasto (S/ millones)</h3><div class="chart-box"><canvas id="cGen"></canvas></div></div>
+      <div class="card"><h3>Por unidad ejecutora</h3><div class="chart-box"><canvas id="cUni"></canvas></div></div>
+    </div>
+    <div class="card" style="margin-top:20px"><h3>Detalle por función</h3><div class="scroll"><table id="tFun"><thead><tr><th>Función</th><th class="n">PIM (S/)</th><th class="n">Devengado (S/)</th><th class="n">Ejec.</th></tr></thead><tbody></tbody></table></div></div>
+  </div>
+  <p class="note" id="gastoNote"></p>
 </div></section>
 
 <!-- METODOLOGÍA -->

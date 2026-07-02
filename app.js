@@ -101,8 +101,8 @@ function renderPresu() {
     data: { labels: s.map(x => x.year), datasets: [{ label: '% ejecución', data: s.map(x => x.ejec_pct), borderColor: GRANATE, backgroundColor: 'rgba(158,16,32,.12)', fill: true, tension: .3 }] },
     options: opts({ scales: { x: { grid: { color: grid() } }, y: { grid: { color: grid() }, min: 60, max: 100 } } })
   });
-  const first = s[0], last = s[s.length - 1];
-  document.getElementById('presupNote').textContent = `Serie ${first.year}–${last.year}. Fuente: ${DATA.presu._meta.fuente}. ${DATA.presu._meta.pliego}.`;
+  document.getElementById('presupNote').textContent =
+    `${DATA.presu._meta.nota || ''} Fuente: ${DATA.presu._meta.fuente}. ${DATA.presu._meta.pliego}.`;
 }
 
 // ---- En qué se gasta ----
@@ -120,14 +120,26 @@ function donut(ctx, rows, valueKey = 'dev', top = 8) {
 }
 function renderGasto() {
   const d = DATA.presu?.detalle_ultimo_anio;
-  if (!d) return;
-  const gen = d.por_categoria?.length ? d.por_categoria : d.por_generica;
+  const has = d && (d.por_generica?.length || d.por_unidad?.length || d.por_funcion?.length);
+  if (!has) {
+    const w = document.getElementById('gastoWrap');
+    if (w) w.innerHTML = `<div class="soon"><h3>🔎 Cargando desglose</h3><p style="margin:0;color:var(--muted)">Procesando el detalle de gasto del ejercicio desde el MEF/SIAF. Aparecerá aquí en breve.</p></div>`;
+    return;
+  }
+  const gen = d.por_generica?.length ? d.por_generica : d.por_categoria;
   if (gen?.length) donut(cGen, gen);
   if (d.por_unidad?.length) donut(cUni, d.por_unidad);
   const tb = document.querySelector('#tFun tbody');
   if (tb && d.por_funcion?.length) {
     tb.innerHTML = d.por_funcion.map(x => `<tr><td>${(x.nombre || '—').replace(/^\d+[:.\-]?\s*/, '')}</td><td class="n">${fmtN(Math.round(x.pim))}</td><td class="n">${fmtN(Math.round(x.dev))}</td><td class="n">${x.pim ? Math.round(100 * x.dev / x.pim) + '%' : '—'}</td></tr>`).join('');
   }
+  const per = (gen || []).find(x => /PERSONAL/i.test(x.nombre));
+  const bys = (gen || []).find(x => /BIENES/i.test(x.nombre));
+  const note = document.getElementById('gastoNote');
+  if (note) note.innerHTML = `Ejercicio ${d.anio} (cerrado). ` +
+    (per ? `Planilla (personal): <strong>${fmtM(per.dev)}</strong>. ` : '') +
+    (bys ? `Bienes y servicios: <strong>${fmtM(bys.dev)}</strong>. ` : '') +
+    `Fuente: MEF/SIAF, pliego 514.`;
 }
 
 // ---- Proveedores ----
