@@ -1,10 +1,10 @@
 {
  "_meta": {
-  "fuente": "peru-transparente (datos nominales del sector publico: Portal de Transparencia Estandar / PTE + AIRHSP)",
+  "fuente": "peru-transparente (datos nominales del sector publico: Portal de Transparencia Estandar / PTE + agregado AIRHSP)",
   "entidad": "Universidad Nacional de Ingenieria (UNI) - pliego 514 / id_entidad PTE 10048",
   "anio": 2026,
   "mes": 4,
-  "nota": "Solo docentes/funcionarios/personal administrativo. No incluye estudiantes. La lista NOMINAL (con nombre y remuneracion real) que publica el PTE para la UNI cubre UNICAMENTE el regimen CAS: 605 personas del periodo 2026-04 (592 administrativos + 13 jefes/funcionarios). Los docentes universitarios (regimen 'Carreras Especiales', 1717 plazas) y el personal D.Leg.276 (760) NO tienen desglose nominal ni remuneracion individual en los datos locales; solo existen como agregado AIRHSP (conteo + sueldo promedio). Para la planilla nominal completa de docentes habria que obtenerla del portal de transparencia de la UNI o del AIRHSP nominal. No se inventaron personas ni sueldos.",
+  "nota": "Solo docentes/funcionarios/personal administrativo. No incluye estudiantes. La lista NOMINAL con nombre y remuneracion real que publica el PTE para la UNI cubre UNICAMENTE el regimen CAS: 605 personas del periodo 2026-04 (592 administrativos + 13 jefes/funcionarios). Los docentes universitarios (regimen AIRHSP 'Carreras Especiales', 1717 plazas) y el personal D.Leg.276 (760) NO tienen desglose nominal ni remuneracion individual en los datos locales; solo existen como agregado AIRHSP (conteo + sueldo promedio, ver resumen.por_regimen_airhsp). Para la planilla nominal completa de docentes habria que obtenerla del portal de transparencia de la UNI o del AIRHSP nominal. No se inventaron personas ni sueldos.",
   "total": 605,
   "total_planilla_airhsp": 3243
  },
@@ -58,12 +58,13 @@
    }
   ],
   "remun": {
-   "prom": 3635.24,
+   "prom": 3659.43,
    "mediana": 3114.19,
-   "min": 0.0,
+   "min": 901.37,
    "max": 13864.19,
-   "n_con_dato": 605,
-   "nota": "Remuneracion = total_ingreso_mensual (S/) del regimen CAS nominal 2026-04."
+   "n_con_dato": 601,
+   "n_cero_o_licencia": 4,
+   "nota": "Remuneracion = total_ingreso_mensual (S/) del regimen CAS nominal 2026-04. Estadisticos calculados sobre remuneraciones > 0; 4 registros reportan 0 (probable licencia)."
   }
  },
  "personas": [

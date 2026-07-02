@@ -226,8 +226,13 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
 <section id="planilla"><div class="wrap">
   <div class="eyebrow">Quiénes trabajan</div>
   <h2>Planilla y remuneraciones</h2>
-  <p class="lead">Personal de la UNI (docentes y administrativos) y sus remuneraciones, a partir de datos nominales públicos del Estado.</p>
-  <div id="planWrap"></div>
+  <p class="lead">Personal de la UNI (docentes, funcionarios y administrativos) y sus remuneraciones, a partir de datos públicos del Estado (Portal de Transparencia + AIRHSP). Nunca estudiantes.</p>
+  <div class="kpis" id="planKpis" style="margin-bottom:20px"></div>
+  <div class="grid2">
+    <div class="card"><h3>Plazas por régimen laboral (AIRHSP)</h3><div class="chart-box"><canvas id="cReg"></canvas></div></div>
+    <div class="card"><h3>Sueldo promedio por régimen (S/)</h3><div class="chart-box"><canvas id="cRegS"></canvas></div></div>
+  </div>
+  <div id="planWrap" style="margin-top:20px"></div>
 </div></section>
 
 <!-- METODOLOGÍA -->

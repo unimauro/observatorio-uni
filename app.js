@@ -75,8 +75,9 @@ function renderKpis() {
   const b = DATA.biblio?.uni;
   if (b) { k.push(['Publicaciones', fmtN(b.works), 'histórico (OpenAlex)']); k.push(['Citas · h-index', fmtN(b.cited) + ' · ' + b.h_index, 'impacto científico']); }
   if (DATA.adm?._meta) k.push(['Ingresantes', fmtN(DATA.adm._meta.total_ingresantes), 'de ' + fmtN(DATA.adm._meta.total_postulantes) + ' postulantes']);
-  const d = DATA.biblio?.docentes;
-  if (d) k.push(['Docentes', fmtN(d.total), d.posgrado_pct + '% con posgrado (' + d.anio + ')']);
+  const docAir = DATA.plan?.resumen?.por_regimen_airhsp?.find(x => /docente/i.test(x.nombre));
+  if (docAir) k.push(['Docentes', fmtN(docAir.n), 'prom S/ ' + fmtN(docAir.sueldo_promedio) + ' (AIRHSP)']);
+  else if (DATA.biblio?.docentes) { const d = DATA.biblio.docentes; k.push(['Docentes', fmtN(d.total), d.posgrado_pct + '% con posgrado (' + d.anio + ')']); }
   el.innerHTML = k.map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
 }
 
@@ -185,12 +186,31 @@ function renderAdm() {
 // ---- Planilla ----
 function renderPlan() {
   const w = document.getElementById('planWrap');
-  if (DATA.plan?.personas?.length) {
-    const p = DATA.plan.personas.slice(0, 40);
-    w.innerHTML = `<div class="card"><div class="scroll"><table><thead><tr><th>Nombre</th><th>Cargo / categoría</th><th>Régimen</th><th class="n">Remuneración (S/)</th></tr></thead><tbody>${p.map(x => `<tr><td>${x.nombre}</td><td>${x.cargo || '—'}</td><td>${x.regimen || '—'}</td><td class="n">${x.remun ? fmtN(Math.round(x.remun)) : '—'}</td></tr>`).join('')}</tbody></table></div><p class="note">Fuente: ${DATA.plan._meta?.fuente || 'datos nominales del sector público'}. Solo docentes, funcionarios y personal (no estudiantes).</p></div>`;
-  } else {
-    w.innerHTML = `<div class="soon"><h3>🔎 En construcción</h3><p style="margin:0;color:var(--muted)">Estamos cruzando la planilla nominal de la UNI (docentes, funcionarios y planas mayores, con sus remuneraciones) a partir de datos públicos del Estado (AIRHSP / portal de transparencia). Por diseño, este portal <strong>solo muestra personal — nunca nombres de estudiantes</strong>.</p></div>`;
+  const P = DATA.plan;
+  if (!P?.personas?.length) {
+    w.innerHTML = `<div class="soon"><h3>🔎 En construcción</h3><p style="margin:0;color:var(--muted)">Cruzando la planilla de la UNI (docentes, funcionarios y personal, con sus remuneraciones) desde datos públicos del Estado (AIRHSP / portal de transparencia). Este portal <strong>solo muestra personal — nunca nombres de estudiantes</strong>.</p></div>`;
+    return;
   }
+  const reg = P.resumen?.por_regimen_airhsp || [];
+  // KPIs planilla
+  const total = P._meta?.total_planilla_airhsp || reg.reduce((s, x) => s + x.n, 0);
+  const doc = reg.find(x => /docente/i.test(x.nombre));
+  const kp = document.getElementById('planKpis');
+  if (kp) kp.innerHTML = [
+    ['Plazas totales', fmtN(total), 'planilla AIRHSP'],
+    ['Docentes', doc ? fmtN(doc.n) : '—', doc ? 'prom S/ ' + fmtN(doc.sueldo_promedio) : ''],
+    ['Nominal con nombre', fmtN(P.personas.length), 'régimen CAS (PTE)'],
+    ['Remun. máx (CAS)', 'S/ ' + fmtN(Math.round(P.resumen?.remun?.max || 0)), P.personas[0]?.cargo || ''],
+  ].map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
+  // charts régimen
+  if (reg.length) {
+    const short = s => s.replace(/\s*\(.*?\)/, '').replace('D. Leg. Nº', 'DL').replace('D. Leg.', 'DL').replace('Ley Nº', 'Ley');
+    new Chart(cReg, { type: 'bar', data: { labels: reg.map(x => short(x.nombre)), datasets: [{ label: 'Plazas', data: reg.map(x => x.n), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
+    new Chart(cRegS, { type: 'bar', data: { labels: reg.map(x => short(x.nombre)), datasets: [{ label: 'S/ promedio', data: reg.map(x => x.sueldo_promedio), backgroundColor: ORO }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
+  }
+  // tabla nominal
+  const p = P.personas.slice(0, 60);
+  w.innerHTML = `<div class="card"><h3>Personal nominal (régimen CAS) — top por remuneración</h3><div class="scroll"><table><thead><tr><th>Nombre</th><th>Cargo</th><th>Dependencia</th><th class="n">Remun. (S/)</th></tr></thead><tbody>${p.map(x => `<tr><td>${x.nombre}</td><td>${x.cargo || '—'}</td><td>${x.dependencia || '—'}</td><td class="n">${x.remun ? fmtN(Math.round(x.remun)) : '—'}</td></tr>`).join('')}</tbody></table></div><p class="note">Fuente: ${P._meta?.fuente || 'PTE / AIRHSP'}. La lista nominal (nombre+sueldo) que publica el Portal de Transparencia corresponde al régimen CAS; los docentes y el personal DL-276 figuran en el agregado AIRHSP (arriba), sin sueldo individual público. Solo personal — nunca estudiantes.</p></div>`;
 }
 
 // ---- Asistente IA ----
