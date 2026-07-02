@@ -74,7 +74,7 @@ function renderKpis() {
   }
   const b = DATA.biblio?.uni;
   if (b) { k.push(['Publicaciones', fmtN(b.works), 'histórico (OpenAlex)']); k.push(['Citas · h-index', fmtN(b.cited) + ' · ' + b.h_index, 'impacto científico']); }
-  if (DATA.adm?._meta) k.push(['Ingresantes', fmtN(DATA.adm._meta.total_ingresantes), (DATA.adm.por_especialidad?.length || 0) + ' especialidades']);
+  if (DATA.adm?._meta) k.push(['Ingresantes', fmtN(DATA.adm._meta.total_ingresantes), 'de ' + fmtN(DATA.adm._meta.total_postulantes) + ' postulantes']);
   const d = DATA.biblio?.docentes;
   if (d) k.push(['Docentes', fmtN(d.total), d.posgrado_pct + '% con posgrado (' + d.anio + ')']);
   el.innerHTML = k.map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
@@ -165,15 +165,21 @@ function renderInv() {
 // ---- Admisión (SOLO agregados — nunca nombres) ----
 function renderAdm() {
   const a = DATA.adm; if (!a) return;
-  if (a.por_especialidad?.length) {
-    const e = a.por_especialidad.slice(0, 15);
+  const esp = a.ingresantes_por_especialidad || a.por_especialidad;
+  const mod = a.ingresantes_por_modalidad || a.por_modalidad;
+  if (esp?.length) {
+    const e = esp.slice(0, 15);
     new Chart(cEsp, { type: 'bar', data: { labels: e.map(x => x.nombre.replace('INGENIERÍA ', 'Ing. ')), datasets: [{ label: 'Ingresantes', data: e.map(x => x.n), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
   }
-  if (a.por_modalidad?.length) {
-    const m = a.por_modalidad.slice(0, 10);
+  if (mod?.length) {
+    const m = mod.slice(0, 10);
     new Chart(cMod, { type: 'bar', data: { labels: m.map(x => x.nombre.slice(0, 26)), datasets: [{ label: 'Ingresantes', data: m.map(x => x.n), backgroundColor: ORO }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
   }
-  if (a.puntaje?.prom) document.getElementById('admNote').textContent = `${fmtN(a._meta.total_ingresantes)} ingresantes. Puntaje final: promedio ${a.puntaje.prom} (min ${a.puntaje.min}, max ${a.puntaje.max}). Solo datos agregados: este portal no publica nombres de estudiantes.`;
+  const pp = a.puntaje_postulantes, pi = a.puntaje_ingresantes;
+  document.getElementById('admNote').textContent =
+    `${fmtN(a._meta.total_ingresantes)} ingresantes de ${fmtN(a._meta.total_postulantes)} postulantes` +
+    (pi?.prom ? `. Puntaje final promedio: ingresantes ${pi.prom} vs. postulantes ${pp?.prom}` : '') +
+    `. Solo datos agregados: este portal no publica nombres de estudiantes.`;
 }
 
 // ---- Planilla ----

@@ -1,0 +1,4911 @@
+{
+ "_meta": {
+  "fuente": "peru-transparente (datos nominales del sector publico: Portal de Transparencia Estandar / PTE + AIRHSP)",
+  "entidad": "Universidad Nacional de Ingenieria (UNI) - pliego 514 / id_entidad PTE 10048",
+  "anio": 2026,
+  "mes": 4,
+  "nota": "Solo docentes/funcionarios/personal administrativo. No incluye estudiantes. La lista NOMINAL (con nombre y remuneracion real) que publica el PTE para la UNI cubre UNICAMENTE el regimen CAS: 605 personas del periodo 2026-04 (592 administrativos + 13 jefes/funcionarios). Los docentes universitarios (regimen 'Carreras Especiales', 1717 plazas) y el personal D.Leg.276 (760) NO tienen desglose nominal ni remuneracion individual en los datos locales; solo existen como agregado AIRHSP (conteo + sueldo promedio). Para la planilla nominal completa de docentes habria que obtenerla del portal de transparencia de la UNI o del AIRHSP nominal. No se inventaron personas ni sueldos.",
+  "total": 605,
+  "total_planilla_airhsp": 3243
+ },
+ "resumen": {
+  "por_regimen_nominal": [
+   {
+    "nombre": "CAS (D.Leg. 1057)",
+    "n": 605
+   }
+  ],
+  "por_regimen_airhsp": [
+   {
+    "nombre": "Carreras Especiales (docentes universitarios)",
+    "n": 1717,
+    "sueldo_promedio": 4102
+   },
+   {
+    "nombre": "D. Leg. Nº 276 (administrativo nombrado)",
+    "n": 760,
+    "sueldo_promedio": 2114
+   },
+   {
+    "nombre": "D. Leg. 1057 CAS",
+    "n": 673,
+    "sueldo_promedio": 2481
+   },
+   {
+    "nombre": "D. Leg. Nº 728",
+    "n": 68,
+    "sueldo_promedio": 3740
+   },
+   {
+    "nombre": "Sin Régimen Laboral",
+    "n": 22,
+    "sueldo_promedio": 1227
+   },
+   {
+    "nombre": "Ley Nº 30057 SERVIR",
+    "n": 3,
+    "sueldo_promedio": 23333
+   }
+  ],
+  "por_categoria": [
+   {
+    "nombre": "administrativo",
+    "n": 592
+   },
+   {
+    "nombre": "funcionario",
+    "n": 13
+   }
+  ],
+  "remun": {
+   "prom": 3635.24,
+   "mediana": 3114.19,
+   "min": 0.0,
+   "max": 13864.19,
+   "n_con_dato": 605,
+   "nota": "Remuneracion = total_ingreso_mensual (S/) del regimen CAS nominal 2026-04."
+  }
+ },
+ "personas": [
+  {
+   "nombre": "ANCO ALARCON, CATTERINE NEDDY",
+   "cargo": "SECRETARIA GENERAL",
+   "dependencia": "SECRETARIA GENERAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 13864.19
+  },
+  {
+   "nombre": "RUIZ GUEVARA, CARLOS GUSTAVO",
+   "cargo": "DIRECTOR GENERAL DE ADMINISTRACION",
+   "dependencia": "DIRECCION GENERAL DE ADMINISTRACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 13864.19
+  },
+  {
+   "nombre": "HOSPINAL NINANYA, FABIO",
+   "cargo": "JEFE DE LA OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
+   "dependencia": "OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 12364.19
+  },
+  {
+   "nombre": "YATACO CHAPARRO, PATRICIA YDA",
+   "cargo": "SECRETARIA GENERAL",
+   "dependencia": "SECRETARIA GENERAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 11915.73
+  },
+  {
+   "nombre": "KERRIGAN LEON, SANTIAGO MANUEL",
+   "cargo": "JEFE DE LA OFICINA CENTRAL DE BIENESTAR UNIVERSITARIO",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 11664.19
+  },
+  {
+   "nombre": "SORIA AGREDA, JAIME AURELIANO",
+   "cargo": "JEFE DE LA UNIDAD DE RECURSOS HUMANOS",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 11456.95
+  },
+  {
+   "nombre": "AGUILAR ESTRADA, CARLOS ENRIQUE",
+   "cargo": "JEFE DE LA UNIDAD DE ABASTECIMIENTO",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 9864.19
+  },
+  {
+   "nombre": "GAMARRA ALMEYDA, KARINA PILAR",
+   "cargo": "JEFE DE LA UNIDAD FORMULADORA",
+   "dependencia": "OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 9864.19
+  },
+  {
+   "nombre": "HIDALGO ACERO, JOZET DANIEL",
+   "cargo": "JEFE DE LA UNIDAD DE PLANEAMIENTO Y PRESUPUESTO 0PP",
+   "dependencia": "OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 9864.19
+  },
+  {
+   "nombre": "HUARCAYA PANDURO, ERIC",
+   "cargo": "JEFE DE LA UNIDAD EJECUTORA DE INVERSIONES",
+   "dependencia": "UNIDAD EJECUTORA DE INVERSIONES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 9864.19
+  },
+  {
+   "nombre": "RODRIGUEZ CHUQUISPUMA, EDGARD ANTONIO",
+   "cargo": "JEFE DE LA UNIDAD DE MODERNIZACION",
+   "dependencia": "UNIDAD DE MODERNIZACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 9864.19
+  },
+  {
+   "nombre": "BUENO TORRES, PEDRO EDMUNDO",
+   "cargo": "CONTADOR GENERAL",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 9614.19
+  },
+  {
+   "nombre": "HUAMANI FLORES, LOURDES",
+   "cargo": "RESPONSABLE ADJUNTO DE LA UNIDAD DE ABASTECIMIENTO",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 9614.19
+  },
+  {
+   "nombre": "YANQUE BERNAL, GENARA MARYSOL",
+   "cargo": "RESPONSABLE DE LA UNIDAD DE OBRAS INTERNAS",
+   "dependencia": "UNIDAD EJECUTORA DE INVERSIONES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 9614.19
+  },
+  {
+   "nombre": "FALCONI DE LA MATA, JORGE ENRIQUE",
+   "cargo": "JEFE DE LA UNIDAD DE INTERNACIONALIZACION",
+   "dependencia": "OFICINA DE COOPERACION Y RELACIONES INTERNACIONALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 8864.19
+  },
+  {
+   "nombre": "CAJAS MENDOZA, TEODORO",
+   "cargo": "JEFE DE LA UNIDAD DEL CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 8364.19
+  },
+  {
+   "nombre": "GRADOS CARNERO, PERCY JAVIER",
+   "cargo": "JEFE DE LA UNIDAD DEL CENTRO MÉDICO",
+   "dependencia": "UNIDAD DE CENTRO MEDICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 8364.19
+  },
+  {
+   "nombre": "GONZALES CUBA, MARIA EUGENIA",
+   "cargo": "ESPECIALISTA EN LOGISTICA",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 7114.19
+  },
+  {
+   "nombre": "HUAMANI HUAMANI, EDILBERTO SEGUNDO",
+   "cargo": "DIRECTOR DEL CENTRO DE HISTORIA UNI",
+   "dependencia": "CENTRO DE HISTORIA UNI",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "funcionario",
+   "remun": 6864.19
+  },
+  {
+   "nombre": "GUZMAN PEREZ, YRMA CARMEN",
+   "cargo": "ESPECIALISTA ADMINISTRATIVO I",
+   "dependencia": "DIRECCION GENERAL DE ADMINISTRACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6614.19
+  },
+  {
+   "nombre": "AVELLANEDA TALLEDO, DIANA",
+   "cargo": "ABOGADO/A DE DEFENSORIA UNIVERSITARIA",
+   "dependencia": "DEFENSORIA UNIVERSITARIA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "CONDORI JIMENEZ, GIAN CARLOS",
+   "cargo": "ESPECIALISTA EN LABORATORIO",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "JAUREGUI BESADA, EVELINE VERONICA",
+   "cargo": "ASISTENTE ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "MONSALVE SANCHEZ, JESUS ENRIQUE",
+   "cargo": "BIBLIOTECOLOGO/A",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "PAZ VERGARAY, PILAR BETSABE",
+   "cargo": "ESPECIALISTA ADMINISTRATIVO/A",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "PERALTA MARTINEZ, ANAPAULA MARVIC",
+   "cargo": "ESPECIALISTA EN SEGURIDAD Y SALUD EN EL TRABAJO",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "SANCHEZ SOTO DE CAPURRO, ELIZABETH SARAI",
+   "cargo": "PSICOLOGO/A DE RECURSOS HUMANOS",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "SOLDEVILLA OLIVARES, SIDNEY EDWARD",
+   "cargo": "ESPECIALISTA EN PRESUPUESTO Y PLANEAMIENTO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "SOTOMAYOR ZAPATA, SERGIO PATRICIO",
+   "cargo": "PSICOLOGO",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "TORRES SALAS, DERECK JOEL",
+   "cargo": "ESPECIALISTA DE SOPORTE INFORMATICO Y ESTADISTICA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6347.19
+  },
+  {
+   "nombre": "CUEVA OROZCO, ANGEL RAFAEL",
+   "cargo": "ESPECIALISTA EN SEGURIDAD I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 6114.19
+  },
+  {
+   "nombre": "GONZALES AVALOS, ERIKA OLGA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5772.1
+  },
+  {
+   "nombre": "ALVARADO RODRIGUEZ, AYRTON OLIVER",
+   "cargo": "ASISTENTE ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "ARRESTEGUI PULIDO, CARLOS PABLO",
+   "cargo": "ANALISTA EN SEGURIDAD DE LA INFORMACION",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "BARRETO FALERO, PERLA RAQUEL",
+   "cargo": "ANALISTA EN TRABAJO SOCIAL",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "CACERES CORNEJO DE MASUDA, MARGOTT BEATRIZ",
+   "cargo": "ANALISTA EN TRABAJO SOCIAL",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "CENTENO ROJAS, LUIS ALBERTO",
+   "cargo": "PROFESIONAL DE LABORATORIO DE DOCIMASIA",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "CHANCA AZA, RONNY RONALD",
+   "cargo": "ANALISTA DE PROCESOS",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "ESPINOZA SANCHEZ, LIRIA CLARISA",
+   "cargo": "ANALISTA EN TRABAJO SOCIAL",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "GARCIA HINOSTROZA DE SANCHEZ, SARA MERCEDES",
+   "cargo": "ANALISTA DE RECURSOS HUMANOS",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "LOPEZ ALVITES, JASON JAVIER",
+   "cargo": "ANALISTA DE GESTIÓN ADMINISTRATIVA",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "MENDOZA GUERRA, JUAN JOSE",
+   "cargo": "ANALISTA DE GESTIÓN ADMINISTRATIVA",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "OLIVEROS OLIVEROS, MIRIAM MILAGROS",
+   "cargo": "TÉCNICO/A DE GESTIÓN ADMINISTRATIVA",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "ORNA CASTRO, MARIO ANTONIO",
+   "cargo": "ANALISTA EN INGENIERIA INDUSTRIAL",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "QUISPE AYLAS, ELVIA",
+   "cargo": "ANALISTA DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "TUEROS HOYOS, LUIS ANTONIO",
+   "cargo": "ASISTENTE ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "YAURI APARCO, ALFREDO",
+   "cargo": "ANALISTA EN TESORERIA",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5581.19
+  },
+  {
+   "nombre": "DELGADO MONTOYA, LUCIO AUGUSTO",
+   "cargo": "ESPECIALISTA I",
+   "dependencia": "GRAN TEATRO DE LA UNI",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5214.19
+  },
+  {
+   "nombre": "APARCO SURCO, SAMY",
+   "cargo": "ASESOR LEGAL I",
+   "dependencia": "OFICINA CENTRAL DE ASESORIA LEGAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5114.19
+  },
+  {
+   "nombre": "GOMEZ DEPAZ, DAYANA JASMIN",
+   "cargo": "ANALISTA EN RECAUDACION",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5114.19
+  },
+  {
+   "nombre": "TIQUILLAHUANCA TINEO, ROSALBA",
+   "cargo": "ANALISTA DE SISTEMAS PAD III",
+   "dependencia": "DIRECCION DE REGISTRO CENTRAL Y ESTADISTICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 5114.19
+  },
+  {
+   "nombre": "BOHORQUEZ ALVARADO, SANDRA GIOVANNA",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "CHAMPAC MAMANI, CARLOS ENRIQUE",
+   "cargo": "ASISTENTE EN REMUNERACIONES",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "CHAVEZ SOLIS, LESLIE EDITH",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "COARITA CASANI, ISAC ARMANDO",
+   "cargo": "ASISTENTE DE LABORATORIO DE CONTROL Y AUTOMATIZACION",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "CORDOVA VERA, ROGER",
+   "cargo": "ASISTENTE DE LABORATORIO PARA EL IMCI",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "ESPINOZA POSTIGO, CAROLINA FIORELLA",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "GUERRA PUMA, JUAN MARCELO",
+   "cargo": "ASISTENTE DE BIBLIOTECA",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "JARA ZORRILLA, JACKELIN MISHEL",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "MARIN ESQUIVEL, JOSE LUIS",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "DEFENSORIA UNIVERSITARIA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "MAYHUA QUICHCA, PAUL DAVID",
+   "cargo": "ASISTENTE DE LABORATORIO",
+   "dependencia": "UNIDAD DE LABORATORIO NACIONAL DE HIDRAULICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "ORTEGA MORALES, TANIA STEFANI",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE LABORATORIO NACIONAL DE HIDRAULICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "PILCO FIGUEROA, IVETTE ALEXANDRA",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "REYES CALDERON, ANGIE MELANIE",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "TINTAYO PEZO, KAREN RAQUEL",
+   "cargo": "ASISTENTE DE COMUNICACIONES",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4814.19
+  },
+  {
+   "nombre": "HARO ALVINEZ, ANA RUTH",
+   "cargo": "ESPECIALISTA ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4714.19
+  },
+  {
+   "nombre": "CARDENAS MIRANDA, LARRY JOHNNY",
+   "cargo": "TÉCNICO DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4614.19
+  },
+  {
+   "nombre": "JAUREGUI INOCENTE, CESAR AUGUSTO",
+   "cargo": "ENCARGADO DEL AREA DE PERSONAL - CENIP",
+   "dependencia": "CENTRO DE INFRAESTRUCTURA Y PROYECTOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4614.19
+  },
+  {
+   "nombre": "MARTINEZ CUSTODIO, JOSE LUIS",
+   "cargo": "TÉCNICO ADMINISTRATIVO III",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4614.19
+  },
+  {
+   "nombre": "CAMPOS ALCANTARA, ELIZABET ESTHER",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "IBARRA MORALES, HEYDI ROCIO",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "LOPEZ LIÑAN, RUT YESSICA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "PINEDO SANCHEZ, ERICA PAOLA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "RAMOS MORENO, MARISOL BEATRIZ",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "RONDON VILLANTOY, ZARA ELENA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "TORREL LINARES, YESSENIA MARGARITA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "TORRES HINOSTROZA, GISELLA JANETH",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4564.19
+  },
+  {
+   "nombre": "ACOSTA JARA, ALESA MACIEL",
+   "cargo": "TÉCNICO DE LABORATORIO DE INGENIERIA PETROQUIMICA",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "ALVARADO OLANO, LINDEY",
+   "cargo": "TÉCNICO EN MECÁNICA",
+   "dependencia": "UNIDAD DE LABORATORIO NACIONAL DE HIDRAULICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "BOMBILLA CALDAS, MARGOT GIANINNA",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "CARBAJAL SOLIS, DONALD ROLANDO",
+   "cargo": "TÉCNICO EN INFRAESTRUCTURA Y REDES",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "ESCOBAR GALLARDO, JHON ALEXANDER",
+   "cargo": "TÉCNICO/A EN CONTROL DE CUENTAS",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "FIGUEROA PEREDA, LUIS ARTEMIO",
+   "cargo": "TÉCNICO/A DE GESTIÓN ADMINISTRATIVA",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "GONZALES CLAVIJO, MARISOL BEATRIZ",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "GUARDIA VILLALOBOS, YANINA",
+   "cargo": "TÉCNICO DE LABORATORIO EN MICROBIOLOGÍA CITRAR",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "HERNANDEZ CAMPOS, JOSE GREGORIO",
+   "cargo": "TÉCNICO/A INFORMATICA",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "JARA FRANCO, WILLIAMS RAUL",
+   "cargo": "TÉCNICO/A INFORMATICA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "JARA MINAYA, JENNY",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "JARA ESTRADA, MONICA",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "LAZO ARTEAGA, GINA DIANA",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "LLOVERA MINCHAN, JORGE",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "MATOS RAYME, MARY CARMEN",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "MEDINA QUISPE, GLORIA MARIELA",
+   "cargo": "TÉCNICO/A INFORMATICA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "MENDEZ CARBONELL, SARA ISABEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "MENDOZA ASENCIOS, CARLIN CLEVER",
+   "cargo": "TÉCNICO DE LABORATORIO CERTIPETRO",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "MICHE ANTARA, CRISTIAN PAUL",
+   "cargo": "TÉCNICO EN INSTALACIONES ELECTRICAS",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "MONTES SEGAMA, ALBERTO DAVID",
+   "cargo": "TÉCNICO EN DIGITALIZACIÓN",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "MOSCOSO CONTRERAS, BRAYIAN EMANUEL ALFREDO",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "NEYRA CRUZ, MARIA MERCEDES",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "ORTIZ LEVANO, SANDRA MIRELLA",
+   "cargo": "TÉCNICO DE BIBLIOTECA",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "PALOMINO MORENO, YESENIA MAGALI",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "PAZ VERGARAY, LIZETT ROXANA",
+   "cargo": "TECNICO DOCUMENTARIO",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "PENADILLO GUIZABALO, DUENITZ JUNIOR",
+   "cargo": "TÉCNICO/A EN CENTRO DE COMPUTO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "PEREZ RIVERA VDA DE SARMIENTO, MERY HILDA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "PONTE ROSAS, HENRY",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "QUINTE CAMACLLANQUI, FREDY",
+   "cargo": "TÉCNICO EN CONSTRUCCIÓN CIVIL",
+   "dependencia": "UNIDAD DE LABORATORIO NACIONAL DE HIDRAULICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "RAMOS NOLASCO, JORGE LUIS",
+   "cargo": "TÉCNICO/A INFORMATICO PARA POSTGRADO",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "RIVERO POMACHAGUA, VICTOR RONALD",
+   "cargo": "TÉCNICO/A EN ELECTRICIDAD",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "ROJAS ZUÑIGA, LINDA FRANCIS",
+   "cargo": "TÉCNICO DE BIBLIOTECA",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "RUIZ QUISPE, HECTOR ALFREDO",
+   "cargo": "TÉCNICO/A INFORMATICA",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "RUIZ VIDALON, PAOLA DENISSE",
+   "cargo": "TÉCNICO/A DE GESTIÓN ADMINISTRATIVA",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "SALINAS VELASQUEZ, JAVIER EULOGIO",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "SAYAGO CARDENAS, GIOVANNA",
+   "cargo": "TECNICO DE LABORATORIO DE INGENIERIA DE PETROLEO Y GAS NATURAL",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "SERNA LOPEZ, KRIS PATRICIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "SURICHAQUI MARCAS, JOSE LUIS",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "TALLA TASAYCO, JORGE LUIS",
+   "cargo": "TÉCNICO/A EN MECANICA AUTOMOTRÍZ",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "TAPIA BECERRA, ABRAHAM",
+   "cargo": "TÉCNICO/A PARA EL LABORATORIO DE MAQUINAS Y HERRAMIENTAS",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "VASQUEZ CHANCAFE, LUIS ALEXANDER",
+   "cargo": "TÉCNICO DE LABORATORIO DE NORMALIZACION DE PETROLEO Y DERIVADOS",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4364.19
+  },
+  {
+   "nombre": "CALDAS FELICIANO, ELIZABETH ROSA",
+   "cargo": "COORDINADOR DE PLANEAMIENTO, ECONOMIA Y PRESUPUESTO",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4314.19
+  },
+  {
+   "nombre": "ALARCON ACEVEDO, GABRIEL OCTAVIO",
+   "cargo": "CHOFER Y SEGURIDAD",
+   "dependencia": "VICERECTORADO DE INVESTIGACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "CARDENAS CAMARENA, MOISES DANIEL",
+   "cargo": "ASISTENTE DE SOPORTE TÉCNICO I",
+   "dependencia": "DIRECCION DE RESPONSABILIDAD SOCIAL Y DESARROLLO SOSTENIBLE",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "CASTRO VILELA, HUGO FERIEL",
+   "cargo": "TÉCNICO EN SEGURIDAD II",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "DELGADO MONTOYA, DANIEL HUGO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "GRAN TEATRO DE LA UNI",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "DEXTRE ZANABRIA, MARIBEL",
+   "cargo": "ASISTENTE DE SOPORTE TÉCNICO I",
+   "dependencia": "DIRECCION DE RESPONSABILIDAD SOCIAL Y DESARROLLO SOSTENIBLE",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "JUNCO ALFARO, LEONIDAS",
+   "cargo": "TÉCNICO DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "MEDINA GONZALES, WALTER DIEGO",
+   "cargo": "ASISTENTE TÉCNICO",
+   "dependencia": "OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "MONTAÑO FREIRE, ALVARO RICARDO",
+   "cargo": "ESPECIALISTA ADMINISTRATIVO I",
+   "dependencia": "RECTORADO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "ROJAS AQUISE, MOISES",
+   "cargo": "COORDINADOR DE SOPORTE DE TECNOLOGIAS DE INFORMACION Y COMUNICACIONES",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "ROSALES GAMBOA, HECTOR RALPH",
+   "cargo": "ASISTENTE ADMINISTRATIVO I",
+   "dependencia": "SECRETARIA GENERAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "RUIZ MANRIQUE, JOSE ANTONIO",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "VILLANUEVA PEÑA, NEREYDA",
+   "cargo": "ESPECIALISTA EN GESTIÓN ADMINISTRATIVA Y ECONÓMICA",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4114.19
+  },
+  {
+   "nombre": "RODRIGUEZ ESQUIVIAS, ROBERT ERICK",
+   "cargo": "PROGRAMADOR DE SISTEMAS - PROCESADOR DE ADMINISTRACIÓN DE DATOS",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4064.19
+  },
+  {
+   "nombre": "MUÑOZ CURE, MARISOL",
+   "cargo": "SECRETARIA/O II",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4014.19
+  },
+  {
+   "nombre": "PAJUELO CRUZ, ALFONSO JIM",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4014.19
+  },
+  {
+   "nombre": "PEÑA PANCORVO, LUIS MARTIN",
+   "cargo": "TÉCNICO ADMINISTRATIVO III",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 4014.19
+  },
+  {
+   "nombre": "ABURTO RUPAY, CARLOS ANTONIO",
+   "cargo": "SEGURIDAD Y VIGILANCIA II",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "AGREDA ALEJOS, LUCILA ESTHER",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "AGUILAR CARDENAS, JESUS ANTONIO",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ALIAGA DURAND, ROBERT SILVIO",
+   "cargo": "SEGURIDAD Y VIGILANCIA II",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ANTIALON DAVILA, JOSE RICARDO",
+   "cargo": "OPERADOR DE SEGURIDAD",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "AQUINO DE LA CRUZ, SEGUNDINO PEDRO",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "AQUINO VILLACORTA, JONATAN BARAC",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ARAUJO MELENDEZ, MARIA DE LOS ANGELES SEFORA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "AROTINCO ARONI, ALEX ALBERTO",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "AYALA RAMIREZ, ALEX OMAR",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "BRAVO DEL PINO, HAROLD",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CALDAS AGUIRRE, JESUS MILTON",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN CARPINTERIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CAMPOS AVALOS, CESAR",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CARMEN IPANAQUE, LUIS ELVIS",
+   "cargo": "OPERARIO DE MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CASTILLON ZEVALLOS, JUAN JULIO",
+   "cargo": "TÉCNICO ADMINISTRATIVO - UNIDAD DE ESCALAFÓN",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CHAVEZ CARHUANINA, SIXTO",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CORAJE ZAMUDIO, FREDDY STWARD",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CRUZ TARRILLO, ITALA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "CUSCO FERNANDEZ, ANDERSON",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "DAMIAN ÑAHUI, WILFREDO",
+   "cargo": "OPERARIO DE MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "DE LOS SANTOS TORRES, JULISSA ODELI",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "DIAZ VASQUEZ, SEGUNDO FLORENCIO",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "DIAZ AZURZA, EMERSON ANDRES",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ENDO PACPAC, SCARLT GIORGINA",
+   "cargo": "AUXILIAR DE MUSEO DE GEOLOGIA Y PALEONTOLOGIA",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ESCOBAR GALLARDO, LUIS JUAN",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ESPINOZA PANTA, JORGE WILLIAM",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ESPINOZA CHAVEZ, ERNESTO EDEEN",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ESPINOZA AIRAMPO, GUSTAVO",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ESQUIVEL DE LA CRUZ, LUIS ALBERTO",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "FABIAN ALVAREZ, LEONCIO ALBERTO",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "FELIX PARDO, MOISES MIGUEL",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "FLORES PEREZ, ORESTES SANTIAGO",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "FLORES MINAYA, YONY",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "FLORES ROMERO, ISAAC MOISÉS",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "FRETEL CHEGE, JULIO CESAR",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "FUENTES MEZA, GUIDO GUSTAVO",
+   "cargo": "SEGURIDAD Y VIGILANCIA II",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "GERMAN YALLICUNA, EDSON LEONARDO ESTEBAN",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "GONZALES ZUTTA, LUIS ALVARO",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "GONZALES ZAMORA, REYNALDO ANDRES",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "GUZMAN MORALES, JOHN NILHTON",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN ALBAÑILERIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "HERMOSILLA HERMOSILLA, ELMER ARMANDO",
+   "cargo": "AUXILIAR DE MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "HUAYNATE DELGADO, ROSA AMELIA",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "HUERTAS REYES, ROMEL MARCOS",
+   "cargo": "OPERADOR DE SEGURIDAD",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ISLA MUÑOZ, HENRY DAVID",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LEYVA ROJAS, JOE RONALD",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA DE VEHICULOS",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LINARES PAREDES, DELFINA AURORA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LIÑAN GONZALES, GREGORIA MERCEDES",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LOARTE BARRUETO, MARYBEL PORFIRIA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LOPEZ VIDAL, ALBERTO",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LOPEZ ALLCARIMA, MARIO VICENTE",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LOZANO CASTILLO, WILMER ANDRES",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LOZANO CARUAJULCA, WIMAN MARCOS",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "LUNA FIGUEROA, RUBEN FERNANDO",
+   "cargo": "AUXILIAR DE INFRAESTRUCTURA",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "MANCO LA MADRID DE CHAVEZ, NORMA MERCEDES",
+   "cargo": "COORDINADOR/A DE LA UNIDAD DE RELACIONES PÚBLICAS",
+   "dependencia": "OFICINA DE COMUNICACION E IMAGEN INSTITUCIONAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "MARTOS ROMERO, NELA MARFIZA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "MORALES REQUES, JHONNY FRANCISCO",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "NUÑEZ RIVAS, JOSEFA HILDA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "OCHOA CCASA, OMAR JOSSEPY",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ORDOÑEZ OROSCO, ERNESTO HENRY",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "OSORIO GARCIA, MOISES JAIME",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "PADILLA SOLORZANO, JAVIER EDUARDO",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "PAMPAS TAPIA, PATRICIA SILVIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "PEREZ CHARA, ALBERTO CARLOS",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "QUINTEROS PACHECO, DIANA DELIA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "QUISPE CONDE, CLAUDIO",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "QUISPE ANGELES, JORGE LUIS",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "RENTERIA MARQUINA, JUAN ANTONIO",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "RIVERA GUTIERREZ, MARLON JOEL",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "RODRIGUEZ MARTOS, ANDY",
+   "cargo": "TÉCNICO ADMINISTRATIVO",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ROJAS DELGADILLO, HANS RAFAEL",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ROJAS ESPINOZA, DAVID JHOEL",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "RONDAN TAFUR, YONATHAN PIER",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "SALAZAR MASGO, JENNY YANINA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "SALINAS PAREDES, MARIELLA MARGOT",
+   "cargo": "AUXILIAR DE MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "SALVADOR TOLENTINO, WILBER LUIS",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "SIFUENTES BOLO, ALFREDO NERIO",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "SILVA MONZON, GRETTEL GIANELLA",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "SOPLIN PEREYRA, MARLON FRANKLIN",
+   "cargo": "ASISTENTE DEL AREA DE LOGISTICA",
+   "dependencia": "CENTRO DE INFRAESTRUCTURA Y PROYECTOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "SOTO ARANGO, SONIA JASMINA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "TELLO CHICO, SEGUNDO MARTIN",
+   "cargo": "OPERADOR EN MANTENIMIENTO EN SEGURIDAD Y VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "TOLEDO MORALES, JOVANI LIZETT",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "TRUCIOS ZUÑIGA, CARLOS ENRIQUE",
+   "cargo": "SEGURIDAD Y VIGILANCIA II",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "VELASQUEZ BARRENECHEA, HILDEBRANDO VINATELO",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "YAURI PACHAS, ANDERSON ALEXANDER",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "YTURRIA VERA, JUAN CARLOS",
+   "cargo": "SEGURIDAD Y VIGILANCIA II",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ZAVALA YANAC, HERLINDA YESSICA",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "ZEGARRA ALVAREZ, ANTHONY DAVID",
+   "cargo": "OPERADOR JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3914.19
+  },
+  {
+   "nombre": "JARA ALEJANDRO, GINO HERMOGENES",
+   "cargo": "ASISENTE DE DISEÑO MULTIMEDIA",
+   "dependencia": "OFICINA DE COMUNICACION E IMAGEN INSTITUCIONAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3814.19
+  },
+  {
+   "nombre": "ALDANA ANTON, LORENA MARYLIN",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "CACERES OTERO, CARMEN ELVIRA",
+   "cargo": "ASISTENTE CONTABLE I",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "CARRANZA GAMARRA, YURI ZADITH",
+   "cargo": "TÉCNICA EN ENFERMERÍA",
+   "dependencia": "UNIDAD DE CENTRO MEDICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "HUAMBO CHAVEZ, JHON POUL",
+   "cargo": "AUXILIAR DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "NAVARRO LAZARO, WILFREDO GENARO",
+   "cargo": "COORDINADOR DE SERVICIOS GENERALES",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "PANEBRA SIVIRICH, NERY",
+   "cargo": "PROGRAMADOR PAD",
+   "dependencia": "ESCUELA CENTRAL DE POSGRADO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "RICCE AYALA, MARIA MAGDALENA",
+   "cargo": "ESPECIALISTA ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "TORIBIO CASTILLO, MYRIAM GUILLERMINA",
+   "cargo": "ASISTENTE ADMINISTRATIVO I",
+   "dependencia": "ESCUELA CENTRAL DE POSGRADO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "VIDAL ARDILES, ERIKA NILDA",
+   "cargo": "TÉCNICO ESTADÍSTICO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3614.19
+  },
+  {
+   "nombre": "ASENCIO SANCHEZ, AIDA NORMA",
+   "cargo": "ESPECIALISTA ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3589.19
+  },
+  {
+   "nombre": "RUBIANES DANILLA, SUSANA RUTH",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3564.19
+  },
+  {
+   "nombre": "GONZALES CHAVEZ, PAMELA MONICA",
+   "cargo": "SECRETARIA/O II",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3514.19
+  },
+  {
+   "nombre": "ROMAN GALVEZ, JUAN GABRIEL",
+   "cargo": "ALMACENERO/A",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3464.19
+  },
+  {
+   "nombre": "VARGAS CAMACHO, ROY RULY",
+   "cargo": "ASISTENTE EN INFORMÁTICA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3464.19
+  },
+  {
+   "nombre": "FLORES PEREZ, LUZ MERY",
+   "cargo": "ASISTENTE ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "FLORES ROJAS, ADELA MILAGROS",
+   "cargo": "ASISTENTE ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "MOCARRO CIENFUEGOS, IVAN ANDRES",
+   "cargo": "TÉCNICO ESTADÍSTICO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "SALCEDO MEJIA, PAUL GUSTAVO",
+   "cargo": "AUXILIAR DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "SANTIAGO VILLEGAS, ANTHONY JOHAN",
+   "cargo": "TÉCNICO EN PROCESOS",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "TALAVERANO YÑIGO, JORGE CARMELO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "URRUTIA LOZANO DE ESCOBAR, RUTH MATILDE",
+   "cargo": "SECRETARIA ADMINISTRATIVA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "VARGAS MUÑOZ, JOAN CARLOS",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3414.19
+  },
+  {
+   "nombre": "FERRUA PIEDRA, DINO ANGEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3364.19
+  },
+  {
+   "nombre": "PONTE ROSAS, ELVIS",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "DIRECCION DE RESPONSABILIDAD SOCIAL Y DESARROLLO SOSTENIBLE",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3314.19
+  },
+  {
+   "nombre": "ROSALES QUIJANO, VERONICA DEL CARMEN",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "CENTRO DE ENERGÍA RENOVABLE",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3314.19
+  },
+  {
+   "nombre": "ROSAS MAMANI, DIANA CECILIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO III",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3314.19
+  },
+  {
+   "nombre": "SOTOMAYOR DIESTRA, MARTHA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3314.19
+  },
+  {
+   "nombre": "ZEVALLOS QUISPE, FAUSTO RAUL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3314.19
+  },
+  {
+   "nombre": "ZUÑIGA CASTAÑEDA, BERTHA BEATRIZ",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3314.19
+  },
+  {
+   "nombre": "MESTA GARATE, JENNIFER CYNTHIA",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "OFICINA DE GESTION DE LA CALIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3244.19
+  },
+  {
+   "nombre": "AGUERO RUPAY, DENISSE FELICITA",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "ASENCIOS GONZALES, HECTOR ALBERTO",
+   "cargo": "TÉCNICO ADMINISTRATIVO III",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "BELLASMIN SAAVEDRA, LELIS DEXAR",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "CABEZAS ECHENIQUE, ANGEL IVAN",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "CARDENAS SERNA, MONICA DEL ROCIO",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "CENTURION GUEBARA, MANUEL JESUS",
+   "cargo": "AUXILIAR DE MANTENIMIENTO",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "CHAVEZ VIDAL, MARIO HENRY",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "OFICINA CENTRAL DE ASESORIA LEGAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "CHUQUIRUNA LLANOS, FERNANDO",
+   "cargo": "CHOFER I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "COBOS REYNOSO, CARLOS",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "ESCALANTE QUIROZ, HUMBERTO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "GOMEZ GARCIA, ROXANA PAOLA",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "GUERRERO CRUZADO, BREYSSI ELIZABETH",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "GUTIERREZ FERNANDEZ, ALEX ALBERTO",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "HUAMANI ALVAREZ, FLOR DE MARIA",
+   "cargo": "ASISTENTE DE REGISTROS ACADEMICOS",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "JULCA HUAMAN, FELIX",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "MONTEDORO WONG, HUGO ANGEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "MONTES MEZA, GIOVANNA AMANDA",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "ONCEBAY LAZO, LUIS ALBERTO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "PALOMINO ROJAS, ANICETO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "PORTUGAL RUIZ, ROGER ANTONIO",
+   "cargo": "SEGURIDAD Y VIGILANCIA II",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "RODRIGUEZ JIMENEZ, WILMAN EDILSER",
+   "cargo": "AUXILIAR ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "ROMERO RODAS, DIANA EVELYN",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "SALAS ALEGRIA, MARIA DEL PILAR",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "SALINAS VILLANUEVA, DOMINGO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "VALENCIA CONDORPUZA, SABINA LILI",
+   "cargo": "ASISTENTE DE REGISTROS ACADEMICOS",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "VILLANUEVA INFANTE, CARMEN ENRIQUETA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "ZEGARRA FERNANDEZ, ANGELA MARIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "ZEÑA MORENO, VIVIANA KATHERIN",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3214.19
+  },
+  {
+   "nombre": "SANCHEZ LLORENTE, CESAR MANUEL",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3184.19
+  },
+  {
+   "nombre": "ACUÑA HUAROTO, LUIS ENRIQUE",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "CABANILLAS GUARNIZ, RICHARD ESTUARDO",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "CHAVEZ ALVARADO, FREDDY RONALD",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "DE LA CRUZ LEZAMA, WILMER JAMILTON",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "LÓPEZ ÑAUPARI, ALEXANDER SAÚL",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "LOZANO GARCIA, FRANK",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "MEZA BRAVO, JHON KENNEDY",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "RAMOS CIPRIANO, JULIO",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "REYES PINTADO, ALBARO CESAR",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "VILLENA RIOS, LEONARDO FELIX",
+   "cargo": "OPERARIO DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3164.19
+  },
+  {
+   "nombre": "AGUILAR MONTERREY, JULIA LILIANA",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ALEGRE QUINECHE, JULIO ROGER",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ANCCO FASABI, PAULO TEOFILO",
+   "cargo": "APOYO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ANDREU RIVERA, MARGARITA",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ASENCIO RAMOS, ANTONI YURIEL",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ASENCIOS LOPEZ, JULIA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "DIRECCION GENERAL DE ADMINISTRACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ASHCALLA IZAGUIRRE, MILAGROS",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "DIRECCION DE RESPONSABILIDAD SOCIAL Y DESARROLLO SOSTENIBLE",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "BERROSPI ARMAS, ALEJANDRO TEOFILO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "ESCUELA CENTRAL DE POSGRADO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CACERES CARRASCO, CECILIA PILAR",
+   "cargo": "APOYO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CALIXTRO FLORES, JAVIER JORGE",
+   "cargo": "OPERARIO DE MANTENIMIENTO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CAMPOS ROSAS, LEONARDO JOSUE",
+   "cargo": "TÉCNICO EN LABORATORIO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CARHUAY PAMPAS, MARGARITA VILMA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CASTILLO SOTELO, ZOFIA",
+   "cargo": "AUXILIAR ADMINISTRATIVO III",
+   "dependencia": "DIRECCION DE REGISTRO CENTRAL Y ESTADISTICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CHAVEZ VIDAL, FRANCISCO JAVIER",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "SECRETARIA GENERAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CHAVEZ RIVERA, PAOLI",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "CUEVAS VIZARRO, EDUARDO RUDY",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "DEYRA SILVERIO, DAYSI",
+   "cargo": "TÉCNICO ADMINISTRATIVO III",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ESPINOZA LEON, HUILFIN OMALQUIO",
+   "cargo": "SUPERVISOR EN JARDINERÍA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "FERRUA PIEDRA, CESAR GUSTAVO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "FLORES YUFFRA, PEDRO MARTIN",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "GARCIA AVALOS, JACKELINE MILAGROS",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "GARCIA CUEVA, ROSA SOLANGE",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "GIRON PHARARI, DIEGO ANTHONI",
+   "cargo": "OPERARIO DE LIMPIEZA Y SCANER",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "GONZALES RAMOS, MARGARITA DEL ROCIO",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "VICERECTORADO ACADEMICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "HACHO CHIPA, JULIO CESAR",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "HUAMAN VILCHEZ, ROBERTO CARLOS",
+   "cargo": "SOPORTE TÉCNICO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "HUAPAYA LOPEZ, CARMEN VANESSA",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "JESUS ESPIRITU, ALEX",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "LUJAN PEREZ, STEVEN",
+   "cargo": "PERSONAL DE SERVICIOS - LIMPIEZA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "LUYO LUYO, EVYLEEN MILAGROS",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "DIRECCION DE RESPONSABILIDAD SOCIAL Y DESARROLLO SOSTENIBLE",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "MOLINA GUTARRA, HECTOR RAFAEL",
+   "cargo": "AUXILIAR ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "MONTES MEZA, ARMANDO REYNALDO",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "VICERECTORADO ACADEMICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "MORALES BETANCUR, FREDY FELIX",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "MUÑOZ TREVEJO, JOHOMP RICHARS",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "NUÑEZ VENTURA, CARLOMAGNO",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "OSORIO MONTES, JUAN MANUEL",
+   "cargo": "OPERARIO DE LIMPIEZA Y SCANER",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "PALMA MUÑOZ, ABEL ALEXANDER",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "PAREDES SALGADO, CESAR EDUARDO",
+   "cargo": "CHOFER Y SEGURIDAD",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "PINEDO GUTIERREZ, SAUL",
+   "cargo": "AUXILIAR ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "POMA DAVILA DE TOLEDO, JAMIE KATHERINE",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "POMACHAGUA OSORES DE INGA, LUZ ELENA",
+   "cargo": "ASISTENTE ADMINISTRATIVO DE TRÁMITE DOCUMENTARIO Y ARCHIVO",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "PONTE ZEVALLOS, VALERI",
+   "cargo": "OPERARIO DE MANTENIMIENTO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "PRUDENCIO ALBINO, ZAHARA PATRICIA",
+   "cargo": "TÉCNICO DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "QUINCHO CHAVEZ, RONALD MOISES",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE FONDO EDITORIAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "RAMOS CUICAPUZA, CRISTHOFER OSCAR",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "REBASA AVILA, MANUEL RODOLFO",
+   "cargo": "OPERARIO DE LIMPIEZA Y SCANER",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "REYES MARIN, CARLOS ALFREDO",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "SANTILLAN LOPEZ, JUANA GLADYS",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "SEGOVIA ALCANTARA, OSCAR FERNANDO",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "SILVA SALDAÑA, ALMIRA",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "SURICHAQUI VILLANUEVA, SERGIO ALBERTO",
+   "cargo": "AUXILIAR DE MANTENIMIENTO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "SURICHAQUI VILLANUEVA, CARLOS ROBERTO",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "TAPIA MOY, JULIO ALBERTO",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "TUESTA AGUILAR, LILIANA KATERINE",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "VEGA RETUERTO, JESUS ANGEL",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "VILLEGAS VARGAS, JUAN CARLOS",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "VILLEGAS CRISANTO, ANTHONY ALBERTO",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "WESTREICHER VARGAS, ORLANDO ROGELIO",
+   "cargo": "OPERARIO DE LIMPIEZA Y SCANER",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "ZEGARRA CARHUANINA, JUAN FRANCISCO",
+   "cargo": "SUPERVISOR DE LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3114.19
+  },
+  {
+   "nombre": "BONDANI TAPIA, PEDRO ALEXIS",
+   "cargo": "OPERARIO DE LIMPIEZA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "DEL PINO DURAND, CLINTON DIOMEDES",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "LLUNCOR VILLEGAS, VIOLETA FELISA",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "UNIDAD DE FONDO EDITORIAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "MONTANO CASTRO, LUZ BEATRIZ",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "RAMIREZ RIVERA, IRMA MARIBEL",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "RODRIGUEZ BARRIOS, ARMANDO MICHEL",
+   "cargo": "OPERADOR PAD II",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "SORIA VASQUEZ, LILIANA ROCIO",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "CENTRO DE HISTORIA UNI",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "SUAREZ ENMA, DALIA GRETA",
+   "cargo": "AYUDANTE DE COCINA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "TANTA HUARANCCA, JUAN ALBERTO",
+   "cargo": "OPERARIO DE LIMPIEZA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 3014.19
+  },
+  {
+   "nombre": "ALEJO CONDOR, DELIA CECILIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "ESPINOZA CRUZ, GABRIELA ALVINA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "GUERRA SANABRIA, LUZ ISABEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "LLANCARI RIVERA, LILI NIUME",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "MEZA RIVERA, CARLOS ALEJANDRO",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "ROJAS AQUISE, SAUL",
+   "cargo": "TÉCNICO EN INFORMATICA II",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "ROMERO PANDO, CELINDA ANATOLIA",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "TAPIA FUERTES, LILY ESTHER",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2964.19
+  },
+  {
+   "nombre": "ALVARADO LLERENA, FERNANDO DUGLAS",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "ANDRADE MEDINA, CARLOS ANTONIO",
+   "cargo": "AUXILIAR DE SERVICIOS GENERALES",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "ANGELES INGA, GUIDO MICHAEL",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "ARCIA PONCE, MARY EVELYN",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "BALLENA CORNEJO, JOSE ERIBERTO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "CENTRO DE INFRAESTRUCTURA Y PROYECTOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "BARRERA VALQUI, GEUSTER",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - ELECTRICISTA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "BUSTAMANTE OSORIO, FERNANDO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CABANA ALBURQUEQUE, JOSE LUIS",
+   "cargo": "AUXILIAR DE MANTENIMIENTO EN GASFITERÍA - CERRAJERÍA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CACEDA VALVERDE, ROMULO ALEJANDRO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CADENILLAS BALTAZAR, JULIAN JORGE",
+   "cargo": "TÉCNICO EN LABORATORIO II",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CALLE CALLE, JORGE HORACIO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CAMPOS JARA, ELVER EDWIN",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - ELECTRICISTA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CERVANTES PEJERREY, JOHN FELIX",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CHAVEZ ARAUJO, MANRIQUE",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - PINTOR",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "COLMENARES GUZMAN, CESAR HERNAN",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CORDOVA VIDAL, FERNANDO CRISTOBAL",
+   "cargo": "JARDINERO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CORDOVA SALAZAR, BAXTER FERNANDO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "COTRINA CABRERA, JOSE NORBIL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CRUZ MAMANI, ISABEL",
+   "cargo": "AUXILIAR DE SERVICIOS GENERALES",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CRUZ GARCIA, SERGIO ALEXANDER",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "CUBAS LEON, VICTOR JULIO",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "DELGADILLO SOLANO, CARLOS ANTONIO",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "FERNANDEZ QUIÑONES, WILFREDO ARQUIMIDES",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "GALVEZ LOPEZ, KATTY PAOLA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "GARCIA MIO, JOHNNY AURELIO",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - PINTOR",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "GARCIA AVALOS, MONICA PATRICIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "GARCIA MIO, SEGUNDO SALVADOR",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "GONZALES ZEGARRA, MARIA ELIZABETH",
+   "cargo": "AUXILIAR DE SERVICIOS GENERALES",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "HERRERA GARAVITO, ROXANA DEL PILAR",
+   "cargo": "AUXILIAR DE BIBLIOTECA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "HUAMAN BALDEON, CRISTINA MARILU",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "IBAÑEZ DIAZ, JIM MAIC",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - PINTOR",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "LINARES , PEDRO DE LA CRUZ",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "LIÑAN QUISPE, OLIVIA ROSA",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "LOPEZ QUEZADA, GUIDO SILVESTRE",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - ELECTRICISTA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MALASQUEZ AMAYA, CARLOS ALBERTO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MALAVER ESQUIVEL, LUZ MARINA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "DIRECCION DE RESPONSABILIDAD SOCIAL Y DESARROLLO SOSTENIBLE",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MARTINEZ YAPURA, JOSE LUIS",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - ELECTRICISTA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MAYORGA ESPINO, LUZVIT MARIBEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MINCHAN TEATINO, SANTOS",
+   "cargo": "AUXILIAR DE MANTENIMIENTO EN GASFITERÍA - CERRAJERÍA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MONTENEGRO CARLIN, JIMMY CARLOS",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MONTES MEZA, ROCIO MARILIN",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "MONZON FERNANDEZ, PERLA MABEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "OCHOA MORALES, IVAN ANGEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "ORTIZ ARELLANO, AUGUSTO ROBERTO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "PARICAHUA CARREÑO, JOHN EDWIN",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "POCLIN LLANCA, ALEXANDER",
+   "cargo": "TÉCNICO MECÁNICO AUTOMOTRIZ",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "QUEA MAMANI, JOSE ELVIS",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "RECUAY CORDOVA, JUDITH",
+   "cargo": "AUXILIAR DE SERVICIOS GENERALES",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "REYNA CACERES, ROSA ELVIRA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "RODRIGUEZ ROMERO, PERCY ALDO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "RODRIGUEZ TUNQUE, PATRICIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO III",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "ROJAS DE LA CRUZ, ANTHONY DEMETRIO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "RUEDA YARLEQUE, EDINSON",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "SANCHEZ GARCIA, CARLOS ALBERTO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "SUAREZ ESQUIVEL, JENNY ESTHER",
+   "cargo": "AUXILIAR DE BIBLIOTECA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "TAPULLIMA LOPEZ, ROBERTO",
+   "cargo": "AUXILIAR DE MANTENIMIENTO EN GASFITERÍA - CERRAJERÍA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "TARMEÑO MUNAYCO, ADRIAN AUGUSTO",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "TORANZO DURAND, JUAN HERNAN",
+   "cargo": "AUXILIAR DE MANTENIMIENTO EN GASFITERÍA - CERRAJERÍA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "TRUJILLO JIMENEZ, JACKSON SMITH",
+   "cargo": "TÉCNICO LOGÍSTICO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "URIBE FACHO, SONIA ELIZABETH",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "VALDIVIA REYNOSO, CARLOS MANUEL",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "VASQUEZ GARCIA, WILMER ANDRES",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "VELASQUEZ ROJAS, SEVERO",
+   "cargo": "JARDINERO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "WONG WONG, LUISA JULIANA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "ZEGARRA CARHUANINA, LUIS GERMAN",
+   "cargo": "SEGURIDAD Y VIGILANCIA",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2914.19
+  },
+  {
+   "nombre": "BORJAS SANCHEZ, LUZ ELENA",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "CAILLAHUA QUISPE, MAXIMO",
+   "cargo": "TÉCNICO EN LABORATORIO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "CHIRINOS FERNANDEZ, HUGO HENRY",
+   "cargo": "TÉCNICO DE LABORATORIO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "DE SOUZA CAMPOS, MAX RAFAEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "GONZALES MORTACERO, PIO",
+   "cargo": "TÉCNICO EN MANTENIMIENTO DE INFRAESTRUCTURA",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "HERRERA TIMANA, EVELINE FIORELLA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "INFANZON YUMBATO, RAÚL",
+   "cargo": "TRABAJADOR DE SERVICIOS II",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "LLANCARI RIVERA, ZOILA LUCRECIA",
+   "cargo": "TÉCNICO BIBLIOTECARIO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "MALPARTIDA BENAVIDES, GINA PATRICIA",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "PENAS LOZADA, FREDDY ALEXANDER",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "PEREZ FERNANDEZ, MAGNA",
+   "cargo": "TÉCNICO BIBLIOTECARIO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "RODRIGUEZ FLORES, OLGA BEATRIZ",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "ZAPATA CARMONA, DANIEL EDUARDO",
+   "cargo": "TÉCNICO BIBLIOTECARIO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2864.19
+  },
+  {
+   "nombre": "SANTISTEBAN FARFAN, MARIA JESUS",
+   "cargo": "TECNICO II DE ARCHIVO",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2837.41
+  },
+  {
+   "nombre": "ALBARRAN ZEA DE COTRINA, MARIA TERESA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "ALEGRE SALVADOR, DIEGO ALEXIS",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "SECRETARIA GENERAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "ANGELES SANCHEZ, JANO AURELIO",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "CANDIA GOMEZ, MARIA CLAUDIA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "DIRECCION GENERAL DE ADMINISTRACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "CASTILLO ALCALDE, KARIN ESMERALDA",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "ESCUELA CENTRAL DE POSGRADO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "CASTILLO EUSEBIO, AGUSTIN JULIAN",
+   "cargo": "JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "CHIA LEVANO, LORENZO MIGUEL",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "DIAZ PAZ, MARIA EXSILA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "GAVILAN SOLIS, DORIS ELIZABETH",
+   "cargo": "AUXILIAR DE MANTENIMIENTO Y LIMPIEZA I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "JESUS RUPAY, VENANCIO",
+   "cargo": "JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "JIMENEZ OBANDO, GENER ABEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "LAGUNA VILLAR, URSULA BENITA",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "LLANOS TORRES, FAVIO FERNANDO",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "LLONA CHACALTANA, JOSE ENRIQUE",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "MESIA RODRIGUEZ, LEISTON",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "OCHOA CCASA, KELLY",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "PINILLOS CASTRO, YVANA AYME",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE FONDO EDITORIAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "POMA VALENZUELA, EDITH SONIA",
+   "cargo": "TRABAJADOR/A SOCIAL",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "RETUERTO MORENO, CERAPIO",
+   "cargo": "JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "ROBLES QUIROZ, ELIZABETH",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "ROJAS RIVERA, BLANCA FLOR",
+   "cargo": "AUXILIAR DE MANTENIMIENTO",
+   "dependencia": "GRAN TEATRO DE LA UNI",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "ROJAS ARAGON, GILDA NOEMI",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "ROMERO DIAZ, JESUS EDUARDO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "RUBIO MARIN, RUTH ESTHER",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE FONDO EDITORIAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "SANCHEZ CAYTUIRO, EDWARD HUGO",
+   "cargo": "AUXILIAR DE LIMPIEZA Y DE MANTENIMIENTO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "SAUCEDO MOSQUERA, ANTONIO",
+   "cargo": "JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "SIME REYES, ZULAIKA DEL PILAR",
+   "cargo": "AUXILIAR ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "TACANGA CHUQUI, YENY",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "VALENZUELA PAJUELO, DINA IVI",
+   "cargo": "TÉCNICO ADMINISTRATIVO I - AREA DE INFORMATICA",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "VELIZ LEON, MELISSA CRISTINA",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "VILLAFANE CALISTRO, JUAN MANUEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE FONDO EDITORIAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "YGNACIO CAMONES, VICTORINO",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "YUPANQUI TORRE, ALFREDO LUIS",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "ZAMBRANO SOLARI DE QUISPE, MILAGROS MAGDALENA",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2814.19
+  },
+  {
+   "nombre": "SIMBRON RIVERA, YESICA",
+   "cargo": "DIGITACIÓN DE DOCUMENTOS",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2794.19
+  },
+  {
+   "nombre": "ZAPATA COBA, ELIZABETH ZULEMA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2794.19
+  },
+  {
+   "nombre": "GOMEZ MENDOZA, SEGUNDO RONER",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2784.19
+  },
+  {
+   "nombre": "RAMIREZ PODESTA, SARA BENICIA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2766.19
+  },
+  {
+   "nombre": "CAM HIDALGO, NATALIA MARLENE",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE CENTRO CULTURAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2764.19
+  },
+  {
+   "nombre": "FIGUEROA SALVA, NISIDA CONSUELO",
+   "cargo": "TÉCNICO ADMINISTRATIVO I",
+   "dependencia": "UNIDAD DE CENTRO CULTURAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2764.19
+  },
+  {
+   "nombre": "JULCA HUAMAN, LUCIANO",
+   "cargo": "AUXILIAR DE MANTENIMIENTO - JARDINES",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2764.19
+  },
+  {
+   "nombre": "ACOSTA BAZAN DE FLORES, YOVANA MEDARDA",
+   "cargo": "APOYO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ALTUNA GARCIA, JESSICA JANETH",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ALZAMORA SALAS, HILDA CLAUDIA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ANGELES SANCHEZ, ANA MARIA",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ASENCIO CAMASCA, EDDY DAVID",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "AYARZA GOMEZ, EDGAR",
+   "cargo": "TÉCNICO BIBLIOTECARIO",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "BARCA TARRILLO, JOHNNY JUSTO",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "BARON URBANO, JOSELYN CAROLYN",
+   "cargo": "TÉCNICO/A DENTAL",
+   "dependencia": "UNIDAD DE CENTRO MEDICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "BELLEZA ACOSTA, LEONCIO",
+   "cargo": "VIGILANCIA",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "BERNARDO FLORES, MARIA INES",
+   "cargo": "AUXILIAR DE MANTENIMIENTO Y LIMPIEZA I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "BORJA AZUCENA, JHOJAN ABEL",
+   "cargo": "VIGILANTE PLANTA MALLAY",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CACERES CHUI, RAMON MARCELINO",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CACERES VASQUEZ, ANDRES AVELINO",
+   "cargo": "PERSONAL DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CAMACHO DURAN, JUAN CESAR",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CARBAJAL CCANAZA, MIGUEL ANGEL",
+   "cargo": "VIGILANTE DIURNO",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CARRANZA CHUMPITAZ, JOSE MAX",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CASTILLO FELIX, JENNY ESMERALDA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CAYO AMAYA, JIMMY VICENTE",
+   "cargo": "AUXILIAR DE MANTENIMIENTO Y LIMPIEZA I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CAYO ACOSTA, ISAAC KEVIN ALBERTO",
+   "cargo": "TRABAJADOR DE SERVICIOS III",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CERNA YALICO, LESLIE KARIN",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE CENTRO MEDICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "CORDOVA MONTES, VICTOR ELEAZAR",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "DIAZ PAZ, GLADIS ANGELMIRA",
+   "cargo": "PERSONAL DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ESPINOZA BRAVO DE ORE, MARTINA PETRONILA",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ESPINOZA OLIVERA, ELMER",
+   "cargo": "SEGURIDAD Y VIGILANCIA I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "FLORES PAUCAR, JHONNY JAMES",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "FLORIDAS GONZALES, GABRIEL",
+   "cargo": "TRABAJADOR DE SERVICIOS II",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "GARCIA COSTILLA, SANTOS MIGUEL",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "GOMEZ GARCIA, JORGE",
+   "cargo": "VIGILANCIA",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "GONZALES BARDALES, MIRIAM MAGALI",
+   "cargo": "LIMPIEZA Y MANTENIMIENTO",
+   "dependencia": "UNIDAD DE LABORATORIO NACIONAL DE HIDRAULICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "GUERRERO DIAZ, MARIA ELENA",
+   "cargo": "TÉCNICO ADMINISTRATIVO",
+   "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "GUZMAN YDROGO, JACQUELINE YVONNE",
+   "cargo": "SECRETARIA/O I",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "HILARES QUISPE, JULIO",
+   "cargo": "VIGILANTE NOCTURNO",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "HILARES ZARATE, ROSSIL JIMMY",
+   "cargo": "LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "HINOSTROZA VALDERRAMA, ALBERTO",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "HOYOS LOPEZ, ARMANDO JULIO",
+   "cargo": "AUXILIAR DE MANTENIMIENTO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "HUAMAN CAMARENA, RAMSES CLEANDRO",
+   "cargo": "AUXILIAR EN LA PLANTA DE TRATAMIENTO UNITRAR",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "HUAMANI PAUCAR, ALBERTO",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "INGA VALLADOLID, SERVANDO",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "JESUS REYES, WILMER",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "JIMENEZ DIAZ, PAMELA BETTY",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "LIMAYMANTA VELASQUEZ, JOSE ANTONIO",
+   "cargo": "TÉCNICO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "LOAYZA RETUERTO, RUTH FLORA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "LOPEZ LIÑAN, CARLOS ALBERTO",
+   "cargo": "TÉCNICO ADMINISTRATIVO II",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MALASQUEZ AMAYA, KARINA",
+   "cargo": "TÉCNICO EN BIBLIOTECA I",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MAMANI VALERIANO, SABINA",
+   "cargo": "PERSONAL DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MARQUEZ POLANCO, KARIM JENNY",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MARTINEZ AQUINO, ZENOBIO",
+   "cargo": "AUXILIAR DE MANTENIMIENTO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MATEO ESTRELLA, ELENA MAGALY",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MAUTINO FONSECA, SOFIA RAYDA",
+   "cargo": "AUXILIAR",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MESIA DAVILA, KONNY VALERIA",
+   "cargo": "APOYO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MIGUEL HERVIAS, GLORIA HERMOZA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MIGUEL CANCHIS, AGRIPINO",
+   "cargo": "AUXILIAR",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MINAYA ZAVALETA, CARLOS GREGORIO",
+   "cargo": "APOYO EN PRACTICAS DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MONTEVERDE ROMERO, JUAN JAIME",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "MORI LINARES, OSWALDO ALBERTO",
+   "cargo": "VIGILANTE",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "OCHOA CASTRO, ROSA YSABEL",
+   "cargo": "AUXILIAR - LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ORE ESPINOZA, ANGELINA ELIZABETH",
+   "cargo": "AUXILIAR ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE CENTRO MEDICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "OREJUELA RAVINA, JUAN MARTIN ELIAS",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PACHECO YSMODES, RAUL",
+   "cargo": "TÉCNICO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PALOMINO BEDON, LUZ ROSARIO",
+   "cargo": "AUXILIAR DE BIBLIOTECA II",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PAREDES PONTE DE CRUZ, CARMEN CRISTINA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PELAYO GRADOS, ROLIN JOSE",
+   "cargo": "LIMPIEZA",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PEÑA ACOSTA, CESAR VICENTE",
+   "cargo": "VIGILANTE",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PEREZ ZUMAETA, PATRICIA",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PEREZ NORIEGA, MARYBEL",
+   "cargo": "APOYO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "PUCHURI TUCNO, EDUARDO WALTER",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "QUISPE CERIN, JENNY",
+   "cargo": "LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "QUISPE ANTEZANA, TITO",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "RAMOS VIDARTE, JHON FRANK",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "RAVELLO CHACALTANA, CESAR ENRIQUE",
+   "cargo": "VIGILANCIA",
+   "dependencia": "UNIDAD DE CENTRO PRE UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ROCA PELAYO, JHONATHAN MICHAEL",
+   "cargo": "JARDINERO",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "RODRIGUEZ MINAYA, CARMEN MILAGROS",
+   "cargo": "OPERARIO DE MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "RODRIGUEZ HAMAMURA, NADIA",
+   "cargo": "ANALISTA QUÍMICO",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ROJAS SARAVIA, LUZ AMPARO",
+   "cargo": "AUXILIAR",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ROJAS JIMENEZ, DORIS",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ROMERO QUISPE, PILAR ELIZABETH",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ROMERO MANANI, MANUEL JESUS",
+   "cargo": "AUXILIAR EN LA PLANTA DE TRATAMIENTO UNITRAR",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ROSALES ALVAREZ, PEDRO CLAVER",
+   "cargo": "APOYO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "SALHUANA GALARRETA, VICTORIA",
+   "cargo": "TÉCNICO EN SERVICIOS GENERALES",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "SALHUANA GALARRETA, SARA ELIZABETH",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "SANCHEZ CHUQUISUTA, MARCELO",
+   "cargo": "TÉCNICO - SEGURIDAD",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "SANJINEZ DIAZ, MIGUEL ANGEL",
+   "cargo": "SOPORTE TÉCNICO",
+   "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "SISNIEGAS MARIN, MARIO MARTIN",
+   "cargo": "TÉCNICO ADMINISTRATIVO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "SOTO PEREZ, ANTONIO",
+   "cargo": "SERVICIOS DE JARDINERIA DEL VIVERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "SOTO FELIPE, HERLINDA",
+   "cargo": "TÉCNICO ADMINISTRATIVO/A",
+   "dependencia": "UNIDAD DE CENTRO MEDICO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "TARAZONA VICTOR, CRISTINA DORIS",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "TELLO RODRIGUEZ, MERCEDES",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "TOLENTINO AGURTO, WAGNER",
+   "cargo": "AUXILIAR",
+   "dependencia": "FACULTAD DE CIENCIAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "TORRES TORRES, JESUS OSWALDO",
+   "cargo": "TRABAJADOR DE SERVICIOS",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "TORRES LOZANO, MARIA ESTHER",
+   "cargo": "AUXILIAR - LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "URDANEGUI LARA, JOSE LUIS",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "VALDEZ HUAMANI, ALFREDO WALTER",
+   "cargo": "AUXILIAR DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "VALVERDE RAMIREZ, PEDRO ELIAS",
+   "cargo": "AUXILIAR DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "VELASQUEZ ABANTO, MAGALI EUMISES",
+   "cargo": "PERSONAL DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "VELAZCO QUISPE, LUIS MIGUEL",
+   "cargo": "PERSONAL DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "VENTOCILLA ESPINOZA, MANUEL GREGORIO",
+   "cargo": "PERSONAL DE SERVICIO",
+   "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "VERA PRADA, NILDA VIOLETA",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "VIVAR YZAGUIRRE, EDILBERTO",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "ESCUELA CENTRAL DE POSGRADO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ZEGARRA ALVAREZ, FRANCISCO RAFAEL",
+   "cargo": "TÉCNICO ADMINISTRATIVO",
+   "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ZEVALLOS LOPEZ, GLORIA ESTELA",
+   "cargo": "MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE LABORATORIO NACIONAL DE HIDRAULICA",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "ZUÑIGA CASTAÑEDA, ELSA CECILIA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "UNIDAD DE ABASTECIMIENTO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2744.19
+  },
+  {
+   "nombre": "REYES RICAPA, SHEYLA ELIZABETH",
+   "cargo": "TÉCNICO ADMINISTRATIVO III",
+   "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2741.35
+  },
+  {
+   "nombre": "ARELLANO OLAECHEA, MADAI",
+   "cargo": "ASISTENTE ADMINISTRATIVO I",
+   "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2668.51
+  },
+  {
+   "nombre": "PALOMINO CISNEROS, JEFREE CHRISTOPHER",
+   "cargo": "TECNICO DOCUMENTARIO",
+   "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2664.36
+  },
+  {
+   "nombre": "VIDAL CASTILLO, RITA ANCELMA",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 2090.32
+  },
+  {
+   "nombre": "AREVALO DAVILA DE TORANZO, ADELINA MARIA",
+   "cargo": "SECRETARIA/O",
+   "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 1250.0
+  },
+  {
+   "nombre": "IGNACIO RAMOS, IVAN NERY",
+   "cargo": "OPERARIO DE MANTENIMIENTO I",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 1250.0
+  },
+  {
+   "nombre": "ORTIZ REYES, JOSE LUIS",
+   "cargo": "AUXILIAR DE LABORATORIO",
+   "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 1250.0
+  },
+  {
+   "nombre": "RODRIGUEZ JULCA, ALFREDO AMADEO",
+   "cargo": "TRABAJADOR DE SERVICIOS I",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 1250.0
+  },
+  {
+   "nombre": "SAUCEDO CARAHUATAY, JULIO",
+   "cargo": "JARDINERO",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 1250.0
+  },
+  {
+   "nombre": "URQUIAGA SALAZAR, CARLOS JESUS",
+   "cargo": "TÉCNICO - VIGILANCIA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 1250.0
+  },
+  {
+   "nombre": "HUAMAN PEREZ, HEYNSG ALDAIR",
+   "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+   "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 999.07
+  },
+  {
+   "nombre": "ANCHI LOPEZ, MARISOL MARGARITA",
+   "cargo": "ASISTENTE ADMINISTRATIVO/A",
+   "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 901.37
+  },
+  {
+   "nombre": "BERNAL CALDERON, HECTOR RAUL",
+   "cargo": "ASISTENTE ADMINISTRATIVO I",
+   "dependencia": "SECRETARIA GENERAL",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 0.0
+  },
+  {
+   "nombre": "DIAZ ROLDAN, RITA ELENA",
+   "cargo": "ESPECIALISTA ADMINISTRATIVO I",
+   "dependencia": "OFICINA DE COOPERACION Y RELACIONES INTERNACIONALES",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 0.0
+  },
+  {
+   "nombre": "RUIZ URIBE, MARIA ISOLINA",
+   "cargo": "AUXILIAR DE LIMPIEZA",
+   "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 0.0
+  },
+  {
+   "nombre": "VILLEGAS COSI, PATRICIA CAROLINA",
+   "cargo": "CONTADOR I",
+   "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+   "regimen": "CAS (D.Leg. 1057)",
+   "categoria": "administrativo",
+   "remun": 0.0
+  }
+ ]
+}
