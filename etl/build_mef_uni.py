@@ -17,9 +17,9 @@ YEARS_MIN = 2013  # últimos ~12 años
 YMAP = {int(y): v for y, v in json.load(open(os.path.join(HERE, "year_map.json"))).items()}
 
 
-def get(sql, timeout=200):
+def get(sql, timeout=120):
     url = API + "?sql=" + urllib.parse.quote(sql)
-    for i in range(4):
+    for i in range(3):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
             with urllib.request.urlopen(req, timeout=timeout) as r:
@@ -27,7 +27,7 @@ def get(sql, timeout=200):
             if t.strip():
                 return json.loads(t).get("records", [])
         except Exception as e:
-            print("   retry", i, repr(e)[:60], flush=True); time.sleep(6)
+            print("   retry", i, repr(e)[:60], flush=True); time.sleep(20)
     return None
 
 
@@ -48,7 +48,7 @@ for y in sorted(YMAP):
              f'SUM("MONTO_CERTIFICADO"::numeric) cert, SUM("MONTO_DEVENGADO"::numeric) dev, '
              f'SUM("MONTO_GIRADO"::numeric) gir FROM "{rid}" WHERE "PLIEGO"=\'{PLIEGO}\'')
         r = get(q)
-        time.sleep(1)
+        time.sleep(12)
         if not r:
             continue
         row = r[0]
@@ -76,7 +76,7 @@ if serie_list:
         q = (f'SELECT "{col}" nm, SUM("MONTO_PIM"::numeric) pim, SUM("MONTO_DEVENGADO"::numeric) dev '
              f'FROM "{rid}" WHERE "PLIEGO"=\'{PLIEGO}\' GROUP BY "{col}" ORDER BY pim DESC')
         r = get(q) or []
-        time.sleep(1)
+        time.sleep(12)
         detalle[key] = [{"nombre": x["nm"], "pim": num(x["pim"]), "dev": num(x["dev"])}
                         for x in r if num(x["pim"]) > 0]
         print(f"   {key}: {len(detalle[key])} filas", flush=True)

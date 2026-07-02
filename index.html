@@ -194,8 +194,14 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
 <section id="proveedores"><div class="wrap">
   <div class="eyebrow">Seguir el dinero</div>
   <h2>Proveedores y dueños</h2>
-  <p class="lead">¿Quién recibe el dinero de la UNI y quién está detrás de esas empresas? Cruzamos las contrataciones (OECE/OCDS) con el RUC del proveedor y, cuando es posible, sus representantes/dueños.</p>
-  <div id="provWrap"></div>
+  <p class="lead">¿Quién recibe el dinero de la UNI y quién está detrás de esas empresas? Cruzamos las adjudicaciones (buena pro) del OECE/CONOSCE con el RUC del proveedor y, cuando es posible, sus representantes/dueños.</p>
+  <div class="kpis" id="provKpis" style="margin-bottom:20px"></div>
+  <div class="grid2">
+    <div class="card"><h3>Top proveedores por monto adjudicado (S/)</h3><div class="chart-box tall"><canvas id="cProv"></canvas></div></div>
+    <div class="card"><h3>Empresas vs. personas naturales (terceros)</h3><div class="chart-box tall"><canvas id="cProvTipo"></canvas></div></div>
+  </div>
+  <div id="provWrap" style="margin-top:20px"></div>
+  <div id="provPersonas" style="margin-top:20px"></div>
 </div></section>
 
 <!-- INVESTIGACIÓN -->

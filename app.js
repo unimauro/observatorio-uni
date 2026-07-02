@@ -132,11 +132,54 @@ function renderGasto() {
 // ---- Proveedores ----
 function renderProv() {
   const w = document.getElementById('provWrap');
-  if (DATA.prov?.proveedores?.length) {
-    const p = DATA.prov.proveedores.slice(0, 30);
-    w.innerHTML = `<div class="card"><div class="scroll"><table><thead><tr><th>Proveedor</th><th>RUC</th><th class="n">Monto (S/)</th><th class="n">N.º contratos</th><th>Dueño / representante</th></tr></thead><tbody>${p.map(x => `<tr><td>${x.nombre}</td><td>${x.ruc || '—'}</td><td class="n">${fmtN(Math.round(x.monto))}</td><td class="n">${x.n || '—'}</td><td>${x.dueno || '<span class="pill">por cruzar</span>'}</td></tr>`).join('')}</tbody></table></div><p class="note">Fuente: ${DATA.prov._meta?.fuente || 'OECE/OCDS'}.</p></div>`;
-  } else {
-    w.innerHTML = `<div class="soon"><h3>🔎 En construcción</h3><p style="margin:0;color:var(--muted)">Estamos descargando y cruzando las contrataciones de la UNI desde la API de <strong>Contrataciones Abiertas del OECE</strong> (estándar OCDS) para listar cada proveedor, su RUC, el monto que recibió y —cuando sea posible— a sus dueños/representantes legales. Aparecerá aquí en la próxima actualización de datos.</p></div>`;
+  const V = DATA.prov;
+  if (!V?.proveedores?.length) {
+    w.innerHTML = `<div class="soon"><h3>🔎 En construcción</h3><p style="margin:0;color:var(--muted)">Descargando y cruzando las contrataciones de la UNI (OECE/CONOSCE) para listar cada proveedor, su RUC, el monto y sus dueños/representantes.</p></div>`;
+    return;
+  }
+  const t = V.totales || {};
+  // KPIs
+  const kp = document.getElementById('provKpis');
+  if (kp) kp.innerHTML = [
+    ['Total adjudicado', fmtM(t.monto_total), (V._meta?.periodo || '') + ' · buena pro'],
+    ['Proveedores', fmtN(t.n_proveedores), fmtN(t.n_procesos) + ' procesos'],
+    ['Empresas', fmtN(t.n_empresas), fmtM(t.monto_empresas)],
+    ['Personas/terceros', fmtN(t.n_personas_naturales), fmtM(t.monto_personas_naturales)],
+  ].map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
+  // chart top por monto
+  const top = V.proveedores.slice(0, 12);
+  new Chart(cProv, { type: 'bar', data: { labels: top.map(x => x.nombre.slice(0, 30)), datasets: [{ label: 'S/ adjudicado', data: top.map(x => x.monto / 1e6), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + c.raw.toFixed(2) + ' M' } } } }) });
+  // chart empresas vs personas
+  new Chart(cProvTipo, { type: 'doughnut', data: { labels: ['Empresas', 'Personas naturales'], datasets: [{ data: [t.monto_empresas / 1e6, t.monto_personas_naturales / 1e6], backgroundColor: [GRANATE, ORO] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => c.label + ': S/ ' + c.raw.toFixed(1) + ' M' } } } } });
+  // tabla buscable + orden por monto/nº
+  w.innerHTML = `<div class="card">
+    <h3>Proveedores de la UNI · ${fmtN(V.proveedores.length)}</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 12px">
+      <input id="provSearch" placeholder="🔎 Buscar proveedor, RUC o dueño…" style="flex:1;min-width:200px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--tinta);font-size:14px">
+      <button class="tgl" style="background:var(--granate2)" id="provSortM">Por monto</button>
+      <button class="tgl" style="background:var(--muted)" id="provSortN">Por nº licitaciones</button>
+    </div>
+    <div class="scroll"><table><thead><tr><th>Proveedor</th><th>RUC</th><th>Tipo</th><th class="n">Monto (S/)</th><th class="n">Proc.</th><th>Dueño / representante</th></tr></thead><tbody id="provBody"></tbody></table></div>
+    <p class="note" id="provCount"></p>
+    <p class="note">Fuente: ${V._meta?.fuente || 'OECE/CONOSCE'} · <a href="${V._meta?.fuente_url || '#'}" target="_blank" rel="noopener">reporte de adjudicaciones</a>. Alcance: adjudicaciones (buena pro); no incluye órdenes de compra menores a 8 UIT. Los dueños/representantes provienen de fuentes públicas y se marcan con su fuente.</p>
+  </div>`;
+  const body = document.getElementById('provBody'), cnt = document.getElementById('provCount'), inp = document.getElementById('provSearch');
+  let sortBy = 'monto';
+  const draw = () => {
+    const q = (inp.value || '').trim().toLowerCase();
+    let rows = V.proveedores.filter(x => !q || (`${x.nombre} ${x.ruc || ''} ${x.dueno || ''}`).toLowerCase().includes(q));
+    rows = [...rows].sort((a, b) => sortBy === 'n' ? (b.n - a.n || b.monto - a.monto) : (b.monto - a.monto));
+    body.innerHTML = rows.slice(0, 200).map(x => `<tr><td>${x.nombre}</td><td>${x.ruc || '—'}</td><td>${x.tipo_persona === 'natural' ? '👤 persona' : '🏢 empresa'}</td><td class="n">${fmtN(Math.round(x.monto))}</td><td class="n">${x.n || '—'}</td><td>${x.dueno ? x.dueno + (x.fuente_dueno ? ` <a href="${x.fuente_dueno}" target="_blank" rel="noopener">🔗</a>` : '') : '<span class="pill">por cruzar</span>'}</td></tr>`).join('');
+    cnt.textContent = `${rows.length} proveedor(es)` + (rows.length > 200 ? ' (mostrando 200)' : '') + ` · orden: ${sortBy === 'n' ? 'nº licitaciones' : 'monto'}`;
+  };
+  inp.addEventListener('input', draw);
+  document.getElementById('provSortM').addEventListener('click', () => { sortBy = 'monto'; draw(); });
+  document.getElementById('provSortN').addEventListener('click', () => { sortBy = 'n'; draw(); });
+  draw();
+  // top personas naturales / terceros
+  const pw = document.getElementById('provPersonas');
+  if (pw && V.top_personas?.length) {
+    pw.innerHTML = `<div class="card"><h3>👤 Personas naturales / terceros que más ganaron</h3><div class="scroll"><table><thead><tr><th>Nombre</th><th>RUC</th><th class="n">Monto (S/)</th><th class="n">Proc.</th></tr></thead><tbody>${V.top_personas.map(x => `<tr><td>${x.nombre}</td><td>${x.ruc || '—'}</td><td class="n">${fmtN(Math.round(x.monto))}</td><td class="n">${x.n || '—'}</td></tr>`).join('')}</tbody></table></div><p class="note">Locadores de servicios y personas naturales con contrato con la UNI (data pública de contrataciones). ${V._meta?.periodo || ''}.</p></div>`;
   }
 }
 

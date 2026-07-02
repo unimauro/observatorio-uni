@@ -1,0 +1,5587 @@
+{
+ "_meta": {
+  "fuente": "OECE/OSCE - CONOSCE Datos Abiertos, reporte de Adjudicaciones (buena pro por item)",
+  "fuente_url": "https://conosce.osce.gob.pe/buscador/assets/67ae6c4a/reportes/adjudicaciones/",
+  "entidad": "Universidad Nacional de Ingenieria (pliego 514)",
+  "ruc": "20169004359",
+  "buyer_id_ocds": "PE-CONSUCODE-514 (no filtrable via API OCDS; sin filtro por comprador)",
+  "codigoentidad_conosce": 1891,
+  "periodo": "2023-2025",
+  "extraido": "2026-07",
+  "unidad_monto": "Soles (PEN), monto adjudicado por item",
+  "nota": "Agregado desde reportes anuales CONOSCE de Adjudicaciones (nivel item de buena pro). 'monto' = suma de monto_adjudicado_item_soles. 'n' = numero de procesos (codigoconvocatoria) distintos en que ese proveedor obtuvo buena pro. 'tipos' = procesos distintos por tipo de proceso de seleccion. tipo_persona por prefijo de RUC (20=empresa, 10/15=natural); consorcios y no domiciliados clasificados como empresa. NO incluye ordenes de compra <8 UIT (dataset aparte) ni contratos SI no llegaron a adjudicacion registrada."
+ },
+ "totales": {
+  "monto_total": 86625427.81,
+  "n_proveedores": 338,
+  "n_procesos": 439,
+  "n_empresas": 275,
+  "n_personas_naturales": 63,
+  "monto_empresas": 79288294.83,
+  "monto_personas_naturales": 7337132.98
+ },
+ "top_personas": [
+  {
+   "nombre": "HERRERA LEDESMA FELIPE ALEJANDRO",
+   "ruc": "10459531888",
+   "monto": 475000.0,
+   "n": 1
+  },
+  {
+   "nombre": "ASTOLA GURMENDI EFRAIN CRISTIAN",
+   "ruc": "10100249303",
+   "monto": 315000.0,
+   "n": 1
+  },
+  {
+   "nombre": "LA ROSA FLORES ANDRES HUMBERTO",
+   "ruc": "10155852998",
+   "monto": 260000.0,
+   "n": 2
+  },
+  {
+   "nombre": "FALEN CERECEDA LUIS ALBERTO",
+   "ruc": "10093901491",
+   "monto": 252000.0,
+   "n": 1
+  },
+  {
+   "nombre": "UGAZ PEÑA JOSE CARLOS",
+   "ruc": "10424120460",
+   "monto": 240000.0,
+   "n": 1
+  },
+  {
+   "nombre": "HUAMANI COAQUIRA JOSE ANTONIO",
+   "ruc": "10108300464",
+   "monto": 240000.0,
+   "n": 1
+  },
+  {
+   "nombre": "ORTIZ SALAZAR ANDRES",
+   "ruc": "10064453560",
+   "monto": 240000.0,
+   "n": 1
+  },
+  {
+   "nombre": "SALINAS FLORES ENER ORLANDO",
+   "ruc": "10064232121",
+   "monto": 240000.0,
+   "n": 1
+  },
+  {
+   "nombre": "PARIONA MENDOZA NICOLAZA",
+   "ruc": "10400831004",
+   "monto": 240000.0,
+   "n": 1
+  },
+  {
+   "nombre": "SOLOGORRE CASAS EDWIN ROLANDO",
+   "ruc": "10444597599",
+   "monto": 234980.0,
+   "n": 1
+  },
+  {
+   "nombre": "CONSORCIO NAZCA",
+   "ruc": "1513134",
+   "monto": 215000.0,
+   "n": 1
+  },
+  {
+   "nombre": "RICRA VALENCIA MELISSA ESTEFANIA",
+   "ruc": "10478103374",
+   "monto": 213000.0,
+   "n": 3
+  },
+  {
+   "nombre": "PAREJA HUAMAN YOLANDA NOEMI",
+   "ruc": "10282916563",
+   "monto": 206567.5,
+   "n": 1
+  },
+  {
+   "nombre": "DA SILVA JOSÉ LUIZ",
+   "ruc": "15610283311",
+   "monto": 205263.12,
+   "n": 2
+  },
+  {
+   "nombre": "DAVALOS PRADO JUAN ZENON",
+   "ruc": "10067128546",
+   "monto": 200000.0,
+   "n": 2
+  },
+  {
+   "nombre": "ROJAS SANCHEZ JUAN CARLOS",
+   "ruc": "10106591186",
+   "monto": 180000.0,
+   "n": 1
+  },
+  {
+   "nombre": "CHACON VENTURA JACINTO SEGUNDO",
+   "ruc": "10410903569",
+   "monto": 173000.0,
+   "n": 2
+  },
+  {
+   "nombre": "CHAPARRO CAJIGAS RUBNER MIJAEL",
+   "ruc": "10444130470",
+   "monto": 155990.0,
+   "n": 1
+  },
+  {
+   "nombre": "LA ROSA BARDALES ADRIANO SEBASTIAN",
+   "ruc": "10706937931",
+   "monto": 154300.0,
+   "n": 1
+  },
+  {
+   "nombre": "ALVAREZ ASCARZA ENRIQUE",
+   "ruc": "10081215940",
+   "monto": 121000.0,
+   "n": 2
+  }
+ ],
+ "proveedores": [
+  {
+   "nombre": "GTD PERÚ S.A",
+   "ruc": "20421780472",
+   "monto": 5358852.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público de Servicios": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Sergio Alvaro Mavila Rivasplata (gerente general); subsidiaria de Grupo GTD (Chile)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-gtd-peru-sa-20421780472.php"
+  },
+  {
+   "nombre": "CORPORACION ALIMENTARIA ALEXCAR S.A.C.",
+   "ruc": "20423044765",
+   "monto": 3342581.11,
+   "n": 9,
+   "tipos": {
+    "Subasta Inversa Electrónica": 7,
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Bien": 9
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Carlos Alberto Azcarate Lucero (gerente general)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-corporacion-alimentaria-alexcar-sac-20423044765.php"
+  },
+  {
+   "nombre": "JEDAC BIENES Y SERVICIOS S.A.C.",
+   "ruc": "20600809441",
+   "monto": 2924691.22,
+   "n": 8,
+   "tipos": {
+    "Subasta Inversa Electrónica": 4,
+    "Adjudicación Simplificada": 4
+   },
+   "objeto": {
+    "Bien": 8
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "David Lizandro Flores Guia (gerente general)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-jedac-bienes-y-servicios-sac-20600809441.php"
+  },
+  {
+   "nombre": "PROTON ENERGY SYSTEMS, INC.",
+   "ruc": "L0609015387",
+   "monto": 2426761.5,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CASSA CONCESIONARIA S.A.C.",
+   "ruc": "20549152920",
+   "monto": 2349000.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Carlos Antonio Saavedra Carvo (gerente general)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-cassa-concesionaria-sac-20549152920.php"
+  },
+  {
+   "nombre": "SERVICIOS Y CONTRATISTAS GENERALES SORIA E.I.R.L.",
+   "ruc": "20536781227",
+   "monto": 2140000.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público de Servicios": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "QSI PERU S.A.",
+   "ruc": "20546357377",
+   "monto": 1796474.47,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Henri Jules Borit Salinas (gerente general); Grupo Quicorp / Quimica Suiza Industrial",
+   "fuente_dueno": "https://www.datosperu.org/empresa-qsi-peru-sa-20546357377.php"
+  },
+  {
+   "nombre": "CONSTRUCTORA Y SERVICIOS VALDIVIA S.R.L.",
+   "ruc": "20571297605",
+   "monto": 1566580.0,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Cinthya Berenisse Valdivia Rosado (gerente general)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-constructora-y-servicios-valdivia-srl-20571297605.php"
+  },
+  {
+   "nombre": "DELONG AMERICA INC.",
+   "ruc": "L0609017357",
+   "monto": 1535361.6,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSORCIO VECODATA S.A.C. - OLC INGENIEROS E.I.R.L.",
+   "ruc": "1467950",
+   "monto": 1498600.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Consorcio",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CORPORACION HELEO SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20518759079",
+   "monto": 1421295.42,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Hermogenes Mamani Pino (gerente general)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-corporacion-heleo-sac-20518759079.php"
+  },
+  {
+   "nombre": "RIMAC SEGUROS Y REASEGUROS",
+   "ruc": "20100041953",
+   "monto": 1377833.91,
+   "n": 1,
+   "tipos": {
+    "Concurso Público": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Mario Luis Angel Potesta Martinez (gerente general); Rimac es la aseguradora del Grupo Breca (familia Brescia Cafferata)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-rimac-seguros-y-reaseguros-20100041953.php"
+  },
+  {
+   "nombre": "MELCORPACHECO S.R.L.",
+   "ruc": "20600531370",
+   "monto": 1251509.79,
+   "n": 5,
+   "tipos": {
+    "Adjudicación Simplificada": 4,
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 5
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Melida Pilar Cordova Pacheco (gerente general)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-melcorpacheco-srl-20600531370.php"
+  },
+  {
+   "nombre": "NOVENTIQ INTERNATIONAL PERU S.A.C.",
+   "ruc": "20543312232",
+   "monto": 1046939.03,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 2,
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Orlando Antonio Perea Govea (gerente general); multinacional Noventiq (ex-Softline)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-noventiq-international-peru-sac-20543312232.php"
+  },
+  {
+   "nombre": "VOLVO PERU S A",
+   "ruc": "20100070031",
+   "monto": 1037000.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": "Jorge Hector Masias Bayona (gerente general); subsidiaria de Volvo Group (Suecia)",
+   "fuente_dueno": "https://www.datosperu.org/empresa-volvo-peru-sa-20100070031.php"
+  },
+  {
+   "nombre": "CORPORACION QUOTREX PERU S.A.C.",
+   "ruc": "20608948733",
+   "monto": 1032000.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MEASURING ENGINEER GROUP PERU SOCIEDAD ANONIMA CERRADA - MEG PERU S.A.C.",
+   "ruc": "20505920067",
+   "monto": 1028257.54,
+   "n": 4,
+   "tipos": {
+    "Convenio": 3,
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 4
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JAPAN COMPUTER SERVICE S.A.C.",
+   "ruc": "20113277964",
+   "monto": 936712.94,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DURHAM MAGNETO OPTICS LTD",
+   "ruc": "L0609016237",
+   "monto": 841441.68,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONCESION Y SERVICIOS ANGIE E.I.R.L.",
+   "ruc": "20556580210",
+   "monto": 834756.53,
+   "n": 3,
+   "tipos": {
+    "Subasta Inversa Electrónica": 2,
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "KORVUS TECHNOLOGY LTD",
+   "ruc": "L0609016288",
+   "monto": 696007.5,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "A & C  NUTRICION INSTITUCIONAL EIRL",
+   "ruc": "20516447355",
+   "monto": 684480.0,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 2,
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CLOUD INFRASTRUCTURE AND TELECOM PERU SOCIEDAD ANONIMA CERRADA - CLOUD IT PERU S.A.C.",
+   "ruc": "20602691617",
+   "monto": 659948.0,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 2,
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FUNDACION CTIC - CENTRO TECNOLOGICO DE LA INFORMACION Y LA COMUNICACION",
+   "ruc": "L0556212708",
+   "monto": 659283.94,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "EDUTEC LABIMPORT SOCIEDAD ANONIMA CERRADA -  EDUTEC LABIMPORT S.A.C.",
+   "ruc": "20553639515",
+   "monto": 654552.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DERVATEC E.I.R.L.",
+   "ruc": "20524136482",
+   "monto": 646420.0,
+   "n": 4,
+   "tipos": {
+    "Adjudicación Simplificada": 2,
+    "Licitación Pública Abreviada": 1,
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 3,
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BLOOMBERG FINANCE L.P.",
+   "ruc": "L0609015630",
+   "monto": 642812.28,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MS CONSULTORIA EMPRESARIAL S.A.C",
+   "ruc": "20538630781",
+   "monto": 638021.47,
+   "n": 4,
+   "tipos": {
+    "Adjudicación Simplificada": 4
+   },
+   "objeto": {
+    "Bien": 4
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SCIENCE AND TECHNOLOGY TRAINING E.I.R.L.",
+   "ruc": "20506407100",
+   "monto": 628500.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GLOBAL FUEL SOCIEDAD ANONIMA",
+   "ruc": "20565643496",
+   "monto": 604454.88,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CIRPRO PERU S.A.C.",
+   "ruc": "20612367583",
+   "monto": 600000.0,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "AMERICAN HOSPITAL SCIENTIFIC EQUIPMENT COMPANY DEL PERU S.A.",
+   "ruc": "20100162238",
+   "monto": 578304.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HI-TECH COMPANY S.A.C.",
+   "ruc": "20603145870",
+   "monto": 577000.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "H2 CORE SYSTEMSGMBH",
+   "ruc": "L0609016016",
+   "monto": 559195.04,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MERCANTIL S A",
+   "ruc": "20100312736",
+   "monto": 549415.72,
+   "n": 2,
+   "tipos": {
+    "Convenio": 1,
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSULTORA SILFERSYSTEM S.A.C.",
+   "ruc": "20509726583",
+   "monto": 548000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FRIGORIFICO Y COMERCIALIZADORA PAREDES S.A.C. - FRICOMP SAC",
+   "ruc": "20519374499",
+   "monto": 508000.0,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CALDEROS PIEDRA SRL",
+   "ruc": "20108792648",
+   "monto": 505888.88,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JHAYSO CONSULTING S.A. DE C.V.",
+   "ruc": "L1042548827",
+   "monto": 505504.04,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CORPORACION JEM BIOS E.I.R.L.",
+   "ruc": "20557788841",
+   "monto": 499600.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "QUIMICA INGENIERIA Y PROYECTOS S.A.C.",
+   "ruc": "20500415224",
+   "monto": 497858.17,
+   "n": 2,
+   "tipos": {
+    "Licitación Pública Abreviada": 1,
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIDATA SOLUCIONES E INGENIERIA S.A.C.",
+   "ruc": "20605039848",
+   "monto": 479000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GRUPO SYPSA S.A.C.",
+   "ruc": "20466261255",
+   "monto": 477310.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HERRERA LEDESMA FELIPE ALEJANDRO",
+   "ruc": "10459531888",
+   "monto": 475000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "IMPORTACIONES Y REPRESENTACIONES ELECTRONICAS S.A.",
+   "ruc": "20101279635",
+   "monto": 447214.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "X RAY SALES AND SERVICE S.A.C.",
+   "ruc": "20505126069",
+   "monto": 438000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ZAPLER S.A.C.",
+   "ruc": "20259572887",
+   "monto": 437000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PROCETRADI S.A.C.",
+   "ruc": "20349027985",
+   "monto": 436503.29,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSTRUCTORA Y CONSULTORA R & M INGENIEROS S.A.C.",
+   "ruc": "20602597688",
+   "monto": 425000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SONEPAR PERU S.A.C.",
+   "ruc": "20111740438",
+   "monto": 421923.09,
+   "n": 3,
+   "tipos": {
+    "Licitación Pública Abreviada": 2,
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INVERSIONES CQS E.I.R.L.",
+   "ruc": "20602793291",
+   "monto": 408801.6,
+   "n": 2,
+   "tipos": {
+    "Subasta Inversa Electrónica": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "H2 CORE SYSTEMS GMBH",
+   "ruc": "L0611179947",
+   "monto": 398502.68,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GDC DIFUSION CIENTIFICA S.A. DE C.V.",
+   "ruc": "L0609015683",
+   "monto": 392323.06,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "THERIS NANOTECHNOLOGY LTD",
+   "ruc": "L0609017275",
+   "monto": 391354.4,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DISTRIBUIDORA DE SERVICIOS MONTERO E.I.R.L.",
+   "ruc": "20468155304",
+   "monto": 385000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "AMAVAL PERU S.A.C.",
+   "ruc": "20562719611",
+   "monto": 383690.06,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Subasta Inversa Electrónica": 1,
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "EBSCO MEXICO INC S.A DE C.V",
+   "ruc": "L1042548916",
+   "monto": 381736.75,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "H.W.KESSEL S.A.C.",
+   "ruc": "20100329205",
+   "monto": 374427.36,
+   "n": 4,
+   "tipos": {
+    "Adjudicación Simplificada": 3,
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 4
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSORCIO NORPERUANO DE INGENIERIA S.A.C.",
+   "ruc": "20606353317",
+   "monto": 374270.93,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PROMYERS ENERGY S.A.C",
+   "ruc": "20601315905",
+   "monto": 367666.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INVERSIONES ARRIAGA S.A.C. - INVARRIA S.A.C.",
+   "ruc": "20492168409",
+   "monto": 352695.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "J.S. INDUSTRIAL S.A.C.",
+   "ruc": "20111864595",
+   "monto": 348848.9,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CIENTIFICA ANDINA S.A.C.",
+   "ruc": "20212980774",
+   "monto": 334400.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CORPRODI S.A.C.",
+   "ruc": "20523689879",
+   "monto": 333989.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSTRUCTORA E & S S.R.L.",
+   "ruc": "20486163489",
+   "monto": 322900.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PRODUCCION DE EQUIPOS TECNICOS E INDUSTRIALES S.A.",
+   "ruc": "L0609016431",
+   "monto": 318417.2,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "COSMOS GLASS SOLUTION S.A.C.",
+   "ruc": "20550277060",
+   "monto": 315890.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público de Servicios": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ASTOLA GURMENDI EFRAIN CRISTIAN",
+   "ruc": "10100249303",
+   "monto": 315000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BLOOMBERG FINANCE L.P",
+   "ruc": "L0611180070",
+   "monto": 314444.16,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TERRA PROYECTOS ING. SOCIEDAD ANÓNIMA CERRADA",
+   "ruc": "20610777075",
+   "monto": 309850.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RAM & MAR INGENIEROS S.A.C.",
+   "ruc": "20602471277",
+   "monto": 306279.67,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "REPRESENTACIONES TECHLAB SAC",
+   "ruc": "20508666293",
+   "monto": 304047.0,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Licitación Pública Abreviada": 1,
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MADISUM BRINLI",
+   "ruc": "1607305",
+   "monto": 300000.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Consorcio",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ONCORE SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20510032684",
+   "monto": 292800.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FABRICACION Y SUMINISTROS INDUST.E.I.R.L",
+   "ruc": "20250809396",
+   "monto": 279500.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PROMOTORES ELECTRICOS S A",
+   "ruc": "20100084172",
+   "monto": 278182.2,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BAFING S.A.C.",
+   "ruc": "20199144961",
+   "monto": 277753.57,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 2,
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PROTON ENERGY SYSTEMS, INC",
+   "ruc": "L0609016327",
+   "monto": 269946.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DIVEIMPORT S.A.",
+   "ruc": "20502797230",
+   "monto": 268350.29,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LA ROSA FLORES ANDRES HUMBERTO",
+   "ruc": "10155852998",
+   "monto": 260000.0,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DYNAMIC ENERGY S.A.C.",
+   "ruc": "20605127801",
+   "monto": 259890.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "COMERCIAL TRES ESTRELLAS S.A.",
+   "ruc": "20130471464",
+   "monto": 257764.55,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "P & V CONSULTING S.A.C",
+   "ruc": "20543679888",
+   "monto": 257340.68,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 3
+   },
+   "objeto": {
+    "Bien": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TECH4ALLPERU SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20507241400",
+   "monto": 255500.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CENTRO ELECTRICO ROJESAN S.A.C. - ROJESAN S.A.C.",
+   "ruc": "20519753830",
+   "monto": 255000.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "OPOTEK LLC",
+   "ruc": "L0611179855",
+   "monto": 253260.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FALEN CERECEDA LUIS ALBERTO",
+   "ruc": "10093901491",
+   "monto": 252000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Consultoría de Obra": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CYPHER LEARNING, INC",
+   "ruc": "L0609015372",
+   "monto": 244858.24,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UGAZ PEÑA JOSE CARLOS",
+   "ruc": "10424120460",
+   "monto": 240000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HUAMANI COAQUIRA JOSE ANTONIO",
+   "ruc": "10108300464",
+   "monto": 240000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ORTIZ SALAZAR ANDRES",
+   "ruc": "10064453560",
+   "monto": 240000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SALINAS FLORES ENER ORLANDO",
+   "ruc": "10064232121",
+   "monto": 240000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ZETHYR E.I.R.L.",
+   "ruc": "20606073357",
+   "monto": 240000.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PARIONA MENDOZA NICOLAZA",
+   "ruc": "10400831004",
+   "monto": 240000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ROHDE & SCHWARZ COLOMBIA S.A.S. SUCURSAL PERU",
+   "ruc": "20600229762",
+   "monto": 239477.09,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INDUSTRIAS OCKAP S.A.C. - OCKAP S.A.C.",
+   "ruc": "20604828415",
+   "monto": 238796.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VELASERVGAS S.A.C.",
+   "ruc": "20602639577",
+   "monto": 237920.0,
+   "n": 2,
+   "tipos": {
+    "Subasta Inversa Electrónica": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "THERMO ELECTRON (KARLSRUHE) GMBH",
+   "ruc": "L0609017740",
+   "monto": 237272.62,
+   "n": 3,
+   "tipos": {
+    "Contratación Internacional": 2,
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HIDROMEC INGENIEROS SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20514001783",
+   "monto": 235540.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOLUCIONES TECNOLOGICAS M & M S.A.C.",
+   "ruc": "20600711424",
+   "monto": 235000.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOLOGORRE CASAS EDWIN ROLANDO",
+   "ruc": "10444597599",
+   "monto": 234980.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ACEROS COMERCIALES S C R L",
+   "ruc": "20100241022",
+   "monto": 228900.0,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HOLIDAY S.R.L.",
+   "ruc": "20290793824",
+   "monto": 227020.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SINARAL S.A.C.",
+   "ruc": "20603130163",
+   "monto": 227000.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MERCK PERUANA S A",
+   "ruc": "20100099447",
+   "monto": 226050.41,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ROBOTLAB INC",
+   "ruc": "L0609016311",
+   "monto": 222880.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSORCIO CORPORACION AUTOMOTRIZ",
+   "ruc": "1490609",
+   "monto": 222024.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Consorcio",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MAMA MOUNTAIN PERU S.A.C.",
+   "ruc": "20606061251",
+   "monto": 218666.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSORCIO NAZCA",
+   "ruc": "1513134",
+   "monto": 215000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Consorcio",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RICRA VALENCIA MELISSA ESTEFANIA",
+   "ruc": "10478103374",
+   "monto": 213000.0,
+   "n": 3,
+   "tipos": {
+    "Adjudicación Simplificada": 2,
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 3
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INVERSIONES EL PIBE S.A.C.",
+   "ruc": "20520961543",
+   "monto": 210924.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOCIEDAD INDUCONTROL INGENIERIA S.A.C.",
+   "ruc": "20501523756",
+   "monto": 209000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HEFEI SINOPOWER TECHNOLOGIES CO., LTD",
+   "ruc": "L0609015621",
+   "monto": 208573.65,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Bien": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CORPORACION ARKONST SAC",
+   "ruc": "20603769423",
+   "monto": 208270.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "XIAMEN TOB NEW ENERGY TECHNOLOGY Co.,LTD",
+   "ruc": "L0609017086",
+   "monto": 207947.5,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PAREJA HUAMAN YOLANDA NOEMI",
+   "ruc": "10282916563",
+   "monto": 206567.5,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "EBSCO M¿XICO, INC. S.A. DE C.V.",
+   "ruc": "L0609017296",
+   "monto": 205884.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DA SILVA JOSÉ LUIZ",
+   "ruc": "15610283311",
+   "monto": 205263.12,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DRAEGER  PERU   S.A.C.",
+   "ruc": "20538597121",
+   "monto": 200248.69,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DAVALOS PRADO JUAN ZENON",
+   "ruc": "10067128546",
+   "monto": 200000.0,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSORCIO TEATRO UNI",
+   "ruc": "1470938",
+   "monto": 199000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Consorcio",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GEOTEKNIK S.A.C.",
+   "ruc": "20603904355",
+   "monto": 190000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FRANJIME LATINOAMERICA SOCIEDAD ANONIMA CERRADA - FRANJIMELATIN S.A.C.",
+   "ruc": "20513932287",
+   "monto": 189400.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ALLIN TELD S.A.C. - ALLTELD S.A.C.",
+   "ruc": "20605222561",
+   "monto": 188858.64,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CQS INGENIEROS S.A.C",
+   "ruc": "20546461433",
+   "monto": 181463.1,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ROJAS SANCHEZ JUAN CARLOS",
+   "ruc": "10106591186",
+   "monto": 180000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ARELLANO INVESTIGACION DE MARKETING S.A.",
+   "ruc": "20306302621",
+   "monto": 177000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CHACON VENTURA JACINTO SEGUNDO",
+   "ruc": "10410903569",
+   "monto": 173000.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ENERGYTECH INGENIEROS S.A.C.",
+   "ruc": "20604074101",
+   "monto": 168000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MEYBELYN PERU S.A.C.",
+   "ruc": "20550694256",
+   "monto": 167900.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SERVCOM SG E.I.R.L.",
+   "ruc": "20514148962",
+   "monto": 167000.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ICSPI CORP",
+   "ruc": "L0609016395",
+   "monto": 159334.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSIDAD DE JAEN",
+   "ruc": "L0609017910",
+   "monto": 157500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MASKHAY PERU S.A.C.",
+   "ruc": "20600360389",
+   "monto": 156882.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Contratación Directa": 1
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CHAPARRO CAJIGAS RUBNER MIJAEL",
+   "ruc": "10444130470",
+   "monto": 155990.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JADVEYA SERVICIOS GENERALES S.A.C",
+   "ruc": "20520823078",
+   "monto": 155110.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DISTRIBUIDORA ERICK S.R.L",
+   "ruc": "20486029324",
+   "monto": 154358.0,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LA ROSA BARDALES ADRIANO SEBASTIAN",
+   "ruc": "10706937931",
+   "monto": 154300.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MAPFRE PERU VIDA COMPAÑIA DE SEGUROS Y REASEGUROS",
+   "ruc": "20418896915",
+   "monto": 153948.54,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 1,
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "KINSA BUILDING S.A.C.",
+   "ruc": "20609697483",
+   "monto": 152242.94,
+   "n": 1,
+   "tipos": {
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LOGISTEK E.I.R.L",
+   "ruc": "20515344170",
+   "monto": 151701.94,
+   "n": 2,
+   "tipos": {
+    "Comparación de Precios": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "A & A ASCENSORES S.A.C.",
+   "ruc": "20553453098",
+   "monto": 150000.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "OPERADOR LOGISTICA GLARS SOCIEDAD ANONIMA CERRADA - OPERADOR LOGISTICA GLARS S.A.C.",
+   "ruc": "20492988201",
+   "monto": 149906.0,
+   "n": 2,
+   "tipos": {
+    "Comparación de Precios": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SAN FERNANDO S.A.",
+   "ruc": "20100154308",
+   "monto": 147601.95,
+   "n": 2,
+   "tipos": {
+    "Subasta Inversa Electrónica": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CENTRO INTERUNIVERSITARIO DE DESARROLLO-CINDA",
+   "ruc": "L0609017490",
+   "monto": 145548.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONVEXUS COMUNICACIONES REDES Y SISTEMAS S.A.C.",
+   "ruc": "20502719948",
+   "monto": 139022.36,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INVERSIONES VALESKHA E.I.R.L.",
+   "ruc": "20607300641",
+   "monto": 137560.0,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HUANCOR PERU SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20492730701",
+   "monto": 135694.3,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CYPHER LEARNING, INC.",
+   "ruc": "L0609016351",
+   "monto": 133644.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FABRICACIONES DIGITALES DEL PERU S.A",
+   "ruc": "20556316890",
+   "monto": 131750.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GEOMASTER PERU S.A.C.",
+   "ruc": "20601373581",
+   "monto": 130000.0,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HLATAM INTERNATIONAL LLC",
+   "ruc": "L0609017189",
+   "monto": 127825.25,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PERU LATINO COURIER S.A.",
+   "ruc": "20110072873",
+   "monto": 122527.2,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ALVAREZ ASCARZA ENRIQUE",
+   "ruc": "10081215940",
+   "monto": 121000.0,
+   "n": 2,
+   "tipos": {
+    "Adjudicación Simplificada": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOTO QUILCA PEDRO",
+   "ruc": "10461355477",
+   "monto": 119000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "NVF BUSINESS GROUP S.A.C.",
+   "ruc": "20601439353",
+   "monto": 117199.0,
+   "n": 2,
+   "tipos": {
+    "Subasta Inversa Electrónica": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GRUPO CARDENAS CORPORATION EIRL",
+   "ruc": "20551260381",
+   "monto": 114370.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "AM3 INGENIERIA & NEGOCIOS SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20513903261",
+   "monto": 113755.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MARVAR COMERCIAL SAS",
+   "ruc": "L0609015535",
+   "monto": 111987.08,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GYQ INDUSTRIAS TECNOLOGICAS E.I.R.L.",
+   "ruc": "20606073195",
+   "monto": 107000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "KORVUS TECHNOLOGY",
+   "ruc": "L0609016423",
+   "monto": 106962.6,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "G & D GROUP E.I.R.L.",
+   "ruc": "20604160341",
+   "monto": 106622.2,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "IGNACIO SIRES SADORNIL",
+   "ruc": "L0609017450",
+   "monto": 106217.84,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PASTRANA ALTA ELIZABETH CARMEN",
+   "ruc": "10440303566",
+   "monto": 104500.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TAREA ASOCIACION GRAFICA EDUCATIVA",
+   "ruc": "20125831410",
+   "monto": 103950.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RAUL BERENGUER BETRIAN",
+   "ruc": "L0609017407",
+   "monto": 102339.2,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ANTONIO SEPULVEDA ESCRIBANO",
+   "ruc": "L0609017416",
+   "monto": 102339.2,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SISTEMA AUTOMOTRIZ SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20140434206",
+   "monto": 102070.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MORALES PAREDES HELMO KELIS",
+   "ruc": "10804009774",
+   "monto": 100000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RASMUS PALM",
+   "ruc": "L0609016218",
+   "monto": 99999.98,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FUNDACION DEL LIBRO UNIVERSITARIO-LIBUN",
+   "ruc": "20112949101",
+   "monto": 98409.3,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PRODUCCI¿N DE EQUIPOS T¿CNICOS E INDUSTRIALES SA",
+   "ruc": "L0609016380",
+   "monto": 97844.49,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TERCER ESCALON S.A. DE C.V.",
+   "ruc": "L0609016378",
+   "monto": 96543.5,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VIVAS ARAUJO MAGALLY MARITZA",
+   "ruc": "10090397643",
+   "monto": 95773.36,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DICONPROJECT S.A.C.",
+   "ruc": "20606460687",
+   "monto": 94998.1,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSIDAD DE OULU",
+   "ruc": "L0611180252",
+   "monto": 94500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CLARIVATE ANALYTICS (UK) LTD",
+   "ruc": "L0609015459",
+   "monto": 94325.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SHENZHEN JINSHI 3D PRINTING TECHNOLOGY CO., LTD",
+   "ruc": "L0609015988",
+   "monto": 93224.88,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PROQUEST CHILE SPA",
+   "ruc": "L0609015461",
+   "monto": 91822.57,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 1,
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1,
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "COMPAÑIA ELECTRO ANDINA S.A.C.",
+   "ruc": "20101351921",
+   "monto": 91231.22,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MANUFACTURA Y TECNOLOGIA DE EXPORTACION S.R.L",
+   "ruc": "20510477961",
+   "monto": 90000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CENTEX INSTRUMENTACION Y EQUIPOS S.A.C.",
+   "ruc": "20508691301",
+   "monto": 87084.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LOGISTICA E INGENIERIA V&M S.A.C.",
+   "ruc": "20604475059",
+   "monto": 87000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "XIAMEN TMAX BATTERY EQUIPMENTS LIMITED",
+   "ruc": "L0609015674",
+   "monto": 86996.0,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Bien": 9
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "EQUIPOS ELECTROINDUSTRIALES SA",
+   "ruc": "20101324100",
+   "monto": 86730.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PADILLA GOMEZ EDELINA EVELYN",
+   "ruc": "10443110670",
+   "monto": 85230.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DIAGNOSTIC LAB E & M S.A.C.",
+   "ruc": "20604843554",
+   "monto": 85000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PRODUCCION DE EQUIPOS TECNICOS E INDUSTRIALES S.A",
+   "ruc": "L1042548784",
+   "monto": 84565.04,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CELIS BASANTES KARLA MILAGROS",
+   "ruc": "10107619572",
+   "monto": 84000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RENTERIA RENGIFO IRMA ROSA",
+   "ruc": "10445536933",
+   "monto": 83800.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CARBAJAL MEDIANERO JULIO ERWUIN",
+   "ruc": "10420944344",
+   "monto": 83400.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SIFUENTES MARTINEZ JUAN CARLOS",
+   "ruc": "10103298224",
+   "monto": 83340.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GONZALES ALVAREZ AURELIO DIEGO RAFAEL",
+   "ruc": "10079084595",
+   "monto": 83200.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "IMPEDANS LTD",
+   "ruc": "L0609016227",
+   "monto": 82992.66,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MEZA LOPEZ FLOR DE LISS",
+   "ruc": "10458946596",
+   "monto": 82500.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "EL ULTIMO REFUGIO DE ANGELITO E.I.R.L.",
+   "ruc": "20602007546",
+   "monto": 82320.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "NOVA ANALYTICAL SYSTEMS",
+   "ruc": "L0609016214",
+   "monto": 80761.2,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CARDENAS RIOJAS ANDY ALFREDO",
+   "ruc": "10448760842",
+   "monto": 80300.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "KHAN SABIR",
+   "ruc": "15605876851",
+   "monto": 79999.2,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CONSTRUCTORA RUNEI CONTRATISTAS GENERALES E.I.R.L.",
+   "ruc": "20609809010",
+   "monto": 79950.0,
+   "n": 1,
+   "tipos": {
+    "Concurso Público Abreviado": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CESAR ALFREDO BARBERO",
+   "ruc": "L0609017594",
+   "monto": 79922.04,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PRUCCION DE EQUIPOS TECNICOS E INDUSTRIALES S.A.",
+   "ruc": "L0609016098",
+   "monto": 79900.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TUYA SANCHEZ DARIO RUBEN",
+   "ruc": "10316771209",
+   "monto": 79200.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VILLAVERDE GONZALES JAIME ANTONIO",
+   "ruc": "10412478644",
+   "monto": 78000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GRUPO MORADO S.A.C",
+   "ruc": "20608925482",
+   "monto": 78000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DISTRIBUIDORA ACERO & CEMENTO SOCIEDAD ANÓNIMA CERRADA",
+   "ruc": "20603058152",
+   "monto": 76647.28,
+   "n": 1,
+   "tipos": {
+    "Subasta Inversa Electrónica": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOFTWARE SHOP PERU S.A.C.",
+   "ruc": "20515241877",
+   "monto": 76198.5,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SERVICIOS INTEGRALES A & G SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20606914912",
+   "monto": 75951.0,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BIENES Y SERVICIOS C & E S.A.C.",
+   "ruc": "20609056780",
+   "monto": 73579.0,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MARCELO AUGUSTO DE ALBUQUERQUE AIRES DA COSTA",
+   "ruc": "L0000000445",
+   "monto": 72270.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GOMEZ REINOSO JEAN DANTE",
+   "ruc": "10107226686",
+   "monto": 72000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ZEGARRA ALMANACIN MIGUEL ANGEL",
+   "ruc": "10453504153",
+   "monto": 71500.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TELLO CANCHAPOMA YURY OSCAR",
+   "ruc": "10103978985",
+   "monto": 71014.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ROO SUPERLANO ELBA DEL CARMEN",
+   "ruc": "10452788832",
+   "monto": 70000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CHUMBIMUNI TORRES KARIN YANET",
+   "ruc": "10100408321",
+   "monto": 70000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INNOVA SPORT INTERNATIONAL S.A.C.",
+   "ruc": "20601674956",
+   "monto": 69930.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BOTICENTRO PERU SRLTDA.",
+   "ruc": "20389229122",
+   "monto": 69786.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LA CASA DE LA TELEFONIA ELECTRONICA S.A.",
+   "ruc": "20101383882",
+   "monto": 69073.9,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LOOP MULTIMEDIA S.A.C.",
+   "ruc": "20605045333",
+   "monto": 68986.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SHAANXI SUNRISEETECH CO., LTD",
+   "ruc": "L0609015687",
+   "monto": 68730.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LORENA VIDAL MARTINEZ",
+   "ruc": "L0611179800",
+   "monto": 67251.44,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TREJO JAIME FRANZ KEVIN",
+   "ruc": "10729023154",
+   "monto": 66000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HUAYANCA CHAVARRIA NICOLLE LUCERO",
+   "ruc": "10750145375",
+   "monto": 66000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ACOSTA YNOÑAN MARIA CRISTINA",
+   "ruc": "10757032142",
+   "monto": 65427.8,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOLUCIONES EN FERRETERIA Y MANTENIMIENTO EMPRESA INDIVIDUAL DE RESPONSABILIDAD LIMITADA",
+   "ruc": "20613880195",
+   "monto": 64487.0,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CORPORACION TECNO MARKET S.A.",
+   "ruc": "20457675748",
+   "monto": 64197.6,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PORTLAND STATE UNIVERSITY",
+   "ruc": "L0611180280",
+   "monto": 63000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSIT¿ PARIS-EST CR¿TEIL (UPEC)",
+   "ruc": "L0611180285",
+   "monto": 63000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INSTITUTO CATALAN DE NANOCIENCIA Y NANOTECNOLOGIA-ICN2",
+   "ruc": "L0611179742",
+   "monto": 63000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TESTRUCTURA RODRIGUEZ E.I.R.L.",
+   "ruc": "20609001055",
+   "monto": 62892.58,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "WONATECH CO., LTD.",
+   "ruc": "L0609016231",
+   "monto": 62786.83,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RODRIGAL S.A.C.",
+   "ruc": "20601823056",
+   "monto": 62413.9,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CUY TECHNOLOGIES E.I.R.L.",
+   "ruc": "20608457101",
+   "monto": 62082.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INSTITUTO JEAN LAMOUR, UNIVERSITE DE LORRAINE, CNRS",
+   "ruc": "L0611179890",
+   "monto": 61500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CIXCOMPERU SOLUCIONES TECNOLOGICAS E.I.R.L.",
+   "ruc": "20601830788",
+   "monto": 61200.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CENGAGE LEARNING EDITORES,SA DE CV",
+   "ruc": "L0609015558",
+   "monto": 61122.6,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HUAITA SEDANO KARIN ZENOBIA",
+   "ruc": "10462087492",
+   "monto": 60648.0,
+   "n": 1,
+   "tipos": {
+    "Comparación de Precios": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GEO SYSTEMS S.A.C.",
+   "ruc": "20158165113",
+   "monto": 60500.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública Abreviada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "TAFUR LLAJA JHONATAN ALFONSO",
+   "ruc": "10441683133",
+   "monto": 60000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VIVAS CONTRERAS WALTER VICENTE",
+   "ruc": "10071489626",
+   "monto": 60000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PARAGUAY DELGADO FRANCISCO",
+   "ruc": "10084437072",
+   "monto": 60000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "OMTEC S.A.C.",
+   "ruc": "20514968251",
+   "monto": 58850.0,
+   "n": 1,
+   "tipos": {
+    "Licitación Pública": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LANDA GALIANO JORGE ROBERTO",
+   "ruc": "10157277729",
+   "monto": 56000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DISTRIBUIDORA YOHANA SOCIEDAD ANONIMA CERRADA - DISTRIBUIDORA YOHANA S.A.C.",
+   "ruc": "20600751141",
+   "monto": 55994.4,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "COMPAÑIA PERUANA ALTA PRECISION SOCIEDAD ANONIMA CERRADA - ALTA PRECISION S.A.C.",
+   "ruc": "20601523923",
+   "monto": 55106.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LINO MOTTA RICARDO EMILIO",
+   "ruc": "10766426722",
+   "monto": 55000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ALEJANDRO DOMINGUEZ YUDITH FLOR",
+   "ruc": "10449920606",
+   "monto": 55000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FREISA PERU EMPRESA CONSTRUCTORA E.I.R.L.",
+   "ruc": "20602244777",
+   "monto": 54755.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DATA BUSINESS SOCIEDAD ANONIMA CERRADA",
+   "ruc": "20117332714",
+   "monto": 54001.52,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HITECH INDUSTRY, INC",
+   "ruc": "L0609015560",
+   "monto": 54000.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "IT PERU SOLUCIONES INTEGRALES S.A.C",
+   "ruc": "20546358420",
+   "monto": 54000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FERNANDO ROGERIO PAVAN",
+   "ruc": "L0611179789",
+   "monto": 52631.56,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JUAN CARLOS CALDERON GOMEZ",
+   "ruc": "L0611179798",
+   "monto": 52631.56,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSIDAD DE ALICANTE",
+   "ruc": "L1042548779",
+   "monto": 52116.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ASCENSORES SCHINDLER DEL PERU S A",
+   "ruc": "20100139848",
+   "monto": 52080.92,
+   "n": 1,
+   "tipos": {
+    "Contratación Directa": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LOZANO LEON NORA RUFINA",
+   "ruc": "10079511612",
+   "monto": 50000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JURGEN ANDREAUS",
+   "ruc": "L0609017583",
+   "monto": 49707.64,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MEZA CALIXTO MIRIAM YESMILA",
+   "ruc": "10434876406",
+   "monto": 49000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CARDENAS CORTEZ CLAUDIO",
+   "ruc": "10096279332",
+   "monto": 49000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DO ELECTRIC ENGINEERING S.A.C.",
+   "ruc": "20610732471",
+   "monto": 48500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RONDINEL QUISPE NERIO",
+   "ruc": "10422820219",
+   "monto": 48000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MENDIVEL LANDEO INGRID",
+   "ruc": "10256837124",
+   "monto": 48000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CABREJOS RAMOS RUDDY ALFREDO",
+   "ruc": "10723808605",
+   "monto": 48000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ACUÑA SALDAÑA ALEJANDRINA MARIA",
+   "ruc": "10093300241",
+   "monto": 48000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOLIS GUTIERREZ FELIX FERNANDO",
+   "ruc": "10079838131",
+   "monto": 42000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GONZALES PUMA SAYDA ROSA",
+   "ruc": "10764311251",
+   "monto": 42000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PALMSENS BV",
+   "ruc": "L1042548787",
+   "monto": 41074.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GUILLERMO JAVIER COPELLO",
+   "ruc": "L0611179768",
+   "monto": 40935.64,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSITAT JAUME I",
+   "ruc": "L0609015423",
+   "monto": 40000.0,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PEREYRA SICHA ALDAIR RENATO",
+   "ruc": "10725012310",
+   "monto": 40000.0,
+   "n": 1,
+   "tipos": {
+    "Adjudicación Simplificada": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "NT-MDT AMERICA INC",
+   "ruc": "L0609016454",
+   "monto": 39956.7,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "IVIUM TECHNOLOGIES",
+   "ruc": "L0609016216",
+   "monto": 39552.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JLZ LOGISTICA S.A.C.",
+   "ruc": "20426843502",
+   "monto": 39530.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ADVANCED MEASUREMENT TECHNOLOGY, INC",
+   "ruc": "L1042548857",
+   "monto": 39427.2,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INVERSIONES PR S & S EMPRESA INDIVIDUAL DE RESPONSABILIDAD LIMITADA",
+   "ruc": "20571422787",
+   "monto": 38802.12,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MATHWORKS LTD",
+   "ruc": "L0609017387",
+   "monto": 38038.4,
+   "n": 2,
+   "tipos": {
+    "Convenio": 2
+   },
+   "objeto": {
+    "Bien": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VICENTE PLEITEZ",
+   "ruc": "L0609016114",
+   "monto": 38000.0,
+   "n": 3,
+   "tipos": {
+    "Contratación Internacional": 3
+   },
+   "objeto": {
+    "Servicio": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "LORENA VIDAL MART¿NEZ",
+   "ruc": "L0609017578",
+   "monto": 35087.76,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "COPELLO GUILLERMO JAVIER",
+   "ruc": "L0609017411",
+   "monto": 35087.76,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ERIKA DA SILVA DOS SANTOS",
+   "ruc": "L0611180210",
+   "monto": 34736.84,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "EDUCACION PARA EL FUTURO S.A.",
+   "ruc": "L0609015460",
+   "monto": 31720.0,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INSTITUTO DE ENERGIA Y AMBIENTE DE LA UNIVERSIDAD DE SAO PAULO (IEE-USP)",
+   "ruc": "L0611179886",
+   "monto": 31500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSIDAD NACIONAL GENERAL SAN MARTIN",
+   "ruc": "L0611179972",
+   "monto": 31500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VSB-TECHNICAL UNIVERSITY OF OSTRAVA",
+   "ruc": "L0611179951",
+   "monto": 31500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CENTRO DE INVESTIGACION EN MATERIALES AVANZADOS S.C.-CIMAV",
+   "ruc": "L0611180282",
+   "monto": 31500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "INSTITUTO DE INVESTIGACIONES EN ENERGIA NO CONVENCIONAL-INENCO",
+   "ruc": "L0611179739",
+   "monto": 31500.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JAIME ENRIQUE LINCOVIL CURIVIL",
+   "ruc": "L0609016702",
+   "monto": 29951.0,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PERU DATA CONSULT E.I.R.L.",
+   "ruc": "20486468913",
+   "monto": 28100.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GREEN MOTOR TECH (HK) LTD",
+   "ruc": "L0609016075",
+   "monto": 27324.5,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "QS QUACQUARELLI SYMONDS",
+   "ruc": "L0609017690",
+   "monto": 26471.13,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BRENO PANNIA ESPOSITO",
+   "ruc": "L0611179881",
+   "monto": 26315.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ANGEL BERENGUER MURCIA",
+   "ruc": "L0611180226",
+   "monto": 26315.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JOSEFINA BALLARRE",
+   "ruc": "L0611180240",
+   "monto": 26315.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MARIANO MARTIN BRUNO",
+   "ruc": "L0611180257",
+   "monto": 26315.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FEDERICO JAVIER WOLMAN",
+   "ruc": "L0611180243",
+   "monto": 26315.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BENJAMIN VALDEZ SALAS",
+   "ruc": "L0611180223",
+   "monto": 26315.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PATRICIO JAVIER ESPINOZA MONTERO",
+   "ruc": "L1042548872",
+   "monto": 26315.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SERGIO PAULO CAMPANA FILHO",
+   "ruc": "L0611180228",
+   "monto": 26315.79,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SMILEY OWL TECH S.L.",
+   "ruc": "L0609015348",
+   "monto": 26134.0,
+   "n": 2,
+   "tipos": {
+    "Contratación Internacional": 2
+   },
+   "objeto": {
+    "Servicio": 2
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ROYAL INSTITUTE OF BRITISH ARCHITECTS",
+   "ruc": "L0609016999",
+   "monto": 24000.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "RICARDO ANTONIO TORRES PALMA",
+   "ruc": "L0611180255",
+   "monto": 23333.32,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JUAN CARLOS CONTRERAS VARAS",
+   "ruc": "L0609017748",
+   "monto": 22680.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DEEPAK DEVEGOWDA",
+   "ruc": "L0609017752",
+   "monto": 19280.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "FELIX JAVIER HERNANDEZ HERNANDEZ",
+   "ruc": "L0609017133",
+   "monto": 18500.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SOLARGIS AMERICAS INC",
+   "ruc": "L0609017385",
+   "monto": 17498.1,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GOLDEN SOFTWARE, LLC",
+   "ruc": "L0609017542",
+   "monto": 16829.28,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "WUHAN CORRTEST INSTRUMENTS CORP. LTD",
+   "ruc": "L0609017149",
+   "monto": 16560.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "COMSOL INC.",
+   "ruc": "L0609017389",
+   "monto": 15839.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JOSE GARCIA SOLE",
+   "ruc": "L0609016055",
+   "monto": 15804.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JOSE ARNULFO CONDOR TARCO",
+   "ruc": "L0609017750",
+   "monto": 14952.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CELDA E.I.R.L.",
+   "ruc": "20492316874",
+   "monto": 13536.0,
+   "n": 3,
+   "tipos": {
+    "Convenio": 3
+   },
+   "objeto": {
+    "Servicio": 3
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SICHUAN PROVINCE TANGLIN ELECTRONIC TECHNOLOGY CO., LTD",
+   "ruc": "L0609016204",
+   "monto": 12283.82,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VASP SOFTWARE GMBH",
+   "ruc": "L0611180153",
+   "monto": 12000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "AMES CALDAS CINTHIA VANESSA",
+   "ruc": "10473312391",
+   "monto": 12000.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MAGIC TECHNOLOGIES E.I.R.L.",
+   "ruc": "20390900407",
+   "monto": 11749.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "KANG MIN JUN",
+   "ruc": "L0609017066",
+   "monto": 11523.53,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "BOLTEK CORP",
+   "ruc": "L0609015847",
+   "monto": 10996.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "EZEQUIEL RODRIGO JAVIER DEL ROSSO",
+   "ruc": "L0609016481",
+   "monto": 10800.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JOSE DEL TRONCO PAGANELLI",
+   "ruc": "L0611180062",
+   "monto": 10709.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JCPDS-INTERNATIONAL CENTRE FOR DIFFRACTION DATA",
+   "ruc": "L0611179819",
+   "monto": 10450.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MULTION CONSULTING S.A. DE C.V.",
+   "ruc": "L1042548877",
+   "monto": 10150.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "PVSYST SA",
+   "ruc": "L0611180151",
+   "monto": 9756.43,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MOLINA CASTILLO JESSICA ROXANA",
+   "ruc": "10434943979",
+   "monto": 9600.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ROMAN MENDOZA LUZ ESMERALDA",
+   "ruc": "10442639049",
+   "monto": 9600.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "natural",
+   "tipo_proveedor_seace": "Persona Natural",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JOS¿ DEL TRONCO PAGANELLI",
+   "ruc": "L0609016701",
+   "monto": 9452.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "DOALL S.A.C.",
+   "ruc": "20600781350",
+   "monto": 8888.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona Juridica",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "SIGMETRIC INC",
+   "ruc": "L0609016930",
+   "monto": 8094.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSIDAD DE LISBOA",
+   "ruc": "L1042548907",
+   "monto": 7351.2,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "HANGZHOU HOPOO LIGHT&COLOR TECHNOLOGY CO., LTD",
+   "ruc": "L0609015990",
+   "monto": 6400.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "MEINHARDT ULTRASONICS",
+   "ruc": "L0609015610",
+   "monto": 6142.5,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "CRYSTAL IMPACT GBR",
+   "ruc": "L0611180148",
+   "monto": 5192.0,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "ZHENGZHOU KEDA MACHENERY AND INSTRUMENT EQUIPMENT CO, LTD",
+   "ruc": "L0609016108",
+   "monto": 5080.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GUANGZHOU IDEALPLUSING INFORMATION TECHNOLOGY CO., LTD",
+   "ruc": "L0609016157",
+   "monto": 4528.56,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "VALENTIN SOFTWARE GMBH",
+   "ruc": "L0611180176",
+   "monto": 4292.8,
+   "n": 1,
+   "tipos": {
+    "Convenio": 1
+   },
+   "objeto": {
+    "Bien": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "UNIVERSIDAD DE ANTIOQUIA",
+   "ruc": "L0609015542",
+   "monto": 4000.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JGP TECNOLOGIAS LTDA",
+   "ruc": "L0609016073",
+   "monto": 3800.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "GRIGORI CHAPIRO",
+   "ruc": "L0609016142",
+   "monto": 2500.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  },
+  {
+   "nombre": "JORGE ANDRICK PARRA VALENCIA",
+   "ruc": "L0609017946",
+   "monto": 1800.0,
+   "n": 1,
+   "tipos": {
+    "Contratación Internacional": 1
+   },
+   "objeto": {
+    "Servicio": 1
+   },
+   "tipo_persona": "empresa",
+   "tipo_proveedor_seace": "Persona No Domiciliada",
+   "dueno": null,
+   "fuente_dueno": null
+  }
+ ]
+}
