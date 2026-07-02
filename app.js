@@ -129,6 +129,13 @@ function renderGasto() {
   const gen = d.por_generica?.length ? d.por_generica : d.por_categoria;
   if (gen?.length) donut(cGen, gen);
   if (d.por_unidad?.length) donut(cUni, d.por_unidad);
+  if (d.por_facultad?.length) {
+    const f = d.por_facultad;
+    new Chart(cFac, { type: 'bar', data: { labels: f.map(x => x.nombre), datasets: [{ label: 'PIM S/ M', data: f.map(x => x.pim / 1e6), backgroundColor: f.map(x => /postgrado/i.test(x.nombre) ? ORO : GRANATE) }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + c.raw.toFixed(2) + ' M' } } } }) });
+    const totF = f.reduce((s, x) => s + x.pim, 0);
+    const fn = document.getElementById('facNote');
+    if (fn) fn.innerHTML = `${f.length} facultades/escuelas con presupuesto etiquetado por meta (total <strong>${fmtM(totF)}</strong> del ejercicio ${d.anio}). Ojo: es el presupuesto <em>explícitamente asignado a cada facultad</em>; el grueso (docencia, planilla central, pensiones, servicios) se ejecuta en metas centrales del pliego, no repartido por facultad en el SIAF.`;
+  }
   const tb = document.querySelector('#tFun tbody');
   if (tb && d.por_funcion?.length) {
     tb.innerHTML = d.por_funcion.map(x => `<tr><td>${(x.nombre || '—').replace(/^\d+[:.\-]?\s*/, '')}</td><td class="n">${fmtN(Math.round(x.pim))}</td><td class="n">${fmtN(Math.round(x.dev))}</td><td class="n">${x.pim ? Math.round(100 * x.dev / x.pim) + '%' : '—'}</td></tr>`).join('');
