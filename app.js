@@ -453,23 +453,48 @@ function renderPlan() {
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px">
       <input id="planSearch" placeholder="🔎 Buscar por nombre, cargo o dependencia…" style="flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--tinta);font-size:14px">
       <select id="planReg" style="padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--tinta);font-size:14px"><option value="">Todos los regímenes</option>${regOpts}</select>
+      <select id="planMes" title="Mes publicado en el PTE" style="padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--tinta);font-size:14px">${(M.meses_con_datos || [M.mes]).filter(Boolean).map(m => `<option value="${esc(m)}"${m === M.mes ? ' selected' : ''}>${esc(MESES_ES[m] || m)} ${esc(M.anio || '')}</option>`).join('')}</select>
     </div>
-    <div class="scroll"><table><thead><tr><th>Nombre</th><th>Cargo</th><th>Dependencia</th><th>Régimen</th><th class="n">Remun. (S/)</th><th class="n">Aguinaldo/otros</th><th class="n">Total (S/)</th></tr></thead><tbody id="planBody"></tbody></table></div>
+    <div class="scroll"><table id="planTable"><thead><tr>${[['nombre', 'Nombre'], ['cargo', 'Cargo'], ['dependencia', 'Dependencia'], ['regimen', 'Régimen'], ['remun', 'Remun. (S/)', 1], ['extra', 'Aguinaldo/otros', 1], ['total', 'Total (S/)', 1]].map(c => `<th${c[2] ? ' class="n"' : ''} data-k="${c[0]}" style="cursor:pointer;user-select:none" title="Ordenar por ${c[1]}">${c[1]} <span class="sortArrow" data-for="${c[0]}"></span></th>`).join('')}</tr></thead><tbody id="planBody"></tbody></table></div>
     <p class="note" id="planCount"></p>
     <p class="note"><strong>Fuente:</strong> <a href="${esc(safeUrl(M.url_fuente || 'https://www.transparencia.gob.pe/'))}" target="_blank" rel="noopener">Portal de Transparencia Estándar (PTE) · rubro Personal · UNI</a>${periodo ? ', mes <strong>' + periodo + '</strong>' : ''}${mesesTxt ? ' (meses 2026 con datos publicados: ' + mesesTxt + ')' : ''}. El <em>total</em> mensual suma remuneración + aguinaldo/gratificación + otros ingresos${(M.mes === 7 || M.mes === 12) ? '; <strong>el mes mostrado incluye aguinaldo</strong>, por eso es mayor que un mes normal' : '; en la serie <strong>julio y diciembre suben</strong> por el aguinaldo'}, y algunos docentes muestran "otros" (proyectos, admisión, servicios). «Régimen 728/otros» es la etiqueta del PTE donde la UNI publica a sus docentes (Ley 30220); no es el DL 728 del agregado AIRHSP (68 plazas). Los dos promedios docentes de esta sección no son comparables: el del AIRHSP es <em>remuneración base por plaza</em>; el del PTE es <em>total de ingresos del mes</em>. El PTE puede no listar a todo el personal${M.total_planilla_airhsp ? ' (AIRHSP registra ' + fmtN(M.total_planilla_airhsp) + ' plazas)' : ''}. ${ce ? 'Cruce con la <a href="https://unimauro.github.io/observatorio-electoral-uni/" target="_blank" rel="noopener">elección de autoridades 2026</a>: ' + fmtN(ce.candidatos_en_planilla) + ' de ' + fmtN(ce.candidatos_total) + ' candidatos/as figuran en esta planilla (match exacto de nombre). ' : ''}Solo personal — nunca estudiantes.</p>
   </div>`;
-  const body = document.getElementById('planBody'), cnt = document.getElementById('planCount'), inp = document.getElementById('planSearch'), sel = document.getElementById('planReg');
+  const body = document.getElementById('planBody'), cnt = document.getElementById('planCount'), inp = document.getElementById('planSearch'), sel = document.getElementById('planReg'), selM = document.getElementById('planMes');
+  // estado: mes mostrado (otros meses se cargan bajo demanda desde data/planilla-meses/AAAA-MM.json) y orden por columna
+  const mesCache = {}; let personasMes = P.personas; let sortKey = 'total', sortDir = -1;
+  const extraDe = x => (x.aguinaldo || 0) + (x.otros || 0) + (x.incentivo || 0) + (x.honorarios || 0);
   const draw = () => {
     const q = inp.value.trim().toLowerCase(), rg = sel.value;
-    const rows = P.personas.filter(x => (!rg || x.regimen === rg) && (!q || (`${x.nombre || ''} ${x.cargo || ''} ${x.dependencia || ''}`).toLowerCase().includes(q)));
+    let rows = personasMes.filter(x => (!rg || x.regimen === rg) && (!q || (`${x.nombre || ''} ${x.cargo || ''} ${x.dependencia || ''}`).toLowerCase().includes(q)));
+    const num = k => k === 'remun' || k === 'extra' || k === 'total';
+    const val = x => sortKey === 'extra' ? extraDe(x) : (num(sortKey) ? (Number(x[sortKey]) || 0) : String(x[sortKey] || ''));
+    rows = [...rows].sort((a, b) => { const va = val(a), vb = val(b); return (num(sortKey) ? va - vb : va.localeCompare(vb, 'es')) * sortDir || (b.total - a.total); });
+    document.querySelectorAll('#planTable .sortArrow').forEach(sp => sp.textContent = sp.dataset.for === sortKey ? (sortDir < 0 ? '▼' : '▲') : '');
     body.innerHTML = rows.slice(0, 400).map(x => {
-      const extra = (x.aguinaldo || 0) + (x.otros || 0) + (x.incentivo || 0) + (x.honorarios || 0);
+      const extra = extraDe(x);
       return `<tr><td>${esc(x.nombre)}${planBadge(x.electoral)}</td><td>${esc(x.cargo) || '—'}</td><td>${esc(x.dependencia) || '—'}</td><td>${esc(planShort(x.regimen))}</td><td class="n">${x.remun ? fmtN(Math.round(x.remun)) : '—'}</td><td class="n"${x.descripcion ? ' title="' + esc(x.descripcion) + '"' : ''}>${extra ? fmtN(Math.round(extra)) : '—'}</td><td class="n"><strong>${fmtN(Math.round(x.total ?? x.remun ?? 0))}</strong></td></tr>`;
     }).join('');
-    cnt.textContent = (q || rg) ? `${fmtN(rows.length)} resultado(s)` + (rows.length > 400 ? ' (mostrando 400)' : '') : `Mostrando ${Math.min(400, rows.length)} de ${fmtN(rows.length)}, ordenados por total de ingresos del mes`;
+    const mesTxt = `${MESES_ES[Number(selM.value)] || selM.value} ${M.anio || ''}`.trim();
+    cnt.textContent = ((q || rg) ? `${fmtN(rows.length)} resultado(s)` + (rows.length > 400 ? ' (mostrando 400)' : '') : `Mostrando ${Math.min(400, rows.length)} de ${fmtN(rows.length)}`) + ` · ${mesTxt} · orden: ${sortKey === 'extra' ? 'aguinaldo/otros' : sortKey} ${sortDir < 0 ? 'desc' : 'asc'} (clic en la cabecera para cambiar)`;
   };
   inp.addEventListener('input', draw);
   sel.addEventListener('change', draw);
+  document.querySelectorAll('#planTable th[data-k]').forEach(th => th.addEventListener('click', () => {
+    const k = th.dataset.k;
+    if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = (k === 'remun' || k === 'extra' || k === 'total') ? -1 : 1; }
+    draw();
+  }));
+  selM.addEventListener('change', async () => {
+    const m = Number(selM.value);
+    if (m === M.mes) { personasMes = P.personas; draw(); return; }
+    if (!mesCache[m]) {
+      cnt.textContent = 'Cargando ' + (MESES_ES[m] || m) + '…';
+      const j = await load('planilla-meses/' + (M.anio || new Date().getFullYear()) + '-' + String(m).padStart(2, '0') + '.json');
+      mesCache[m] = Array.isArray(j?.personas) ? j.personas : [];
+      if (!mesCache[m].length) { cnt.textContent = 'No hay archivo publicado para ese mes.'; }
+    }
+    personasMes = mesCache[m]; draw();
+  });
   draw();
 }
 

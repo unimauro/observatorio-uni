@@ -474,6 +474,25 @@ def main() -> int:
         "top_ingresos": top_ing,
         "personas": personas,
     }
+    # --- un archivo compacto por mes (para el selector de mes del dashboard); el mes más reciente ya va en el JSON principal
+    mdir = Path(a.out).parent / "planilla-meses"
+    mdir.mkdir(parents=True, exist_ok=True)
+    for m in meses_con_datos:
+        rows_m = []
+        for r in regs:
+            for x in result.get((m, r), []):
+                q = {"nombre": x["nombre"], "cargo": x["cargo"], "dependencia": x["dependencia"],
+                     "regimen": REG_LABEL.get(x["regimen_pte"], x["regimen_pte"]),
+                     "remun": x["remun"], "honorarios": x["honorarios"], "incentivo": x["incentivo"],
+                     "aguinaldo": x["aguinaldo"], "otros": x["otros"], "total": x["total"]}
+                if x.get("descripcion"):
+                    q["descripcion"] = x["descripcion"]
+                rows_m.append(q)
+        rows_m.sort(key=lambda q: (-q["total"], q["nombre"], q["regimen"], q["cargo"]))
+        (mdir / f"{a.anio}-{m:02d}.json").write_text(
+            json.dumps({"anio": a.anio, "mes": m, "fuente": "PTE", "n": len(rows_m), "masa_total": round(sum(q["total"] for q in rows_m), 2), "personas": rows_m},
+                       ensure_ascii=False, separators=(",", ":"), allow_nan=False), encoding="utf-8")
+    out["_meta"]["meses_archivos"] = [f"planilla-meses/{a.anio}-{m:02d}.json" for m in meses_con_datos]
     Path(a.out).write_text(json.dumps(out, ensure_ascii=False, indent=1, allow_nan=False), encoding="utf-8")
 
     # --- reporte
