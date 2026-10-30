@@ -474,7 +474,7 @@ def main() -> int:
         "top_ingresos": top_ing,
         "personas": personas,
     }
-    Path(a.out).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    Path(a.out).write_text(json.dumps(out, ensure_ascii=False, indent=1, allow_nan=False), encoding="utf-8")
 
     # --- reporte
     log(f"\n== {MESES[mes_ult]} {a.anio}: {len(personas)} personas, masa S/ {masa_mes:,.2f}, discrepancias suma: {discrepancias}")
