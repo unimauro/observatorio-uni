@@ -1,0 +1,188 @@
+{
+ "_meta": {
+  "fuente": "Observatorio Electoral Universitario · UNI 2026 (proyecto ciudadano, a partir de actas y cómputo del CEUNI)",
+  "url_sitio": "https://unimauro.github.io/observatorio-electoral-uni/",
+  "url_repo": "https://github.com/unimauro/observatorio-electoral-uni",
+  "actualizado_fuente": "2026-10-16",
+  "computo_al": "2026-10-16T16:39:00-05:00",
+  "generado": "2026-10-30T18:00:17+00:00",
+  "estado": "preliminar",
+  "nota": "PRELIMINAR: cómputo difundido el 16-10-2026 y transcrito por el observatorio electoral; no es un resultado oficial hasta la proclamación del Comité Electoral Universitario (CEUNI). Cómputo general difundido el 16-10-2026: votos válidos de docentes (993) y estudiantes (10515, pregrado + posgrado), ponderados 2/3 docentes y 1/3 estudiantes (art. 50 del Reglamento, RCU 0650-2026). Verificamos que los porcentajes de la tabla coinciden con esa fórmula. Es preliminar hasta que el CEUNI lo publique en su portal.",
+  "fecha_eleccion_nota": "Según RPP (15-10-2026) y Caretas (12-10-2026). El cronograma oficial (Gaceta N.º 175-2026) no ha sido revisado por el observatorio.",
+  "independencia": "Proyecto ciudadano independiente. No es un portal oficial de la UNI ni del CEUNI, y no está vinculado a ninguna lista."
+ },
+ "primera_vuelta": {
+  "fecha": "2026-10-16",
+  "listas": [
+   {
+    "lista": "lista-8",
+    "numero": 8,
+    "rector": "Juan Martín Rodríguez Rodríguez",
+    "rector_facultad": "FC",
+    "votosDocentes": 246,
+    "votosEstudiantes": 2898,
+    "pct_ponderado": 25.7,
+    "nota": "Estudiantes: 121 posgrado + 2777 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/8"
+   },
+   {
+    "lista": "lista-1",
+    "numero": 1,
+    "rector": "Jorge Gustavo Butler Blacker",
+    "rector_facultad": "FIEE",
+    "votosDocentes": 218,
+    "votosEstudiantes": 1984,
+    "pct_ponderado": 20.93,
+    "nota": "Estudiantes: 62 posgrado + 1922 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/1"
+   },
+   {
+    "lista": "lista-2",
+    "numero": 2,
+    "rector": "Aurelio Marcelo Padilla Ríos",
+    "rector_facultad": "FIM",
+    "votosDocentes": 200,
+    "votosEstudiantes": 1185,
+    "pct_ponderado": 17.18,
+    "nota": "Estudiantes: 26 posgrado + 1159 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/2"
+   },
+   {
+    "lista": "lista-9",
+    "numero": 9,
+    "rector": "Raymundo Ildefonzo Arnao Rondán",
+    "rector_facultad": "FIEECS",
+    "votosDocentes": 117,
+    "votosEstudiantes": 958,
+    "pct_ponderado": 10.89,
+    "nota": "Estudiantes: 21 posgrado + 937 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/9"
+   },
+   {
+    "lista": "lista-7",
+    "numero": 7,
+    "rector": "Rodolfo Elías Falconí Vásquez",
+    "rector_facultad": "FIIS",
+    "votosDocentes": 55,
+    "votosEstudiantes": 687,
+    "pct_ponderado": 5.87,
+    "nota": "Estudiantes: 73 posgrado + 614 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/7"
+   },
+   {
+    "lista": "lista-5",
+    "numero": 5,
+    "rector": "Alejandro Apolinario Huamán Sánchez",
+    "rector_facultad": "FIIS",
+    "votosDocentes": 49,
+    "votosEstudiantes": 744,
+    "pct_ponderado": 5.65,
+    "nota": "Estudiantes: 12 posgrado + 732 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/5"
+   },
+   {
+    "lista": "lista-3",
+    "numero": 3,
+    "rector": "Luis Humberto Chirif Rivera",
+    "rector_facultad": "FIGMM",
+    "votosDocentes": 46,
+    "votosEstudiantes": 802,
+    "pct_ponderado": 5.63,
+    "nota": "Estudiantes: 30 posgrado + 772 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/3"
+   },
+   {
+    "lista": "lista-6",
+    "numero": 6,
+    "rector": "Fortunato Alva Dávila",
+    "rector_facultad": "FIM",
+    "votosDocentes": 41,
+    "votosEstudiantes": 700,
+    "pct_ponderado": 4.97,
+    "nota": "Estudiantes: 10 posgrado + 690 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/6"
+   },
+   {
+    "lista": "lista-4",
+    "numero": 4,
+    "rector": "Ulises Humala Tasso",
+    "rector_facultad": "FIEECS",
+    "votosDocentes": 21,
+    "votosEstudiantes": 557,
+    "pct_ponderado": 3.18,
+    "nota": "Estudiantes: 11 posgrado + 546 pregrado",
+    "perfil_url": "https://unimauro.github.io/observatorio-electoral-uni/#/listas/4"
+   }
+  ],
+  "actas": [
+   {
+    "estamento": "Estudiantes de pregrado",
+    "electoresHabiles": 13553,
+    "emitidos": 11905,
+    "blancos": 48,
+    "nulos": 1708
+   }
+  ],
+  "validos_docentes": 993,
+  "validos_estudiantes": 10515,
+  "ponderacion": "2/3 docentes · 1/3 estudiantes (art. 50 del Reglamento, RCU 0650-2026)"
+ },
+ "segunda_vuelta": {
+  "fecha": "2026-10-28",
+  "listas": [
+   {
+    "lista": "lista-8",
+    "numero": 8,
+    "rector": "Juan Martín Rodríguez Rodríguez",
+    "votosDocentes": 246,
+    "votosEstudiantes": 2898,
+    "pct_ponderado": 25.7
+   },
+   {
+    "lista": "lista-1",
+    "numero": 1,
+    "rector": "Jorge Gustavo Butler Blacker",
+    "votosDocentes": 218,
+    "votosEstudiantes": 1984,
+    "pct_ponderado": 20.93
+   }
+  ],
+  "estado": "realizada; resultados pendientes de publicación en esta fuente",
+  "resultado": null,
+  "nota": "Ninguna lista alcanzó el 50 % más uno de los votos válidos ponderados; pasan las dos de mayor votación ponderada (art. 50 del Reglamento). Pendiente de la resolución oficial del CEUNI.",
+  "url": "https://unimauro.github.io/observatorio-electoral-uni/#/segunda-vuelta"
+ },
+ "proclamacion": null,
+ "calendario_pendiente": [
+  {
+   "fecha": "2026-10-28",
+   "evento": "Jornada electoral 2.ª vuelta de autoridades (10:00 a 16:00 horas)"
+  },
+  {
+   "fecha": "2026-10-28",
+   "evento": "Publicación de resultados del escrutinio (2.ª vuelta)"
+  },
+  {
+   "fecha": "2026-10-29",
+   "evento": "Presentación de recursos de nulidad (10:00 a 16:00 horas) – 2.ª vuelta"
+  },
+  {
+   "fecha": "2026-11-02",
+   "evento": "Inicio de resolución de nulidades – 2.ª vuelta (hasta el 03-11-2026)"
+  },
+  {
+   "fecha": "2026-11-03",
+   "evento": "Fin de resolución de nulidades – 2.ª vuelta"
+  },
+  {
+   "fecha": "2026-11-04",
+   "evento": "Proclamación de ganadores (el cronograma consigna esta fecha tanto para la 1.ª como para la 2.ª vuelta)"
+  },
+  {
+   "fecha": "2026-11-05",
+   "evento": "Entrega de credenciales (el cronograma consigna esta fecha tanto para la 1.ª como para la 2.ª vuelta)"
+  }
+ ],
+ "n_listas": 9,
+ "n_candidaturas": 27
+}

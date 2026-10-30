@@ -1,1 +1,433 @@
-{"_meta":{"fuente":"Resultados oficiales de admisión UNI (puntajes.admision.uni.edu.pe)","total_postulantes":5713,"total_ingresantes":922,"nota":"Postulantes = todos los que rindieron el examen. Ingresantes = quienes obtuvieron vacante (con especialidad asignada). Solo datos agregados; sin nombres."},"ingresantes_por_especialidad":[{"nombre":"INGENIERÍA CIVIL","n":76},{"nombre":"INGENIERÍA QUÍMICA","n":60},{"nombre":"INGENIERÍA MECÁNICA-ELÉCTRICA","n":42},{"nombre":"INGENIERÍA MECATRÓNICA","n":42},{"nombre":"INGENIERÍA MECÁNICA","n":41},{"nombre":"INGENIERÍA INDUSTRIAL","n":40},{"nombre":"INGENIERÍA DE SISTEMAS","n":40},{"nombre":"ARQUITECTURA","n":38},{"nombre":"INGENIERÍA DE MINAS","n":38},{"nombre":"INGENIERÍA ESTADÍSTICA","n":36},{"nombre":"INGENIERÍA ECONÓMICA","n":34},{"nombre":"INGENIERÍA GEOLÓGICA","n":33},{"nombre":"INGENIERÍA ELÉCTRICA","n":29},{"nombre":"INGENIERÍA METALÚRGICA","n":29},{"nombre":"INGENIERÍA ELECTRÓNICA","n":28},{"nombre":"INGENIERÍA DE TELECOMUNICACIONES","n":27},{"nombre":"INGENIERÍA DE CIBERSEGURIDAD","n":26},{"nombre":"INGENIERÍA BIOMÉDICA","n":26},{"nombre":"INGENIERÍA AEROESPACIAL","n":24},{"nombre":"URBANISMO","n":21},{"nombre":"INGENIERÍA DE SOFTWARE","n":21},{"nombre":"INGENIERÍA NAVAL","n":21},{"nombre":"INGENIERÍA DE INTELIGENCIA ARTIFICIAL","n":19},{"nombre":"INGENIERÍA FÍSICA","n":16},{"nombre":"INGENIERÍA AMBIENTAL","n":16},{"nombre":"FÍSICA","n":15},{"nombre":"MATEMÁTICA","n":15},{"nombre":"CIENCIA DE LA COMPUTACIÓN","n":15},{"nombre":"INGENIERÍA SANITARIA","n":14},{"nombre":"INGENIERÍA TEXTIL","n":11},{"nombre":"INGENIERÍA DE PETRÓLEO Y GAS NATURAL","n":9},{"nombre":"INGENIERÍA PETROQUÍMICA","n":8},{"nombre":"QUÍMICA","n":7},{"nombre":"INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL","n":5}],"ingresantes_por_modalidad":[{"nombre":"ORDINARIO","n":791},{"nombre":"PRIMEROS PUESTOS","n":57},{"nombre":"TRASLADO EXTERNO","n":30},{"nombre":"PLAN INTEGRAL DE REPARACIONES","n":23},{"nombre":"TITULADOS O GRADUADOS EN OTRA UNIVERSIDAD","n":12},{"nombre":"PERSONAS CON DISCAPACIDAD","n":4},{"nombre":"DIPLOMADO CON BACHILLERATO INTERNACIONAL","n":3},{"nombre":"DEPORTISTA CALIFICADO DE ALTO NIVEL","n":1},{"nombre":"CONVENIO ANDRÉS BELLO","n":1}],"puntaje_postulantes":{"n":5682,"min":1.0,"max":1692.0,"prom":698.9},"puntaje_ingresantes":{"n":922,"min":236.0,"max":1692.0,"prom":1092.4}}
+{
+ "_meta": {
+  "fuente": "Resultados oficiales de admisión UNI (puntajes.admision.uni.edu.pe)",
+  "fuente_detalle": "Agregados vía uni-admision-stats (https://unimauro.github.io/uni-admision-stats/). Serie histórica: Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe), microdatos oficiales UNI, licencia ODC-BY · 2013-2020: PDFs oficiales de la Dirección de Admisión UNI (vía Wayback Machine), solo conteos",
+  "enlace": "https://unimauro.github.io/uni-admision-stats/",
+  "generado": "2026-10-30T18:00:17+00:00",
+  "fuente_actualizada": "2026-10-30T11:15:55.335419+00:00",
+  "proceso": "2026-1",
+  "total_postulantes": 5713,
+  "total_ingresantes": 922,
+  "nota": "Postulantes = todos los que rindieron el examen. Ingresantes = quienes obtuvieron vacante (con especialidad asignada). Solo datos agregados; sin nombres.",
+  "nota_serie": "La serie histórica proviene de microdatos de datosabiertos.gob.pe (2021–2026) y de PDFs oficiales (2013–2020), y abarca el proceso completo; por eso su cifra de 2026-1 (6114 postulantes / 1319 ingresantes) no coincide con la del examen de admisión (5713 / 922). 2020 solo tuvo un proceso (2020-1)."
+ },
+ "proceso": "2026-1",
+ "ingresantes_por_especialidad": [
+  {
+   "nombre": "INGENIERÍA CIVIL",
+   "n": 76
+  },
+  {
+   "nombre": "INGENIERÍA QUÍMICA",
+   "n": 60
+  },
+  {
+   "nombre": "INGENIERÍA MECATRÓNICA",
+   "n": 42
+  },
+  {
+   "nombre": "INGENIERÍA MECÁNICA-ELÉCTRICA",
+   "n": 42
+  },
+  {
+   "nombre": "INGENIERÍA MECÁNICA",
+   "n": 41
+  },
+  {
+   "nombre": "INGENIERÍA DE SISTEMAS",
+   "n": 40
+  },
+  {
+   "nombre": "INGENIERÍA INDUSTRIAL",
+   "n": 40
+  },
+  {
+   "nombre": "ARQUITECTURA",
+   "n": 38
+  },
+  {
+   "nombre": "INGENIERÍA DE MINAS",
+   "n": 38
+  },
+  {
+   "nombre": "INGENIERÍA ESTADÍSTICA",
+   "n": 36
+  },
+  {
+   "nombre": "INGENIERÍA ECONÓMICA",
+   "n": 34
+  },
+  {
+   "nombre": "INGENIERÍA GEOLÓGICA",
+   "n": 33
+  },
+  {
+   "nombre": "INGENIERÍA ELÉCTRICA",
+   "n": 29
+  },
+  {
+   "nombre": "INGENIERÍA METALÚRGICA",
+   "n": 29
+  },
+  {
+   "nombre": "INGENIERÍA ELECTRÓNICA",
+   "n": 28
+  },
+  {
+   "nombre": "INGENIERÍA DE TELECOMUNICACIONES",
+   "n": 27
+  },
+  {
+   "nombre": "INGENIERÍA BIOMÉDICA",
+   "n": 26
+  },
+  {
+   "nombre": "INGENIERÍA DE CIBERSEGURIDAD",
+   "n": 26
+  },
+  {
+   "nombre": "INGENIERÍA AEROESPACIAL",
+   "n": 24
+  },
+  {
+   "nombre": "INGENIERÍA DE SOFTWARE",
+   "n": 21
+  },
+  {
+   "nombre": "INGENIERÍA NAVAL",
+   "n": 21
+  },
+  {
+   "nombre": "URBANISMO",
+   "n": 21
+  },
+  {
+   "nombre": "INGENIERÍA DE INTELIGENCIA ARTIFICIAL",
+   "n": 19
+  },
+  {
+   "nombre": "INGENIERÍA AMBIENTAL",
+   "n": 16
+  },
+  {
+   "nombre": "INGENIERÍA FÍSICA",
+   "n": 16
+  },
+  {
+   "nombre": "CIENCIA DE LA COMPUTACIÓN",
+   "n": 15
+  },
+  {
+   "nombre": "FÍSICA",
+   "n": 15
+  },
+  {
+   "nombre": "MATEMÁTICA",
+   "n": 15
+  },
+  {
+   "nombre": "INGENIERÍA SANITARIA",
+   "n": 14
+  },
+  {
+   "nombre": "INGENIERÍA TEXTIL",
+   "n": 11
+  },
+  {
+   "nombre": "INGENIERÍA DE PETRÓLEO Y GAS NATURAL",
+   "n": 9
+  },
+  {
+   "nombre": "INGENIERÍA PETROQUÍMICA",
+   "n": 8
+  },
+  {
+   "nombre": "QUÍMICA",
+   "n": 7
+  },
+  {
+   "nombre": "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL",
+   "n": 5
+  }
+ ],
+ "ingresantes_por_modalidad": [
+  {
+   "nombre": "ORDINARIO",
+   "n": 791
+  },
+  {
+   "nombre": "PRIMEROS PUESTOS",
+   "n": 57
+  },
+  {
+   "nombre": "TRASLADO EXTERNO",
+   "n": 30
+  },
+  {
+   "nombre": "PLAN INTEGRAL DE REPARACIONES",
+   "n": 23
+  },
+  {
+   "nombre": "TITULADOS O GRADUADOS EN OTRA UNIVERSIDAD",
+   "n": 12
+  },
+  {
+   "nombre": "PERSONAS CON DISCAPACIDAD",
+   "n": 4
+  },
+  {
+   "nombre": "DIPLOMADO CON BACHILLERATO INTERNACIONAL",
+   "n": 3
+  },
+  {
+   "nombre": "CONVENIO ANDRÉS BELLO",
+   "n": 1
+  },
+  {
+   "nombre": "DEPORTISTA CALIFICADO DE ALTO NIVEL",
+   "n": 1
+  }
+ ],
+ "puntaje_postulantes": {
+  "n": 5713,
+  "min": 0.0,
+  "max": 1692.0,
+  "prom": 695.1
+ },
+ "puntaje_ingresantes": {
+  "n": 922,
+  "min": 236.0,
+  "max": 1692.0,
+  "prom": 1092.4
+ },
+ "serie_historica": [
+  {
+   "proceso": "2013-1",
+   "postulantes": 7294,
+   "ingresantes": 1000,
+   "tasa_pct": 13.7,
+   "mujeres_pct_ingresantes": 13.0
+  },
+  {
+   "proceso": "2013-2",
+   "postulantes": 5512,
+   "ingresantes": 875,
+   "tasa_pct": 15.9,
+   "mujeres_pct_ingresantes": 13.8
+  },
+  {
+   "proceso": "2014-1",
+   "postulantes": 7002,
+   "ingresantes": 995,
+   "tasa_pct": 14.2,
+   "mujeres_pct_ingresantes": 11.8
+  },
+  {
+   "proceso": "2014-2",
+   "postulantes": 4977,
+   "ingresantes": 885,
+   "tasa_pct": 17.8,
+   "mujeres_pct_ingresantes": 17.2
+  },
+  {
+   "proceso": "2015-1",
+   "postulantes": 6495,
+   "ingresantes": 1015,
+   "tasa_pct": 15.6,
+   "mujeres_pct_ingresantes": 13.1
+  },
+  {
+   "proceso": "2015-2",
+   "postulantes": 4984,
+   "ingresantes": 910,
+   "tasa_pct": 18.3,
+   "mujeres_pct_ingresantes": 15.7
+  },
+  {
+   "proceso": "2016-1",
+   "postulantes": 6746,
+   "ingresantes": 1286,
+   "tasa_pct": 19.1,
+   "mujeres_pct_ingresantes": 13.1
+  },
+  {
+   "proceso": "2016-2",
+   "postulantes": 4414,
+   "ingresantes": 859,
+   "tasa_pct": 19.5,
+   "mujeres_pct_ingresantes": 14.9
+  },
+  {
+   "proceso": "2017-1",
+   "postulantes": 8249,
+   "ingresantes": 1127,
+   "tasa_pct": 13.7,
+   "mujeres_pct_ingresantes": 17.2
+  },
+  {
+   "proceso": "2017-2",
+   "postulantes": 5044,
+   "ingresantes": 977,
+   "tasa_pct": 19.4,
+   "mujeres_pct_ingresantes": 15.8
+  },
+  {
+   "proceso": "2018-1",
+   "postulantes": 9842,
+   "ingresantes": 1121,
+   "tasa_pct": 11.4,
+   "mujeres_pct_ingresantes": 19.2
+  },
+  {
+   "proceso": "2018-2",
+   "postulantes": 5495,
+   "ingresantes": 787,
+   "tasa_pct": 14.3,
+   "mujeres_pct_ingresantes": 15.5
+  },
+  {
+   "proceso": "2019-1",
+   "postulantes": 9508,
+   "ingresantes": 1106,
+   "tasa_pct": 11.6,
+   "mujeres_pct_ingresantes": 14.8
+  },
+  {
+   "proceso": "2019-2",
+   "postulantes": 5218,
+   "ingresantes": 955,
+   "tasa_pct": 18.3,
+   "mujeres_pct_ingresantes": 18.5
+  },
+  {
+   "proceso": "2020-1",
+   "postulantes": 10159,
+   "ingresantes": 1128,
+   "tasa_pct": 11.1,
+   "mujeres_pct_ingresantes": 15.9
+  },
+  {
+   "proceso": "2021-1",
+   "postulantes": 5066,
+   "ingresantes": 825,
+   "tasa_pct": 16.3,
+   "mujeres_pct_ingresantes": 13.5
+  },
+  {
+   "proceso": "2021-2",
+   "postulantes": 4255,
+   "ingresantes": 754,
+   "tasa_pct": 17.7,
+   "mujeres_pct_ingresantes": 17.5
+  },
+  {
+   "proceso": "2022-1",
+   "postulantes": 7965,
+   "ingresantes": 1152,
+   "tasa_pct": 14.5,
+   "mujeres_pct_ingresantes": 17.2
+  },
+  {
+   "proceso": "2022-2",
+   "postulantes": 4158,
+   "ingresantes": 1013,
+   "tasa_pct": 24.4,
+   "mujeres_pct_ingresantes": 18.3
+  },
+  {
+   "proceso": "2023-1",
+   "postulantes": 8659,
+   "ingresantes": 1102,
+   "tasa_pct": 12.7,
+   "mujeres_pct_ingresantes": 16.2
+  },
+  {
+   "proceso": "2023-2",
+   "postulantes": 4951,
+   "ingresantes": 922,
+   "tasa_pct": 18.6,
+   "mujeres_pct_ingresantes": 15.6
+  },
+  {
+   "proceso": "2024-1",
+   "postulantes": 9910,
+   "ingresantes": 1319,
+   "tasa_pct": 13.3,
+   "mujeres_pct_ingresantes": 15.7
+  },
+  {
+   "proceso": "2024-2",
+   "postulantes": 5317,
+   "ingresantes": 1073,
+   "tasa_pct": 20.2,
+   "mujeres_pct_ingresantes": 18.8
+  },
+  {
+   "proceso": "2025-1",
+   "postulantes": 10608,
+   "ingresantes": 1482,
+   "tasa_pct": 14.0,
+   "mujeres_pct_ingresantes": 16.7
+  },
+  {
+   "proceso": "2025-2",
+   "postulantes": 5428,
+   "ingresantes": 1275,
+   "tasa_pct": 23.5,
+   "mujeres_pct_ingresantes": 19.3
+  },
+  {
+   "proceso": "2026-1",
+   "postulantes": 6114,
+   "ingresantes": 1319,
+   "tasa_pct": 21.6,
+   "mujeres_pct_ingresantes": 16.8
+  }
+ ],
+ "mujeres": {
+  "proceso": "2026-1",
+  "postulantes_pct": 21.8,
+  "ingresantes_pct": 16.8,
+  "fuente": "serie histórica (microdatos datosabiertos.gob.pe)"
+ },
+ "ciclo_actual": {
+  "ciclo": "2026-2",
+  "ultima_fecha": "2026-10-11_20Z",
+  "postulantes_examen": 4454,
+  "ingresantes_examen": 924,
+  "nota": "Concurso de admisión 2026-2 (resultados generales + Arquitectura), según publicaciones oficiales. No incluye CEPRE ni modalidades especiales."
+ },
+ "proceso_en_curso": {
+  "ciclo": "2027-1",
+  "ultima_fecha": "2026-10-30_11Z",
+  "publicaciones": [
+   {
+    "nombre": "RESULTADOS DEL PRIMER PARCIAL CEPREUNI JULIACA – 2027-1",
+    "total": 107,
+    "presentes": 87,
+    "pct_ausentismo": 18.69
+   },
+   {
+    "nombre": "RESULTADOS DEL PRIMER PARCIAL CEPREUNI LIMA – 2027-1",
+    "total": 2265,
+    "presentes": 2131,
+    "pct_ausentismo": 5.92
+   },
+   {
+    "nombre": "SIMULACRO IEN 2027-1 DE 15H00 A 18H00",
+    "total": 88,
+    "presentes": 88,
+    "pct_ausentismo": 0.0
+   },
+   {
+    "nombre": "SIMULACRO IEN 2027-1 DE 9H00 A 12H00",
+    "total": 2693,
+    "presentes": 2693,
+    "pct_ausentismo": 0.0
+   }
+  ],
+  "nota": "Proceso en curso: parciales y simulacros CEPRE-UNI publicados hasta la fecha indicada; no hay todavía resultados del concurso de admisión 2027-1."
+ },
+ "fuente_detalle": "uni-admision-stats · Dirección de Admisión UNI · datosabiertos.gob.pe (ODC-BY)",
+ "enlace": "https://unimauro.github.io/uni-admision-stats/"
+}

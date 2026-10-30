@@ -1,0 +1,71 @@
+# Actualización mensual automática de los datos del Observatorio UNI.
+# Corre los ETL (admisión, elección, planilla PTE) y, si hay cambios en data/,
+# hace commit a master → GitHub Pages redespliega solo.
+name: Actualizar datos
+
+on:
+  schedule:
+    - cron: "17 9 2 * *"   # día 2 de cada mes, 09:17 UTC (04:17 Lima)
+  workflow_dispatch:
+    inputs:
+      meses_pte:
+        description: "Meses recientes del PTE a descargar (vacío = año completo)"
+        required: false
+        default: "3"
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: actualizar-datos
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Admisión (uni-admision-stats)
+        run: python3 -I etl/build_admision.py
+        continue-on-error: true
+
+      - name: Elección de autoridades (observatorio-electoral-uni)
+        run: python3 -I etl/build_electoral.py
+        continue-on-error: true
+
+      - name: Planilla (Portal de Transparencia Estándar)
+        env:
+          PTE_MONTHS: ${{ github.event.inputs.meses_pte || '3' }}
+        run: python3 -I etl/build_planilla_pte.py
+        continue-on-error: true
+
+      - name: Validar JSON
+        run: |
+          for f in data/*.json; do python3 -I -c "import json,sys; json.load(open('$f'))" || exit 1; done
+
+      - name: Commit si hay cambios
+        run: |
+          git config user.name "observatorio-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Sin cambios en data/"; exit 0
+          fi
+          git commit -m "data: actualización automática $(date -u +%Y-%m-%d)"
+          git push
+          echo "pushed=1" >> "$GITHUB_OUTPUT"
+        id: commit
+
+      # Un push hecho con GITHUB_TOKEN no siempre dispara el build de Pages: lo pedimos explícitamente.
+      - name: Redesplegar GitHub Pages
+        if: steps.commit.outputs.pushed == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Pages ya se reconstruye solo"

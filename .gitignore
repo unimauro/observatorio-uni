@@ -3,3 +3,4 @@ etl/venv/
 *.pyc
 .DS_Store
 node_modules/
+etl/cache_pte/

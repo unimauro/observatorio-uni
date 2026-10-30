@@ -47,6 +47,7 @@ async function boot() {
   DATA.adm = await load('admision-uni.json');
   DATA.prov = await load('proveedores-uni.json');
   DATA.plan = await load('planilla-uni.json');
+  DATA.elec = await load('electoral-uni.json');
   render();
 }
 
@@ -59,7 +60,7 @@ function opts(extra = {}) {
 }
 
 function render() {
-  renderKpis(); renderPresu(); renderGasto(); renderProv(); renderInv(); renderValor(); renderAdm(); renderPlan();
+  renderKpis(); renderPresu(); renderGasto(); renderProv(); renderInv(); renderValor(); renderAdm(); renderElec(); renderPlan();
 }
 
 // ---- Gasto ↔ valor público ----
@@ -282,11 +283,84 @@ function renderAdm() {
     const m = mod.slice(0, 10);
     new Chart(cMod, { type: 'bar', data: { labels: m.map(x => x.nombre.slice(0, 26)), datasets: [{ label: 'Ingresantes', data: m.map(x => x.n), backgroundColor: ORO }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
   }
+  // serie histórica 2013-1 .. 2026-1 (vía uni-admision-stats)
+  const sh = a.serie_historica;
+  if (sh?.length && document.getElementById('cSerieAdm')) {
+    new Chart(cSerieAdm, {
+      type: 'line',
+      data: {
+        labels: sh.map(x => String(x.proceso)),
+        datasets: [
+          { label: 'Postulantes', data: sh.map(x => x.postulantes), borderColor: ORO, backgroundColor: 'rgba(201,150,46,.12)', fill: true, tension: .3 },
+          { label: 'Ingresantes', data: sh.map(x => x.ingresantes), borderColor: GRANATE, backgroundColor: 'rgba(158,16,32,.14)', fill: true, tension: .3 },
+        ]
+      },
+      options: opts({ interaction: { mode: 'index', intersect: false }, plugins: { legend: { labels: { boxWidth: 12 } }, tooltip: { callbacks: { afterBody: items => { const r = sh[items[0]?.dataIndex]; if (!r) return []; const o = []; if (r.tasa_pct != null) o.push('Tasa de ingreso: ' + r.tasa_pct + '%'); if (r.mujeres_pct_ingresantes != null) o.push('Mujeres: ' + r.mujeres_pct_ingresantes + '% de ingresantes'); return o; } } } } })
+    });
+  }
   const pp = a.puntaje_postulantes, pi = a.puntaje_ingresantes;
-  document.getElementById('admNote').textContent =
-    `${fmtN(a._meta.total_ingresantes)} ingresantes de ${fmtN(a._meta.total_postulantes)} postulantes` +
-    (pi?.prom ? `. Puntaje final promedio: ingresantes ${pi.prom} vs. postulantes ${pp?.prom}` : '') +
+  const fecha = v => String(v || '').slice(0, 10);
+  const am = document.getElementById('admMeta');
+  if (am) am.innerHTML = `<span class="pill">Actualizado: ${esc(fecha(a._meta?.generado) || '—')}</span>` +
+    (a._meta?.fuente_actualizada ? ` · datos de la fuente al ${esc(fecha(a._meta.fuente_actualizada))}` : '') +
+    ` · Fuente: <a href="${esc(safeUrl(a.enlace || a._meta?.enlace || 'https://unimauro.github.io/uni-admision-stats/'))}" target="_blank" rel="noopener">Admisión UNI en cifras →</a>`;
+  const proc = a.proceso || a._meta?.proceso;
+  let note = `${fmtN(a._meta.total_ingresantes)} ingresantes de ${fmtN(a._meta.total_postulantes)} postulantes` + (proc ? ` en el examen de admisión ${esc(proc)}` : '') +
+    (pi?.prom ? `. Puntaje final promedio: ingresantes ${esc(pi.prom)} vs. postulantes ${esc(pp?.prom)}` : '') +
     `. Solo datos agregados: este portal no publica nombres de estudiantes.`;
+  const mu = a.mujeres, ca = a.ciclo_actual, pc = a.proceso_en_curso;
+  if (mu?.ingresantes_pct != null) note += ` Mujeres (${esc(mu.proceso)}): ${esc(mu.postulantes_pct)}% de postulantes y ${esc(mu.ingresantes_pct)}% de ingresantes.`;
+  if (ca?.ciclo && ca.ingresantes_examen) note += ` <strong>Ciclo ${esc(ca.ciclo)}</strong>: ${fmtN(ca.postulantes_examen)} postulantes y ${fmtN(ca.ingresantes_examen)} ingresantes en el concurso de admisión (publicaciones al ${esc(fecha(ca.ultima_fecha))}).`;
+  if (pc?.ciclo) note += ` <strong>Proceso ${esc(pc.ciclo)} en curso</strong>: ${fmtN(pc.publicaciones?.length || 0)} publicaciones (parciales y simulacros CEPRE-UNI) al ${esc(fecha(pc.ultima_fecha))}; todavía sin resultados del examen.`;
+  if (a._meta?.nota_serie) note += ` ${esc(a._meta.nota_serie)}`;
+  document.getElementById('admNote').innerHTML = note;
+}
+
+// ---- Elección de autoridades 2026 (fuente: observatorio electoral hermano; preliminar) ----
+function renderElec() {
+  const E = DATA.elec, w = document.getElementById('elecWrap'); if (!w) return;
+  const pv = E?.primera_vuelta || {}, L = pv.listas || [];
+  const sitio = safeUrl(E?._meta?.url_sitio || 'https://unimauro.github.io/observatorio-electoral-uni/');
+  if (!L.length) {
+    w.innerHTML = `<div class="soon"><h3>🗳️ Sin cómputo todavía</h3><p style="margin:0;color:var(--muted)">Cuando el observatorio electoral publique el cómputo, aparecerá aquí. <a href="${esc(sitio)}" target="_blank" rel="noopener">Ver perfiles y propuestas →</a></p></div>`;
+    return;
+  }
+  const sr = E.segunda_vuelta || {}, srIds = new Set((sr.listas || []).map(x => x.lista));
+  const em = document.getElementById('elecMeta');
+  if (em) em.innerHTML = `<span class="pill">Actualizado: ${esc(String(E._meta?.generado || '').slice(0, 10) || '—')}</span>` +
+    (E._meta?.actualizado_fuente ? ` · datos de la fuente al ${esc(E._meta.actualizado_fuente)}` : '') +
+    ` · Fuente: <a href="${esc(sitio)}" target="_blank" rel="noopener">Observatorio Electoral UNI →</a>`;
+  // gráfico: % ponderado por lista (1.ª vuelta), las que pasan a 2.ª vuelta en granate
+  if (document.getElementById('cElec')) {
+    new Chart(cElec, {
+      type: 'bar',
+      data: { labels: L.map(x => 'Lista ' + x.numero), datasets: [{ label: '% ponderado', data: L.map(x => x.pct_ponderado), backgroundColor: L.map(x => srIds.has(x.lista) ? GRANATE : ORO) }] },
+      options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => { const r = L[items[0]?.dataIndex]; return r ? 'Lista ' + r.numero + (r.rector ? ' · ' + r.rector : '') : ''; }, label: c => c.raw + '% ponderado' } } }, scales: { x: { grid: { color: grid() }, beginAtZero: true, ticks: { callback: v => v + '%' } }, y: { grid: { color: grid() } } } })
+    });
+  }
+  // tabla votos por estamento
+  const tb = document.querySelector('#tElec tbody');
+  if (tb) tb.innerHTML = L.map(x => `<tr><td>${srIds.has(x.lista) ? '<strong>' : ''}Lista ${esc(x.numero)}${srIds.has(x.lista) ? '</strong>' : ''}</td><td>${x.perfil_url ? `<a href="${esc(safeUrl(x.perfil_url))}" target="_blank" rel="noopener">${esc(x.rector || '—')}</a>` : esc(x.rector || '—')}</td><td class="n">${fmtN(x.votosDocentes)}</td><td class="n">${fmtN(x.votosEstudiantes)}</td><td class="n">${esc(x.pct_ponderado)}%</td></tr>`).join('');
+  const tn = document.getElementById('elecTblNote');
+  if (tn) tn.innerHTML = `Votos válidos: ${pv.validos_docentes ? fmtN(pv.validos_docentes) + ' docentes' : ''}${pv.validos_estudiantes ? ' · ' + fmtN(pv.validos_estudiantes) + ' estudiantes (pregrado + posgrado)' : ''}. Ponderación ${esc(pv.ponderacion || '2/3 docentes · 1/3 estudiantes')}. En negrita, las listas que pasan a 2.ª vuelta.`;
+  // tarjeta 2.ª vuelta + calendario pendiente
+  const srCards = (sr.listas || []).map(x => `<div class="kpi" style="flex:1;min-width:210px"><div class="v">Lista ${esc(x.numero)}</div><div class="l">${esc(x.rector || '—')}</div><div class="s">1.ª vuelta: ${esc(x.pct_ponderado)}% ponderado · ${fmtN(x.votosDocentes)} doc. · ${fmtN(x.votosEstudiantes)} est.</div></div>`).join('<div style="align-self:center;font-family:Georgia,serif;font-size:22px;color:var(--muted)">vs</div>');
+  const res = sr.resultado;
+  let resTxt;
+  if (res && typeof res === 'object') resTxt = `Resultado (preliminar): ${esc(JSON.stringify(res))}`;
+  else if (typeof res === 'string') resTxt = `Resultado (preliminar): ${esc(res)}`;
+  else resTxt = `Resultado: <strong>pendiente</strong> (${esc(sr.estado || 'sin datos en la fuente')}).`;
+  const procl = E.proclamacion ? `Proclamación: ${esc(typeof E.proclamacion === 'string' ? E.proclamacion : JSON.stringify(E.proclamacion))}.` : 'Proclamación oficial del CEUNI: <strong>pendiente</strong>.';
+  const cal = (E.calendario_pendiente || []).slice(0, 8).map(x => `<li><strong>${esc(x.fecha)}</strong> · ${esc(x.evento)}</li>`).join('');
+  w.innerHTML = `<div class="card">
+    <h3>🗳️ Segunda vuelta · ${esc(sr.fecha || 'fecha por confirmar')}</h3>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:stretch;margin:10px 0 12px">${srCards || '<p class="note">Sin listas definidas para 2.ª vuelta.</p>'}</div>
+    <p class="note">${resTxt} ${procl}${sr.nota ? ' ' + esc(sr.nota) : ''}</p>
+    ${cal ? `<details style="margin:8px 0 12px"><summary style="cursor:pointer;font-size:13.5px;color:var(--muted)">Cronograma pendiente (CEUNI)</summary><ul style="font-size:13px;padding-left:18px;margin:6px 0 0">${cal}</ul></details>` : ''}
+    <a class="btn" href="${esc(safeUrl(sr.url || sitio))}" target="_blank" rel="noopener">Ver perfiles y propuestas →</a>
+  </div>`;
+  const en = document.getElementById('elecNote');
+  if (en) en.innerHTML = `${esc(E._meta?.nota || 'Preliminar hasta la proclamación del CEUNI.')} Cómputo al ${esc(String(E._meta?.computo_al || '').slice(0, 10))}; datos de la fuente actualizados el ${esc(E._meta?.actualizado_fuente || '—')}. Fuente: <a href="${esc(sitio)}" target="_blank" rel="noopener">${esc(E._meta?.fuente || 'Observatorio Electoral Universitario')}</a>.`;
 }
 
 // ---- Planilla ----

@@ -16,7 +16,13 @@ Live: https://unimauro.github.io/observatorio-uni/ · Sugerencias: carlos@carden
 - **Planilla** (Portal de Transparencia + AIRHSP, abril 2026): 1,717 docentes (agregado) + 605 nominales
   CAS con nombre y remuneración; buscador; plazas y sueldo promedio por régimen. Nunca estudiantes.
 - **Investigación** (OpenAlex): publicaciones, citas, h-index y UNI vs. pares.
-- **Admisión**: 922 ingresantes / 5,713 postulantes por especialidad y modalidad (solo agregados, sin nombres).
+- **Admisión**: 922 ingresantes / 5,713 postulantes (examen 2026-1) por especialidad y modalidad (solo agregados, sin nombres).
+- **Admisión: serie histórica 2013–2026 (vía uni-admision-stats)** — postulantes e ingresantes por proceso (26 procesos),
+  tasa de ingreso, % de mujeres, ciclo 2026-2 y proceso 2027-1 en curso. Fuente: datosabiertos.gob.pe + Dirección de Admisión UNI.
+- **Elección de autoridades 2026 (resumen + enlace)** — cómputo 1.ª vuelta (16-10-2026) por lista, 2.ª vuelta Lista 8 vs Lista 1
+  (28-10-2026, resultado pendiente en la fuente), cronograma CEUNI y enlace al Observatorio Electoral UNI. Preliminar hasta proclamación.
+- **Ecosistema** — sección con los sitios hermanos (electoral, admisión, gemelo digital, San Marcos, ENSAD, universidades-peru,
+  Perú Transparente, poder económico), con fecha de última actualización de cada repo.
 - **Gasto ↔ valor público** — eficiencia investigadora: costo por publicación (base I+D, la métrica justa),
   publicaciones por S/ 10M ejecutado, presupuesto por ingresante, y presupuesto vs. publicaciones por año
   (pedido de Tobías: "gasto vs. valor público generado").
