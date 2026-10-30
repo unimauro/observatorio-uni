@@ -3,13 +3,13 @@
   "fuente": "Resultados oficiales de admisión UNI (puntajes.admision.uni.edu.pe)",
   "fuente_detalle": "Agregados vía uni-admision-stats (https://unimauro.github.io/uni-admision-stats/). Serie histórica: Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe), microdatos oficiales UNI, licencia ODC-BY · 2013-2020: PDFs oficiales de la Dirección de Admisión UNI (vía Wayback Machine), solo conteos",
   "enlace": "https://unimauro.github.io/uni-admision-stats/",
-  "generado": "2026-10-30T18:00:17+00:00",
+  "generado": "2026-10-30T18:22:24+00:00",
   "fuente_actualizada": "2026-10-30T11:15:55.335419+00:00",
   "proceso": "2026-1",
   "total_postulantes": 5713,
   "total_ingresantes": 922,
   "nota": "Postulantes = todos los que rindieron el examen. Ingresantes = quienes obtuvieron vacante (con especialidad asignada). Solo datos agregados; sin nombres.",
-  "nota_serie": "La serie histórica proviene de microdatos de datosabiertos.gob.pe (2021–2026) y de PDFs oficiales (2013–2020), y abarca el proceso completo; por eso su cifra de 2026-1 (6114 postulantes / 1319 ingresantes) no coincide con la del examen de admisión (5713 / 922). 2020 solo tuvo un proceso (2020-1)."
+  "nota_serie": "La serie histórica proviene de microdatos de datosabiertos.gob.pe (2021–2026) y de PDFs oficiales (2013–2020), y corresponde a otra fuente y otro universo (microdatos del proceso), por lo que su cifra de 2026-1 (6114 postulantes / 1319 ingresantes) no es comparable con la del examen de admisión (5713 / 922); la diferencia no está conciliada con la fuente. 2020 solo tuvo un proceso (2020-1)."
  },
  "proceso": "2026-1",
  "ingresantes_por_especialidad": [

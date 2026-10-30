@@ -3,11 +3,11 @@
   "fuente": "Observatorio Electoral Universitario · UNI 2026 (proyecto ciudadano, a partir de actas y cómputo del CEUNI)",
   "url_sitio": "https://unimauro.github.io/observatorio-electoral-uni/",
   "url_repo": "https://github.com/unimauro/observatorio-electoral-uni",
-  "actualizado_fuente": "2026-10-16",
+  "actualizado_fuente": "2026-10-30",
   "computo_al": "2026-10-16T16:39:00-05:00",
-  "generado": "2026-10-30T18:00:17+00:00",
+  "generado": "2026-10-30T18:22:23+00:00",
   "estado": "preliminar",
-  "nota": "PRELIMINAR: cómputo difundido el 16-10-2026 y transcrito por el observatorio electoral; no es un resultado oficial hasta la proclamación del Comité Electoral Universitario (CEUNI). Cómputo general difundido el 16-10-2026: votos válidos de docentes (993) y estudiantes (10515, pregrado + posgrado), ponderados 2/3 docentes y 1/3 estudiantes (art. 50 del Reglamento, RCU 0650-2026). Verificamos que los porcentajes de la tabla coinciden con esa fórmula. Es preliminar hasta que el CEUNI lo publique en su portal.",
+  "nota": "PRELIMINAR: cómputo difundido el 16-10-2026 y transcrito por el observatorio electoral; no es un resultado oficial hasta la proclamación del Comité Electoral Universitario (CEUNI). Cómputo general difundido el 16-10-2026: votos válidos de docentes (993) y estudiantes (10515, pregrado + posgrado), ponderados 2/3 docentes y 1/3 estudiantes (art. 50 del Reglamento, RCU 0650-2026). Verificamos que los porcentajes de la tabla coinciden con esa fórmula. Es preliminar hasta que el CEUNI lo publique en su portal. Segunda vuelta (28-10-2026): sin resultado publicado y con nulidad parcial declarada por el CEUNI; ver nota de segunda vuelta y calendario.",
   "fecha_eleccion_nota": "Según RPP (15-10-2026) y Caretas (12-10-2026). El cronograma oficial (Gaceta N.º 175-2026) no ha sido revisado por el observatorio.",
   "independencia": "Proyecto ciudadano independiente. No es un portal oficial de la UNI ni del CEUNI, y no está vinculado a ninguna lista."
  },
@@ -147,9 +147,9 @@
     "pct_ponderado": 20.93
    }
   ],
-  "estado": "realizada; resultados pendientes de publicación en esta fuente",
+  "estado": "realizada; nulidad parcial declarada por el CEUNI; sin resultado publicado",
   "resultado": null,
-  "nota": "Ninguna lista alcanzó el 50 % más uno de los votos válidos ponderados; pasan las dos de mayor votación ponderada (art. 50 del Reglamento). Pendiente de la resolución oficial del CEUNI.",
+  "nota": "Segunda vuelta realizada el 28-10-2026 (votación electrónica). El mismo día el CEUNI declaró la nulidad parcial de la segunda vuelta tras denuncias de votos emitidos con correos institucionales suplantados (desde una IP de la UNI) y anunció que informará las acciones a tomar. Al 30-10-2026 el CEUNI no ha publicado el resultado del escrutinio (el botón «Publicación de resultados del escrutinio – segunda vuelta» de su portal no tiene enlace) ni una resolución numerada; no hay proclamación. No registramos cifras hasta que exista una fuente verificable.",
   "url": "https://unimauro.github.io/observatorio-electoral-uni/#/segunda-vuelta"
  },
  "proclamacion": null,
@@ -163,8 +163,20 @@
    "evento": "Publicación de resultados del escrutinio (2.ª vuelta)"
   },
   {
+   "fecha": "2026-10-28",
+   "evento": "Comunicado del CEUNI: nulidad parcial de la 2.ª vuelta por votos emitidos con correos institucionales suplantados (IP de la UNI); se abrirá investigación y se informarán las acciones a tomar"
+  },
+  {
    "fecha": "2026-10-29",
    "evento": "Presentación de recursos de nulidad (10:00 a 16:00 horas) – 2.ª vuelta"
+  },
+  {
+   "fecha": "2026-10-29",
+   "evento": "RPP informa que la elección de rector quedó suspendida tras denuncias de presunto fraude electrónico; el decano de la FIC, Miguel Estrada, pide una nueva 2.ª vuelta presencial (declaraciones)"
+  },
+  {
+   "fecha": "2026-10-30",
+   "evento": "Verificación del observatorio: el portal del CEUNI no publica el resultado del escrutinio de la 2.ª vuelta (botón sin enlace) ni resolución sobre la nulidad; la carpeta de escrutinio de la 1.ª vuelta exige inicio de sesión institucional"
   },
   {
    "fecha": "2026-11-02",
@@ -181,6 +193,141 @@
   {
    "fecha": "2026-11-05",
    "evento": "Entrega de credenciales (el cronograma consigna esta fecha tanto para la 1.ª como para la 2.ª vuelta)"
+  }
+ ],
+ "prensa": [
+  {
+   "fecha": "2026-10-29",
+   "medio": "RPP Noticias (YouTube)",
+   "tipo": "video",
+   "titular": "UNI suspende elecciones para rector tras denuncias de presunto fraude electrónico en segunda vuelta",
+   "url": "https://www.youtube.com/watch?v=-yNTGIHIS8M",
+   "resumen": "El decano de la Facultad de Ingeniería Civil, Miguel Estrada, declaró que docentes encontraron que el sistema registraba su voto como emitido; cuestionó la ausencia de la ONPE y propuso repetir la segunda vuelta de forma presencial.",
+   "temas": [
+    "segunda_vuelta",
+    "nulidad",
+    "denuncias"
+   ]
+  },
+  {
+   "fecha": "2026-10-28",
+   "medio": "CEUNI (comunicado)",
+   "tipo": "oficial",
+   "titular": "Comunicado: nulidad parcial de la segunda vuelta por suplantación de correos institucionales",
+   "url": "https://www.ceuni.uni.edu.pe/wp-content/uploads/2026/10/COMUNICADO-recurso-nulidad-parcial_page-0001.jpg",
+   "resumen": "El CEUNI informó que recibió denuncias de votos emitidos con correos institucionales suplantados desde una IP de la UNI, declaró la nulidad parcial de la segunda vuelta y anunció que informará las acciones a tomar.",
+   "temas": [
+    "segunda_vuelta",
+    "nulidad",
+    "denuncias"
+   ]
+  },
+  {
+   "fecha": "2026-10-15",
+   "medio": "RPP Noticias (YouTube)",
+   "tipo": "video",
+   "titular": "Elecciones en la UNI: candidatos exponen sus propuestas para el rectorado",
+   "url": "https://www.youtube.com/watch?v=ia_kK7ZVyxM",
+   "resumen": "Segmento del programa Ampliación de Noticias con las propuestas de los candidatos antes de la votación del 16 de octubre.",
+   "temas": [
+    "debate",
+    "candidatos",
+    "primera_vuelta"
+   ]
+  },
+  {
+   "fecha": "2026-10-15",
+   "medio": "RPP Noticias",
+   "tipo": "prensa",
+   "titular": "Elecciones en la UNI: candidatos al rectorado debaten sobre modernización, presupuesto y el futuro de la universidad",
+   "url": "https://rpp.pe/lima/actualidad/elecciones-en-la-uni-candidatos-al-rectorado-debaten-sobre-modernizacion-presupuesto-y-el-futuro-de-la-universidad-noticia-1712562",
+   "resumen": "Ocho candidatos a rector expusieron sus planes de gestión de cara a la votación del 16 de octubre; coincidieron en modernizar la enseñanza, cerrar el déficit de infraestructura y buscar nuevas fuentes de financiamiento.",
+   "temas": [
+    "debate",
+    "candidatos",
+    "primera_vuelta"
+   ]
+  },
+  {
+   "fecha": "2026-10-12",
+   "medio": "Caretas",
+   "tipo": "prensa",
+   "titular": "¿Quién es Ulises Humala Tasso, el nuevo candidato a rector de la UNI?",
+   "url": "https://caretas.pe/politica/ulises-humala-candidato-a-rector-de-la-uni-cuestiona-gestion-de-lopez-chau/",
+   "resumen": "Perfil y entrevista al candidato de la Lista 4, quien cuestiona la gestión del exrector Alfonso López Chau y las condiciones del debate. La nota indica nueve postulantes y la votación del 16 de octubre.",
+   "temas": [
+    "candidatos"
+   ]
+  },
+  {
+   "fecha": "2026-10-07",
+   "medio": "UNI Oficial (YouTube)",
+   "tipo": "oficial",
+   "titular": "EN VIVO | Debate de candidatos a rector",
+   "url": "https://www.youtube.com/watch?v=qgF4OktF9Xo",
+   "resumen": "Transmisión oficial del debate de candidatos al rectorado organizado por el CEUNI en el Teatro UNI. El observatorio publicó una transcripción.",
+   "temas": [
+    "debate",
+    "candidatos"
+   ]
+  },
+  {
+   "fecha": "2026-10-07",
+   "medio": "CEUNI (YouTube)",
+   "tipo": "oficial",
+   "titular": "EN VIVO | Debate de candidatos a rector",
+   "url": "https://www.youtube.com/watch?v=JCW1u41MrKg",
+   "resumen": "Transmisión del debate en el canal del Comité Electoral Universitario.",
+   "temas": [
+    "debate"
+   ]
+  },
+  {
+   "fecha": "2026-09-16",
+   "medio": "Infobae",
+   "tipo": "prensa",
+   "titular": "¿Qué está pasando en la UNI? La batalla por el rectorado tras una medida cautelar que desató tensión en el campus",
+   "url": "https://www.infobae.com/peru/2026/09/16/que-esta-pasando-en-la-uni-la-batalla-por-el-rectorado-tras-una-medida-cautelar-que-desato-tension-en-el-campus/",
+   "resumen": "Explica la medida cautelar del Segundo Juzgado Contencioso Administrativo de Lima sobre el rectorado interino y recoge el pedido de la Defensoría del Pueblo de resolver con urgencia quién debe ejercerlo. La UNI señaló no haber sido notificada formalmente.",
+   "temas": [
+    "rectorado_interino",
+    "poder_judicial"
+   ]
+  },
+  {
+   "fecha": "2026-09-15",
+   "medio": "Gaceta Perú TV",
+   "tipo": "prensa",
+   "titular": "Crisis en la UNI: violencia en el campus por la disputada rectoral",
+   "url": "https://www.gacetaperutv.pe/2026/09/crisis-en-la-uni-violencia-en-el-campus-por-la-disputada-rectoral.html",
+   "resumen": "Integrantes de la comunidad universitaria se enfrentaron en el primer piso del edificio administrativo por la disputa sobre quién ejerce el rectorado interino.",
+   "temas": [
+    "rectorado_interino"
+   ]
+  },
+  {
+   "fecha": "2026-09-15",
+   "medio": "El Comercio",
+   "tipo": "prensa",
+   "titular": "Enfrentamientos en la UNI: grupo encabezado por exvicerrectora choca con autoridades que rechazan fallo del Poder Judicial",
+   "url": "https://elcomercio.pe/lima/sucesos/enfrentamientos-en-la-uni-grupo-encabezado-por-exvicerrectora-choca-con-autoridades-que-rechazan-fallo-del-poder-judicial-ultimas-noticia/",
+   "resumen": "Simpatizantes de Shirley Chilet intentaron ingresar a la sede del rectorado el 14 de setiembre y se produjeron enfrentamientos con quienes rechazaban la medida cautelar del Poder Judicial.",
+   "temas": [
+    "rectorado_interino",
+    "poder_judicial"
+   ]
+  },
+  {
+   "fecha": "2026-09-14",
+   "medio": "Infobae",
+   "tipo": "prensa",
+   "titular": "Ingreso “por la fuerza” de exvicerrectora a la UNI desata protestas y tensión dentro de la universidad",
+   "url": "https://www.infobae.com/peru/2026/09/14/ingreso-por-la-fuerza-de-exvicerrectora-a-la-uni-desata-protestas-y-tension-dentro-de-la-universidad/",
+   "resumen": "La exvicerrectora académica Shirley Chilet intentó retomar el rectorado interino amparada en una resolución judicial que dejó sin efecto la designación de Arturo Talledo; el ingreso generó protestas y tensión en el campus.",
+   "temas": [
+    "rectorado_interino",
+    "poder_judicial"
+   ]
   }
  ],
  "n_listas": 9,

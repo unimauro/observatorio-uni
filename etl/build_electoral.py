@@ -9,6 +9,7 @@ Solo se copian: número de lista, nombre del candidato a rector (ya público, CE
 Uso:  python3 etl/build_electoral.py
 """
 import json
+import math
 import os
 import re
 import sys
@@ -25,13 +26,34 @@ FILES = ['site.json', 'electoral-lists.json', 'candidates.json']
 PENDIENTE_DESDE = '2026-10-28'
 
 
+MAX_BYTES = 5 * 1024 * 1024  # defensa cadena de suministro: nunca leer más de 5 MB
+
+
+def num(v, cast=int):
+    """Campo numérico externo: None se respeta; cualquier otra cosa DEBE castear (si no, abortar sin escribir).
+    Rechaza bool, NaN/inf y negativos (son conteos y porcentajes)."""
+    if v is None or v == '':
+        return None
+    if isinstance(v, bool):
+        raise SystemExit('campo numérico inválido en la fuente (bool): %r' % (v,))
+    try:
+        x = cast(v)
+    except (TypeError, ValueError, OverflowError):
+        raise SystemExit('campo numérico inválido en la fuente: %r' % (v,))
+    if not math.isfinite(x) or x < 0:
+        raise SystemExit('campo numérico fuera de rango en la fuente: %r' % (v,))
+    return x
+
 def read(name):
     local = os.path.join(LOCAL_DIR, name)
     if os.path.exists(local):
         with open(local, encoding='utf-8') as f:
             return json.load(f), 'local'
     with urllib.request.urlopen(RAW + name, timeout=30) as r:
-        return json.loads(r.read().decode('utf-8')), 'raw'
+        raw = r.read(MAX_BYTES + 1)
+        if len(raw) > MAX_BYTES:
+            raise ValueError('respuesta demasiado grande')
+        return json.loads(raw.decode('utf-8')), 'raw'
 
 
 def _num(rx, txt):
@@ -42,7 +64,7 @@ def _num(rx, txt):
 def write_atomic(path, obj):
     tmp = path + '.tmp'
     with open(tmp, 'w', encoding='utf-8') as f:
-        json.dump(obj, f, ensure_ascii=False, indent=1)
+        json.dump(obj, f, ensure_ascii=False, indent=1, allow_nan=False)
         f.write('\n')
     os.replace(tmp, path)
 
@@ -68,12 +90,12 @@ def main():
         lid = r['listId']
         rows.append({
             'lista': lid,
-            'numero': by_list.get(lid, {}).get('number'),
+            'numero': num(by_list.get(lid, {}).get('number')),
             'rector': (rector.get(lid) or {}).get('nombre'),
             'rector_facultad': (rector.get(lid) or {}).get('facultad'),
-            'votosDocentes': r.get('votesDocentes'),
-            'votosEstudiantes': r.get('votesEstudiantes'),
-            'pct_ponderado': r.get('weightedPct'),
+            'votosDocentes': num(r.get('votesDocentes')),
+            'votosEstudiantes': num(r.get('votesEstudiantes')),
+            'pct_ponderado': num(r.get('weightedPct'), float),
             'nota': r.get('note'),
             'perfil_url': SITIO + '#/listas/%s' % by_list.get(lid, {}).get('number', ''),
         })
@@ -85,12 +107,14 @@ def main():
         actas.append({k: a.get(k) for k in ('estamento', 'electoresHabiles', 'emitidos', 'blancos', 'nulos')})
 
     sr = res.get('secondRound') or {}
-    sr_lists = [next((x for x in rows if x['lista'] == lid), {'lista': lid, 'numero': by_list.get(lid, {}).get('number'), 'rector': (rector.get(lid) or {}).get('nombre')}) for lid in sr.get('lists') or []]
+    sr_lists = [next((x for x in rows if x['lista'] == lid), {'lista': lid, 'numero': num(by_list.get(lid, {}).get('number')), 'rector': (rector.get(lid) or {}).get('nombre')}) for lid in sr.get('lists') or []]
     sr_result = sr.get('result') or sr.get('results') or None
     generado = datetime.now(timezone.utc).replace(microsecond=0)
     hoy = generado.date().isoformat()
     if sr_result:
         estado = 'con resultados (preliminar)'
+    elif re.search(r'nulidad', sr.get('note') or '', re.I):
+        estado = 'realizada; nulidad parcial declarada por el CEUNI; sin resultado publicado'
     elif sr.get('date') and hoy >= sr['date']:
         estado = 'realizada; resultados pendientes de publicación en esta fuente'
     else:
@@ -106,6 +130,24 @@ def main():
     }
 
     calendario = [{'fecha': e['date'], 'evento': e['event']} for e in site.get('calendar') or [] if e.get('date', '') >= PENDIENTE_DESDE]
+
+    # Prensa verificada por el observatorio electoral (src/data/press.json); opcional: si falta, lista vacía.
+    prensa = []
+    try:
+        press, _ = read('press.json')
+        for it in press if isinstance(press, list) else []:
+            url = str(it.get('url') or '')
+            if not url.startswith('https://') or not it.get('title') or not it.get('date'):
+                continue
+            prensa.append({
+                'fecha': str(it['date'])[:10], 'medio': str(it.get('outlet') or '')[:60], 'tipo': str(it.get('kind') or '')[:20],
+                'titular': str(it['title'])[:200], 'url': url[:300], 'resumen': str(it.get('summary') or '')[:400],
+                'temas': [str(t)[:30] for t in (it.get('topics') or [])][:6],
+            })
+        prensa.sort(key=lambda x: x['fecha'], reverse=True)
+        prensa = prensa[:20]
+    except Exception as e:  # noqa: BLE001
+        print('aviso: sin press.json (%s)' % e, file=sys.stderr)
 
     out = {
         '_meta': {
@@ -133,6 +175,7 @@ def main():
         'segunda_vuelta': segunda,
         'proclamacion': res.get('proclaimed'),
         'calendario_pendiente': calendario,
+        'prensa': prensa,
         'n_listas': len(lists),
         'n_candidaturas': len(cands),
     }

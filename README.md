@@ -12,15 +12,20 @@ qué produce en investigación y a quién admite.
 - **Proveedores y dueños** — contrataciones de la UNI (OECE · OCDS) → RUC → representantes.
 - **Investigación** — publicaciones y citas (OpenAlex), UNI vs. pares.
 - **Admisión** — ingresantes por especialidad y modalidad (examen 2026-1), serie histórica 2013-1…2026-1 de postulantes/ingresantes, % de mujeres y proceso en curso, vía [uni-admision-stats](https://unimauro.github.io/uni-admision-stats/) (solo agregados, sin nombres).
-- **Elección de autoridades 2026** — cómputo 1.ª vuelta por lista (votos docentes/estudiantes, % ponderado), 2.ª vuelta Lista 8 vs Lista 1 y cronograma pendiente, vía el [Observatorio Electoral UNI](https://unimauro.github.io/observatorio-electoral-uni/). Preliminar hasta la proclamación del CEUNI.
-- **Planilla** — docentes, funcionarios y planas mayores con remuneraciones (datos nominales públicos).
+- **Elección de autoridades 2026** — cómputo 1.ª vuelta por lista (votos docentes/estudiantes, % ponderado), 2.ª vuelta Lista 8 vs Lista 1 del 28-10-2026 (nulidad parcial declarada por el CEUNI; sin resultado publicado), cronograma y feed "En los medios" (prensa verificada), vía el [Observatorio Electoral UNI](https://unimauro.github.io/observatorio-electoral-uni/). Preliminar hasta la proclamación del CEUNI.
+- **Planilla** — lista nominal completa del Portal de Transparencia Estándar (PTE, rubro Personal): 2,124 personas / 2,130 registros en setiembre 2026 (1,297 en «Régimen 728/otros», donde el PTE lista a los docentes; 593 CAS; 240 DL 276), masa mensual S/ 10.7 M, serie mensual enero–setiembre 2026 por régimen, top cargos, buscador y filtro por régimen, agregado AIRHSP de docentes, y cruce con los 27 candidatos a autoridades 2026 (badge con enlace al observatorio electoral). Nunca estudiantes.
 
 ## Datos y ETL
 Dashboard estático (HTML + Chart.js, sin build). Los datos se generan con los scripts de `etl/`:
 - `build_mef_uni.py` — presupuesto histórico del pliego 514 desde el datastore CKAN del MEF.
 - `build_admision.py` — admisión: lee `stats.json` publicado por uni-admision-stats (fallback: repo local) → `data/admision-uni.json`.
-- `build_electoral.py` — elección 2026: lee `site.json`/`electoral-lists.json`/`candidates.json` del observatorio electoral (local o raw de GitHub) → `data/electoral-uni.json`.
-- (próximos) `build_oece_uni.py` (contrataciones), `build_planilla_uni.py` (planilla).
+- `build_electoral.py` — elección 2026: lee `site.json`/`electoral-lists.json`/`candidates.json`/`press.json` del observatorio electoral (local o raw de GitHub) → `data/electoral-uni.json`.
+- `validate_data.py` — valida `data/*.json` antes de publicar (tipos, HTML, URLs); lo corre el workflow mensual.
+- `build_planilla_pte.py` — planilla nominal desde el Portal de Transparencia Estándar (PTE, id_entidad 10048): todos los
+  meses del año y regímenes 1–7 y 9 (sin pensionistas), caché en `etl/cache_pte/` (gitignorada), cruce con
+  `candidates.json` del observatorio electoral, sin dependencias externas. Sin argumentos usa el año en curso;
+  `PTE_MONTHS=3` limita a los últimos 3 meses (CI). No sobrescribe el JSON si el portal falla o viene incompleto.
+- (próximos) `build_oece_uni.py` (contrataciones).
 
 ## Ecosistema
 Sitios hermanos del mismo autor, enlazados desde la sección «Más observatorios y datos UNI»:

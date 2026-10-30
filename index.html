@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://unimauro.github.io/observatorio-uni/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
 <style>
 :root{
   --granate:#5c0013; --granate2:#7a0019; --granate3:#9e1020; --oro:#c9962e;
@@ -121,6 +121,16 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 .chat .m.a{background:color-mix(in srgb,var(--oro) 14%,transparent);align-self:flex-start}
 .chat .in{display:flex;border-top:1px solid var(--line)}
 .chat input{flex:1;border:0;padding:12px;background:transparent;color:var(--tinta);font-size:14px;outline:none}
+.ticker{max-height:360px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}
+.tk{border-left:3px solid var(--oro);padding:4px 0 4px 12px}
+.tk-m{font-size:12px;color:var(--muted)}
+.tk a{color:var(--granate);text-decoration:none}
+.tk a:hover{text-decoration:underline}
+.tk p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.tk-t{margin-top:4px;display:flex;flex-wrap:wrap;gap:4px}
+.chat .chips{display:flex;flex-wrap:wrap;gap:6px;align-self:stretch}
+.chat .chip{border:1px solid var(--line);background:transparent;color:var(--tinta);border-radius:999px;padding:5px 10px;font-size:12px;cursor:pointer;text-align:left}
+.chat .chip:hover{border-color:var(--granate);color:var(--granate)}
 .chat button.send{background:none;border:0;color:var(--granate3);font-weight:700;padding:0 14px;cursor:pointer}
 
 footer{padding:34px 0;color:var(--muted);font-size:13px}
@@ -184,7 +194,7 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
 <section id="resumen"><div class="wrap">
   <div class="eyebrow">Panorama</div>
   <h2>La UNI en cifras</h2>
-  <p class="lead">Indicadores clave del último ejercicio disponible. Fuentes: MEF/SIAF (presupuesto), OpenAlex (investigación), portal de admisión UNI.</p>
+  <p class="lead">Indicadores clave del último ejercicio disponible. Fuentes: MEF/SIAF (presupuesto), OECE/CONOSCE (contrataciones), OpenAlex (investigación), portal de admisión UNI, AIRHSP (docentes).</p>
   <div class="kpis" id="kpis"></div>
 </div></section>
 
@@ -260,11 +270,15 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
 <section id="planilla"><div class="wrap">
   <div class="eyebrow">Quiénes trabajan</div>
   <h2>Planilla y remuneraciones</h2>
-  <p class="lead">Personal de la UNI (docentes, funcionarios y administrativos) y sus remuneraciones, a partir de datos públicos del Estado (Portal de Transparencia + AIRHSP). Nunca estudiantes.</p>
+  <p class="lead">Personal de la UNI (docentes, funcionarios y administrativos) y sus remuneraciones mensuales, a partir de la lista nominal del Portal de Transparencia Estándar (PTE, regímenes CAS, 276 y «728/otros», donde el PTE publica a los docentes) y del agregado AIRHSP. Nunca estudiantes.</p>
   <div class="kpis" id="planKpis" style="margin-bottom:20px"></div>
   <div class="grid2">
+    <div class="card"><h3>Masa salarial mensual 2026 por régimen (S/ M, PTE)</h3><div class="chart-box"><canvas id="cSerPlan"></canvas></div></div>
+    <div class="card"><h3>Top 10 cargos por ingreso mensual promedio, entre los 20 cargos más frecuentes (S/)</h3><div class="chart-box"><canvas id="cTopCargo"></canvas></div></div>
+  </div>
+  <div class="grid2" style="margin-top:20px">
     <div class="card"><h3>Plazas por régimen laboral (AIRHSP)</h3><div class="chart-box"><canvas id="cReg"></canvas></div></div>
-    <div class="card"><h3>Sueldo promedio por régimen (S/)</h3><div class="chart-box"><canvas id="cRegS"></canvas></div></div>
+    <div class="card"><h3>Sueldo promedio por régimen (S/, AIRHSP)</h3><div class="chart-box"><canvas id="cRegS"></canvas></div></div>
   </div>
   <div id="planWrap" style="margin-top:20px"></div>
 </div></section>
@@ -273,17 +287,18 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
 <section id="eleccion"><div class="wrap">
   <div class="eyebrow">Quién gobierna</div>
   <h2>Elección de autoridades 2026</h2>
-  <p class="lead">Rector y vicerrectores de la UNI: <strong>9 listas y 27 candidaturas</strong>. Cómputo de la 1.ª vuelta (16-10-2026), ponderado 2/3 docentes · 1/3 estudiantes, y 2.ª vuelta del 28-10-2026. Fuente: <a href="https://unimauro.github.io/observatorio-electoral-uni/" target="_blank" rel="noopener">Observatorio Electoral Universitario</a> (actas y cómputo del CEUNI). Cifras <strong>preliminares</strong> hasta la proclamación oficial.</p>
+  <p class="lead">Rector y vicerrectores de la UNI: <strong>9 listas y 27 candidaturas</strong>. Cómputo de la 1.ª vuelta (16-10-2026), ponderado 2/3 docentes · 1/3 estudiantes, y 2.ª vuelta del 28-10-2026 (nulidad parcial declarada por el CEUNI; sin resultado publicado). Fuente: <a href="https://unimauro.github.io/observatorio-electoral-uni/" target="_blank" rel="noopener">Observatorio Electoral Universitario</a> (actas y cómputo del CEUNI). Cifras <strong>preliminares</strong> hasta la proclamación oficial.</p>
   <p class="note" id="elecMeta" style="margin:-10px 0 16px"></p>
   <div class="grid2">
     <div class="card"><h3>1.ª vuelta · % de votos válidos ponderados por lista</h3><div class="chart-box tall"><canvas id="cElec"></canvas></div></div>
     <div class="card"><h3>Votos por estamento (1.ª vuelta)</h3><div class="scroll"><table id="tElec"><thead><tr><th>Lista</th><th>Candidatura a rector</th><th class="n">Docentes</th><th class="n">Estudiantes</th><th class="n">% pond.</th></tr></thead><tbody></tbody></table></div><p class="note" id="elecTblNote"></p></div>
   </div>
   <div id="elecWrap" style="margin-top:20px"></div>
+  <div id="elecPrensa" style="margin-top:20px"></div>
   <p class="note" id="elecNote"></p>
 </div></section>
 
-<!-- EN QUÉ SE GASTA (al final) -->
+<!-- EN QUÉ SE GASTA -->
 <section id="gasto"><div class="wrap">
   <div class="eyebrow">Anatomía del gasto</div>
   <h2>En qué se gasta cada sol</h2>
@@ -306,8 +321,8 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
   <p class="lead">Este portal forma parte de una familia de proyectos ciudadanos e independientes del mismo autor. Cada uno tiene sus propias fuentes y su propio repositorio abierto.</p>
   <h3 class="eco-h">Sobre la UNI</h3>
   <div class="eco">
-    <div class="card"><h3>🗳️ Observatorio Electoral UNI 2026</h3><p>Sitio independiente y no oficial para conocer y comparar las 9 listas y 27 candidaturas a rector y vicerrectores (elección de autoridades 2026). Cada dato lleva su fuente; lo no verificado se rotula como tal.</p><div class="meta"><span>Actualizado 16-10-2026</span><a href="https://unimauro.github.io/observatorio-electoral-uni/" target="_blank" rel="noopener">Abrir →</a></div></div>
-    <div class="card"><h3>🎓 Admisión UNI en cifras</h3><p>Dashboard público con estadísticas agregadas y anónimas de los procesos de admisión: postulantes, ausentismo y puntajes por prueba, especialidad y modalidad. Serie 2013–2026 y proceso en curso; sin datos personales.</p><div class="meta"><span>Actualizado 25-10-2026</span><a href="https://unimauro.github.io/uni-admision-stats/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🗳️ Observatorio Electoral UNI 2026</h3><p>Sitio independiente y no oficial para conocer y comparar las 9 listas y 27 candidaturas a rector y vicerrectores (elección de autoridades 2026). Cada dato lleva su fuente; lo no verificado se rotula como tal.</p><div class="meta"><span>Actualizado 30-10-2026</span><a href="https://unimauro.github.io/observatorio-electoral-uni/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🎓 Admisión UNI en cifras</h3><p>Dashboard público con estadísticas agregadas y anónimas de los procesos de admisión: postulantes, ausentismo y puntajes por prueba, especialidad y modalidad. Serie 2013–2026 y proceso en curso; sin datos personales.</p><div class="meta"><span>Actualizado 30-10-2026</span><a href="https://unimauro.github.io/uni-admision-stats/" target="_blank" rel="noopener">Abrir →</a></div></div>
     <div class="card"><h3>📝 uniexamen</h3><p>Scraper y estadísticas de los resultados del examen de admisión UNI, base de los agregados que alimentan este observatorio.</p><div class="meta"><span>Actualizado 25-10-2026</span><span class="pill">repositorio privado · sin enlace público</span></div></div>
     <div class="card"><h3>📚 UNI CEPRE</h3><p>Script para descargar los resultados del examen de admisión UNI CEPRE y realizar análisis estadísticos: totales, estadísticas por especialidad y modalidad, y notebook de Colab.</p><div class="meta"><span>Actualizado 17-03-2026</span><span class="pill">repositorio privado · sin enlace público</span></div></div>
     <div class="card"><h3>🧭 Gemelo Digital de la UNI</h3><p>Un «Waze institucional»: mide el impacto académico y científico por cada sol invertido y simula cómo distintas decisiones de inversión moverían a la UNI en los rankings. Demostración con datos ilustrativos.</p><div class="meta"><span>Actualizado 25-06-2026</span><a href="https://unimauro.github.io/gemelo-digital-uni/" target="_blank" rel="noopener">Abrir →</a></div></div>
@@ -317,7 +332,7 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
     <div class="card"><h3>🏛️ Observatorio San Marcos</h3><p>Portal ciudadano de transparencia de la Universidad Nacional Mayor de San Marcos (pliego 510): presupuesto, en qué se gasta, proveedores y dueños, investigación (OpenAlex, 44k publicaciones), gasto↔valor y personal.</p><div class="meta"><span>Actualizado 04-07-2026</span><a href="https://unimauro.github.io/observatorio-sanmarcos/" target="_blank" rel="noopener">Abrir →</a></div></div>
     <div class="card"><h3>🎭 Observatorio ENSAD</h3><p>Portal ciudadano de transparencia de la Escuela Nacional Superior de Arte Dramático (UE 123 del MINEDU): presupuesto, en qué se gasta, proveedores y dueños, personal.</p><div class="meta"><span>Actualizado 04-07-2026</span><a href="https://unimauro.github.io/observatorio-ensad/" target="_blank" rel="noopener">Abrir →</a></div></div>
     <div class="card"><h3>🇵🇪 Universidades del Perú</h3><p>Ranking de investigación de 96 universidades peruanas (públicas y privadas) con datos reales de OpenAlex: publicaciones, citas, h-index e Índice de Investigación referencial. No es un ranking oficial.</p><div class="meta"><span>Actualizado 05-07-2026</span><a href="https://unimauro.github.io/universidades-peru/" target="_blank" rel="noopener">Abrir →</a></div></div>
-    <div class="card"><h3>🗺️ Perú Transparente</h3><p>Mapa nacional de funcionarios, entidades públicas, empresas estatales y redes de poder: datos públicos del Estado en una base unificada, un grafo nacional y dashboards abiertos. De aquí sale la planilla (PTE) de este portal.</p><div class="meta"><span>Actualizado 29-10-2026</span><a href="https://unimauro.github.io/peru-transparente/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🗺️ Perú Transparente</h3><p>Mapa nacional de funcionarios, entidades públicas, empresas estatales y redes de poder: datos públicos del Estado en una base unificada, un grafo nacional y dashboards abiertos. Comparte con este portal la fuente de la planilla (Portal de Transparencia Estándar).</p><div class="meta"><span>Actualizado 29-10-2026</span><a href="https://unimauro.github.io/peru-transparente/" target="_blank" rel="noopener">Abrir →</a></div></div>
     <div class="card"><h3>🕸️ Poder Económico del Perú</h3><p>¿Quién controla qué? Grupos económicos, empresas, accionistas y directorios reconstruidos como un grafo a partir de información pública (SMV · BVL · SBS), con PageRank, comunidades e índice de poder económico.</p><div class="meta"><span>Actualizado 21-06-2026</span><a href="https://unimauro.github.io/observatorio-poder-economico/" target="_blank" rel="noopener">Abrir →</a></div></div>
   </div>
 </div></section>
@@ -407,7 +422,7 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
 <button class="fab" onclick="document.getElementById('chat').classList.toggle('open')" title="Pregúntale al observatorio">💬</button>
 <div class="chat" id="chat">
   <div class="top">Asistente del Observatorio UNI</div>
-  <div class="msgs" id="msgs"><div class="m a">Hola 👋 Pregúntame sobre el presupuesto, el gasto, los proveedores o la investigación de la UNI.</div></div>
+  <div class="msgs" id="msgs"><div class="m a">Hola 👋 Pregúntame sobre el presupuesto, los proveedores, la investigación, la admisión, la planilla o la elección de autoridades 2026 de la UNI. Respondo solo con los datos públicos de este observatorio.</div></div>
   <div class="in"><input id="chatIn" placeholder="Escribe tu pregunta…" onkeydown="if(event.key==='Enter')sendChat()"><button class="send" onclick="sendChat()">Enviar</button></div>
 </div>
 

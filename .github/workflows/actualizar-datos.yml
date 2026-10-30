@@ -46,9 +46,8 @@ jobs:
         run: python3 -I etl/build_planilla_pte.py
         continue-on-error: true
 
-      - name: Validar JSON
-        run: |
-          for f in data/*.json; do python3 -I -c "import json,sys; json.load(open('$f'))" || exit 1; done
+      - name: Validar JSON (tipos, HTML, URLs)
+        run: python3 -I etl/validate_data.py
 
       - name: Commit si hay cambios
         run: |
