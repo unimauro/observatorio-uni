@@ -13,16 +13,9 @@
   "masa_mensual_total": 10653617.69,
   "total_planilla_airhsp": 3243,
   "meses_consultados": [
-   1,
-   2,
-   3,
-   4,
-   5,
-   6,
-   7,
-   8,
    9,
-   10
+   10,
+   11
   ],
   "meses_con_datos": [
    1,
@@ -36,7 +29,8 @@
    9
   ],
   "meses_sin_datos": [
-   10
+   10,
+   11
   ],
   "regimenes_consultados": [
    "CAS",
@@ -60,7 +54,7 @@
    "Altos Funcionarios",
    "Ley Servir"
   ],
-  "discrepancias_suma": 3,
+  "discrepancias_suma": 0,
   "cruce_electoral": {
    "candidatos_total": 27,
    "candidatos_en_planilla": 27,
@@ -330,8 +324,8 @@
     }
    ]
   },
-  "nota": "Solo docentes, funcionarios y personal administrativo: nunca estudiantes. Lista NOMINAL del PTE (rubro Personal) para la UNI, mes más reciente con datos: setiembre 2026 (2130 personas; regímenes CAS, Régimen 276, Régimen 728/OTROS). El TOTAL mensual incluye aguinaldo/gratificación y 'otros' (julio y diciembre traen aguinaldo, por eso la masa de esos meses sube). El bucket 'Régimen 728/OTROS' es la etiqueta del PTE: ahí publica a los docentes (Ley 30220), no es el DL 728 del agregado AIRHSP. El PTE puede no listar a todo el personal (el agregado AIRHSP registra 3243 plazas). El 'sueldo_promedio' AIRHSP es remuneración base por plaza; el promedio PTE es total de ingresos del mes (incluye otros ingresos y aguinaldo), no son comparables. Meses sin datos en el portal: [10]. Regímenes consultados sin filas: PAC, FAG, PNUD, Altos Funcionarios, Ley Servir. No se inventaron personas ni sueldos.",
-  "generado": "2026-10-30T18:29:22+00:00",
+  "nota": "Solo docentes, funcionarios y personal administrativo: nunca estudiantes. Lista NOMINAL del PTE (rubro Personal) para la UNI, mes más reciente con datos: setiembre 2026 (2130 personas; regímenes CAS, Régimen 276, Régimen 728/OTROS). El TOTAL mensual incluye aguinaldo/gratificación y 'otros' (julio y diciembre traen aguinaldo, por eso la masa de esos meses sube). El bucket 'Régimen 728/OTROS' es la etiqueta del PTE: ahí publica a los docentes (Ley 30220), no es el DL 728 del agregado AIRHSP. El PTE puede no listar a todo el personal (el agregado AIRHSP registra 3243 plazas). El 'sueldo_promedio' AIRHSP es remuneración base por plaza; el promedio PTE es total de ingresos del mes (incluye otros ingresos y aguinaldo), no son comparables. Meses sin datos en el portal: [10, 11]. Regímenes consultados sin filas: PAC, FAG, PNUD, Altos Funcionarios, Ley Servir. No se inventaron personas ni sueldos.",
+  "generado": "2026-11-02T19:30:31+00:00",
   "meses_archivos": [
    "planilla-meses/2026-01.json",
    "planilla-meses/2026-02.json",

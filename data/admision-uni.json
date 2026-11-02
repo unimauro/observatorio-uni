@@ -3,8 +3,8 @@
   "fuente": "Resultados oficiales de admisión UNI (puntajes.admision.uni.edu.pe)",
   "fuente_detalle": "Agregados vía uni-admision-stats (https://unimauro.github.io/uni-admision-stats/). Serie histórica: Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe), microdatos oficiales UNI, licencia ODC-BY · 2013-2020: PDFs oficiales de la Dirección de Admisión UNI (vía Wayback Machine), solo conteos",
   "enlace": "https://unimauro.github.io/uni-admision-stats/",
-  "generado": "2026-10-30T18:22:24+00:00",
-  "fuente_actualizada": "2026-10-30T11:15:55.335419+00:00",
+  "generado": "2026-11-02T19:27:47+00:00",
+  "fuente_actualizada": "2026-11-02T13:17:55.211173+00:00",
   "proceso": "2026-1",
   "total_postulantes": 5713,
   "total_ingresantes": 922,
@@ -399,7 +399,7 @@
  },
  "proceso_en_curso": {
   "ciclo": "2027-1",
-  "ultima_fecha": "2026-10-30_11Z",
+  "ultima_fecha": "2026-11-02_13Z",
   "publicaciones": [
    {
     "nombre": "RESULTADOS DEL PRIMER PARCIAL CEPREUNI JULIACA – 2027-1",
