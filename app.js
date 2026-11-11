@@ -352,9 +352,9 @@ function renderElec() {
   else if (typeof res === 'string') resTxt = `Resultado (preliminar): ${esc(res)}`;
   else resTxt = `Resultado: <strong>pendiente</strong> (${esc(sr.estado || 'sin datos en la fuente')}).`;
   const procl = E.proclamacion ? `Proclamación: ${esc(typeof E.proclamacion === 'string' ? E.proclamacion : JSON.stringify(E.proclamacion))}.` : 'Proclamación oficial del CEUNI: <strong>pendiente</strong>.';
-  const cal = (E.calendario_pendiente || []).slice(0, 8).map(x => `<li><strong>${esc(x.fecha)}</strong> · ${esc(x.evento)}</li>`).join('');
+  const cal = (E.calendario_pendiente || []).slice(-8).map(x => `<li><strong>${esc(x.fecha)}</strong> · ${esc(x.evento)}</li>`).join('');
   w.innerHTML = `<div class="card">
-    <h3>🗳️ Segunda vuelta · ${esc(sr.fecha || 'fecha por confirmar')}</h3>
+    <h3>🗳️ Segunda vuelta · ${sr.repeticion?.date ? esc(sr.repeticion.date) + ' (repetición ' + esc(sr.repeticion.format || '') + '; la del ' + esc(sr.fecha || '') + ' fue anulada)' : esc(sr.fecha || 'fecha por confirmar')}</h3>
     <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:stretch;margin:10px 0 12px">${srCards || '<p class="note">Sin listas definidas para 2.ª vuelta.</p>'}</div>
     <p class="note">${resTxt} ${procl}</p>
     ${sr.nota ? `<p class="note" style="border-left:3px solid var(--granate);padding-left:10px">${/nulidad/i.test(sr.nota) ? '<strong>⚠️ Nulidad parcial declarada por el CEUNI.</strong> ' : ''}${esc(sr.nota)}</p>` : ''}
@@ -578,7 +578,7 @@ function buildCtx() {
     parts.push(`ELECCIÓN DE AUTORIDADES 2026 (fuente: observatorio electoral, actas/cómputo CEUNI; PRELIMINAR; ninguna lista superó el 50%, no hubo ganador en 1.ª vuelta). 1.ª vuelta ${T(e.primera_vuelta.fecha, 10)}: ` + e.primera_vuelta.listas.map(l => `Lista ${T(l.numero, 3)} (${T(l.rector, 45)}) ${fmtN(l.pct_ponderado)}%`).join('; ') + `. Ponderación 2/3 docentes (${fmtN(e.primera_vuelta.validos_docentes)} válidos) y 1/3 estudiantes (${fmtN(e.primera_vuelta.validos_estudiantes)}).`);
     const sv = e.segunda_vuelta;
     if (Array.isArray(e.prensa) && e.prensa.length) parts.push('En los medios (verificado): ' + e.prensa.slice(0, 4).map(x => `${T(x.fecha, 10)} ${T(x.medio, 25)}: ${T(x.titular, 90)}`).join(' | ') + '.');
-    if (sv) parts.push(`2.ª vuelta ${T(sv.fecha, 10)}: ` + (sv.listas || []).map(l => `Lista ${T(l.numero, 3)} (${T(l.rector, 45)})`).join(' vs ') + `. Estado: ${T(sv.estado, 120)}` + (sv.resultado ? ` Resultado: ${T(typeof sv.resultado === 'string' ? sv.resultado : JSON.stringify(sv.resultado), 300)}` : ' Resultado: no publicado aún en la fuente.') + (e.proclamacion ? ` Proclamación: ${T(typeof e.proclamacion === 'string' ? e.proclamacion : JSON.stringify(e.proclamacion), 300)}` : ' Proclamación: pendiente' + ((e.calendario_pendiente || []).find(x => /proclamaci/i.test(x.evento || '')) ? ` (cronograma Gaceta 175-2026: ${T((e.calendario_pendiente || []).find(x => /proclamaci/i.test(x.evento || '')).fecha, 10)}, sujeto a la nulidad parcial)` : '') + '.') + (sv.nota ? ` Nota de la fuente: ${T(sv.nota, 420)}` : ''));
+    if (sv) parts.push(`2.ª vuelta ${T(sv.fecha, 10)}: ` + (sv.listas || []).map(l => `Lista ${T(l.numero, 3)} (${T(l.rector, 45)})`).join(' vs ') + `. Estado: ${T(sv.estado, 320)}` + (sv.resultado ? ` Resultado: ${T(typeof sv.resultado === 'string' ? sv.resultado : JSON.stringify(sv.resultado), 300)}` : ' Resultado: no publicado aún en la fuente.') + (e.proclamacion ? ` Proclamación: ${T(typeof e.proclamacion === 'string' ? e.proclamacion : JSON.stringify(e.proclamacion), 300)}` : ' Proclamación: pendiente' + ((sv.repeticion?.proclamation ? ` (prevista para el ${T(sv.repeticion.proclamation, 10)} tras la nueva votación presencial del ${T(sv.repeticion.date, 10)})` : '')) + '.') + (sv.nota ? ` Nota de la fuente: ${T(sv.nota, 420)}` : ''));
   }
   // Planilla (PTE + AIRHSP; personal, nunca estudiantes)
   const P = DATA.plan;

@@ -111,8 +111,13 @@ def main():
     sr_result = sr.get('result') or sr.get('results') or None
     generado = datetime.now(timezone.utc).replace(microsecond=0)
     hoy = generado.date().isoformat()
+    rerun = sr.get('rerun') or {}
     if sr_result:
         estado = 'con resultados (preliminar)'
+    elif rerun.get('date') and hoy >= rerun['date']:
+        estado = 'repetida de forma %s el %s; %s' % (rerun.get('format') or 'presencial', rerun['date'], rerun.get('status') or 'resultados pendientes de publicación en esta fuente')
+    elif rerun.get('date'):
+        estado = 'anulada; nueva votación %s programada para el %s' % (rerun.get('format') or '', rerun['date'])
     elif re.search(r'nulidad', sr.get('note') or '', re.I):
         estado = 'realizada; nulidad parcial declarada por el CEUNI; sin resultado publicado'
     elif sr.get('date') and hoy >= sr['date']:
@@ -126,6 +131,7 @@ def main():
         'estado': estado,
         'resultado': sr_result,
         'nota': sr.get('note'),
+        'repeticion': {k: rerun.get(k) for k in ('date', 'format', 'schedule', 'onpe', 'venues', 'proclamation', 'note', 'status')} if rerun else None,
         'url': SITIO + '#/segunda-vuelta',
     }
 
