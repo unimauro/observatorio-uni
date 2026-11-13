@@ -1,0 +1,957 @@
+{
+ "_meta": {
+  "schema": 2,
+  "fuente": "Portal de Transparencia Estándar (PTE) · rubro Personal · transparencia.gob.pe (nominal) + AIRHSP (agregado docentes)",
+  "url_fuente": "https://www.transparencia.gob.pe/personal/pte_transparencia_personal.aspx?id_entidad=10048&in_anno_consulta=2026&ch_mes_consulta=09&vc_nombre_funcionario=&vc_dni_funcionario=&ch_tipo_regimen=1&id_tema=32&Ver=&pag=1",
+  "entidad": "Universidad Nacional de Ingeniería (UNI) - pliego 514 / id_entidad PTE 10048",
+  "anio": 2026,
+  "mes": 9,
+  "mes_nombre": "setiembre",
+  "total": 2130,
+  "personas_distintas": 2124,
+  "nota_total": "total = registros (una persona puede figurar con dos cargos, p.ej. vicerrector + profesor); personas_distintas = nombres únicos",
+  "masa_mensual_total": 10653617.69,
+  "total_planilla_airhsp": 3243,
+  "meses_consultados": [
+   9,
+   10,
+   11
+  ],
+  "meses_con_datos": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "meses_sin_datos": [
+   10,
+   11
+  ],
+  "regimenes_consultados": [
+   "CAS",
+   "Régimen 276",
+   "Régimen 728/OTROS",
+   "PAC",
+   "FAG",
+   "PNUD",
+   "Altos Funcionarios",
+   "Ley Servir"
+  ],
+  "regimenes_con_datos": [
+   "CAS",
+   "Régimen 276",
+   "Régimen 728/OTROS"
+  ],
+  "regimenes_sin_datos": [
+   "PAC",
+   "FAG",
+   "PNUD",
+   "Altos Funcionarios",
+   "Ley Servir"
+  ],
+  "discrepancias_suma": 0,
+  "cruce_electoral": {
+   "candidatos_total": 27,
+   "candidatos_en_planilla": 27,
+   "metodo": "igualdad exacta del multiconjunto de tokens del nombre completo (sin tildes, mayúsculas) entre 'APELLIDOS, NOMBRES' del PTE y officialName/nameVariants de candidates.json",
+   "fuente_candidatos": "observatorio-electoral-uni/src/data/candidates.json (CEUNI, listas definitivas 2026)",
+   "matches": [
+    {
+     "candidateId": "c-4-3",
+     "listId": "lista-4",
+     "role": "vicerrector_investigacion",
+     "nombre": "HUAMAN PEREZ, FERNANDO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 15600.0
+    },
+    {
+     "candidateId": "c-1-3",
+     "listId": "lista-1",
+     "role": "vicerrector_investigacion",
+     "nombre": "LASTRA ESPINOZA, LUIS ANTONIO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 15600.0
+    },
+    {
+     "candidateId": "c-2-1",
+     "listId": "lista-2",
+     "role": "rector",
+     "nombre": "PADILLA RIOS, AURELIO MARCELO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 15600.0
+    },
+    {
+     "candidateId": "c-8-3",
+     "listId": "lista-8",
+     "role": "vicerrector_investigacion",
+     "nombre": "ROSALES HUAMANI, JIMMY AURELIO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 15600.0
+    },
+    {
+     "candidateId": "c-8-2",
+     "listId": "lista-8",
+     "role": "vicerrector_academico",
+     "nombre": "SALINAS BASUALDO, RAFAEL ROLANDO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 15600.0
+    },
+    {
+     "candidateId": "c-9-3",
+     "listId": "lista-9",
+     "role": "vicerrector_investigacion",
+     "nombre": "VERGARA SOTOMAYOR, ABEL FERNANDO",
+     "cargo": "PROFESOR PRINCIPAL A DEDICACION EXCLUSIVA",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 15600.0
+    },
+    {
+     "candidateId": "c-8-1",
+     "listId": "lista-8",
+     "role": "rector",
+     "nombre": "RODRIGUEZ RODRIGUEZ, JUAN MARTIN",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 15554.19
+    },
+    {
+     "candidateId": "c-7-1",
+     "listId": "lista-7",
+     "role": "rector",
+     "nombre": "FALCONI VASQUEZ, RODOLFO ELIAS",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 13869.82
+    },
+    {
+     "candidateId": "c-3-3",
+     "listId": "lista-3",
+     "role": "vicerrector_investigacion",
+     "nombre": "MONTOYA ZAVALETA, MODESTO EDILBERTO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 13304.73
+    },
+    {
+     "candidateId": "c-5-1",
+     "listId": "lista-5",
+     "role": "rector",
+     "nombre": "HUAMAN SANCHEZ, ALEJANDRO APOLINARIO",
+     "cargo": "PROFESOR PRINCIPAL A DEDICACION EXCLUSIVA",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 13030.57
+    },
+    {
+     "candidateId": "c-6-2",
+     "listId": "lista-6",
+     "role": "vicerrector_academico",
+     "nombre": "PALMA GARCIA, MODESTO TOMAS",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 12869.82
+    },
+    {
+     "candidateId": "c-5-3",
+     "listId": "lista-5",
+     "role": "vicerrector_investigacion",
+     "nombre": "LAZO JARA, ANTONIO NOLBERTO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 12369.82
+    },
+    {
+     "candidateId": "c-7-2",
+     "listId": "lista-7",
+     "role": "vicerrector_academico",
+     "nombre": "MOSQUERA LEIVA, LUIS ALBERTO",
+     "cargo": "PROFESOR PRINCIPAL A DEDICACION EXCLUSIVA",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 11825.53
+    },
+    {
+     "candidateId": "c-9-1",
+     "listId": "lista-9",
+     "role": "rector",
+     "nombre": "ARNAO RONDAN, RAYMUNDO ILDEFONZO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 11519.82
+    },
+    {
+     "candidateId": "c-6-1",
+     "listId": "lista-6",
+     "role": "rector",
+     "nombre": "ALVA DAVILA, FORTUNATO",
+     "cargo": "PROFESOR PRINCIPAL A DEDICACION EXCLUSIVA",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 11507.82
+    },
+    {
+     "candidateId": "c-3-1",
+     "listId": "lista-3",
+     "role": "rector",
+     "nombre": "CHIRIF RIVERA, LUIS HUMBERTO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 11389.82
+    },
+    {
+     "candidateId": "c-1-1",
+     "listId": "lista-1",
+     "role": "rector",
+     "nombre": "BUTLER BLACKER, JORGE GUSTAVO",
+     "cargo": "VICERECTOR DE INVESTIGACION",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 11250.0
+    },
+    {
+     "candidateId": "c-1-2",
+     "listId": "lista-1",
+     "role": "vicerrector_academico",
+     "nombre": "CACHO CRUZ, ROCIO MARGARITA",
+     "cargo": "VICERECTOR ACADEMICO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 11250.0
+    },
+    {
+     "candidateId": "c-5-2",
+     "listId": "lista-5",
+     "role": "vicerrector_academico",
+     "nombre": "GAMARRA CHINCHAY, HUGO ELISEO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 9519.82
+    },
+    {
+     "candidateId": "c-4-2",
+     "listId": "lista-4",
+     "role": "vicerrector_academico",
+     "nombre": "CÁCERES CÁRDENAS, FÉLIX VÍCTOR",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 9369.82
+    },
+    {
+     "candidateId": "c-6-3",
+     "listId": "lista-6",
+     "role": "vicerrector_investigacion",
+     "nombre": "GUIMARAY HUERTA, HECTOR CARLOS",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 9369.82
+    },
+    {
+     "candidateId": "c-9-2",
+     "listId": "lista-9",
+     "role": "vicerrector_academico",
+     "nombre": "GUTIERREZ PAUCAR, AGUSTIN ADALBERTO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 9369.82
+    },
+    {
+     "candidateId": "c-3-2",
+     "listId": "lista-3",
+     "role": "vicerrector_academico",
+     "nombre": "PAUYAC HUAMAN, JOSE ANIBAL",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 9369.82
+    },
+    {
+     "candidateId": "c-2-2",
+     "listId": "lista-2",
+     "role": "vicerrector_academico",
+     "nombre": "SANCHEZ ESPINOZA, JAVIER CONCEPCION",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 9369.82
+    },
+    {
+     "candidateId": "c-4-1",
+     "listId": "lista-4",
+     "role": "rector",
+     "nombre": "HUMALA TASSO, ULISES",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 8869.82
+    },
+    {
+     "candidateId": "c-7-3",
+     "listId": "lista-7",
+     "role": "vicerrector_investigacion",
+     "nombre": "VILLAVICENCIO CHAVEZ, MANUEL AUGUSTO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 8869.82
+    },
+    {
+     "candidateId": "c-2-3",
+     "listId": "lista-2",
+     "role": "vicerrector_investigacion",
+     "nombre": "OSORIO CARRERA, CESAR JAVIER",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO PARCIAL",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 5934.91
+    },
+    {
+     "candidateId": "c-1-1",
+     "listId": "lista-1",
+     "role": "rector",
+     "nombre": "BUTLER BLACKER, JORGE GUSTAVO",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 4434.91
+    },
+    {
+     "candidateId": "c-1-2",
+     "listId": "lista-1",
+     "role": "vicerrector_academico",
+     "nombre": "CACHO CRUZ, ROCIO MARGARITA",
+     "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+     "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+     "total": 4434.91
+    }
+   ]
+  },
+  "nota": "Solo docentes, funcionarios y personal administrativo: nunca estudiantes. Lista NOMINAL del PTE (rubro Personal) para la UNI, mes más reciente con datos: setiembre 2026 (2130 personas; regímenes CAS, Régimen 276, Régimen 728/OTROS). El TOTAL mensual incluye aguinaldo/gratificación y 'otros' (julio y diciembre traen aguinaldo, por eso la masa de esos meses sube). El bucket 'Régimen 728/OTROS' es la etiqueta del PTE: ahí publica a los docentes (Ley 30220), no es el DL 728 del agregado AIRHSP. El PTE puede no listar a todo el personal (el agregado AIRHSP registra 3243 plazas). El 'sueldo_promedio' AIRHSP es remuneración base por plaza; el promedio PTE es total de ingresos del mes (incluye otros ingresos y aguinaldo), no son comparables. Meses sin datos en el portal: [10, 11]. Regímenes consultados sin filas: PAC, FAG, PNUD, Altos Funcionarios, Ley Servir. No se inventaron personas ni sueldos.",
+  "generado": "2026-11-02T19:30:31+00:00",
+  "meses_archivos": [
+   "planilla-meses/2026-01.json",
+   "planilla-meses/2026-02.json",
+   "planilla-meses/2026-03.json",
+   "planilla-meses/2026-04.json",
+   "planilla-meses/2026-05.json",
+   "planilla-meses/2026-06.json",
+   "planilla-meses/2026-07.json",
+   "planilla-meses/2026-08.json",
+   "planilla-meses/2026-09.json"
+  ]
+ },
+ "resumen": {
+  "por_regimen_nominal": [
+   {
+    "nombre": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+    "n": 1297,
+    "total_mes": 8478342.37,
+    "prom": 6634.07,
+    "mediana": 5820.5,
+    "max": 25000.0
+   },
+   {
+    "nombre": "CAS (D.Leg. 1057)",
+    "n": 593,
+    "total_mes": 1448880.72,
+    "prom": 2480.96,
+    "mediana": 1864.19,
+    "max": 21270.95
+   },
+   {
+    "nombre": "D.Leg. 276 (nombrados)",
+    "n": 240,
+    "total_mes": 726394.6,
+    "prom": 3091.04,
+    "mediana": 2447.39,
+    "max": 13359.9
+   }
+  ],
+  "por_regimen_airhsp": [
+   {
+    "nombre": "Carreras Especiales (docentes universitarios)",
+    "n": 1717,
+    "sueldo_promedio": 4102
+   },
+   {
+    "nombre": "D. Leg. Nº 276 (administrativo nombrado)",
+    "n": 760,
+    "sueldo_promedio": 2114
+   },
+   {
+    "nombre": "D. Leg. 1057 CAS",
+    "n": 673,
+    "sueldo_promedio": 2481
+   },
+   {
+    "nombre": "D. Leg. Nº 728",
+    "n": 68,
+    "sueldo_promedio": 3740
+   },
+   {
+    "nombre": "Sin Régimen Laboral",
+    "n": 22,
+    "sueldo_promedio": 1227
+   },
+   {
+    "nombre": "Ley Nº 30057 SERVIR",
+    "n": 3,
+    "sueldo_promedio": 23333
+   }
+  ],
+  "por_categoria": [
+   {
+    "nombre": "docente",
+    "n": 1282
+   },
+   {
+    "nombre": "administrativo",
+    "n": 728
+   },
+   {
+    "nombre": "funcionario",
+    "n": 120
+   }
+  ],
+  "top_cargos": [
+   {
+    "cargo": "DOCENTE UNIVERSITARIO",
+    "n": 297,
+    "prom": 4321.16,
+    "total_mes": 1283383.92
+   },
+   {
+    "cargo": "PROFESOR AUXILIAR A TIEMPO COMPLETO",
+    "n": 266,
+    "prom": 7438.91,
+    "total_mes": 1978749.43
+   },
+   {
+    "cargo": "PROFESOR AUXILIAR A TIEMPO PARCIAL",
+    "n": 187,
+    "prom": 2310.9,
+    "total_mes": 432137.43
+   },
+   {
+    "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+    "n": 178,
+    "prom": 11001.89,
+    "total_mes": 1958337.27
+   },
+   {
+    "cargo": "PROFESOR ASOCIADO A TIEMPO COMPLETO",
+    "n": 159,
+    "prom": 7819.12,
+    "total_mes": 1243240.73
+   },
+   {
+    "cargo": "TÉCNICO ADMINISTRATIVO I",
+    "n": 108,
+    "prom": 2456.91,
+    "total_mes": 265346.31
+   },
+   {
+    "cargo": "PROFESOR PRINCIPAL A DEDICACION EXCLUSIVA",
+    "n": 60,
+    "prom": 11852.05,
+    "total_mes": 711122.82
+   },
+   {
+    "cargo": "PROFESOR ASOCIADO A TIEMPO PARCIAL",
+    "n": 41,
+    "prom": 2823.88,
+    "total_mes": 115779.27
+   },
+   {
+    "cargo": "TÉCNICO ADMINISTRATIVO III",
+    "n": 37,
+    "prom": 2528.08,
+    "total_mes": 93538.9
+   },
+   {
+    "cargo": "JEFE ADMINISTRATIVO I",
+    "n": 35,
+    "prom": 3227.82,
+    "total_mes": 112973.76
+   },
+   {
+    "cargo": "OPERADOR EN MANTENIMIENTO Y LIMPIEZA",
+    "n": 34,
+    "prom": 2629.78,
+    "total_mes": 89412.46
+   },
+   {
+    "cargo": "PROFESOR ASOCIADO A DEDICACION EXCLUSIVA",
+    "n": 34,
+    "prom": 7685.97,
+    "total_mes": 261322.86
+   },
+   {
+    "cargo": "TÉCNICO ADMINISTRATIVO II",
+    "n": 32,
+    "prom": 1910.74,
+    "total_mes": 61143.59
+   },
+   {
+    "cargo": "PROFESOR PRINCIPAL A TIEMPO PARCIAL",
+    "n": 31,
+    "prom": 4182.39,
+    "total_mes": 129654.15
+   },
+   {
+    "cargo": "DIRECTOR I",
+    "n": 28,
+    "prom": 3000.74,
+    "total_mes": 84020.72
+   },
+   {
+    "cargo": "SEGURIDAD Y VIGILANCIA I",
+    "n": 27,
+    "prom": 1746.78,
+    "total_mes": 47163.13
+   },
+   {
+    "cargo": "TRABAJADOR DE SERVICIOS I",
+    "n": 24,
+    "prom": 1600.56,
+    "total_mes": 38413.42
+   },
+   {
+    "cargo": "SECRETARIA/O",
+    "n": 19,
+    "prom": 2206.19,
+    "total_mes": 41917.61
+   },
+   {
+    "cargo": "SUB DIRECTOR",
+    "n": 18,
+    "prom": 2848.37,
+    "total_mes": 51270.69
+   },
+   {
+    "cargo": "TÉCNICO ADMINISTRATIVO/A",
+    "n": 18,
+    "prom": 2694.19,
+    "total_mes": 48495.42
+   }
+  ],
+  "por_dependencia": [
+   {
+    "dependencia": "FACULTAD DE INGENIERIA CIVIL",
+    "n": 227,
+    "total_mes": 1464944.22,
+    "prom": 6453.5
+   },
+   {
+    "dependencia": "FACULTAD DE CIENCIAS",
+    "n": 186,
+    "total_mes": 1241816.29,
+    "prom": 6676.43
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA MECANICA",
+    "n": 224,
+    "total_mes": 1202801.52,
+    "prom": 5369.65
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA DE INDUSTRIAL Y DE SISTEMAS",
+    "n": 160,
+    "total_mes": 834961.58,
+    "prom": 5218.51
+   },
+   {
+    "dependencia": "FACULTAD DE ARQUITECTURA, URBANISMO Y ARTES",
+    "n": 155,
+    "total_mes": 796086.22,
+    "prom": 5136.04
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA ELECTRICA Y ELECTRONICA",
+    "n": 141,
+    "total_mes": 792434.96,
+    "prom": 5620.11
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA ECONOMICA, ESTADISTICA Y CIENCIAS SOCIALES",
+    "n": 138,
+    "total_mes": 755986.16,
+    "prom": 5478.16
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA GEOLOGICA, MINERA Y METALURGICA",
+    "n": 145,
+    "total_mes": 718813.35,
+    "prom": 4957.33
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA QUIMICA Y TEXTIL",
+    "n": 116,
+    "total_mes": 616589.49,
+    "prom": 5315.43
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA AMBIENTAL",
+    "n": 116,
+    "total_mes": 556964.77,
+    "prom": 4801.42
+   },
+   {
+    "dependencia": "UNIDAD DE SERVICIOS GENERALES",
+    "n": 173,
+    "total_mes": 396605.54,
+    "prom": 2292.52
+   },
+   {
+    "dependencia": "FACULTAD DE INGENIERIA DE PETROLEO,GAS NATURAL Y PETROQUIMICA",
+    "n": 77,
+    "total_mes": 393838.48,
+    "prom": 5114.79
+   },
+   {
+    "dependencia": "DIRECCION DE BIENESTAR UNIVERSITARIO",
+    "n": 42,
+    "total_mes": 123722.51,
+    "prom": 2945.77
+   },
+   {
+    "dependencia": "UNIDAD DE RECURSOS HUMANOS",
+    "n": 25,
+    "total_mes": 81487.87,
+    "prom": 3259.51
+   },
+   {
+    "dependencia": "UNIDAD DE TESORERIA Y CONTABILIDAD",
+    "n": 19,
+    "total_mes": 65921.23,
+    "prom": 3469.54
+   },
+   {
+    "dependencia": "UNIDAD DE ABASTECIMIENTO",
+    "n": 23,
+    "total_mes": 65411.48,
+    "prom": 2843.98
+   },
+   {
+    "dependencia": "OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
+    "n": 12,
+    "total_mes": 54963.58,
+    "prom": 4580.3
+   },
+   {
+    "dependencia": "OFICINA DE TECNOLOGIAS DE LA INFORMACION",
+    "n": 13,
+    "total_mes": 35360.36,
+    "prom": 2720.03
+   },
+   {
+    "dependencia": "SECRETARIA GENERAL",
+    "n": 9,
+    "total_mes": 34392.6,
+    "prom": 3821.4
+   },
+   {
+    "dependencia": "UNIDAD DE CENTRO MEDICO",
+    "n": 10,
+    "total_mes": 31028.94,
+    "prom": 3102.89
+   },
+   {
+    "dependencia": "UNIDAD DE CENTRO DE DISCIPLINAS DEPORTIVAS",
+    "n": 12,
+    "total_mes": 30677.57,
+    "prom": 2556.46
+   },
+   {
+    "dependencia": "DIRECCION DE BIBLIOTECA CENTRAL",
+    "n": 13,
+    "total_mes": 30409.24,
+    "prom": 2339.17
+   },
+   {
+    "dependencia": "VICERECTORADO DE INVESTIGACION",
+    "n": 4,
+    "total_mes": 30263.26,
+    "prom": 7565.81
+   },
+   {
+    "dependencia": "RECTORADO",
+    "n": 5,
+    "total_mes": 30026.07,
+    "prom": 6005.21
+   },
+   {
+    "dependencia": "UNIDAD DE LABORATORIO NACIONAL DE HIDRAULICA",
+    "n": 10,
+    "total_mes": 27178.62,
+    "prom": 2717.86
+   }
+  ],
+  "remun": {
+   "n": 2097,
+   "prom": 5080.41,
+   "mediana": 3364.19,
+   "min": 473.58,
+   "max": 25000.0,
+   "n_cero": 33,
+   "nota": "Estadísticos sobre TOTAL INGRESOS (S/) del mes setiembre 2026, todos los regímenes nominales del PTE, excluyendo 33 registros con total 0."
+  }
+ },
+ "serie_mensual": [
+  {
+   "anio": 2026,
+   "mes": 1,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 602,
+   "masa_total": 1501369.66
+  },
+  {
+   "anio": 2026,
+   "mes": 1,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 236,
+   "masa_total": 731076.7
+  },
+  {
+   "anio": 2026,
+   "mes": 1,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1151,
+   "masa_total": 7481768.99
+  },
+  {
+   "anio": 2026,
+   "mes": 2,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 602,
+   "masa_total": 1446994.49
+  },
+  {
+   "anio": 2026,
+   "mes": 2,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 239,
+   "masa_total": 728732.28
+  },
+  {
+   "anio": 2026,
+   "mes": 2,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1242,
+   "masa_total": 8648979.43
+  },
+  {
+   "anio": 2026,
+   "mes": 3,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 603,
+   "masa_total": 1455749.79
+  },
+  {
+   "anio": 2026,
+   "mes": 3,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 246,
+   "masa_total": 1459930.44
+  },
+  {
+   "anio": 2026,
+   "mes": 3,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1242,
+   "masa_total": 8168515.39
+  },
+  {
+   "anio": 2026,
+   "mes": 4,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 604,
+   "masa_total": 2194506.13
+  },
+  {
+   "anio": 2026,
+   "mes": 4,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 242,
+   "masa_total": 972611.64
+  },
+  {
+   "anio": 2026,
+   "mes": 4,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1254,
+   "masa_total": 8014201.72
+  },
+  {
+   "anio": 2026,
+   "mes": 5,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 596,
+   "masa_total": 1450419.77
+  },
+  {
+   "anio": 2026,
+   "mes": 5,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 240,
+   "masa_total": 744451.95
+  },
+  {
+   "anio": 2026,
+   "mes": 5,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1269,
+   "masa_total": 8245450.13
+  },
+  {
+   "anio": 2026,
+   "mes": 6,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 598,
+   "masa_total": 1459309.09
+  },
+  {
+   "anio": 2026,
+   "mes": 6,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 241,
+   "masa_total": 823041.88
+  },
+  {
+   "anio": 2026,
+   "mes": 6,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1268,
+   "masa_total": 8248855.62
+  },
+  {
+   "anio": 2026,
+   "mes": 7,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 598,
+   "masa_total": 3283972.7
+  },
+  {
+   "anio": 2026,
+   "mes": 7,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 242,
+   "masa_total": 1276865.49
+  },
+  {
+   "anio": 2026,
+   "mes": 7,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1287,
+   "masa_total": 9417754.24
+  },
+  {
+   "anio": 2026,
+   "mes": 8,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 594,
+   "masa_total": 1445235.66
+  },
+  {
+   "anio": 2026,
+   "mes": 8,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 245,
+   "masa_total": 816652.04
+  },
+  {
+   "anio": 2026,
+   "mes": 8,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1288,
+   "masa_total": 8765184.06
+  },
+  {
+   "anio": 2026,
+   "mes": 9,
+   "regimen": "CAS (D.Leg. 1057)",
+   "n": 593,
+   "masa_total": 1448880.72
+  },
+  {
+   "anio": 2026,
+   "mes": 9,
+   "regimen": "D.Leg. 276 (nombrados)",
+   "n": 240,
+   "masa_total": 726394.6
+  },
+  {
+   "anio": 2026,
+   "mes": 9,
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "n": 1297,
+   "masa_total": 8478342.37
+  }
+ ],
+ "top_ingresos": [
+  {
+   "nombre": "TALLEDO CORONADO, ARTURO FERNANDO",
+   "cargo": "RECTOR",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 25000.0
+  },
+  {
+   "nombre": "KERRIGAN LEON, SANTIAGO MANUEL",
+   "cargo": "JEFE DE LA OFICINA CENTRAL DE BIENESTAR UNIVERSITARIO",
+   "regimen": "CAS (D.Leg. 1057)",
+   "total": 21270.95
+  },
+  {
+   "nombre": "HUARI CAMA, EDUARDO DIONISIO",
+   "cargo": "PROFESOR AUXILIAR A TIEMPO COMPLETO",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 17254.42
+  },
+  {
+   "nombre": "ALVA HURTADO, JORGE ELIAS DOMINGO",
+   "cargo": "PROFESOR PRINCIPAL A DEDICACION EXCLUSIVA",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 15600.0
+  },
+  {
+   "nombre": "ARGUME CHAVEZ, EDGARD AMERICO",
+   "cargo": "DECANO",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 15600.0
+  },
+  {
+   "nombre": "ARRIETA FREYRE, JAVIER EDUARDO",
+   "cargo": "PROFESOR PRINCIPAL A TIEMPO COMPLETO",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 15600.0
+  },
+  {
+   "nombre": "AYALA LIMAYLLA, CHRISTIAN SAEL",
+   "cargo": "PROFESOR AUXILIAR A TIEMPO COMPLETO",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 15600.0
+  },
+  {
+   "nombre": "BAENA MONCADA, ANGELICA MARIA",
+   "cargo": "PROFESOR ASOCIADO A TIEMPO COMPLETO",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 15600.0
+  },
+  {
+   "nombre": "BASUALDO MONTES, SABINO POMPEYO",
+   "cargo": "PROFESOR AUXILIAR A TIEMPO COMPLETO",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 15600.0
+  },
+  {
+   "nombre": "BECERRA ESTRELLA, CHRISTIAN STEVEN",
+   "cargo": "DOCENTE UNIVERSITARIO",
+   "regimen": "Régimen 728 / otros (donde el PTE lista a los docentes)",
+   "total": 15600.0
+  }
+ ],
+ "n_registros": 2130,
+ "docentes_pte": {
+  "n": 1282,
+  "total": 8263302.73,
+  "otros": 2454779.89
+ }
+}

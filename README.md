@@ -25,7 +25,16 @@ Dashboard estático (HTML + Chart.js, sin build). Los datos se generan con los s
   meses del año y regímenes 1–7 y 9 (sin pensionistas), caché en `etl/cache_pte/` (gitignorada), cruce con
   `candidates.json` del observatorio electoral, sin dependencias externas. Sin argumentos usa el año en curso;
   `PTE_MONTHS=3` limita a los últimos 3 meses (CI). No sobrescribe el JSON si el portal falla o viene incompleto.
+- `build_planilla_resumen.py` — `data/planilla-resumen.json` (~25 KB): resumen de la planilla sin la lista nominal, para la
+  portada, «UNI líder» y el asistente; la lista completa solo la descarga `planilla.html`.
 - (próximos) `build_oece_uni.py` (contrataciones).
+
+## Páginas
+Sitio multipágina con cabecera, `assets/styles.css` y `app.js` compartidos; cada página carga solo sus JSON:
+`index.html` (resumen y áreas) · `presupuesto.html` (presupuesto, en qué se gasta, proveedores, gasto↔valor) ·
+`investigacion.html` (producción científica, facultades·VRI) · `planilla.html` · `admision.html` · `eleccion.html` ·
+`lider.html` (`<main id="lider-main">`) · `acerca.html` (ecosistema, hoja de ruta, metodología).
+Los enlaces antiguos `index.html#seccion` redirigen a la página nueva.
 
 ## Ecosistema
 Sitios hermanos del mismo autor, enlazados desde la sección «Más observatorios y datos UNI»:

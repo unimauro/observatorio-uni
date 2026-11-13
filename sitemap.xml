@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://unimauro.github.io/observatorio-uni/</loc><priority>1.0</priority></url>
+<url><loc>https://unimauro.github.io/observatorio-uni/presupuesto.html</loc><priority>0.8</priority></url>
+<url><loc>https://unimauro.github.io/observatorio-uni/investigacion.html</loc><priority>0.8</priority></url>
+<url><loc>https://unimauro.github.io/observatorio-uni/planilla.html</loc><priority>0.8</priority></url>
+<url><loc>https://unimauro.github.io/observatorio-uni/admision.html</loc><priority>0.8</priority></url>
+<url><loc>https://unimauro.github.io/observatorio-uni/eleccion.html</loc><priority>0.8</priority></url>
+<url><loc>https://unimauro.github.io/observatorio-uni/lider.html</loc><priority>0.8</priority></url>
+<url><loc>https://unimauro.github.io/observatorio-uni/acerca.html</loc><priority>0.8</priority></url>
 </urlset>

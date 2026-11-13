@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* tema antes de pintar: preferencia guardada o la del sistema */(function(){try{var t=localStorage.getItem('obsuni_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9TLNPZH2R2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9TLNPZH2R2');
+</script>
+<title>Planilla y remuneraciones de la UNI · Observatorio UNI</title>
+<meta name="description" content="Personal de la Universidad Nacional de Ingeniería (docentes, funcionarios y administrativos) y sus remuneraciones mensuales, desde el Portal de Transparencia Estándar y el AIRHSP. Buscador, filtro por régimen y selector de mes.">
+<link rel="canonical" href="https://unimauro.github.io/observatorio-uni/planilla.html">
+<meta property="og:title" content="Planilla y remuneraciones de la UNI">
+<meta property="og:description" content="Lista nominal del Portal de Transparencia Estándar: personas, masa salarial mensual por régimen, cargos y buscador.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://unimauro.github.io/observatorio-uni/planilla.html">
+<meta property="og:image" content="https://unimauro.github.io/observatorio-uni/assets/og.png">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="Observatorio UNI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#5c0013">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
+<script defer src="config.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body data-page="planilla">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- barra de apoyo -->
+<div class="support"><div class="wrap">
+  <span class="sp-txt">🏛️ Portal ciudadano · datos públicos</span>
+  <a href="https://wa.me/51940584307" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <a href="#" onclick="document.getElementById('yape').classList.add('open');return false">💜 Yape</a>
+  <a href="https://buymeacoffee.com/unimauro" target="_blank" rel="noopener">☕ Apóyanos</a>
+</div></div>
+
+<!-- navegación -->
+<header class="nav"><div class="wrap">
+  <a class="brand" href="./"><img class="logo" src="assets/favicon.svg" alt="" width="30" height="30"><span>Observatorio UNI<small>Universidad Nacional de Ingeniería · transparencia</small></span></a>
+  <nav class="links" id="nav" aria-label="Páginas del observatorio">
+    <a href="./">Inicio</a>
+    <a href="presupuesto.html">Presupuesto y gasto</a>
+    <a href="investigacion.html">Investigación</a>
+    <a href="planilla.html" class="on" aria-current="page">Planilla</a>
+    <a href="admision.html">Admisión</a>
+    <a href="eleccion.html">Elección 2026</a>
+    <a href="lider.html">UNI líder</a>
+    <a href="acerca.html">Acerca</a>
+  </nav>
+  <button class="icon-btn burger" id="burger" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">☰</button>
+  <button class="icon-btn" id="tglBtn" onclick="toggleTheme()" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
+</div></header>
+
+
+<main id="main">
+<section id="planilla"><div class="wrap">
+  <div class="eyebrow">Quiénes trabajan</div>
+  <h1 class="sec">Planilla y remuneraciones</h1>
+  <p class="lead">Personal de la UNI (docentes, funcionarios y administrativos) y sus remuneraciones mensuales, a partir de la lista nominal del Portal de Transparencia Estándar (PTE, regímenes CAS, 276 y «728/otros», donde el PTE publica a los docentes) y del agregado AIRHSP. Nunca estudiantes.</p>
+  <div class="kpis" id="planKpis" style="margin-bottom:20px"></div>
+  <div class="grid2">
+    <div class="card"><h3>Masa salarial mensual 2026 por régimen (S/ M, PTE)</h3><div class="chart-box"><canvas id="cSerPlan"></canvas></div></div>
+    <div class="card"><h3>Top 10 cargos por ingreso mensual promedio, entre los 20 cargos más frecuentes (S/)</h3><div class="chart-box"><canvas id="cTopCargo"></canvas></div></div>
+  </div>
+  <div class="grid2" style="margin-top:20px">
+    <div class="card"><h3>Plazas por régimen laboral (AIRHSP)</h3><div class="chart-box"><canvas id="cReg"></canvas></div></div>
+    <div class="card"><h3>Sueldo promedio por régimen (S/, AIRHSP)</h3><div class="chart-box"><canvas id="cRegS"></canvas></div></div>
+  </div>
+  <div id="planWrap" style="margin-top:20px"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>Observatorio UNI</h4>
+      <p style="margin:0 0 8px">Observatorio UNI · datos públicos MEF · OECE · OpenAlex · admisión UNI · construido por
+      <a href="https://unimauro.github.io" target="_blank" rel="noopener">Carlos Cárdenas (@unimauro)</a>.
+      No es un portal oficial de la Universidad Nacional de Ingeniería.</p>
+      <p style="margin:0">Correcciones y datos: <a href="mailto:carlos@cardenas.pe">carlos@cardenas.pe</a></p>
+    </div>
+    <div>
+      <h4>Páginas</h4>
+      <ul>
+      <li><a href="./">Inicio</a></li>
+      <li><a href="presupuesto.html">Presupuesto y gasto</a></li>
+      <li><a href="investigacion.html">Investigación</a></li>
+      <li><a href="planilla.html">Planilla</a></li>
+      <li><a href="admision.html">Admisión</a></li>
+      <li><a href="eleccion.html">Elección 2026</a></li>
+      <li><a href="lider.html">UNI líder</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Apoya</h4>
+      <ul>
+        <li><a href="https://wa.me/51940584307" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+        <li><a href="#" onclick="document.getElementById('yape').classList.add('open');return false">💜 Yape</a></li>
+        <li><a href="https://buymeacoffee.com/unimauro" target="_blank" rel="noopener">☕ Apóyanos</a></li>
+        <li><a href="https://github.com/unimauro/observatorio-uni" target="_blank" rel="noopener">Código abierto</a></li>
+      </ul>
+    </div>
+  </div>
+</div></footer>
+
+<!-- Yape modal -->
+<div class="modal" id="yape" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="box">
+    <h3 style="margin-top:0">Apóyanos con Yape 💜</h3>
+    <img src="https://raw.githubusercontent.com/unimauro/salariosperu/main/yape.png" alt="Yape 940 584 307" onerror="this.style.display='none'">
+    <p style="font-size:14px">Número: <strong>940 584 307</strong><br>Carlos Cárdenas</p>
+    <button class="tgl" style="background:var(--granate2)" onclick="document.getElementById('yape').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+<!-- asistente IA -->
+<button class="fab" id="fab" title="Pregúntale al observatorio" aria-label="Abrir el asistente del observatorio" aria-controls="chat" aria-expanded="false">💬</button>
+<div class="chat" id="chat" role="dialog" aria-label="Asistente del Observatorio UNI">
+  <div class="top"><span>Asistente del Observatorio UNI</span><button type="button" id="chatClose" aria-label="Cerrar">×</button></div>
+  <div class="msgs" id="msgs"><div class="m a">Hola 👋 Pregúntame sobre el presupuesto, los proveedores, la investigación, la admisión, la planilla o la elección de autoridades 2026 de la UNI. Respondo solo con los datos públicos de este observatorio.</div></div>
+  <div class="in"><input id="chatIn" placeholder="Escribe tu pregunta…" aria-label="Tu pregunta" onkeydown="if(event.key==='Enter')sendChat()"><button class="send" onclick="sendChat()">Enviar</button></div>
+</div>
+</body>
+</html>

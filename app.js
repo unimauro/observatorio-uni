@@ -1,55 +1,84 @@
-// Observatorio UNI — carga data/*.json y renderiza. Sin build, vanilla + Chart.js.
+// Observatorio UNI — sitio multipágina, sin build: vanilla + Chart.js.
+// Cada página (body[data-page]) carga solo los data/*.json que necesita y llama solo a los render*() cuyo DOM existe.
 const CFG = window.OBS_UNI_CONFIG || {};
 const GRANATE = '#9e1020', GRANATE2 = '#7a0019', ORO = '#c9962e', TEAL = '#0e7c86';
 const fmtM = v => 'S/ ' + (v / 1e6).toLocaleString('es-PE', { maximumFractionDigits: 1 }) + ' M';
 const fmtN = v => { const n = Number(v); return Number.isFinite(n) ? n.toLocaleString('es-PE') : '—'; }; // nunca devuelve strings externos
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const safeUrl = u => { try { const p = new URL(u); return (p.protocol === 'http:' || p.protocol === 'https:') ? p.href : '#'; } catch { return '#'; } };
+const $ = id => document.getElementById(id);
 
 const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
 const ink = () => isDark() ? '#c3a9a2' : '#6b5f5a';
 const grid = () => isDark() ? 'rgba(255,255,255,.06)' : 'rgba(0,0,0,.06)';
-Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
-Chart.defaults.color = ink();
+if (window.Chart) { Chart.defaults.font.family = getComputedStyle(document.body).fontFamily; Chart.defaults.color = ink(); }
 
-// ---- tema ----
+// ---- tema (el atributo data-theme se fija en <head> antes de pintar) ----
+const themeIcon = () => { const b = $('tglBtn'); if (b) b.textContent = isDark() ? '☀️' : '🌙'; };
 function toggleTheme() {
   const d = isDark();
   document.documentElement.setAttribute('data-theme', d ? 'light' : 'dark');
-  localStorage.setItem('obsuni_theme', d ? 'light' : 'dark');
-  document.getElementById('tglBtn').textContent = d ? '🌙 Tema' : '☀️ Tema';
+  try { localStorage.setItem('obsuni_theme', d ? 'light' : 'dark'); } catch {}
+  themeIcon();
+  if (!window.Chart) return;
   Chart.defaults.color = ink();
   Object.values(Chart.instances).forEach(c => c.destroy());
-  render(); // redraw with new theme
+  render(); // redibuja con el tema nuevo
 }
-(function initTheme() {
-  const t = localStorage.getItem('obsuni_theme');
-  if (t) document.documentElement.setAttribute('data-theme', t);
-  if (isDark()) document.getElementById('tglBtn').textContent = '☀️ Tema';
+themeIcon();
+
+// ---- navegación: menú móvil + resaltado de la sección visible (subnav) ----
+(function initNav() {
+  const nav = $('nav'), burger = $('burger');
+  const close = () => { nav?.classList.remove('show'); burger?.setAttribute('aria-expanded', 'false'); };
+  burger?.addEventListener('click', () => { const open = nav.classList.toggle('show'); burger.setAttribute('aria-expanded', String(open)); });
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(); $('chat')?.classList.remove('open'); } });
+  const sub = [...document.querySelectorAll('.subnav a')];
+  if (!sub.length) return;
+  const secs = sub.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const spy = () => {
+    let cur = secs[0]?.id;
+    secs.forEach(s => { if (s.getBoundingClientRect().top < 140) cur = s.id; });
+    sub.forEach(a => { const on = a.getAttribute('href') === '#' + cur; a.classList.toggle('on', on); if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+  };
+  window.addEventListener('scroll', spy, { passive: true }); spy();
 })();
 
-// ---- scrollspy ----
-const navA = [...document.querySelectorAll('nav.links a')];
-window.addEventListener('scroll', () => {
-  let cur = '';
-  document.querySelectorAll('section').forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
-  navA.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + cur));
-});
-navA.forEach(a => a.addEventListener('click', () => document.getElementById('nav').classList.remove('show')));
-
-// ---- data ----
+// ---- datos ----
+// Qué JSON necesita cada página (clave en DATA → archivo). 'planRes' es el resumen liviano de la planilla
+// (etl/build_planilla_resumen.py); la lista nominal completa (planilla-uni.json, ~900 KB) solo la carga planilla.html.
+const FILES = {
+  presu: 'presupuesto-uni.json', biblio: 'bibliometria.json', adm: 'admision-uni.json', prov: 'proveedores-uni.json',
+  plan: 'planilla-uni.json', planRes: 'planilla-resumen.json', elec: 'electoral-uni.json', facs: 'facultades-uni.json', vri: 'vri-proyectos.json',
+};
+const PAGE_DATA = {
+  index: ['presu', 'biblio', 'adm', 'prov', 'planRes', 'elec'],
+  presupuesto: ['presu', 'biblio', 'adm', 'prov'],
+  investigacion: ['biblio', 'facs', 'vri'],
+  planilla: ['plan'],
+  admision: ['adm'],
+  eleccion: ['elec'],
+  lider: ['biblio', 'facs', 'presu', 'planRes'],
+  acerca: [],
+};
+const CHAT_DATA = ['presu', 'biblio', 'adm', 'prov', 'planRes', 'elec', 'facs'];
+const PAGE = document.body.dataset.page || 'index';
 let DATA = {};
-async function load(name) { try { const r = await fetch('data/' + name + '?v=' + Date.now()); return r.ok ? await r.json() : null; } catch { return null; } }
+// cache-buster por hora: los datos cambian una vez al mes y así la navegación entre páginas reutiliza la caché del navegador
+const VER = Math.floor(Date.now() / 36e5);
+async function load(name) { try { const r = await fetch('data/' + name + '?v=' + VER); return r.ok ? await r.json() : null; } catch { return null; } }
+const LOADING = {};
+function ensure(keys) {
+  return Promise.all(keys.map(k => {
+    if (k in DATA) return DATA[k];
+    return LOADING[k] || (LOADING[k] = load(FILES[k]).then(j => (DATA[k] = j)));
+  }));
+}
+const planRes = () => DATA.planRes || DATA.plan; // ambos traen _meta, resumen y top_ingresos
 
 async function boot() {
-  DATA.presu = await load('presupuesto-uni.json');
-  DATA.biblio = await load('bibliometria.json');
-  DATA.adm = await load('admision-uni.json');
-  DATA.prov = await load('proveedores-uni.json');
-  DATA.plan = await load('planilla-uni.json');
-  DATA.elec = await load('electoral-uni.json');
-  DATA.facs = await load('facultades-uni.json');
-  DATA.vri = await load('vri-proyectos.json');
+  await ensure(PAGE_DATA[PAGE] || []);
   render();
 }
 
@@ -60,9 +89,50 @@ function opts(extra = {}) {
     scales: { x: { grid: { color: grid() } }, y: { grid: { color: grid() }, beginAtZero: true } }
   }, extra);
 }
+const narrow = () => window.innerWidth < 640;
 
+// Gráficos diferidos: se crean cuando el canvas se acerca a la pantalla (IntersectionObserver).
+// mkChart acepta un id o el elemento; si el canvas ya tenía gráfico, lo reemplaza (re-render por cambio de tema).
+const PENDING = new Map();
+const IO = ('IntersectionObserver' in window) ? new IntersectionObserver(entries => entries.forEach(e => {
+  if (!e.isIntersecting) return;
+  IO.unobserve(e.target);
+  const cfg = PENDING.get(e.target); PENDING.delete(e.target);
+  if (cfg) new Chart(e.target, cfg);
+}), { rootMargin: '400px 0px' }) : null;
+function mkChart(el, cfg) {
+  if (typeof el === 'string') el = $(el);
+  if (!el || !window.Chart) return;
+  Chart.getChart(el)?.destroy();
+  if (!IO) { new Chart(el, cfg); return; }
+  if (!PENDING.has(el)) IO.observe(el);
+  PENDING.set(el, cfg);
+}
+
+// Cada render se llama solo si su contenedor existe en esta página.
+const RENDERERS = [
+  ['kpis', () => renderKpis()], ['areas', () => renderAreas()],
+  ['presupuesto', () => renderPresu()], ['gasto', () => renderGasto()], ['proveedores', () => renderProv()],
+  ['investigacion', () => renderInv()], ['valor', () => renderValor()], ['admision', () => renderAdm()],
+  ['eleccion', () => renderElec()], ['planilla', () => renderPlan()], ['facultades', () => renderFacs()], ['lidPlan', () => renderLid()],
+];
 function render() {
-  renderKpis(); renderPresu(); renderGasto(); renderProv(); renderInv(); renderValor(); renderAdm(); renderElec(); renderPlan(); renderFacs(); renderLid();
+  RENDERERS.forEach(([id, fn]) => { if ($(id)) { try { fn(); } catch (e) { console.error('render ' + id, e); } } });
+}
+
+// ---- Portada: dato destacado en cada tarjeta de área ----
+function renderAreas() {
+  const put = (k, html) => { const el = document.querySelector(`[data-area="${k}"]`); if (el && html) el.innerHTML = html; };
+  const s = DATA.presu?.serie;
+  if (s?.length) { const last = [...s].reverse().find(x => !x.parcial) || s[s.length - 1]; put('presupuesto', `Devengado ${esc(last.year)}: ${fmtM(last.dev)} (${esc(last.ejec_pct)}%)`); }
+  const b = DATA.biblio?.uni; if (b) put('investigacion', `${fmtN(b.works)} publicaciones · h-index ${fmtN(b.h_index)}`);
+  const P = planRes(), M = P?._meta;
+  if (M) put('planilla', `${fmtN(M.personas_distintas)} personas · ${fmtM(M.masa_mensual_total)} al mes (${esc(M.mes_nombre || '')} ${esc(M.anio || '')})`);
+  if (DATA.adm?._meta) put('admision', `${fmtN(DATA.adm._meta.total_ingresantes)} ingresantes de ${fmtN(DATA.adm._meta.total_postulantes)} postulantes (${esc(DATA.adm.proceso || '')})`);
+  const E = DATA.elec;
+  if (E?.primera_vuelta?.listas?.length) put('eleccion', `${fmtN(E.n_listas || E.primera_vuelta.listas.length)} listas · 2.ª vuelta: ` + ((E.segunda_vuelta?.listas || []).map(x => 'Lista ' + esc(x.numero)).join(' vs ') || 'por definir'));
+  put('lider', 'Metas medibles a 2031');
+  put('acerca', '10 proyectos hermanos de datos abiertos');
 }
 
 // ---- Facultades · recursos de investigación ----
@@ -79,10 +149,10 @@ function renderFacs() {
     ['Obras UNI en OpenAlex', fmtN(m.obras_uni_ventana), esc(m.ventana_publicaciones)],
   ]);
   const byPub = [...f].sort((a, b) => b.obras_ventana - a.obras_ventana);
-  new Chart(cFacPub, { type: 'bar', data: { labels: byPub.map(x => x.clave), datasets: [{ label: 'Publicaciones', data: byPub.map(x => x.obras_ventana), backgroundColor: GRANATE }] },
+  mkChart('cFacPub', { type: 'bar', data: { labels: byPub.map(x => x.clave), datasets: [{ label: 'Publicaciones', data: byPub.map(x => x.obras_ventana), backgroundColor: GRANATE }] },
     options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: i => byPub[i[0].dataIndex].nombre, label: c => c.raw + ' obras · ' + byPub[c.dataIndex].obras_por_docente + ' por docente' } } } }) });
   const byPct = [...f].sort((a, b) => b.pct_docentes_con_publicacion - a.pct_docentes_con_publicacion);
-  new Chart(cFacPct, { type: 'bar', data: { labels: byPct.map(x => x.clave), datasets: [{ label: '% docentes con publicación', data: byPct.map(x => x.pct_docentes_con_publicacion), backgroundColor: byPct.map(x => x.pct_docentes_con_publicacion >= pct ? TEAL : ORO) }] },
+  mkChart('cFacPct', { type: 'bar', data: { labels: byPct.map(x => x.clave), datasets: [{ label: '% docentes con publicación', data: byPct.map(x => x.pct_docentes_con_publicacion), backgroundColor: byPct.map(x => x.pct_docentes_con_publicacion >= pct ? TEAL : ORO) }] },
     options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: i => byPct[i[0].dataIndex].nombre, label: c => c.raw + '% (' + byPct[c.dataIndex].docentes_con_publicacion + ' de ' + byPct[c.dataIndex].docentes + ')' } } }, scales: { x: { grid: { color: grid() }, beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } }, y: { grid: { color: grid() } } } }) });
   // VRI
   const hasVri = f.some(x => x.vri_proyectos != null);
@@ -103,7 +173,7 @@ function renderFacs() {
       <div class="scroll" style="max-height:420px"><table><thead><tr><th>Año</th><th>Fac.</th><th>Concurso</th><th>Proyecto</th><th>Responsable</th><th class="n">Monto (S/)</th><th>Fuente</th></tr></thead><tbody id="vriBody"></tbody></table></div>
     </details>
     <p class="note">${esc(DATA.vri?._meta?.nota || V.nota || '')} Fuente: <a href="${esc(safeUrl(DATA.vri?._meta?.url || 'https://vri.uni.edu.pe/'))}" target="_blank" rel="noopener">VRI-UNI</a>; cada fila enlaza su resolución o relación.</p>`;
-    new Chart(cVri, { type: 'bar', data: { labels: vr.map(x => x.clave), datasets: [{ label: 'S/ adjudicado', data: vr.map(x => x.vri_monto / 1e6), backgroundColor: GRANATE }] },
+    mkChart('cVri', { type: 'bar', data: { labels: vr.map(x => x.clave), datasets: [{ label: 'S/ adjudicado', data: vr.map(x => x.vri_monto / 1e6), backgroundColor: GRANATE }] },
       options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: i => vr[i[0].dataIndex].nombre, label: c => 'S/ ' + c.raw.toFixed(2) + ' M · ' + vr[c.dataIndex].vri_proyectos + ' proyectos · ' + (100 * vr[c.dataIndex].vri_monto / vt).toFixed(1) + '%' } } } }) });
     const body = document.getElementById('vriBody'), q = document.getElementById('vriQ');
     const rows = [...VP].sort((a, b) => (b.anio - a.anio) || ((b.monto_soles || 0) - (a.monto_soles || 0)));
@@ -131,17 +201,21 @@ function renderFacs() {
 
 // ---- Cómo hacer que la UNI lidere ----
 function renderLid() {
-  const B = DATA.biblio, F = DATA.facs, P = DATA.presu, PL = DATA.plan;
-  if (!B?.uni) return;
+  const B = DATA.biblio, F = DATA.facs, P = DATA.presu;
+  if (!B?.uni || !$('cLidPares')) return;
   const peers = ['uni', 'unalm', 'cayetano', 'pucp', 'sanmarcos', 'tecmty', 'unal', 'uchile'].filter(k => B[k]);
-  new Chart(cLidPares, { type: 'bar', data: { labels: peers.map(k => B[k].name.replace('National University of Engineering', 'UNI').replace('Universidad Nacional', 'U. Nac.').slice(0, 28)), datasets: [{ label: 'Publicaciones', data: peers.map(k => B[k].works), backgroundColor: peers.map(k => k === 'uni' ? GRANATE : ORO) }] },
+  mkChart('cLidPares', { type: 'bar', data: { labels: peers.map(k => B[k].name.replace('National University of Engineering', 'UNI').replace('Universidad Nacional', 'U. Nac.').slice(0, 28)), datasets: [{ label: 'Publicaciones', data: peers.map(k => B[k].works), backgroundColor: peers.map(k => k === 'uni' ? GRANATE : ORO) }] },
     options: opts({ indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { type: 'logarithmic', grid: { color: grid() } }, y: { grid: { color: grid() } } } }) });
   const idi = B.presupuesto;
   const t = F?.totales, pct = t?.docentes ? 100 * t.docentes_con_publicacion / t.docentes : null;
   const cat = P?.detalle_ultimo_anio?.por_categoria || [], cap = cat.find(x => /CAPITAL/i.test(x.nombre));
   const capPct = cap?.pim ? 100 * cap.dev / cap.pim : null;
-  const doc = (PL?.personas || []).filter(p => p.categoria === 'docente');
-  const tot = doc.reduce((s, p) => s + (p.total || 0), 0), otros = doc.reduce((s, p) => s + (p.otros || 0), 0);
+  // planilla docente PTE: del resumen liviano (planilla-resumen.json) o, si está cargada, de la lista nominal
+  let tot = DATA.planRes?.docentes_pte?.total || 0, otros = DATA.planRes?.docentes_pte?.otros || 0;
+  if (!tot && DATA.plan?.personas) {
+    const doc = DATA.plan.personas.filter(p => p.categoria === 'docente');
+    tot = doc.reduce((s, p) => s + (p.total || 0), 0); otros = doc.reduce((s, p) => s + (p.otros || 0), 0);
+  }
   const otrosPct = tot ? 100 * otros / tot : null;
   document.getElementById('lidKpis').innerHTML = kpiHtml([
     ['Publicaciones UNI (total)', fmtN(B.uni.works), `San Marcos ${fmtN(B.sanmarcos?.works)} · PUCP ${fmtN(B.pucp?.works)}`],
@@ -172,31 +246,16 @@ function renderLid() {
 }
 
 // ---- Gasto ↔ valor público ----
-function renderValor() {
+// Cálculo compartido por la sección y por el contexto del asistente (que puede abrirse en cualquier página).
+function valorCalc() {
   const serie = DATA.presu?.serie, by = DATA.biblio?.uni?.by_year;
-  if (!serie?.length || !by?.length) return;
+  if (!serie?.length || !by?.length) return null;
   const devByY = {}, worksByY = {};
   serie.forEach(s => devByY[s.year] = s.dev);
   by.forEach(b => worksByY[b.year] = b.works);
   // años con ambos datos, hasta 2025 (2026 parcial)
   const years = Object.keys(devByY).map(Number).filter(y => y <= 2025 && worksByY[y] > 0 && devByY[y] > 0).sort();
-  if (!years.length) return;
-  const dev = years.map(y => devByY[y] / 1e6), works = years.map(y => worksByY[y]);
-  const prodByY = years.map(y => worksByY[y] / (devByY[y] / 1e7)); // pubs por S/10M
-  new Chart(cValor, {
-    data: {
-      labels: years,
-      datasets: [
-        { type: 'bar', label: 'Devengado (S/ M)', data: dev, backgroundColor: GRANATE, yAxisID: 'y' },
-        { type: 'line', label: 'Publicaciones', data: works, borderColor: ORO, backgroundColor: 'transparent', tension: .3, yAxisID: 'y1' },
-      ]
-    },
-    options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: grid() } }, y: { position: 'left', grid: { color: grid() }, beginAtZero: true, title: { display: true, text: 'S/ M' } }, y1: { position: 'right', grid: { drawOnChartArea: false }, beginAtZero: true, title: { display: true, text: 'pubs' } } } }
-  });
-  new Chart(cCosto, {
-    type: 'line', data: { labels: years, datasets: [{ label: 'Pubs por S/10M', data: prodByY, borderColor: TEAL, backgroundColor: 'rgba(14,124,134,.12)', fill: true, tension: .3 }] },
-    options: opts({ plugins: { legend: { display: false } } })
-  });
+  if (!years.length) return null;
   // KPIs — base I+D (justa) y base presupuesto total (contexto)
   const ly = years[years.length - 1];
   const _prog = DATA.presu?.detalle_ultimo_anio?.por_programa || [];
@@ -209,6 +268,27 @@ function renderValor() {
   k.push(['Costo por pub (ppto total)', 'S/ ' + fmtN(Math.round(devLy / wLy)), 'incluye planilla/pensiones']);
   const ingY = (DATA.adm?.serie_historica || []).filter(x => String(x.proceso).startsWith(ly + '-')).reduce((sum, x) => sum + (Number(x.ingresantes) || 0), 0);
   if (ingY) k.push(['Presupuesto por ingresante', 'S/ ' + fmtN(Math.round(devLy / ingY)), 'devengado ' + ly + ' / ' + fmtN(ingY) + ' ingresantes ' + ly + '-1 y -2 (microdatos)']);
+  return { devByY, worksByY, years, ly, idi, k };
+}
+function renderValor() {
+  const V = valorCalc(); if (!V) return;
+  const { devByY, worksByY, years, ly, idi, k } = V;
+  const dev = years.map(y => devByY[y] / 1e6), works = years.map(y => worksByY[y]);
+  const prodByY = years.map(y => worksByY[y] / (devByY[y] / 1e7)); // pubs por S/10M
+  mkChart('cValor', {
+    data: {
+      labels: years,
+      datasets: [
+        { type: 'bar', label: 'Devengado (S/ M)', data: dev, backgroundColor: GRANATE, yAxisID: 'y' },
+        { type: 'line', label: 'Publicaciones', data: works, borderColor: ORO, backgroundColor: 'transparent', tension: .3, yAxisID: 'y1' },
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: grid() } }, y: { position: 'left', grid: { color: grid() }, beginAtZero: true, title: { display: true, text: 'S/ M' } }, y1: { position: 'right', grid: { drawOnChartArea: false }, beginAtZero: true, title: { display: true, text: 'pubs' } } } }
+  });
+  mkChart('cCosto', {
+    type: 'line', data: { labels: years, datasets: [{ label: 'Pubs por S/10M', data: prodByY, borderColor: TEAL, backgroundColor: 'rgba(14,124,134,.12)', fill: true, tension: .3 }] },
+    options: opts({ plugins: { legend: { display: false } } })
+  });
   document.getElementById('valorKpis').innerHTML = k.map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
   document.getElementById('valorNote').innerHTML =
     `La métrica <strong>justa</strong> de eficiencia investigadora es el <strong>costo por publicación con la partida de I+D</strong> (${idi ? 'S/ ' + idi + 'M en ' + esc(DATA.presu?.detalle_ultimo_anio?.anio || ly) : 's/d'}), no el presupuesto total —que paga docencia, planilla, pensiones y servicios, no solo investigar—. El "costo por pub (ppto total)" se muestra solo como contexto y NO debe leerse como gasto en investigación. ${DATA.biblio?.presupuesto?.idi_nota ? 'Partida I+D: ' + esc(DATA.biblio.presupuesto.idi_nota) + '. ' : ''}Fuentes: MEF/SIAF + OpenAlex.`;
@@ -228,7 +308,7 @@ function renderKpis() {
   if (b) { k.push(['Publicaciones', fmtN(b.works), 'histórico (OpenAlex)']); k.push(['Citas · h-index', fmtN(b.cited) + ' · ' + esc(b.h_index), 'impacto científico']); }
   if (DATA.prov?.totales) k.push(['Adjudicado a proveedores', fmtM(DATA.prov.totales.monto_total), fmtN(DATA.prov.totales.n_proveedores) + ' proveedores (' + esc(DATA.prov._meta?.periodo || '') + ')']);
   if (DATA.adm?._meta) k.push(['Ingresantes examen ' + esc(DATA.adm.proceso || ''), fmtN(DATA.adm._meta.total_ingresantes), 'de ' + fmtN(DATA.adm._meta.total_postulantes) + ' postulantes']);
-  const docAir = DATA.plan?.resumen?.por_regimen_airhsp?.find(x => /docente/i.test(x.nombre));
+  const docAir = planRes()?.resumen?.por_regimen_airhsp?.find(x => /docente/i.test(x.nombre));
   if (docAir) k.push(['Docentes', fmtN(docAir.n), 'prom S/ ' + fmtN(docAir.sueldo_promedio) + ' (AIRHSP)']);
   else if (DATA.biblio?.docentes) { const d = DATA.biblio.docentes; k.push(['Docentes', fmtN(d.total), esc(d.posgrado_pct) + '% con posgrado (' + esc(d.anio) + ')']); }
   el.innerHTML = k.map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
@@ -238,7 +318,7 @@ function renderKpis() {
 function renderPresu() {
   const s = DATA.presu?.serie;
   if (!s || !s.length) { document.getElementById('presupNote').textContent = 'Cargando serie histórica del MEF…'; return; }
-  new Chart(cSerie, {
+  mkChart('cSerie', {
     type: 'bar',
     data: {
       labels: s.map(x => x.year),
@@ -249,7 +329,7 @@ function renderPresu() {
     }, options: opts({ plugins: { legend: { labels: { boxWidth: 12 } }, tooltip: { callbacks: { label: c => c.dataset.label + ': S/ ' + c.raw.toFixed(1) + ' M' } } } })
   });
   const closed = s.filter(x => !x.parcial); // excluir año en curso (ejecución parcial)
-  new Chart(cEjec, {
+  mkChart('cEjec', {
     type: 'line',
     data: { labels: closed.map(x => x.year), datasets: [{ label: '% ejecución (años cerrados)', data: closed.map(x => x.ejec_pct), borderColor: GRANATE, backgroundColor: 'rgba(158,16,32,.12)', fill: true, tension: .3, spanGaps: true }] },
     options: opts({ scales: { x: { grid: { color: grid() } }, y: { grid: { color: grid() }, min: 50, max: 100 } } })
@@ -266,9 +346,9 @@ function donut(ctx, rows, valueKey = 'dev', top = 8) {
   const vals = head.map(x => x[valueKey] / 1e6);
   if (rest > 0) { labels.push('Otros'); vals.push(rest / 1e6); }
   const cols = ['#9e1020', '#c9962e', '#7a0019', '#0e7c86', '#5c0013', '#d98c3a', '#a8324a', '#3a7d6f', '#8a6d1f', '#b5495f'];
-  new Chart(ctx, {
+  mkChart(ctx, {
     type: 'doughnut', data: { labels, datasets: [{ data: vals, backgroundColor: cols }] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } }, tooltip: { callbacks: { label: c => c.label + ': S/ ' + c.raw.toFixed(1) + ' M' } } } }
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: narrow() ? 'bottom' : 'right', labels: { boxWidth: 12, font: { size: 11 } } }, tooltip: { callbacks: { label: c => c.label + ': S/ ' + c.raw.toFixed(1) + ' M' } } } }
   });
 }
 function renderGasto() {
@@ -280,11 +360,11 @@ function renderGasto() {
     return;
   }
   const gen = d.por_generica?.length ? d.por_generica : d.por_categoria;
-  if (gen?.length) donut(cGen, gen);
-  if (d.por_unidad?.length) donut(cUni, d.por_unidad);
+  if (gen?.length) donut('cGen', gen);
+  if (d.por_unidad?.length) donut('cUni', d.por_unidad);
   if (d.por_facultad?.length) {
     const f = d.por_facultad;
-    new Chart(cFac, { type: 'bar', data: { labels: f.map(x => x.nombre), datasets: [{ label: 'PIM S/ M', data: f.map(x => x.pim / 1e6), backgroundColor: f.map(x => /postgrado/i.test(x.nombre) ? ORO : GRANATE) }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + c.raw.toFixed(2) + ' M' } } } }) });
+    mkChart('cFac', { type: 'bar', data: { labels: f.map(x => x.nombre), datasets: [{ label: 'PIM S/ M', data: f.map(x => x.pim / 1e6), backgroundColor: f.map(x => /postgrado/i.test(x.nombre) ? ORO : GRANATE) }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + c.raw.toFixed(2) + ' M' } } } }) });
     const totF = f.reduce((s, x) => s + x.pim, 0);
     const fn = document.getElementById('facNote');
     if (fn) fn.innerHTML = `${f.length} facultades/escuelas con presupuesto etiquetado por meta (total <strong>${fmtM(totF)}</strong> del ejercicio ${esc(d.anio)}). Ojo: es el presupuesto <em>explícitamente asignado a cada facultad</em>; el grueso (docencia, planilla central, pensiones, servicios) se ejecuta en metas centrales del pliego, no repartido por facultad en el SIAF.`;
@@ -321,9 +401,9 @@ function renderProv() {
   ].map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
   // chart top por monto
   const top = V.proveedores.slice(0, 12);
-  new Chart(cProv, { type: 'bar', data: { labels: top.map(x => x.nombre.slice(0, 30)), datasets: [{ label: 'S/ adjudicado', data: top.map(x => x.monto / 1e6), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + c.raw.toFixed(2) + ' M' } } } }) });
+  mkChart('cProv', { type: 'bar', data: { labels: top.map(x => x.nombre.slice(0, 30)), datasets: [{ label: 'S/ adjudicado', data: top.map(x => x.monto / 1e6), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + c.raw.toFixed(2) + ' M' } } } }) });
   // chart empresas vs personas
-  new Chart(cProvTipo, { type: 'doughnut', data: { labels: ['Empresas', 'Personas naturales'], datasets: [{ data: [t.monto_empresas / 1e6, t.monto_personas_naturales / 1e6], backgroundColor: [GRANATE, ORO] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => c.label + ': S/ ' + c.raw.toFixed(1) + ' M' } } } } });
+  mkChart('cProvTipo', { type: 'doughnut', data: { labels: ['Empresas', 'Personas naturales'], datasets: [{ data: [t.monto_empresas / 1e6, t.monto_personas_naturales / 1e6], backgroundColor: [GRANATE, ORO] }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => c.label + ': S/ ' + c.raw.toFixed(1) + ' M' } } } } });
   // tabla buscable + orden por monto/nº
   w.innerHTML = `<div class="card">
     <h3>Proveedores de la UNI · ${fmtN(V.proveedores.length)}</h3>
@@ -360,7 +440,7 @@ function renderProv() {
 function renderInv() {
   const b = DATA.biblio?.uni; if (!b?.by_year) return;
   const y = b.by_year.filter(x => x.year <= 2025);
-  new Chart(cInv, {
+  mkChart('cInv', {
     data: {
       labels: y.map(x => x.year),
       datasets: [
@@ -372,7 +452,7 @@ function renderInv() {
   });
   const peers = [['uni', 'UNI'], ['sanmarcos', 'San Marcos'], ['pucp', 'PUCP'], ['cayetano', 'Cayetano'], ['unalm', 'La Molina'], ['upc', 'UPC']]
     .map(([k, n]) => DATA.biblio[k] ? { n, v: DATA.biblio[k].works } : null).filter(Boolean).sort((a, b) => b.v - a.v);
-  new Chart(cPares, {
+  mkChart('cPares', {
     type: 'bar', data: { labels: peers.map(x => x.n), datasets: [{ label: 'Publicaciones', data: peers.map(x => x.v), backgroundColor: peers.map(x => x.n === 'UNI' ? GRANATE : ORO) }] },
     options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } })
   });
@@ -386,16 +466,16 @@ function renderAdm() {
   const mod = a.ingresantes_por_modalidad || a.por_modalidad;
   if (esp?.length) {
     const e = esp.slice(0, 15);
-    new Chart(cEsp, { type: 'bar', data: { labels: e.map(x => x.nombre.replace('INGENIERÍA ', 'Ing. ')), datasets: [{ label: 'Ingresantes', data: e.map(x => x.n), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
+    mkChart('cEsp', { type: 'bar', data: { labels: e.map(x => x.nombre.replace('INGENIERÍA ', 'Ing. ')), datasets: [{ label: 'Ingresantes', data: e.map(x => x.n), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
   }
   if (mod?.length) {
     const m = mod.slice(0, 10);
-    new Chart(cMod, { type: 'bar', data: { labels: m.map(x => x.nombre.slice(0, 26)), datasets: [{ label: 'Ingresantes', data: m.map(x => x.n), backgroundColor: ORO }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
+    mkChart('cMod', { type: 'bar', data: { labels: m.map(x => x.nombre.slice(0, 26)), datasets: [{ label: 'Ingresantes', data: m.map(x => x.n), backgroundColor: ORO }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
   }
   // serie histórica 2013-1 .. 2026-1 (vía uni-admision-stats)
   const sh = a.serie_historica;
   if (sh?.length && document.getElementById('cSerieAdm')) {
-    new Chart(cSerieAdm, {
+    mkChart('cSerieAdm', {
       type: 'line',
       data: {
         labels: sh.map(x => String(x.proceso)),
@@ -441,7 +521,7 @@ function renderElec() {
     ` · Fuente: <a href="${esc(sitio)}" target="_blank" rel="noopener">Observatorio Electoral UNI →</a>`;
   // gráfico: % ponderado por lista (1.ª vuelta), las que pasan a 2.ª vuelta en granate
   if (document.getElementById('cElec')) {
-    new Chart(cElec, {
+    mkChart('cElec', {
       type: 'bar',
       data: { labels: L.map(x => 'Lista ' + x.numero), datasets: [{ label: '% ponderado', data: L.map(x => x.pct_ponderado), backgroundColor: L.map(x => srIds.has(x.lista) ? GRANATE : ORO) }] },
       options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: items => { const r = L[items[0]?.dataIndex]; return r ? 'Lista ' + r.numero + (r.rector ? ' · ' + r.rector : '') : ''; }, label: c => c.raw + '% ponderado' } } }, scales: { x: { grid: { color: grid() }, beginAtZero: true, ticks: { callback: v => v + '%' } }, y: { grid: { color: grid() } } } })
@@ -534,7 +614,7 @@ function renderPlan() {
     const meses = [...new Set(serie.map(s => s.mes))].sort((a, b) => a - b);
     const regs = [...new Set(serie.map(s => s.regimen))];
     const cols = [GRANATE, ORO, TEAL, GRANATE2, '#5b7c99', '#8a8a8a'];
-    new Chart(cSer, {
+    mkChart(cSer, {
       type: 'bar',
       data: { labels: meses.map(m => (MESES_ES[m] || m).slice(0, 3) + ' ' + (serie[0].anio || '')), datasets: regs.map((rg, i) => ({ label: planShort(rg), data: meses.map(m => (serie.find(s => s.mes === m && s.regimen === rg)?.masa_total || 0) / 1e6), backgroundColor: cols[i % cols.length], stack: 'masa' })) },
       options: opts({ scales: { x: { stacked: true, grid: { color: grid() } }, y: { stacked: true, beginAtZero: true, grid: { color: grid() } } }, plugins: { legend: { labels: { boxWidth: 12 } }, tooltip: { callbacks: { label: c => c.dataset.label + ': S/ ' + c.raw.toFixed(2) + ' M' } } } })
@@ -544,12 +624,12 @@ function renderPlan() {
   const cTc = document.getElementById('cTopCargo');
   const tc = [...(R.top_cargos || [])].sort((a, b) => b.prom - a.prom).slice(0, 10);
   if (cTc && tc.length) {
-    new Chart(cTc, { type: 'bar', data: { labels: tc.map(x => x.cargo.length > 34 ? x.cargo.slice(0, 32) + '…' : x.cargo), datasets: [{ label: 'S/ promedio', data: tc.map(x => x.prom), backgroundColor: TEAL }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + fmtN(Math.round(c.raw)) + ' promedio · ' + fmtN(tc[c.dataIndex].n) + ' personas' } } } }) });
+    mkChart(cTc, { type: 'bar', data: { labels: tc.map(x => x.cargo.length > 34 ? x.cargo.slice(0, 32) + '…' : x.cargo), datasets: [{ label: 'S/ promedio', data: tc.map(x => x.prom), backgroundColor: TEAL }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => 'S/ ' + fmtN(Math.round(c.raw)) + ' promedio · ' + fmtN(tc[c.dataIndex].n) + ' personas' } } } }) });
   }
   // gráficos AIRHSP (agregado docentes/administrativos)
   if (reg.length) {
-    new Chart(cReg, { type: 'bar', data: { labels: reg.map(x => planShort(x.nombre)), datasets: [{ label: 'Plazas', data: reg.map(x => x.n), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
-    new Chart(cRegS, { type: 'bar', data: { labels: reg.map(x => planShort(x.nombre)), datasets: [{ label: 'S/ promedio', data: reg.map(x => x.sueldo_promedio), backgroundColor: ORO }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
+    mkChart('cReg', { type: 'bar', data: { labels: reg.map(x => planShort(x.nombre)), datasets: [{ label: 'Plazas', data: reg.map(x => x.n), backgroundColor: GRANATE }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
+    mkChart('cRegS', { type: 'bar', data: { labels: reg.map(x => planShort(x.nombre)), datasets: [{ label: 'S/ promedio', data: reg.map(x => x.sueldo_promedio), backgroundColor: ORO }] }, options: opts({ indexAxis: 'y', plugins: { legend: { display: false } } }) });
   }
   // tabla nominal: buscador + filtro por régimen (todo dato externo pasa por esc())
   const regOpts = nom.map(x => `<option value="${esc(x.nombre)}">${esc(planShort(x.nombre))} (${fmtN(x.n)})</option>`).join('');
@@ -618,7 +698,8 @@ const CHAT_SUGERENCIAS = [
   '¿Cuánto cuesta cada publicación científica?',
 ];
 function chatChips() {
-  const box = document.getElementById('msgs'); if (!box || document.getElementById('chatChips')) return;
+  const box = document.getElementById('msgs'); if (!box || chatChips.done) return;
+  chatChips.done = true;
   const d = document.createElement('div'); d.id = 'chatChips'; d.className = 'chips';
   d.innerHTML = CHAT_SUGERENCIAS.map(q => `<button type="button" class="chip">${esc(q)}</button>`).join('');
   d.querySelectorAll('.chip').forEach(btn => btn.addEventListener('click', () => { document.getElementById('chatIn').value = btn.textContent; sendChat(); }));
@@ -631,6 +712,7 @@ async function sendChat() {
   document.getElementById('chatChips')?.remove();
   box.insertAdjacentHTML('beforeend', `<div class="m u">${esc(q)}</div>`);
   const wait = document.createElement('div'); wait.className = 'm a'; wait.textContent = '…'; box.appendChild(wait); box.scrollTop = box.scrollHeight;
+  await ensure(CHAT_DATA); // el contexto usa cifras de todas las áreas, aunque esta página no las muestre
   const ctx = buildCtx();
   CHAT_HIST.push({ role: 'user', content: q.slice(0, 1500) });
   while (CHAT_HIST.length > CHAT_HIST_MAX) CHAT_HIST.shift();
@@ -673,8 +755,8 @@ function buildCtx() {
   // Investigación (OpenAlex)
   const b = DATA.biblio?.uni;
   if (b) parts.push(`INVESTIGACIÓN (OpenAlex): ${fmtN(b.works)} publicaciones, ${fmtN(b.cited)} citas, h-index ${fmtN(b.h_index)}. Pares: ` + ['sanmarcos', 'pucp', 'uchile'].filter(k => DATA.biblio[k]).map(k => `${T(DATA.biblio[k].name, 50)} ${fmtN(DATA.biblio[k].works)}`).join('; ') + '.');
-  const vk = document.getElementById('valorKpis');
-  if (vk?.children?.length) parts.push('GASTO↔VALOR: ' + [...vk.children].map(k => `${k.querySelector('.l')?.textContent} = ${k.querySelector('.v')?.textContent}`).join('; ') + ' (costo por publicación justo = base partida I+D, no presupuesto total).');
+  const vk = valorCalc()?.k;
+  if (vk?.length) parts.push('GASTO↔VALOR: ' + vk.map(k => `${k[0]} = ${k[1]}`).join('; ') + ' (costo por publicación justo = base partida I+D, no presupuesto total).');
   // Admisión (agregados; nunca nombres de estudiantes)
   const a = DATA.adm;
   if (a?._meta) {
@@ -693,15 +775,16 @@ function buildCtx() {
     if (sv) parts.push(`2.ª vuelta ${T(sv.fecha, 10)}: ` + (sv.listas || []).map(l => `Lista ${T(l.numero, 3)} (${T(l.rector, 45)})`).join(' vs ') + `. Estado: ${T(sv.estado, 320)}` + (sv.resultado ? ` Resultado: ${T(typeof sv.resultado === 'string' ? sv.resultado : JSON.stringify(sv.resultado), 300)}` : ' Resultado: no publicado aún en la fuente.') + (e.proclamacion ? ` Proclamación: ${T(typeof e.proclamacion === 'string' ? e.proclamacion : JSON.stringify(e.proclamacion), 300)}` : ' Proclamación: pendiente' + ((sv.repeticion?.proclamation ? ` (prevista para el ${T(sv.repeticion.proclamation, 10)} tras la nueva votación presencial del ${T(sv.repeticion.date, 10)})` : '')) + '.') + (sv.nota ? ` Nota de la fuente: ${T(sv.nota, 420)}` : ''));
   }
   // Planilla (PTE + AIRHSP; personal, nunca estudiantes)
-  const P = DATA.plan;
-  if (P?.personas?.length) {
+  const P = planRes();
+  const nReg = P?.n_registros || P?.personas?.length;
+  if (nReg) {
     const m = P._meta || {};
     const per = m.mes ? `${T(m.mes, 2)}/${T(m.anio, 4)}` : T(m.anio || '', 4);
     const regN = P.resumen?.por_regimen_nominal || [];
-    parts.push(`PLANILLA (Portal de Transparencia Estándar, ${per}): ${fmtN(P.personas.length)} personas nominales` + (regN.length ? ' — ' + regN.map(r => `${T(r.nombre, 40)}: ${fmtN(r.n)}` + (r.prom ? `, prom S/${fmtN(Math.round(r.prom))}` : '') + (r.total_mes ? `, masa ${M(r.total_mes)}/mes` : '')).join('; ') : '') + '.');
+    parts.push(`PLANILLA (Portal de Transparencia Estándar, ${per}): ${fmtN(nReg)} personas nominales` + (regN.length ? ' — ' + regN.map(r => `${T(r.nombre, 40)}: ${fmtN(r.n)}` + (r.prom ? `, prom S/${fmtN(Math.round(r.prom))}` : '') + (r.total_mes ? `, masa ${M(r.total_mes)}/mes` : '')).join('; ') : '') + '.');
     const air = P.resumen?.por_regimen_airhsp || [];
     if (air.length) parts.push(`Agregado AIRHSP (${fmtN(m.total_planilla_airhsp || air.reduce((s, x) => s + x.n, 0))} plazas): ` + air.slice(0, 4).map(r => `${T(r.nombre, 40)} ${fmtN(r.n)} plazas, prom S/${fmtN(r.sueldo_promedio)}`).join('; ') + (regN.some(r => /728/.test(r.nombre || '')) ? '. Los docentes nominales con sueldo están en la lista PTE bajo «728/otros»; el AIRHSP es un agregado de plazas distinto (remuneración base).' : '. Los docentes figuran solo en este agregado (sin sueldo individual).'));
-    const top = (P.top_ingresos || P.personas).slice(0, 4);
+    const top = (P.top_ingresos || P.personas || []).slice(0, 4);
     parts.push('Mayores ingresos del mes (dato público PTE): ' + top.map(x => `${T(x.nombre, 40)} (${T(x.cargo || 's/c', 32)}) S/${fmtN(Math.round(x.total || x.remun || 0))}`).join('; ') + ((m.mes === 7 || m.mes === 12) ? '. Este mes el total incluye aguinaldo.' : '.'));
     const ce = m.cruce_electoral;
     if (ce?.candidatos_en_planilla) parts.push(`${fmtN(ce.candidatos_en_planilla)} de ${fmtN(ce.candidatos_total)} candidatos/as de la elección 2026 figuran en la planilla PTE ${per} (coincidencia exacta de nombre; no implica cargo).`);
@@ -714,4 +797,16 @@ function buildCtx() {
   return reglas + '\n' + datos;
 }
 
-boot().then(chatChips);
+// Asistente disponible en todas las páginas: al abrirlo se precargan (en segundo plano) los JSON del contexto.
+(function initChat() {
+  const chat = $('chat'), fab = $('fab');
+  if (!chat || !fab) return;
+  const setOpen = open => {
+    chat.classList.toggle('open', open); fab.setAttribute('aria-expanded', String(open));
+    if (open) { ensure(CHAT_DATA); chatChips(); setTimeout(() => $('chatIn')?.focus(), 50); }
+  };
+  fab.addEventListener('click', () => setOpen(!chat.classList.contains('open')));
+  $('chatClose')?.addEventListener('click', () => setOpen(false));
+})();
+
+boot();

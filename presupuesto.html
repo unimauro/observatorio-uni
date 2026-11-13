@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* tema antes de pintar: preferencia guardada o la del sistema */(function(){try{var t=localStorage.getItem('obsuni_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9TLNPZH2R2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9TLNPZH2R2');
+</script>
+<title>Presupuesto, gasto y proveedores de la UNI · Observatorio UNI</title>
+<meta name="description" content="Presupuesto y ejecución del pliego 514 (MEF/SIAF), en qué se gasta cada sol por genérica, unidad, facultad y función, proveedores y dueños (OECE) y el cruce gasto ↔ valor público de la Universidad Nacional de Ingeniería.">
+<link rel="canonical" href="https://unimauro.github.io/observatorio-uni/presupuesto.html">
+<meta property="og:title" content="Presupuesto, gasto y proveedores de la UNI">
+<meta property="og:description" content="PIA, PIM y devengado del pliego 514, desglose del gasto, proveedores y dueños, y gasto ↔ valor público. Datos MEF y OECE.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://unimauro.github.io/observatorio-uni/presupuesto.html">
+<meta property="og:image" content="https://unimauro.github.io/observatorio-uni/assets/og.png">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="Observatorio UNI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#5c0013">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
+<script defer src="config.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body data-page="presupuesto">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- barra de apoyo -->
+<div class="support"><div class="wrap">
+  <span class="sp-txt">🏛️ Portal ciudadano · datos públicos</span>
+  <a href="https://wa.me/51940584307" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <a href="#" onclick="document.getElementById('yape').classList.add('open');return false">💜 Yape</a>
+  <a href="https://buymeacoffee.com/unimauro" target="_blank" rel="noopener">☕ Apóyanos</a>
+</div></div>
+
+<!-- navegación -->
+<header class="nav"><div class="wrap">
+  <a class="brand" href="./"><img class="logo" src="assets/favicon.svg" alt="" width="30" height="30"><span>Observatorio UNI<small>Universidad Nacional de Ingeniería · transparencia</small></span></a>
+  <nav class="links" id="nav" aria-label="Páginas del observatorio">
+    <a href="./">Inicio</a>
+    <a href="presupuesto.html" class="on" aria-current="page">Presupuesto y gasto</a>
+    <a href="investigacion.html">Investigación</a>
+    <a href="planilla.html">Planilla</a>
+    <a href="admision.html">Admisión</a>
+    <a href="eleccion.html">Elección 2026</a>
+    <a href="lider.html">UNI líder</a>
+    <a href="acerca.html">Acerca</a>
+  </nav>
+  <button class="icon-btn burger" id="burger" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">☰</button>
+  <button class="icon-btn" id="tglBtn" onclick="toggleTheme()" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
+</div></header>
+
+<div class="pagehead"><div class="wrap">
+  <div class="crumbs"><a href="./">Inicio</a> / Presupuesto, gasto y proveedores</div>
+  <h1>Presupuesto, gasto y proveedores</h1>
+  <p>Cuánto dinero recibe la UNI, en qué lo gasta, a quién se lo paga y cuánto valor público genera. Datos del MEF (SIAF) y del OECE.</p>
+</div></div>
+<nav class="subnav" aria-label="En esta página"><div class="wrap"><a href="#presupuesto">Presupuesto y ejecución</a><a href="#gasto">En qué se gasta</a><a href="#proveedores">Proveedores y dueños</a><a href="#valor">Gasto ↔ valor</a></div></nav>
+
+<main id="main">
+<section id="presupuesto"><div class="wrap">
+  <div class="eyebrow">Dinero público</div>
+  <h2>Presupuesto y ejecución</h2>
+  <p class="lead">Pliego <strong>514 · U.N. DE INGENIERIA</strong> (incluye INICTEL-UNI). PIA = presupuesto de apertura, PIM = modificado, Devengado = efectivamente gastado. Fuente: MEF — Datos Abiertos SIAF.</p>
+  <div class="grid2">
+    <div class="card"><h3>Serie histórica (S/ millones)</h3><div class="chart-box"><canvas id="cSerie"></canvas></div></div>
+    <div class="card"><h3>Ejecución del gasto (Devengado / PIM)</h3><div class="chart-box"><canvas id="cEjec"></canvas></div></div>
+  </div>
+  <p class="note" id="presupNote"></p>
+</div></section>
+
+<section id="gasto"><div class="wrap">
+  <div class="eyebrow">Anatomía del gasto</div>
+  <h2>En qué se gasta cada sol</h2>
+  <p class="lead">Desglose del ejercicio 2025 (cerrado) por genérica de gasto, unidad ejecutora y función. Responde: ¿cuánto va a planilla vs. bienes, servicios e inversión? ¿qué unidad concentra el gasto?</p>
+  <div id="gastoWrap">
+    <div class="grid2">
+      <div class="card"><h3>Por genérica de gasto (S/ millones)</h3><div class="chart-box"><canvas id="cGen"></canvas></div></div>
+      <div class="card"><h3>Por unidad ejecutora</h3><div class="chart-box"><canvas id="cUni"></canvas></div></div>
+    </div>
+    <div class="card" style="margin-top:20px"><h3>Presupuesto asignado por facultad / escuela (S/ millones)</h3><div class="chart-box tall"><canvas id="cFac"></canvas></div><p class="note" id="facNote"></p></div>
+    <div class="card" style="margin-top:20px"><h3>Detalle por función</h3><div class="scroll"><table id="tFun"><thead><tr><th>Función</th><th class="n">PIM (S/)</th><th class="n">Devengado (S/)</th><th class="n">Ejec.</th></tr></thead><tbody></tbody></table></div></div>
+  </div>
+  <p class="note" id="gastoNote"></p>
+</div></section>
+
+<section id="proveedores"><div class="wrap">
+  <div class="eyebrow">Seguir el dinero</div>
+  <h2>Proveedores y dueños</h2>
+  <p class="lead">¿Quién recibe el dinero de la UNI y quién está detrás de esas empresas? Cruzamos las adjudicaciones (buena pro) del OECE/CONOSCE con el RUC del proveedor y, cuando es posible, sus representantes/dueños.</p>
+  <div class="kpis" id="provKpis" style="margin-bottom:20px"></div>
+  <div class="grid2">
+    <div class="card"><h3>Top proveedores por monto adjudicado (S/)</h3><div class="chart-box tall"><canvas id="cProv"></canvas></div></div>
+    <div class="card"><h3>Empresas vs. personas naturales (terceros)</h3><div class="chart-box tall"><canvas id="cProvTipo"></canvas></div></div>
+  </div>
+  <div id="provWrap" style="margin-top:20px"></div>
+  <div id="provPersonas" style="margin-top:20px"></div>
+</div></section>
+
+<section id="valor"><div class="wrap">
+  <div class="eyebrow">¿Rinde el dinero?</div>
+  <h2>Gasto ↔ valor público</h2>
+  <p class="lead">¿Cuánto valor público (investigación, formación) genera la UNI por cada sol? Cruzamos el presupuesto ejecutado con la producción científica y los ingresantes. Indicadores <strong>exploratorios</strong>: úsalos para preguntar, no como veredicto.</p>
+  <div class="kpis" id="valorKpis" style="margin-bottom:20px"></div>
+  <div class="grid2">
+    <div class="card"><h3>Presupuesto ejecutado vs. publicaciones por año</h3><div class="chart-box tall"><canvas id="cValor"></canvas></div></div>
+    <div class="card"><h3>Productividad: publicaciones por S/ 10 M ejecutados</h3><div class="chart-box tall"><canvas id="cCosto"></canvas></div></div>
+  </div>
+  <p class="note" id="valorNote"></p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>Observatorio UNI</h4>
+      <p style="margin:0 0 8px">Observatorio UNI · datos públicos MEF · OECE · OpenAlex · admisión UNI · construido por
+      <a href="https://unimauro.github.io" target="_blank" rel="noopener">Carlos Cárdenas (@unimauro)</a>.
+      No es un portal oficial de la Universidad Nacional de Ingeniería.</p>
+      <p style="margin:0">Correcciones y datos: <a href="mailto:carlos@cardenas.pe">carlos@cardenas.pe</a></p>
+    </div>
+    <div>
+      <h4>Páginas</h4>
+      <ul>
+      <li><a href="./">Inicio</a></li>
+      <li><a href="presupuesto.html">Presupuesto y gasto</a></li>
+      <li><a href="investigacion.html">Investigación</a></li>
+      <li><a href="planilla.html">Planilla</a></li>
+      <li><a href="admision.html">Admisión</a></li>
+      <li><a href="eleccion.html">Elección 2026</a></li>
+      <li><a href="lider.html">UNI líder</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Apoya</h4>
+      <ul>
+        <li><a href="https://wa.me/51940584307" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+        <li><a href="#" onclick="document.getElementById('yape').classList.add('open');return false">💜 Yape</a></li>
+        <li><a href="https://buymeacoffee.com/unimauro" target="_blank" rel="noopener">☕ Apóyanos</a></li>
+        <li><a href="https://github.com/unimauro/observatorio-uni" target="_blank" rel="noopener">Código abierto</a></li>
+      </ul>
+    </div>
+  </div>
+</div></footer>
+
+<!-- Yape modal -->
+<div class="modal" id="yape" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="box">
+    <h3 style="margin-top:0">Apóyanos con Yape 💜</h3>
+    <img src="https://raw.githubusercontent.com/unimauro/salariosperu/main/yape.png" alt="Yape 940 584 307" onerror="this.style.display='none'">
+    <p style="font-size:14px">Número: <strong>940 584 307</strong><br>Carlos Cárdenas</p>
+    <button class="tgl" style="background:var(--granate2)" onclick="document.getElementById('yape').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+<!-- asistente IA -->
+<button class="fab" id="fab" title="Pregúntale al observatorio" aria-label="Abrir el asistente del observatorio" aria-controls="chat" aria-expanded="false">💬</button>
+<div class="chat" id="chat" role="dialog" aria-label="Asistente del Observatorio UNI">
+  <div class="top"><span>Asistente del Observatorio UNI</span><button type="button" id="chatClose" aria-label="Cerrar">×</button></div>
+  <div class="msgs" id="msgs"><div class="m a">Hola 👋 Pregúntame sobre el presupuesto, los proveedores, la investigación, la admisión, la planilla o la elección de autoridades 2026 de la UNI. Respondo solo con los datos públicos de este observatorio.</div></div>
+  <div class="in"><input id="chatIn" placeholder="Escribe tu pregunta…" aria-label="Tu pregunta" onkeydown="if(event.key==='Enter')sendChat()"><button class="send" onclick="sendChat()">Enviar</button></div>
+</div>
+</body>
+</html>

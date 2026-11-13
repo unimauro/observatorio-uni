@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>/* tema antes de pintar: preferencia guardada o la del sistema */(function(){try{var t=localStorage.getItem('obsuni_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9TLNPZH2R2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9TLNPZH2R2');
+</script>
+<title>Acerca del Observatorio UNI: ecosistema, hoja de ruta y metodología</title>
+<meta name="description" content="Observatorios y proyectos de datos abiertos hermanos, hoja de ruta del Observatorio UNI y metodología y fuentes públicas utilizadas.">
+<link rel="canonical" href="https://unimauro.github.io/observatorio-uni/acerca.html">
+<meta property="og:title" content="Acerca del Observatorio UNI">
+<meta property="og:description" content="Ecosistema de observatorios, hoja de ruta, metodología y fuentes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://unimauro.github.io/observatorio-uni/acerca.html">
+<meta property="og:image" content="https://unimauro.github.io/observatorio-uni/assets/og.png">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="Observatorio UNI">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#5c0013">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/styles.css">
+<script defer src="config.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body data-page="acerca">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- barra de apoyo -->
+<div class="support"><div class="wrap">
+  <span class="sp-txt">🏛️ Portal ciudadano · datos públicos</span>
+  <a href="https://wa.me/51940584307" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <a href="#" onclick="document.getElementById('yape').classList.add('open');return false">💜 Yape</a>
+  <a href="https://buymeacoffee.com/unimauro" target="_blank" rel="noopener">☕ Apóyanos</a>
+</div></div>
+
+<!-- navegación -->
+<header class="nav"><div class="wrap">
+  <a class="brand" href="./"><img class="logo" src="assets/favicon.svg" alt="" width="30" height="30"><span>Observatorio UNI<small>Universidad Nacional de Ingeniería · transparencia</small></span></a>
+  <nav class="links" id="nav" aria-label="Páginas del observatorio">
+    <a href="./">Inicio</a>
+    <a href="presupuesto.html">Presupuesto y gasto</a>
+    <a href="investigacion.html">Investigación</a>
+    <a href="planilla.html">Planilla</a>
+    <a href="admision.html">Admisión</a>
+    <a href="eleccion.html">Elección 2026</a>
+    <a href="lider.html">UNI líder</a>
+    <a href="acerca.html" class="on" aria-current="page">Acerca</a>
+  </nav>
+  <button class="icon-btn burger" id="burger" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">☰</button>
+  <button class="icon-btn" id="tglBtn" onclick="toggleTheme()" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">🌙</button>
+</div></header>
+
+<div class="pagehead"><div class="wrap">
+  <div class="crumbs"><a href="./">Inicio</a> / Acerca del observatorio</div>
+  <h1>Acerca del observatorio</h1>
+  <p>La red de proyectos de datos abiertos a la que pertenece este portal, lo que viene y cómo se construye cada cifra.</p>
+</div></div>
+<nav class="subnav" aria-label="En esta página"><div class="wrap"><a href="#ecosistema">Más observatorios</a><a href="#roadmap">Hoja de ruta</a><a href="#metodo">Metodología y fuentes</a></div></nav>
+
+<main id="main">
+<section id="ecosistema"><div class="wrap">
+  <div class="eyebrow">Red de datos abiertos</div>
+  <h2>Más observatorios y datos UNI</h2>
+  <p class="lead">Este portal forma parte de una familia de proyectos ciudadanos e independientes del mismo autor. Cada uno tiene sus propias fuentes y su propio repositorio abierto.</p>
+  <h3 class="eco-h">Sobre la UNI</h3>
+  <div class="eco">
+    <div class="card"><h3>🗳️ Observatorio Electoral UNI 2026</h3><p>Sitio independiente y no oficial para conocer y comparar las 9 listas y 27 candidaturas a rector y vicerrectores (elección de autoridades 2026). Cada dato lleva su fuente; lo no verificado se rotula como tal.</p><div class="meta"><span>Actualizado 30-10-2026</span><a href="https://unimauro.github.io/observatorio-electoral-uni/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🎓 Admisión UNI en cifras</h3><p>Dashboard público con estadísticas agregadas y anónimas de los procesos de admisión: postulantes, ausentismo y puntajes por prueba, especialidad y modalidad. Serie 2013–2026 y proceso en curso; sin datos personales.</p><div class="meta"><span>Actualizado 30-10-2026</span><a href="https://unimauro.github.io/uni-admision-stats/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>📝 uniexamen</h3><p>Scraper y estadísticas de los resultados del examen de admisión UNI, base de los agregados que alimentan este observatorio.</p><div class="meta"><span>Actualizado 25-10-2026</span><span class="pill">repositorio privado · sin enlace público</span></div></div>
+    <div class="card"><h3>📚 UNI CEPRE</h3><p>Script para descargar los resultados del examen de admisión UNI CEPRE y realizar análisis estadísticos: totales, estadísticas por especialidad y modalidad, y notebook de Colab.</p><div class="meta"><span>Actualizado 17-03-2026</span><span class="pill">repositorio privado · sin enlace público</span></div></div>
+    <div class="card"><h3>🧭 Gemelo Digital de la UNI</h3><p>Un «Waze institucional»: mide el impacto académico y científico por cada sol invertido y simula cómo distintas decisiones de inversión moverían a la UNI en los rankings. Demostración con datos ilustrativos.</p><div class="meta"><span>Actualizado 25-06-2026</span><a href="https://unimauro.github.io/gemelo-digital-uni/" target="_blank" rel="noopener">Abrir →</a></div></div>
+  </div>
+  <h3 class="eco-h">Red de observatorios</h3>
+  <div class="eco">
+    <div class="card"><h3>🏛️ Observatorio San Marcos</h3><p>Portal ciudadano de transparencia de la Universidad Nacional Mayor de San Marcos (pliego 510): presupuesto, en qué se gasta, proveedores y dueños, investigación (OpenAlex, 44k publicaciones), gasto↔valor y personal.</p><div class="meta"><span>Actualizado 04-07-2026</span><a href="https://unimauro.github.io/observatorio-sanmarcos/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🎭 Observatorio ENSAD</h3><p>Portal ciudadano de transparencia de la Escuela Nacional Superior de Arte Dramático (UE 123 del MINEDU): presupuesto, en qué se gasta, proveedores y dueños, personal.</p><div class="meta"><span>Actualizado 04-07-2026</span><a href="https://unimauro.github.io/observatorio-ensad/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🇵🇪 Universidades del Perú</h3><p>Ranking de investigación de 96 universidades peruanas (públicas y privadas) con datos reales de OpenAlex: publicaciones, citas, h-index e Índice de Investigación referencial. No es un ranking oficial.</p><div class="meta"><span>Actualizado 05-07-2026</span><a href="https://unimauro.github.io/universidades-peru/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🗺️ Perú Transparente</h3><p>Mapa nacional de funcionarios, entidades públicas, empresas estatales y redes de poder: datos públicos del Estado en una base unificada, un grafo nacional y dashboards abiertos. Comparte con este portal la fuente de la planilla (Portal de Transparencia Estándar).</p><div class="meta"><span>Actualizado 29-10-2026</span><a href="https://unimauro.github.io/peru-transparente/" target="_blank" rel="noopener">Abrir →</a></div></div>
+    <div class="card"><h3>🕸️ Poder Económico del Perú</h3><p>¿Quién controla qué? Grupos económicos, empresas, accionistas y directorios reconstruidos como un grafo a partir de información pública (SMV · BVL · SBS), con PageRank, comunidades e índice de poder económico.</p><div class="meta"><span>Actualizado 21-06-2026</span><a href="https://unimauro.github.io/observatorio-poder-economico/" target="_blank" rel="noopener">Abrir →</a></div></div>
+  </div>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <div class="eyebrow">Qué viene</div>
+  <h2>Hoja de ruta</h2>
+  <p class="lead">Este observatorio crece con la comunidad UNI. ¿Ideas, críticas, datos que aportar? Escríbenos a <a href="mailto:carlos@cardenas.pe">carlos@cardenas.pe</a> o por el chat 💬.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
+    <div class="card">
+      <h3>✅ Hecho</h3>
+      <ul style="font-size:13.5px;padding-left:18px;margin:0">
+        <li>Presupuesto histórico 2012–2026</li>
+        <li>En qué se gasta cada sol (genérica, unidad, función)</li>
+        <li>Presupuesto por facultad</li>
+        <li>Proveedores + dueños (338, S/86.6M)</li>
+        <li>Planilla docentes/funcionarios + buscador</li>
+        <li>Investigación (OpenAlex) y admisión</li>
+        <li>Gasto ↔ valor público (eficiencia)</li>
+        <li>Facultades: recursos vs. producción científica</li>
+        <li>Plan «Cómo hacer que la UNI lidere» con metas</li>
+        <li>Bot IA + Google Analytics</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🔜 En cola</h3>
+      <ul style="font-size:13.5px;padding-left:18px;margin:0">
+        <li>Órdenes de compra &lt; 8 UIT</li>
+        <li>Grafo proveedor → dueño</li>
+        <li>Serie histórica de proveedores</li>
+        <li>Desglose por fuente de financiamiento</li>
+        <li>Presupuesto por facultad multi-año</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🧭 Por evaluar</h3>
+      <ul style="font-size:13.5px;padding-left:18px;margin:0">
+        <li>Aprobados/desaprobados por carrera*</li>
+        <li>Empleabilidad de egresados*</li>
+        <li>Ingresos propios y unidades de negocio</li>
+        <li>Export Excel/PDF · idiomas</li>
+      </ul>
+      <p class="note" style="margin-top:8px">*Requieren una fuente pública que hoy no está disponible.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="metodo"><div class="wrap">
+  <div class="eyebrow">Cómo se hizo</div>
+  <h2>Metodología y fuentes</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>Fuentes de datos (todas públicas)</h3>
+      <ul style="font-size:14px;padding-left:18px">
+        <li><strong>Presupuesto y gasto:</strong> MEF — Datos Abiertos SIAF (<code>api.datosabiertos.mef.gob.pe</code>), pliego 514.</li>
+        <li><strong>Contrataciones y proveedores:</strong> OECE — Contrataciones Abiertas, estándar OCDS 1.1.</li>
+        <li><strong>Investigación:</strong> OpenAlex (institución I62520931), abierto/CC0.</li>
+        <li><strong>Admisión:</strong> resultados oficiales de la Dirección de Admisión UNI (puntajes.admision.uni.edu.pe) y microdatos en datosabiertos.gob.pe, agregados vía <a href="https://unimauro.github.io/uni-admision-stats/" target="_blank" rel="noopener">uni-admision-stats</a>. Solo agregados.</li>
+        <li><strong>Elección de autoridades 2026:</strong> actas y cómputo del CEUNI transcritos por el <a href="https://unimauro.github.io/observatorio-electoral-uni/" target="_blank" rel="noopener">Observatorio Electoral Universitario</a>; preliminar hasta la proclamación.</li>
+        <li><strong>Planilla/remuneraciones:</strong> datos nominales del sector público (AIRHSP / portales de transparencia).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Alcance y honestidad</h3>
+      <p style="font-size:14px;color:var(--muted)">Este es un portal <strong>exploratorio y ciudadano</strong>, construido solo con <strong>información pública</strong>. No expone datos privados. Las cifras se reportan tal como las publican las fuentes oficiales; los cruces (p. ej. proveedor → dueño) se marcan con su nivel de certeza. Correcciones bienvenidas: <a href="mailto:carlos@cardenas.pe">carlos@cardenas.pe</a>.</p>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>Observatorio UNI</h4>
+      <p style="margin:0 0 8px">Observatorio UNI · datos públicos MEF · OECE · OpenAlex · admisión UNI · construido por
+      <a href="https://unimauro.github.io" target="_blank" rel="noopener">Carlos Cárdenas (@unimauro)</a>.
+      No es un portal oficial de la Universidad Nacional de Ingeniería.</p>
+      <p style="margin:0">Correcciones y datos: <a href="mailto:carlos@cardenas.pe">carlos@cardenas.pe</a></p>
+    </div>
+    <div>
+      <h4>Páginas</h4>
+      <ul>
+      <li><a href="./">Inicio</a></li>
+      <li><a href="presupuesto.html">Presupuesto y gasto</a></li>
+      <li><a href="investigacion.html">Investigación</a></li>
+      <li><a href="planilla.html">Planilla</a></li>
+      <li><a href="admision.html">Admisión</a></li>
+      <li><a href="eleccion.html">Elección 2026</a></li>
+      <li><a href="lider.html">UNI líder</a></li>
+      <li><a href="acerca.html">Acerca</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Apoya</h4>
+      <ul>
+        <li><a href="https://wa.me/51940584307" target="_blank" rel="noopener">💬 WhatsApp</a></li>
+        <li><a href="#" onclick="document.getElementById('yape').classList.add('open');return false">💜 Yape</a></li>
+        <li><a href="https://buymeacoffee.com/unimauro" target="_blank" rel="noopener">☕ Apóyanos</a></li>
+        <li><a href="https://github.com/unimauro/observatorio-uni" target="_blank" rel="noopener">Código abierto</a></li>
+      </ul>
+    </div>
+  </div>
+</div></footer>
+
+<!-- Yape modal -->
+<div class="modal" id="yape" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="box">
+    <h3 style="margin-top:0">Apóyanos con Yape 💜</h3>
+    <img src="https://raw.githubusercontent.com/unimauro/salariosperu/main/yape.png" alt="Yape 940 584 307" onerror="this.style.display='none'">
+    <p style="font-size:14px">Número: <strong>940 584 307</strong><br>Carlos Cárdenas</p>
+    <button class="tgl" style="background:var(--granate2)" onclick="document.getElementById('yape').classList.remove('open')">Cerrar</button>
+  </div>
+</div>
+
+<!-- asistente IA -->
+<button class="fab" id="fab" title="Pregúntale al observatorio" aria-label="Abrir el asistente del observatorio" aria-controls="chat" aria-expanded="false">💬</button>
+<div class="chat" id="chat" role="dialog" aria-label="Asistente del Observatorio UNI">
+  <div class="top"><span>Asistente del Observatorio UNI</span><button type="button" id="chatClose" aria-label="Cerrar">×</button></div>
+  <div class="msgs" id="msgs"><div class="m a">Hola 👋 Pregúntame sobre el presupuesto, los proveedores, la investigación, la admisión, la planilla o la elección de autoridades 2026 de la UNI. Respondo solo con los datos públicos de este observatorio.</div></div>
+  <div class="in"><input id="chatIn" placeholder="Escribe tu pregunta…" aria-label="Tu pregunta" onkeydown="if(event.key==='Enter')sendChat()"><button class="send" onclick="sendChat()">Enviar</button></div>
+</div>
+</body>
+</html>
