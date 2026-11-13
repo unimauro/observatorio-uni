@@ -224,6 +224,7 @@ function renderU36() {
     ['💰', 'Financiamiento diversificado', 'Fondos concursables externos, contratos con empresas, Ley 30309, obras por impuestos, donaciones y un fondo patrimonial.'],
   ];
   $('u36Dec').innerHTML = dec.map(([i, t, d]) => `<div class="card"><h3 style="margin-top:0">${i} ${esc(t)}</h3><p style="font-size:14px;margin:0">${esc(d)}</p></div>`).join('');
+  u36Motion();
   if (!U) return;
   const E = U.escenarios, A = E.acumulado || {};
   $('u36Money').innerHTML = kpiHtml([
@@ -234,9 +235,9 @@ function renderU36() {
   ]);
   const yrs = E.inercial.map(r => r.anio), G = E.global_trayectoria || [];
   const line = (label, data, color, dash) => ({ label, data, borderColor: color, backgroundColor: color, borderDash: dash ? [6, 4] : [], tension: .25, pointRadius: 2 });
-  mkChart('cU36Pim', { type: 'line', data: { labels: yrs, datasets: [line('Inercial', E.inercial.map(r => r.pim), '#8a8a8a', true), line('Reforma', E.reforma.map(r => r.pim), GRANATE), ...(G.length ? [line('Global', G.map(r => r.pim_reforma), ORO)] : [])] }, options: opts({ scales: { x: { grid: { color: grid() } }, y: { grid: { color: grid() }, beginAtZero: false } } }) });
-  mkChart('cU36Idi', { type: 'line', data: { labels: yrs, datasets: [line('Inercial', E.inercial.map(r => r.idi), '#8a8a8a', true), line('Reforma', E.reforma.map(r => r.idi), GRANATE), ...(G.length ? [line('Global', G.map(r => r.idi), ORO)] : [])] }, options: opts() });
-  mkChart('cU36Inv', { type: 'bar', data: { labels: yrs, datasets: [{ label: 'Inercial', data: E.inercial.map(r => r.inversion_ejecutada), backgroundColor: '#b9b0ad' }, { label: 'Reforma', data: E.reforma.map(r => r.inversion_ejecutada), backgroundColor: '#0e7c86' }] }, options: opts() });
+  mkChart('cU36Pim', { type: 'line', data: { labels: yrs, datasets: [line('Inercial', E.inercial.map(r => r.pim), '#8a8a8a', true), line('Reforma', E.reforma.map(r => r.pim), '#e6336f'), ...(G.length ? [line('Global', G.map(r => r.pim_reforma), '#f2a900')] : [])] }, options: opts({ scales: { x: { grid: { color: grid() } }, y: { grid: { color: grid() }, beginAtZero: false } } }) });
+  mkChart('cU36Idi', { type: 'line', data: { labels: yrs, datasets: [line('Inercial', E.inercial.map(r => r.idi), '#8a8a8a', true), line('Reforma', E.reforma.map(r => r.idi), '#e6336f'), ...(G.length ? [line('Global', G.map(r => r.idi), '#f2a900')] : [])] }, options: opts() });
+  mkChart('cU36Inv', { type: 'bar', data: { labels: yrs, datasets: [{ label: 'Inercial', data: E.inercial.map(r => r.inversion_ejecutada), backgroundColor: '#b9b0ad' }, { label: 'Reforma', data: E.reforma.map(r => r.inversion_ejecutada), backgroundColor: '#00c2b0', borderRadius: 6 }] }, options: opts() });
   const fases = [['Ordenar la casa', '2026–2028'], ['Escalar', '2029–2032'], ['Liderar', '2033–2036']];
   $('u36Ruta').innerHTML = fases.map(([f, r], i) => `<div class="card"><h3 style="margin-top:0">${i + 1}. ${esc(f)} <span class="pill">${r}</span></h3><ul style="font-size:13.5px;padding-left:0;list-style:none;margin:0">${U.roadmap.filter(h => h.fase === f).map(h => `<li style="margin:0 0 10px;padding-left:52px;position:relative"><strong style="position:absolute;left:0;color:var(--accent)">${esc(h.año ?? h.anio)}</strong>${esc(h.hito)}</li>`).join('')}</ul></div>`).join('');
   const v = x => x == null || x === '' ? 's/d' : esc(typeof x === 'number' ? x.toLocaleString('es-PE') : x);
@@ -244,7 +245,26 @@ function renderU36() {
   const th = 'style="text-align:left;padding:8px;border-bottom:2px solid var(--line)"';
   $('u36Kpis').innerHTML = `<thead><tr><th ${th}>#</th><th ${th}>Indicador</th><th ${th}>Línea de base</th><th ${th}>2028</th><th ${th}>2031</th><th ${th}>2036</th><th ${th}>Cómo se sigue</th></tr></thead><tbody>${rows}</tbody>`;
   $('u36Kpis').querySelectorAll('td').forEach(td => { td.style.padding = '8px'; td.style.borderBottom = '1px solid var(--line)'; td.style.verticalAlign = 'top'; });
+  u36Color();
   $('u36Q').oninput = e => { const q = e.target.value.toLowerCase().trim(); $('u36Kpis').querySelectorAll('tbody tr').forEach(tr => { tr.style.display = !q || tr.dataset.q.includes(q) ? '' : 'none'; }); };
+}
+
+// Color por tarjeta y movimiento (aparición al hacer scroll y contadores); respeta prefers-reduced-motion.
+const U36_COLORS = ['var(--u-cyan)', 'var(--u-gold)', 'var(--u-pink)', 'var(--u-violet)', 'var(--u-blue)'];
+function u36Color() {
+  ['u36Obj', 'u36Money', 'lidKpis', 'u36Dec'].forEach(id => $(id)?.querySelectorAll(':scope > div').forEach((el, i) => el.style.setProperty('--c', U36_COLORS[i % U36_COLORS.length])));
+}
+function u36Motion() {
+  u36Color();
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!still) document.querySelectorAll('[data-n]').forEach(el => {
+    const n = +el.dataset.n, t0 = performance.now(), d = 1400;
+    const step = t => { const k = Math.min(1, (t - t0) / d); el.textContent = Math.round(n * (1 - Math.pow(1 - k, 3))).toLocaleString('es-PE'); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+  if (still || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('#lider-main section .card, #lider-main section .kpi, #lider-main section h2, #vision blockquote').forEach((el, i) => { el.classList.add('u36-reveal'); el.style.transitionDelay = (i % 3) * 80 + 'ms'; io.observe(el); });
 }
 
 // ---- Cómo hacer que la UNI lidere ----
