@@ -50,7 +50,7 @@ themeIcon();
 // (etl/build_planilla_resumen.py); la lista nominal completa (planilla-uni.json, ~900 KB) solo la carga planilla.html.
 const FILES = {
   presu: 'presupuesto-uni.json', biblio: 'bibliometria.json', adm: 'admision-uni.json', prov: 'proveedores-uni.json',
-  plan: 'planilla-uni.json', planRes: 'planilla-resumen.json', elec: 'electoral-uni.json', facs: 'facultades-uni.json', vri: 'vri-proyectos.json',
+  plan: 'planilla-uni.json', planRes: 'planilla-resumen.json', elec: 'electoral-uni.json', facs: 'facultades-uni.json', vri: 'vri-proyectos.json', u36: 'uni2036.json',
 };
 const PAGE_DATA = {
   index: ['presu', 'biblio', 'adm', 'prov', 'planRes', 'elec'],
@@ -59,7 +59,7 @@ const PAGE_DATA = {
   planilla: ['plan'],
   admision: ['adm'],
   eleccion: ['elec'],
-  lider: ['biblio', 'facs', 'presu', 'planRes'],
+  lider: ['biblio', 'facs', 'presu', 'planRes', 'u36'],
   acerca: [],
 };
 const CHAT_DATA = ['presu', 'biblio', 'adm', 'prov', 'planRes', 'elec', 'facs'];
@@ -114,7 +114,7 @@ const RENDERERS = [
   ['kpis', () => renderKpis()], ['areas', () => renderAreas()],
   ['presupuesto', () => renderPresu()], ['gasto', () => renderGasto()], ['proveedores', () => renderProv()],
   ['investigacion', () => renderInv()], ['valor', () => renderValor()], ['admision', () => renderAdm()],
-  ['eleccion', () => renderElec()], ['planilla', () => renderPlan()], ['facultades', () => renderFacs()], ['lidPlan', () => renderLid()],
+  ['eleccion', () => renderElec()], ['planilla', () => renderPlan()], ['facultades', () => renderFacs()], ['lidPlan', () => renderLid()], ['u36Obj', () => renderU36()],
 ];
 function render() {
   RENDERERS.forEach(([id, fn]) => { if ($(id)) { try { fn(); } catch (e) { console.error('render ' + id, e); } } });
@@ -131,7 +131,7 @@ function renderAreas() {
   if (DATA.adm?._meta) put('admision', `${fmtN(DATA.adm._meta.total_ingresantes)} ingresantes de ${fmtN(DATA.adm._meta.total_postulantes)} postulantes (${esc(DATA.adm.proceso || '')})`);
   const E = DATA.elec;
   if (E?.primera_vuelta?.listas?.length) put('eleccion', `${fmtN(E.n_listas || E.primera_vuelta.listas.length)} listas · 2.ª vuelta: ` + ((E.segunda_vuelta?.listas || []).map(x => 'Lista ' + esc(x.numero)).join(' vs ') || 'por definir'));
-  put('lider', 'Metas medibles a 2031');
+  put('lider', 'Plan estratégico 2026–2036 · PDF descargable');
   put('acerca', '10 proyectos hermanos de datos abiertos');
 }
 
@@ -199,6 +199,54 @@ function renderFacs() {
     m.fuentes.filter(x => x.url).map(x => `<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.nombre)}</a>`).join(' · ') + `. Generado ${esc(m.generado)}.`;
 }
 
+// ---- UNI 2036: plan estratégico (data/uni2036.json, generado por docs/uni2036/build_pdf.py) ----
+function renderU36() {
+  const U = DATA.u36;
+  $('u36Obj').innerHTML = kpiHtml([
+    ['OE1 · Investigar es parte del trabajo', '26% → 70%', 'docentes con producción en 5 años; 497 → 1 600 obras/año'],
+    ['OE2 · Docentes por mérito', '90 → 450', 'docentes RENACYT; 150 doctores nuevos; evaluación con debido proceso'],
+    ['OE3 · Posgrado a tiempo completo', '76 → 450', 'becarios de maestría y doctorado'],
+    ['OE4 · Estudiantes', '60%', 'titulación oportuna en 2036; 33% mujeres ingresantes'],
+    ['OE5 · Administración que ejecuta', '66% → 95%', 'ejecución de la inversión'],
+    ['OE6 · Dinero para ciencia', '1,8% → 8%', 'del presupuesto en el programa CTI propio'],
+    ['OE7 · Alianzas y visibilidad', 'QS ≤ 600', 'hoy fuera de QS 2027; 30 datasets abiertos'],
+  ]);
+  const dec = [
+    ['📋', 'Evaluar a todos los docentes, con consecuencias', 'Evaluación anual; plan de mejora; si no mejora, no ratificación (Ley 30220, art. 84) con debido proceso. Reconvertir los pagos «otros» (29,7% de la planilla docente) en pagos por resultados. Nunca listas de personas.'],
+    ['🛤️', 'Tres trayectorias docentes', 'Docencia, investigación (art. 86: menos carga y bonificación RENACYT) e innovación-transferencia, cada una con su carga, evaluación y retribución.'],
+    ['⭐', 'Retener y atraer a los mejores', 'Concursos internacionales abiertos, paquete de arranque para doctores, repatriación y relevo generacional planificado.'],
+    ['🎓', 'Maestrías y doctorados a tiempo completo', 'Becas (PROCIENCIA S/ 6 500/mes) más ayudantías; ejecutar el presupuesto del posgrado que hoy queda sin gastar.'],
+    ['🧭', 'Evaluar carreras y abrir las de futuro', 'Matriz pública cada 5 años. Áreas nuevas en orden: especialización → posgrado → pregrado. Fortalecer IA, Ciberseguridad, Aeroespacial y Biomédica; priorizar Energía y Agua-Clima.'],
+    ['🔬', 'Investigación de impacto en dos frentes', 'Básica: 16% de obras en el 10% más citado del mundo. Aplicada: de 5 a 150 obras con coautoría empresarial, patentes y contratos con industria.'],
+    ['🏛️', 'Remodelar la administración', 'Oficina de gestión estratégica (PMO), unidad de datos, ventanilla única de proyectos, compras para investigación, trámites digitales y servicios compartidos.'],
+    ['🏢', 'Usar lo que ya se tiene antes de construir', 'Auditoría de uso de aulas y laboratorios en 2026–27 (la «ocupación menor a 40%» es una hipótesis a medir), laboratorios compartidos, incubadora y alquiler regulado; moratoria de edificios nuevos hasta cumplir metas de uso.'],
+    ['🤝', 'Alianzas internacionales y startups', 'Socios ancla, laboratorios conjuntos, dobles grados, Horizon Europe, Erasmus+ y Fulbright; política de propiedad intelectual y regalías, Startup UNI con ProInnóvate y fondo semilla de egresados.'],
+    ['💰', 'Financiamiento diversificado', 'Fondos concursables externos, contratos con empresas, Ley 30309, obras por impuestos, donaciones y un fondo patrimonial.'],
+  ];
+  $('u36Dec').innerHTML = dec.map(([i, t, d]) => `<div class="card"><h3 style="margin-top:0">${i} ${esc(t)}</h3><p style="font-size:14px;margin:0">${esc(d)}</p></div>`).join('');
+  if (!U) return;
+  const E = U.escenarios, A = E.acumulado || {};
+  $('u36Money').innerHTML = kpiHtml([
+    ['Costo adicional de la reforma', 'S/ ' + fmtN(A.necesidad_total) + ' M', '2026–2036, sobre el escenario inercial'],
+    ['Recursos nuevos del MEF', 'S/ ' + fmtN(A.brecha_ro_mef) + ' M', 'el resto: fondos externos, reasignación y ahorro'],
+    ['Inversión ejecutada 2026–36', 'S/ ' + fmtN(A.inversion_ejecutada?.reforma) + ' M', 'vs S/ ' + fmtN(A.inversion_ejecutada?.inercial) + ' M si nada cambia'],
+    ['I+D acumulado 2026–36', 'S/ ' + fmtN(A.idi?.reforma) + ' M', 'vs S/ ' + fmtN(A.idi?.inercial) + ' M si nada cambia'],
+  ]);
+  const yrs = E.inercial.map(r => r.anio), G = E.global_trayectoria || [];
+  const line = (label, data, color, dash) => ({ label, data, borderColor: color, backgroundColor: color, borderDash: dash ? [6, 4] : [], tension: .25, pointRadius: 2 });
+  mkChart('cU36Pim', { type: 'line', data: { labels: yrs, datasets: [line('Inercial', E.inercial.map(r => r.pim), '#8a8a8a', true), line('Reforma', E.reforma.map(r => r.pim), GRANATE), ...(G.length ? [line('Global', G.map(r => r.pim_reforma), ORO)] : [])] }, options: opts({ scales: { x: { grid: { color: grid() } }, y: { grid: { color: grid() }, beginAtZero: false } } }) });
+  mkChart('cU36Idi', { type: 'line', data: { labels: yrs, datasets: [line('Inercial', E.inercial.map(r => r.idi), '#8a8a8a', true), line('Reforma', E.reforma.map(r => r.idi), GRANATE), ...(G.length ? [line('Global', G.map(r => r.idi), ORO)] : [])] }, options: opts() });
+  mkChart('cU36Inv', { type: 'bar', data: { labels: yrs, datasets: [{ label: 'Inercial', data: E.inercial.map(r => r.inversion_ejecutada), backgroundColor: '#b9b0ad' }, { label: 'Reforma', data: E.reforma.map(r => r.inversion_ejecutada), backgroundColor: '#0e7c86' }] }, options: opts() });
+  const fases = [['Ordenar la casa', '2026–2028'], ['Escalar', '2029–2032'], ['Liderar', '2033–2036']];
+  $('u36Ruta').innerHTML = fases.map(([f, r], i) => `<div class="card"><h3 style="margin-top:0">${i + 1}. ${esc(f)} <span class="pill">${r}</span></h3><ul style="font-size:13.5px;padding-left:0;list-style:none;margin:0">${U.roadmap.filter(h => h.fase === f).map(h => `<li style="margin:0 0 10px;padding-left:52px;position:relative"><strong style="position:absolute;left:0;color:var(--accent)">${esc(h.año ?? h.anio)}</strong>${esc(h.hito)}</li>`).join('')}</ul></div>`).join('');
+  const v = x => x == null || x === '' ? 's/d' : esc(typeof x === 'number' ? x.toLocaleString('es-PE') : x);
+  const rows = U.kpis.map(k => `<tr data-q="${esc((k.indicador + ' ' + k.seguimiento).toLowerCase())}"><td>${esc(k.id)}</td><td><strong>${esc(k.indicador)}</strong></td><td>${v(k.base?.valor)}<br><span class="note" style="margin:0">${esc(k.base?.anio ?? '')} · ${esc(k.base?.fuente ?? '')}</span></td><td>${v(k.meta_2028)}</td><td>${v(k.meta_2031)}</td><td><strong>${v(k.meta_2036)}</strong></td><td class="note" style="margin:0">${esc(k.seguimiento ?? '')}</td></tr>`).join('');
+  const th = 'style="text-align:left;padding:8px;border-bottom:2px solid var(--line)"';
+  $('u36Kpis').innerHTML = `<thead><tr><th ${th}>#</th><th ${th}>Indicador</th><th ${th}>Línea de base</th><th ${th}>2028</th><th ${th}>2031</th><th ${th}>2036</th><th ${th}>Cómo se sigue</th></tr></thead><tbody>${rows}</tbody>`;
+  $('u36Kpis').querySelectorAll('td').forEach(td => { td.style.padding = '8px'; td.style.borderBottom = '1px solid var(--line)'; td.style.verticalAlign = 'top'; });
+  $('u36Q').oninput = e => { const q = e.target.value.toLowerCase().trim(); $('u36Kpis').querySelectorAll('tbody tr').forEach(tr => { tr.style.display = !q || tr.dataset.q.includes(q) ? '' : 'none'; }); };
+}
+
 // ---- Cómo hacer que la UNI lidere ----
 function renderLid() {
   const B = DATA.biblio, F = DATA.facs, P = DATA.presu;
@@ -233,7 +281,7 @@ function renderLid() {
       'Evaluación anual integral publicada en agregados; ratificación ligada a metas.',
       ['Evaluación anual que mide docencia (encuestas y aprendizaje), investigación, asesoría de tesis y gestión, no solo papers.', 'Quien no cumple entra a un plan de mejora de 1 año; si no mejora, no se ratifica o no se renueva el contrato (Ley 30220, art. 84, con debido proceso).', 'Pagos adicionales y compensaciones sólo contra productos verificables; los sueldos altos deben justificarse con resultados.', 'Bonificación de 50% al docente investigador RENACYT (art. 86) en lugar de pagos sin metas.']),
     card('🎓', 'Talento y renovación', '', 'Más docentes con doctorado y plazas por concurso abierto internacional.',
-      ['Concursos de plazas con requisito de doctorado y producción, con jurados externos.', 'Programa de repatriación de doctores peruanos y posdoctorados financiados.', 'Cese ordenado al llegar al límite de edad legal y reposición inmediata de la plaza.']),
+      ['Concursos de plazas con requisito de doctorado y producción, con jurados externos.', 'Programa de repatriación de doctores peruanos y posdoctorados financiados.', 'Relevo generacional planificado: la Ley 31542 eliminó el límite de edad, así que hace falta un plan de contratación a 10 años y retiro voluntario hacia cargos de emérito.']),
     card('💰', 'Más dinero para ciencia, y ejecutado', idi ? `I+D es ${idi.idi_pct}% del presupuesto${capPct != null ? `; se ejecutó ${capPct.toFixed(0)}% de la inversión` : ''}.` : '',
       '≥ 6% del presupuesto en I+D y ≥ 95% de ejecución de inversión en laboratorios.',
       ['Ventanilla única para postular a PROCIENCIA, fondos internacionales y empresas.', 'Oficina de transferencia: patentes (INDECOPI), licencias y startups de base tecnológica.', 'Laboratorios compartidos por toda la UNI, con reservas y uso públicos.']),

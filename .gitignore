@@ -5,3 +5,5 @@ etl/venv/
 node_modules/
 etl/cache_pte/
 etl/cache_openalex_*.json
+docs/uni2036/build/
+.claude/
