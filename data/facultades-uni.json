@@ -1,0 +1,228 @@
+{
+ "_meta": {
+  "generado": "2026-11-12",
+  "ventana_publicaciones": "2021-2025",
+  "fuentes": [
+   {
+    "nombre": "Planilla nominal UNI (Portal de Transparencia Estándar)",
+    "url": "https://www.transparencia.gob.pe/personal/pte_transparencia_personal.aspx?id_entidad=10048&in_anno_consulta=2026&ch_mes_consulta=09&vc_nombre_funcionario=&vc_dni_funcionario=&ch_tipo_regimen=1&id_tema=32&Ver=&pag=1",
+    "periodo": "2026-09"
+   },
+   {
+    "nombre": "Presupuesto por facultad (MEF/SIAF, meta presupuestal)",
+    "url": "https://apps5.mineco.gob.pe/transparencia/Navegador/default.aspx",
+    "periodo": "2025"
+   },
+   {
+    "nombre": "OpenAlex (CC0), obras con afiliación UNI",
+    "url": "https://openalex.org/works?filter=institutions.id:I62520931,publication_year:2021-2025"
+   },
+   {
+    "nombre": "Proyectos financiados por el VRI-UNI (resoluciones)",
+    "url": "https://vri.uni.edu.pe/"
+   }
+  ],
+  "obras_uni_ventana": 1862,
+  "autores_uni_ventana": 1643,
+  "docentes_planilla": 1282,
+  "docentes_sin_facultad": 0,
+  "docentes_cruzados": 336,
+  "metodo": "Docentes = planilla PTE (categoría docente) por dependencia. Publicaciones = obras OpenAlex con afiliación UNI en la ventana, atribuidas a la facultad del docente cuando el autor coincide en ≥2 componentes del nombre con UN solo docente (los casos ambiguos se descartan). Subestima: autores sin afiliación UNI declarada, nombres transliterados, artículos fuera de OpenAlex y libros/patentes. Costo de planilla por obra = masa mensual × 14 × años de la ventana / obras (aproxima: usa la planilla actual para toda la ventana). Indicador agregado: no evalúa a personas.",
+  "advertencia": "Indicadores por facultad, no por docente. La docencia, la extensión y la gestión no se miden aquí."
+ },
+ "totales": {
+  "docentes": 1282,
+  "docentes_con_publicacion": 336,
+  "masa_mensual": 8263302.73
+ },
+ "facultades": [
+  {
+   "clave": "FC",
+   "nombre": "Ciencias",
+   "docentes": 150,
+   "tiempo_completo": 93,
+   "masa_mensual": 1149803.68,
+   "docentes_con_publicacion": 62,
+   "obras_ventana": 300,
+   "obras_por_docente": 2.0,
+   "pct_docentes_con_publicacion": 41.3,
+   "costo_planilla_por_obra": 268288,
+   "presupuesto_pim": 970808.0,
+   "presupuesto_dev": 970047.62,
+   "vri_proyectos": 84,
+   "vri_monto": 5727538.8
+  },
+  {
+   "clave": "FIM",
+   "nombre": "Ingeniería Mecánica",
+   "docentes": 173,
+   "tiempo_completo": 100,
+   "masa_mensual": 1053560.63,
+   "docentes_con_publicacion": 39,
+   "obras_ventana": 126,
+   "obras_por_docente": 0.73,
+   "pct_docentes_con_publicacion": 22.5,
+   "costo_planilla_por_obra": 585311,
+   "presupuesto_pim": 5935810.0,
+   "presupuesto_dev": 5819215.15,
+   "vri_proyectos": 30,
+   "vri_monto": 2396483.0
+  },
+  {
+   "clave": "FIC",
+   "nombre": "Ingeniería Civil",
+   "docentes": 148,
+   "tiempo_completo": 88,
+   "masa_mensual": 1236485.79,
+   "docentes_con_publicacion": 42,
+   "obras_ventana": 108,
+   "obras_por_docente": 0.73,
+   "pct_docentes_con_publicacion": 28.4,
+   "costo_planilla_por_obra": 801426,
+   "presupuesto_pim": 3563223.0,
+   "presupuesto_dev": 3529804.29,
+   "vri_proyectos": 23,
+   "vri_monto": 1498053.0
+  },
+  {
+   "clave": "FIQT",
+   "nombre": "Ingeniería Química y Textil",
+   "docentes": 84,
+   "tiempo_completo": 51,
+   "masa_mensual": 545454.93,
+   "docentes_con_publicacion": 33,
+   "obras_ventana": 106,
+   "obras_por_docente": 1.26,
+   "pct_docentes_con_publicacion": 39.3,
+   "costo_planilla_por_obra": 360206,
+   "presupuesto_pim": 1642310.0,
+   "presupuesto_dev": 1610876.11,
+   "vri_proyectos": 27,
+   "vri_monto": 2774299.0
+  },
+  {
+   "clave": "FIEECS",
+   "nombre": "Ing. Económica, Estadística y CC. Sociales",
+   "docentes": 109,
+   "tiempo_completo": 55,
+   "masa_mensual": 675492.34,
+   "docentes_con_publicacion": 37,
+   "obras_ventana": 84,
+   "obras_por_docente": 0.77,
+   "pct_docentes_con_publicacion": 33.9,
+   "costo_planilla_por_obra": 562910,
+   "presupuesto_pim": 4099929.0,
+   "presupuesto_dev": 4073106.74,
+   "vri_proyectos": 7,
+   "vri_monto": 308999.0
+  },
+  {
+   "clave": "FIP",
+   "nombre": "Ing. de Petróleo, Gas Natural y Petroquímica",
+   "docentes": 58,
+   "tiempo_completo": 24,
+   "masa_mensual": 311158.72,
+   "docentes_con_publicacion": 18,
+   "obras_ventana": 83,
+   "obras_por_docente": 1.43,
+   "pct_docentes_con_publicacion": 31.0,
+   "costo_planilla_por_obra": 262423,
+   "presupuesto_pim": 550731.0,
+   "presupuesto_dev": 525409.37,
+   "vri_proyectos": 4,
+   "vri_monto": 349989.0
+  },
+  {
+   "clave": "FAUA",
+   "nombre": "Arquitectura, Urbanismo y Artes",
+   "docentes": 130,
+   "tiempo_completo": 69,
+   "masa_mensual": 719263.93,
+   "docentes_con_publicacion": 21,
+   "obras_ventana": 72,
+   "obras_por_docente": 0.55,
+   "pct_docentes_con_publicacion": 16.2,
+   "costo_planilla_por_obra": 699284,
+   "presupuesto_pim": 1349504.0,
+   "presupuesto_dev": 1348052.68,
+   "vri_proyectos": 13,
+   "vri_monto": 923782.0
+  },
+  {
+   "clave": "FIEE",
+   "nombre": "Ingeniería Eléctrica y Electrónica",
+   "docentes": 112,
+   "tiempo_completo": 70,
+   "masa_mensual": 726115.41,
+   "docentes_con_publicacion": 32,
+   "obras_ventana": 68,
+   "obras_por_docente": 0.61,
+   "pct_docentes_con_publicacion": 28.6,
+   "costo_planilla_por_obra": 747472,
+   "presupuesto_pim": 836086.0,
+   "presupuesto_dev": 813947.07,
+   "vri_proyectos": 14,
+   "vri_monto": 647712.0
+  },
+  {
+   "clave": "FIGMM",
+   "nombre": "Ing. Geológica, Minera y Metalúrgica",
+   "docentes": 115,
+   "tiempo_completo": 58,
+   "masa_mensual": 638688.3,
+   "docentes_con_publicacion": 21,
+   "obras_ventana": 56,
+   "obras_por_docente": 0.49,
+   "pct_docentes_con_publicacion": 18.3,
+   "costo_planilla_por_obra": 798360,
+   "presupuesto_pim": 2262240.0,
+   "presupuesto_dev": 2161302.57,
+   "vri_proyectos": 11,
+   "vri_monto": 1454400.0
+  },
+  {
+   "clave": "FIA",
+   "nombre": "Ingeniería Ambiental",
+   "docentes": 93,
+   "tiempo_completo": 45,
+   "masa_mensual": 487918.22,
+   "docentes_con_publicacion": 15,
+   "obras_ventana": 44,
+   "obras_por_docente": 0.47,
+   "pct_docentes_con_publicacion": 16.1,
+   "costo_planilla_por_obra": 776234,
+   "presupuesto_pim": 3214785.0,
+   "presupuesto_dev": 3173032.01,
+   "vri_proyectos": 11,
+   "vri_monto": 566292.2
+  },
+  {
+   "clave": "FIIS",
+   "nombre": "Ingeniería Industrial y de Sistemas",
+   "docentes": 110,
+   "tiempo_completo": 71,
+   "masa_mensual": 719360.78,
+   "docentes_con_publicacion": 16,
+   "obras_ventana": 28,
+   "obras_por_docente": 0.25,
+   "pct_docentes_con_publicacion": 14.5,
+   "costo_planilla_por_obra": 1798402,
+   "presupuesto_pim": 2868716.0,
+   "presupuesto_dev": 2792134.5,
+   "vri_proyectos": 5,
+   "vri_monto": 210000.0
+  }
+ ],
+ "vri": {
+  "total": 16937548.0,
+  "proyectos": 231,
+  "por_anio": {
+   "2022": 57000.0,
+   "2023": 4083732.0,
+   "2024": 4782918.0,
+   "2025": 4606950.0,
+   "2026": 3406948.0
+  },
+  "nota": "Monto = monto adjudicado/aprobado según la fuente de cada fila (fuente_url). La facultad es la del investigador responsable; el gasto se ejecuta con presupuesto del VRI. 2024 se reconstruyó con las relaciones de gasto del VRI (no se halló la resolución de ganadores). Se excluye el proyecto FC-A-PFR-08-2026 anulado por la RR 0794-2026. No incluye: equipamiento 2024, centros de investigación 2025, Tesis con Impacto ni fondos propios de facultades."
+ }
+}

@@ -48,6 +48,8 @@ async function boot() {
   DATA.prov = await load('proveedores-uni.json');
   DATA.plan = await load('planilla-uni.json');
   DATA.elec = await load('electoral-uni.json');
+  DATA.facs = await load('facultades-uni.json');
+  DATA.vri = await load('vri-proyectos.json');
   render();
 }
 
@@ -60,7 +62,113 @@ function opts(extra = {}) {
 }
 
 function render() {
-  renderKpis(); renderPresu(); renderGasto(); renderProv(); renderInv(); renderValor(); renderAdm(); renderElec(); renderPlan();
+  renderKpis(); renderPresu(); renderGasto(); renderProv(); renderInv(); renderValor(); renderAdm(); renderElec(); renderPlan(); renderFacs(); renderLid();
+}
+
+// ---- Facultades · recursos de investigación ----
+const kpiHtml = k => k.map(x => `<div class="kpi"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="s">${x[2] || ''}</div></div>`).join('');
+function renderFacs() {
+  const F = DATA.facs, f = F?.facultades;
+  if (!f?.length) return;
+  const m = F._meta, t = F.totales, idi = DATA.biblio?.presupuesto;
+  const pct = t.docentes ? (100 * t.docentes_con_publicacion / t.docentes) : 0;
+  document.getElementById('facKpis').innerHTML = kpiHtml([
+    ['Presupuesto I+D (programa CTI)', idi?.idi != null ? 'S/ ' + idi.idi + ' M' : '—', idi ? `${idi.idi_pct}% del PIM ${idi.anio}` : ''],
+    ['Docentes en planilla', fmtN(t.docentes), 'PTE ' + esc(m.fuentes[0]?.periodo || '')],
+    ['Docentes con ≥1 publicación', pct.toFixed(1) + '%', `${fmtN(t.docentes_con_publicacion)} docentes · ${esc(m.ventana_publicaciones)}`],
+    ['Obras UNI en OpenAlex', fmtN(m.obras_uni_ventana), esc(m.ventana_publicaciones)],
+  ]);
+  const byPub = [...f].sort((a, b) => b.obras_ventana - a.obras_ventana);
+  new Chart(cFacPub, { type: 'bar', data: { labels: byPub.map(x => x.clave), datasets: [{ label: 'Publicaciones', data: byPub.map(x => x.obras_ventana), backgroundColor: GRANATE }] },
+    options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: i => byPub[i[0].dataIndex].nombre, label: c => c.raw + ' obras · ' + byPub[c.dataIndex].obras_por_docente + ' por docente' } } } }) });
+  const byPct = [...f].sort((a, b) => b.pct_docentes_con_publicacion - a.pct_docentes_con_publicacion);
+  new Chart(cFacPct, { type: 'bar', data: { labels: byPct.map(x => x.clave), datasets: [{ label: '% docentes con publicación', data: byPct.map(x => x.pct_docentes_con_publicacion), backgroundColor: byPct.map(x => x.pct_docentes_con_publicacion >= pct ? TEAL : ORO) }] },
+    options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: i => byPct[i[0].dataIndex].nombre, label: c => c.raw + '% (' + byPct[c.dataIndex].docentes_con_publicacion + ' de ' + byPct[c.dataIndex].docentes + ')' } } }, scales: { x: { grid: { color: grid() }, beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } }, y: { grid: { color: grid() } } } }) });
+  // VRI
+  const hasVri = f.some(x => x.vri_proyectos != null);
+    const V = F.vri, VP = DATA.vri?.proyectos || [];
+  const wrap = document.getElementById('vriWrap');
+  if (hasVri && V) {
+    const vr = [...f].filter(x => x.vri_monto).sort((a, b) => b.vri_monto - a.vri_monto), vt = vr.reduce((s, x) => s + x.vri_monto, 0);
+    const anios = Object.entries(V.por_anio || {}).filter(([y]) => y >= '2023');
+    wrap.innerHTML = `<div class="kpis">${kpiHtml([
+      ['Fondos VRI adjudicados', fmtM(V.total), `${fmtN(V.proyectos)} proyectos · ${anios.map(a => a[0]).join(', ')}`],
+      ['Facultad con más fondos', esc(vr[0]?.clave || '—'), vr[0] ? (100 * vr[0].vri_monto / vt).toFixed(0) + '% del total' : ''],
+      ['Top 3 facultades', vr.length >= 3 ? (100 * (vr[0].vri_monto + vr[1].vri_monto + vr[2].vri_monto) / vt).toFixed(0) + '%' : '—', vr.slice(0, 3).map(x => esc(x.clave)).join(' · ')],
+      ['Por año', anios.map(([y, v]) => `${esc(y)}: ${(v / 1e6).toFixed(1)}`).join(' · '), 'S/ millones'],
+    ])}</div>
+    <div class="chart-box tall" style="margin-top:12px"><canvas id="cVri"></canvas></div>
+    <details style="margin-top:12px"><summary style="cursor:pointer;font-weight:600">Ver los ${fmtN(VP.length)} proyectos con su fuente</summary>
+      <input id="vriQ" placeholder="Filtrar por facultad, título, responsable o año…" style="width:100%;margin:10px 0;padding:8px;border:1px solid var(--line,#ccc);border-radius:8px;background:transparent;color:inherit">
+      <div class="scroll" style="max-height:420px"><table><thead><tr><th>Año</th><th>Fac.</th><th>Concurso</th><th>Proyecto</th><th>Responsable</th><th class="n">Monto (S/)</th><th>Fuente</th></tr></thead><tbody id="vriBody"></tbody></table></div>
+    </details>
+    <p class="note">${esc(DATA.vri?._meta?.nota || V.nota || '')} Fuente: <a href="${esc(safeUrl(DATA.vri?._meta?.url || 'https://vri.uni.edu.pe/'))}" target="_blank" rel="noopener">VRI-UNI</a>; cada fila enlaza su resolución o relación.</p>`;
+    new Chart(cVri, { type: 'bar', data: { labels: vr.map(x => x.clave), datasets: [{ label: 'S/ adjudicado', data: vr.map(x => x.vri_monto / 1e6), backgroundColor: GRANATE }] },
+      options: opts({ indexAxis: 'y', plugins: { legend: { display: false }, tooltip: { callbacks: { title: i => vr[i[0].dataIndex].nombre, label: c => 'S/ ' + c.raw.toFixed(2) + ' M · ' + vr[c.dataIndex].vri_proyectos + ' proyectos · ' + (100 * vr[c.dataIndex].vri_monto / vt).toFixed(1) + '%' } } } }) });
+    const body = document.getElementById('vriBody'), q = document.getElementById('vriQ');
+    const rows = [...VP].sort((a, b) => (b.anio - a.anio) || ((b.monto_soles || 0) - (a.monto_soles || 0)));
+    const paint = () => { const t = (q.value || '').toLowerCase(); body.innerHTML = rows.filter(r => !t || [r.anio, r.facultad_clave, r.concurso, r.titulo, r.responsable].join(' ').toLowerCase().includes(t)).map(r => `<tr><td>${esc(r.anio)}</td><td>${esc(r.facultad_clave)}</td><td>${esc(String(r.concurso || '').replace(/^Concurso de (Proyectos de )?/i, ''))}</td><td>${esc(r.titulo || '—')}</td><td>${esc(r.responsable || '—')}</td><td class="n">${r.monto_soles != null ? fmtN(Math.round(r.monto_soles)) : '—'}</td><td><a href="${esc(safeUrl(r.fuente_url))}" target="_blank" rel="noopener">ver</a></td></tr>`).join(''); };
+    q.oninput = paint; paint();
+  } else {
+    wrap.innerHTML = `<p class="note" style="margin:0">No se encontró en formato abierto el reparto de los fondos concursables del VRI por facultad. Si tienes las resoluciones de resultados, envíalas a <a href="mailto:carlos@cardenas.pe">carlos@cardenas.pe</a> y las cargamos con su fuente.</p>`;
+  }
+  // tabla ordenable
+  const cols = [['nombre', 'Facultad'], ['docentes', 'Docentes', 1], ['masa_mensual', 'Planilla docente / mes (S/)', 1], ['presupuesto_pim', 'Presupuesto PIM (S/)', 1], ['obras_ventana', 'Publicaciones', 1], ['obras_por_docente', 'Pub./docente', 1], ['pct_docentes_con_publicacion', '% docentes que publican', 1], ['costo_planilla_por_obra', 'Planilla por publicación (S/)', 1]];
+  if (hasVri) cols.push(['vri_proyectos', 'Proyectos VRI 2023–26', 1], ['vri_monto', 'Fondos VRI 2023–26 (S/)', 1]);
+  let sk = 'obras_ventana', sd = -1;
+  const tb = document.querySelector('#tFacs tbody'), th = document.querySelector('#tFacs thead');
+  const cell = (x, c) => c[0] === 'nombre' ? `<strong>${esc(x.clave)}</strong> · ${esc(x.nombre)}` : c[0] === 'pct_docentes_con_publicacion' ? esc(x[c[0]]) + '%' : x[c[0]] == null ? '—' : fmtN(typeof x[c[0]] === 'number' && x[c[0]] > 100 ? Math.round(x[c[0]]) : x[c[0]]);
+  const draw = () => {
+    th.innerHTML = '<tr>' + cols.map(c => `<th${c[2] ? ' class="n"' : ''} data-k="${c[0]}" style="cursor:pointer;user-select:none">${c[1]}${c[0] === sk ? (sd < 0 ? ' ▼' : ' ▲') : ''}</th>`).join('') + '</tr>';
+    const rows = [...f].sort((a, b) => { const A = a[sk], B = b[sk]; return (typeof A === 'string' ? String(A).localeCompare(B) : ((A ?? -Infinity) - (B ?? -Infinity))) * sd; });
+    tb.innerHTML = rows.map(x => '<tr>' + cols.map(c => `<td${c[2] ? ' class="n"' : ''}>${cell(x, c)}</td>`).join('') + '</tr>').join('');
+    th.querySelectorAll('th').forEach(h => h.onclick = () => { const k = h.dataset.k; sd = k === sk ? -sd : (k === 'nombre' ? 1 : -1); sk = k; draw(); });
+  };
+  draw();
+  document.getElementById('facsNote').innerHTML = `<strong>Método.</strong> ${esc(m.metodo)} Cruce: ${fmtN(m.docentes_cruzados)} de ${fmtN(m.docentes_planilla)} docentes identificados como autores. ${esc(m.advertencia)} Fuentes: ` +
+    m.fuentes.filter(x => x.url).map(x => `<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.nombre)}</a>`).join(' · ') + `. Generado ${esc(m.generado)}.`;
+}
+
+// ---- Cómo hacer que la UNI lidere ----
+function renderLid() {
+  const B = DATA.biblio, F = DATA.facs, P = DATA.presu, PL = DATA.plan;
+  if (!B?.uni) return;
+  const peers = ['uni', 'unalm', 'cayetano', 'pucp', 'sanmarcos', 'tecmty', 'unal', 'uchile'].filter(k => B[k]);
+  new Chart(cLidPares, { type: 'bar', data: { labels: peers.map(k => B[k].name.replace('National University of Engineering', 'UNI').replace('Universidad Nacional', 'U. Nac.').slice(0, 28)), datasets: [{ label: 'Publicaciones', data: peers.map(k => B[k].works), backgroundColor: peers.map(k => k === 'uni' ? GRANATE : ORO) }] },
+    options: opts({ indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { type: 'logarithmic', grid: { color: grid() } }, y: { grid: { color: grid() } } } }) });
+  const idi = B.presupuesto;
+  const t = F?.totales, pct = t?.docentes ? 100 * t.docentes_con_publicacion / t.docentes : null;
+  const cat = P?.detalle_ultimo_anio?.por_categoria || [], cap = cat.find(x => /CAPITAL/i.test(x.nombre));
+  const capPct = cap?.pim ? 100 * cap.dev / cap.pim : null;
+  const doc = (PL?.personas || []).filter(p => p.categoria === 'docente');
+  const tot = doc.reduce((s, p) => s + (p.total || 0), 0), otros = doc.reduce((s, p) => s + (p.otros || 0), 0);
+  const otrosPct = tot ? 100 * otros / tot : null;
+  document.getElementById('lidKpis').innerHTML = kpiHtml([
+    ['Publicaciones UNI (total)', fmtN(B.uni.works), `San Marcos ${fmtN(B.sanmarcos?.works)} · PUCP ${fmtN(B.pucp?.works)}`],
+    ['Docentes que publican', pct != null ? pct.toFixed(0) + '%' : '—', F ? F._meta.ventana_publicaciones : ''],
+    ['I+D / presupuesto', idi?.idi_pct != null ? idi.idi_pct + '%' : '—', idi ? `S/ ${idi.idi} M de S/ ${idi.pim} M (${idi.anio})` : ''],
+    ['Inversión ejecutada', capPct != null ? capPct.toFixed(0) + '%' : '—', cap ? `gasto de capital ${P.detalle_ultimo_anio.anio}` : ''],
+  ]);
+  const card = (ic, tit, hoy, meta, items) => `<div class="card"><h3>${ic} ${tit}</h3>${hoy ? `<p class="note" style="margin:0 0 6px"><strong>Hoy:</strong> ${hoy}</p>` : ''}<p class="note" style="margin:0 0 8px"><strong>Meta 2031:</strong> ${meta}</p><ul style="font-size:13.5px;padding-left:18px;margin:0">${items.map(i => `<li>${i}</li>`).join('')}</ul></div>`;
+  const best = F ? [...F.facultades].sort((a, b) => b.pct_docentes_con_publicacion - a.pct_docentes_con_publicacion)[0] : null;
+  document.getElementById('lidPlan').innerHTML = [
+    card('🔬', 'Investigar es parte del trabajo', pct != null ? `${pct.toFixed(0)}% de los docentes publicó en ${esc(F._meta.ventana_publicaciones)}; la mejor facultad (${esc(best.clave)}) llega a ${best.pct_docentes_con_publicacion}%.` : '',
+      '60% de docentes con producción verificable cada 5 años; duplicar publicaciones por docente.',
+      ['Carga horaria con horas de investigación reales para quien tiene proyecto activo.', 'Fondos concursables del VRI asignados por mérito y con resultados públicos por facultad.', 'Metas por facultad publicadas y seguidas en este tablero cada año.']),
+    card('📋', 'Evaluar a todos los docentes, con consecuencias', otrosPct != null ? `${otrosPct.toFixed(0)}% de la planilla docente se paga como «otros» (el PTE lo detalla como «compensación económica por servicios complementarios o adicionales», participación en admisión, etc.).` : '',
+      'Evaluación anual integral publicada en agregados; ratificación ligada a metas.',
+      ['Evaluación anual que mide docencia (encuestas y aprendizaje), investigación, asesoría de tesis y gestión, no solo papers.', 'Quien no cumple entra a un plan de mejora de 1 año; si no mejora, no se ratifica o no se renueva el contrato (Ley 30220, art. 84, con debido proceso).', 'Pagos adicionales y compensaciones sólo contra productos verificables; los sueldos altos deben justificarse con resultados.', 'Bonificación de 50% al docente investigador RENACYT (art. 86) en lugar de pagos sin metas.']),
+    card('🎓', 'Talento y renovación', '', 'Más docentes con doctorado y plazas por concurso abierto internacional.',
+      ['Concursos de plazas con requisito de doctorado y producción, con jurados externos.', 'Programa de repatriación de doctores peruanos y posdoctorados financiados.', 'Cese ordenado al llegar al límite de edad legal y reposición inmediata de la plaza.']),
+    card('💰', 'Más dinero para ciencia, y ejecutado', idi ? `I+D es ${idi.idi_pct}% del presupuesto${capPct != null ? `; se ejecutó ${capPct.toFixed(0)}% de la inversión` : ''}.` : '',
+      '≥ 6% del presupuesto en I+D y ≥ 95% de ejecución de inversión en laboratorios.',
+      ['Ventanilla única para postular a PROCIENCIA, fondos internacionales y empresas.', 'Oficina de transferencia: patentes (INDECOPI), licencias y startups de base tecnológica.', 'Laboratorios compartidos por toda la UNI, con reservas y uso públicos.']),
+    card('🌎', 'Visibilidad internacional', `QS World ${esc(B.qs?.world?.slice(-1)[0]?.banda || '—')}; la UNI entra y sale del ranking.`, 'Entrar de forma estable al top 800 QS y liderar ingeniería en el Perú.',
+      ['Afiliación institucional uniforme («Universidad Nacional de Ingeniería, Lima, Perú») en toda publicación.', 'ORCID y perfil RENACYT obligatorios para todo docente.', 'Convenios de doble grado y co-tutela con universidades líderes de la región.']),
+    card('🔎', 'Transparencia como motor', '', 'Tablero público anual por facultad: dinero, docentes, producción y egresados.',
+      ['Publicar en datos abiertos los resultados de concursos del VRI y la ejecución por facultad.', 'Rendición de cuentas anual de cada decano con estos indicadores.', 'Este observatorio los sigue y los compara año a año.']),
+  ].join('');
+  document.getElementById('lidNote').innerHTML = 'Las cifras de «Hoy» salen de este mismo observatorio (MEF/SIAF, Portal de Transparencia y OpenAlex). Los indicadores son por facultad o institución; el observatorio no publica evaluaciones individuales: medir a cada docente corresponde a un proceso formal, con sus propios datos y derecho a descargo.';
 }
 
 // ---- Gasto ↔ valor público ----
@@ -552,6 +660,10 @@ function buildCtx() {
   if (serie.length > 2) parts.push(`Serie devengado S/M: ${serie.filter(x => !x.parcial).slice(-8).map(x => x.year + ':' + (x.dev / 1e6).toFixed(0)).join(' ')}.`);
   const gen = DATA.presu?.detalle_ultimo_anio?.por_generica;
   if (gen?.length) parts.push(`Gasto ${T(DATA.presu.detalle_ultimo_anio.anio, 4)} por genérica: ` + gen.slice(0, 5).map(g => `${T(g.nombre, 45)} ${M(g.dev || g.pim || 0)}`).join('; ') + '.');
+  // Facultades: docentes, producción y presupuesto (agregados, nunca por persona)
+  const FF = DATA.facs?.facultades;
+  if (FF?.length) parts.push(`FACULTADES (planilla PTE + OpenAlex ${T(DATA.facs._meta.ventana_publicaciones, 9)} + MEF): ` + FF.map(f => `${T(f.clave, 6)}: ${f.docentes} docentes, ${f.obras_ventana} publicaciones, ${f.pct_docentes_con_publicacion}% docentes publican, PIM ${f.presupuesto_pim != null ? M(f.presupuesto_pim) : 's/d'}`).join('; ') + '. Indicadores por facultad: no evalúes ni nombres a docentes individuales.');
+  if (DATA.facs?.vri) parts.push(`FONDOS CONCURSABLES VRI 2023-2026 (resoluciones en vri.uni.edu.pe): total ${M(DATA.facs.vri.total)} en ${DATA.facs.vri.proyectos} proyectos; por facultad: ` + FF.filter(f => f.vri_monto).sort((a, b) => b.vri_monto - a.vri_monto).map(f => `${T(f.clave, 6)} ${M(f.vri_monto)} (${f.vri_proyectos})`).join(', ') + '.');
   // Proveedores (OECE/CONOSCE)
   const pr = DATA.prov;
   if (pr?.proveedores?.length) {

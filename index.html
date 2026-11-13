@@ -174,6 +174,8 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
     <a href="#planilla">Planilla</a>
     <a href="#eleccion">Elección</a>
     <a href="#gasto">En qué se gasta</a>
+    <a href="#facultades">Facultades·VRI</a>
+    <a href="#liderar">UNI líder</a>
     <a href="#ecosistema">Ecosistema</a>
     <a href="#roadmap">Hoja de ruta</a>
     <a href="#metodo">Metodología</a>
@@ -314,6 +316,36 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
   <p class="note" id="gastoNote"></p>
 </div></section>
 
+<!-- FACULTADES · RECURSOS DE INVESTIGACIÓN -->
+<section id="facultades"><div class="wrap">
+  <div class="eyebrow">Recursos de investigación (VRI) por facultad</div>
+  <h2>¿Cómo se reparten los recursos y quién produce ciencia?</h2>
+  <p class="lead">Ranking de las 11 facultades: docentes y planilla (Portal de Transparencia), presupuesto asignado (MEF/SIAF), producción científica 2021–2025 (OpenAlex) y, cuando hay fuente abierta, proyectos financiados por el Vicerrectorado de Investigación. <strong>Son indicadores por facultad, no calificaciones a personas.</strong></p>
+  <div class="kpis" id="facKpis"></div>
+  <div class="grid2" style="margin-top:20px">
+    <div class="card"><h3>Top facultades por publicaciones 2021–2025</h3><div class="chart-box tall"><canvas id="cFacPub"></canvas></div></div>
+    <div class="card"><h3>% de docentes con al menos una publicación</h3><div class="chart-box tall"><canvas id="cFacPct"></canvas></div></div>
+  </div>
+  <div class="card" style="margin-top:20px"><h3>Proyectos financiados por el VRI, por facultad</h3><div id="vriWrap"></div></div>
+  <div class="card" style="margin-top:20px"><h3>Tabla comparativa (clic en la cabecera para ordenar)</h3>
+    <div class="scroll"><table id="tFacs"><thead></thead><tbody></tbody></table></div>
+  </div>
+  <p class="note" id="facsNote"></p>
+</div></section>
+
+<!-- CÓMO HACER QUE LA UNI LIDERE -->
+<section id="liderar"><div class="wrap">
+  <div class="eyebrow">Propuesta basada en datos</div>
+  <h2>Cómo hacer que la UNI lidere</h2>
+  <p class="lead">Dónde está hoy la UNI frente a sus pares, y un plan a 5 años con metas medibles que este observatorio puede seguir con datos públicos. Es una propuesta abierta a debate: escríbenos o usa el chat 💬.</p>
+  <div class="grid2">
+    <div class="card"><h3>Publicaciones acumuladas: UNI vs. pares (OpenAlex)</h3><div class="chart-box tall"><canvas id="cLidPares"></canvas></div></div>
+    <div class="card"><h3>Punto de partida</h3><div class="kpis" id="lidKpis" style="grid-template-columns:1fr 1fr"></div></div>
+  </div>
+  <div id="lidPlan" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:20px"></div>
+  <p class="note" id="lidNote"></p>
+</div></section>
+
 <!-- ECOSISTEMA -->
 <section id="ecosistema"><div class="wrap">
   <div class="eyebrow">Red de datos abiertos</div>
@@ -353,6 +385,8 @@ footer{padding:34px 0;color:var(--muted);font-size:13px}
         <li>Planilla docentes/funcionarios + buscador</li>
         <li>Investigación (OpenAlex) y admisión</li>
         <li>Gasto ↔ valor público (eficiencia)</li>
+        <li>Facultades: recursos vs. producción científica</li>
+        <li>Plan «Cómo hacer que la UNI lidere» con metas</li>
         <li>Bot IA + Google Analytics</li>
       </ul>
     </div>
