@@ -2,6 +2,10 @@
 
 **Qué es este documento.** Una propuesta ciudadana, basada en datos públicos, para que la Universidad Nacional de Ingeniería (UNI) pase de ser una universidad de prestigio histórico a ser la institución que lidera la ingeniería y la ciencia aplicada en el Perú, con nichos de clase mundial. Extiende el Plan Estratégico Institucional 2025–2030 de la UNI (RR 0557-2025-UNI) hasta 2036 y se alinea con la Ley Universitaria 30220, la Ley 31250 (SINACTI), la Política Nacional de CTI al 2030 (DS 093-2025-PCM), la Política Nacional de Educación Superior y Técnico-Productiva (DS 012-2020-MINEDU), el Proyecto Educativo Nacional 2036 y la Visión del Perú al 2050. Es una propuesta abierta a debate: toda cifra tiene fuente y todo supuesto está marcado como **[S]**.
 
+## Nueva gestión 2026–2031
+
+Tras un 2026 de crisis (disputa judicial por el rectorado interino, segunda vuelta electrónica anulada por suplantación de correos y repetida de forma presencial con la ONPE el 10-11), la **Lista 8 encabezada por Juan Martín Rodríguez Rodríguez** ganó con **59,05 %** de los votos ponderados (UNI en X, 11-11-2026; La Noticia). Sus propuestas (investigación desde los primeros ciclos, evaluación docente integral, egreso en cinco años, doble grado, proyectos con empresas vía Ley 30309, gestión transparente) coinciden con los objetivos de este plan; le faltan metas, presupuesto, ejecución de inversión, posgrado a tiempo completo y financiamiento. El capítulo 0 propone una agenda para el primer año (2027) y cómo blindar el plan para que sobreviva a dos gestiones (2026–2031 y 2031–2036).
+
 ## Dónde estamos (2025–2026)
 
 | Indicador | Hoy | Fuente |
@@ -50,7 +54,7 @@
 
 ## Hoja de ruta
 
-- **2026–2028, ordenar la casa:** línea de base pública, PMO y unidad de datos, evaluación docente, renovación de la licencia SUNEDU (≈ nov. 2027), auditoría de espacios, ejecución de inversión ≥ 85 %, I+D 3,5 % del PIM.
+- **2026–2028, ordenar la casa** (en la práctica 2027–2028, primer año de la nueva gestión): línea de base pública, PMO y unidad de datos, evaluación docente, renovación de la licencia SUNEDU (≈ nov. 2027), auditoría de espacios, ejecución de inversión ≥ 85 %, I+D 3,5 % del PIM.
 - **2029–2032, escalar:** fondo patrimonial, primera carrera nueva con plan a 10 años, doctorado acreditado internacionalmente, I+D 6 %, ejecución 95 %, 1 000 obras/año.
 - **2033–2036, liderar:** 1 600 obras/año, 450 RENACYT, 450 becarios, QS ≤ 600, plan 2046.
 

@@ -156,7 +156,7 @@ def chapter(path, title):
 
 
 def main():
-    src = {n: HERE / n for n in ["00_resumen.md", "01_diagnostico.md", "02_referentes_gestion.md", "03_estrategia.md"]}
+    src = {n: HERE / n for n in ["00_resumen.md", "00b_contexto_2026.md", "01_diagnostico.md", "02_referentes_gestion.md", "03_estrategia.md"]}
     for n, p in src.items():
         if not p.exists():
             sys.exit(f"falta {p}")
@@ -171,6 +171,7 @@ def main():
     export_json(estr)
     md = (src["00_resumen.md"].read_text()
           + "\n\n# El plan en gráficos\n\n" + "\n\n".join(f'```{{=html}}\n{f}\n```' for f in figs)
+          + chapter(src["00b_contexto_2026.md"], "0. Contexto 2026: crisis institucional y nueva gestión 2026–2031")
           + chapter(src["01_diagnostico.md"], "1. Diagnóstico: dónde está la UNI hoy")
           + chapter(OUT / "A.md", "2. Referentes: cómo se transformaron otras universidades")
           + chapter(src["03_estrategia.md"], "3. Estrategia UNI 2036")
@@ -184,7 +185,7 @@ def main():
   <div class="kicker">Observatorio UNI · Propuesta abierta a debate</div>
   <h1 class="ctitle">UNI 2036</h1>
   <p class="csub">Estrategia, tácticas, metas y financiamiento para que la Universidad Nacional de Ingeniería lidere en ciencia, tecnología e innovación</p>
-  <div class="cmeta">Versión 1.0 · {hoy.strftime('%d-%m-%Y')}<br>unimauro.github.io/observatorio-uni/lider.html</div>
+  <div class="cmeta">Versión 1.1 (actualizada con la nueva gestión 2026–2031) · {hoy.strftime('%d-%m-%Y')}<br>unimauro.github.io/observatorio-uni/lider.html</div>
   <p class="cnote">Documento elaborado con datos públicos (MEF, Portal de Transparencia Estándar, OpenAlex, resoluciones del VRI, SUNEDU, CONCYTEC). Cada cifra lleva su fuente. Las cifras marcadas como supuesto [S] son hipótesis de trabajo, no datos. No evalúa ni menciona a docentes individuales.</p>
 </section>"""
     (OUT / "cover.html").write_text(cover)

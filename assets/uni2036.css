@@ -45,8 +45,8 @@ body[data-page="lider"] .eyebrow{font-family:var(--u-text);font-weight:700;lette
 /* ---------- tarjetas con color ---------- */
 body[data-page="lider"] .card{transition:transform .25s,box-shadow .25s,border-color .25s}
 body[data-page="lider"] .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(60,0,40,.16)}
-#u36Obj .kpi,#u36Money .kpi,#lidKpis .kpi{border-top:4px solid var(--c,var(--u-pink))}
-#u36Obj .kpi .v,#u36Money .kpi .v,#lidKpis .kpi .v{color:var(--c,var(--u-pink))}
+#u36Obj .kpi,#u36Money .kpi,#lidKpis .kpi,#u36Gest .kpi{border-top:4px solid var(--c,var(--u-pink))}
+#u36Obj .kpi .v,#u36Money .kpi .v,#lidKpis .kpi .v,#u36Gest .kpi .v{color:var(--c,var(--u-pink))}
 #u36Dec .card{border-left:4px solid var(--c,var(--u-pink))}
 #u36Dec .card h3{font-size:18px}
 #u36Ruta .card{border-top:5px solid var(--c)}
