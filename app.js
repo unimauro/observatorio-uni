@@ -131,7 +131,7 @@ function renderAreas() {
   if (DATA.adm?._meta) put('admision', `${fmtN(DATA.adm._meta.total_ingresantes)} ingresantes de ${fmtN(DATA.adm._meta.total_postulantes)} postulantes (${esc(DATA.adm.proceso || '')})`);
   const E = DATA.elec;
   if (E?.primera_vuelta?.listas?.length) put('eleccion', `${fmtN(E.n_listas || E.primera_vuelta.listas.length)} listas · 2.ª vuelta: ` + ((E.segunda_vuelta?.listas || []).map(x => 'Lista ' + esc(x.numero)).join(' vs ') || 'por definir'));
-  put('lider', 'Plan estratégico 2026–2036 · PDF descargable');
+  put('lider', 'v1.1 · nueva gestión 2026–2031 · PDF de 95 págs.');
   put('acerca', '10 proyectos hermanos de datos abiertos');
 }
 
