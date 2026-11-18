@@ -897,14 +897,15 @@ function pager(afterEl, id, total, st, redraw) {
 }
 
 // ---- Órganos de gobierno × pagos × JNE (data/organos-cruce.json, etl/build_organos_cruce.py) ----
-const ORG_EST = { en_funciones: 'en funciones', electo_por_asumir: 'electo, por asumir', concluido: 'concluido', incierto: 'por confirmar' };
+const ORG_EST = { en_funciones: 'en funciones', electo_por_asumir: 'electo, por asumir', concluido: 'concluido', incierto: 'por confirmar', candidato: 'candidato 2026' };
 function renderOrg() {
   const D = DATA.org, T = $('orgTab');
   if (!D?.personas?.length) { T.innerHTML = '<tr><td class="note">Datos no disponibles.</td></tr>'; return; }
   const M = D._meta, L = D.personas;
   const sol = v => 'S/ ' + fmtN(Math.round(v || 0));
   $('orgKpis').innerHTML = kpiHtml([
-    ['personas en órganos de gobierno', fmtN(M.n_personas), 'docentes, estudiantes y autoridades'],
+    ['personas en órganos de gobierno', fmtN(M.n_personas), 'integrantes 2021–2026 y candidatos 2026'],
+    ['estudiantes con órdenes de servicio', fmtN(L.filter(p => p.pagos?.ordenes_n && p.cargos.some(c => c.estamento === 'estudiante')).length), 'de ' + fmtN(L.filter(p => p.cargos.some(c => c.estamento === 'estudiante')).length) + ' representantes o candidatos estudiantiles'],
     ['figuran en la planilla de la UNI', fmtN(L.filter(p => p.pagos?.planilla_ultimo_mes).length), 'coincidencia de nombre (PTE)'],
     ['recibieron órdenes de compra o servicio', fmtN(M.n_con_ordenes), 'SEACE, ene-2021 a abr-2025'],
     ['electos a un cargo público (JNE)', fmtN(M.n_jne), 'autoridades electas 2014–2026'],

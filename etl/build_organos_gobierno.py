@@ -11,6 +11,9 @@ Genera data/organos-gobierno-uni.json a partir de fuentes oficiales:
 * Resoluciones rectorales y de Asamblea Universitaria publicadas en gob.pe
   (PDF con texto o leídas por OCR).
 * Directorio de funcionarios de gob.pe (fecha de consulta 2026-11-18).
+* Proclamaciones estudiantiles 2021-2025 del CEUNI (las de 2021-2023, desde
+  copias del Internet Archive del portal anterior), La Gaceta N.º 209 (AU
+  2025-2026, transcrita) y la publicación definitiva de candidaturas 2026.
 
 Reglas: no se guarda DNI, código, teléfono ni correo; cada miembro lleva
 fuente_url, fuente_fecha y fuente_tipo. Los nombres se copian tal como figuran
@@ -33,6 +36,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import unicodedata
 
 HOY = dt.date(2026, 11, 18)
@@ -118,8 +122,14 @@ def curl(url, dest, cookie=None):
     if cookie:
         cmd += ["-c", cookie, "-b", cookie]
     cmd.append(url)
-    subprocess.run(cmd, check=False)
-    return os.path.exists(dest) and open(dest, "rb").read(5) == b"%PDF-"
+    for intento in range(3):
+        subprocess.run(cmd, check=False)
+        if os.path.exists(dest) and open(dest, "rb").read(5) == b"%PDF-":
+            return True
+        if os.path.exists(dest):
+            os.remove(dest)  # p. ej. "Internet Archive: Temporarily Offline"
+        time.sleep(5 * (intento + 1))
+    return False
 
 
 def descarga_sp(url, dest):
@@ -219,6 +229,144 @@ def parse_est_cu(txt):
             out.append(dict(nombre=limpia(m.group(1)), facultad=sigla(m.group(2)), accesitario=acc,
                             mandato=mandato(m.group(3))))
     return out
+
+
+# ----------------------------------- proclamaciones históricas (estudiantes) ---
+SIG_RE = "FAUA|FC|FIA|FIC|FIEECS|FIECS|FIEE|FIGMM|FIIS|FIM|FIPGNP|FIP|FIQT|POSGRADO"
+ROW_PROC = re.compile(
+    r"^\s*(?:\d{1,2}\s+)?(?:\d{1,2}\s+)?"            # n.º y, a veces, n.º de lista
+    r"([A-ZÁÉÍÓÚÑÜ][A-ZÁÉÍÓÚÑÜ'´, .\-]*?[A-ZÁÉÍÓÚÑÜ.])\s+"
+    r"(?:(%s)\s+)?\d{8}(?:\s+(%s))?\s*$" % (SIG_RE, SIG_RE))
+
+
+def parse_proclamacion_estudiantes(txt):
+    """Secciones de representantes ESTUDIANTILES de una proclamación del CEUNI
+    (PDF con texto). Devuelve (organo AU|CU|CF, facultad, accesitario, nombre).
+    El DNI solo se usa como ancla de la fila y se descarta."""
+    lines = txt.splitlines()
+    out, org, fac, acc = [], None, None, False
+    for i, ln in enumerate(lines):
+        u = sin_tildes(ln.upper())
+        nxt = sin_tildes(lines[i + 1].upper()) if i + 1 < len(lines) else ""
+        if (re.match(r"^\s*([IVX]+|\d+)\.\s+(REPRESENTANTES|DECANO|RECTOR|LISTA)", u)
+                or "LISTAS DE CANDIDATOS" in u or "AUTORIDADES Y MIEMBROS" in u):
+            h = re.sub(r"\s+", " ", u + " " + nxt)
+            org = None
+            if "REPRESENTANTES" in h and "ESTUDIANT" in h:
+                org = "AU" if "ASAMBLEA" in h else ("CF" if "FACULTAD" in h else "CU")
+            fac, acc = None, False
+            continue
+        if org is None:
+            continue
+        if re.match(r"^\s*\d+\.\s+FACULTAD", u):
+            fac, acc = fac_de_titulo(u + " " + nxt), False
+            continue
+        if "ACCESITARIO" in u:
+            acc = True
+            continue
+        mm = ROW_PROC.match(ln)
+        if mm:
+            fa = mm.group(2) or mm.group(3)
+            f = fac if org == "CF" else (None if fa in (None, "POSGRADO") else sigla(fa))
+            out.append((org, f, acc, limpia(mm.group(1)), fa == "POSGRADO"))
+    return out
+
+
+ROW_LISTA = re.compile(r"(?:^|\s)(\d{1,2})\s+([A-ZÁÉÍÓÚÑÜ][A-ZÁÉÍÓÚÑÜ'´ .\-]*?[A-ZÁÉÍÓÚÑÜ])\s+(?:(%s)\s+)?\d{8}[A-Z]" % SIG_RE)
+
+
+def parse_listas_candidatos(txt):
+    """Publicación definitiva de candidaturas 2026 (columnas por lista).
+    Devuelve (organo, facultad, lista, accesitario, nombre); el código de
+    estudiante solo se usa como ancla y se descarta."""
+    out, org, fac, cab, acc = [], None, None, [], {}
+    for ln in txt.splitlines():
+        u = sin_tildes(ln.upper())
+        if re.match(r"^\s*[IVX]+\.\s+", u):
+            org = ("AU" if "ASAMBLEA" in u else "CU" if "CONSEJO UNIVERSITARIO" in u
+                   else "CF" if "CONSEJOS DE FACULTAD" in u else None) if "ESTUDIANT" in u else None
+            fac, cab, acc = None, [], {}
+            continue
+        if org is None:
+            continue
+        if re.match(r"^\s*\d+\s+FACULTAD", u):
+            fac, cab, acc = fac_de_titulo(u), [], {}
+            continue
+        hs = [(mm.start(), int(mm.group(1))) for mm in re.finditer(r"LISTA\s+(\d+)", u)]
+        if hs:
+            cab, acc = hs, {}
+            continue
+        if "ACCESITARIO" in u:
+            for k in range(len(cab)):
+                acc[k] = True
+            continue
+        for mm in ROW_LISTA.finditer(ln):
+            k = max(0, sum(1 for pos, _ in cab if pos < mm.start() + 40) - 1)
+            lista = cab[k][1] if cab else None
+            fa = mm.group(3)
+            f = fac if org == "CF" else (None if fa in (None, "POSGRADO") else sigla(fa))
+            out.append((org, f, lista, acc.get(k, False), limpia(mm.group(2)), fa == "POSGRADO"))
+    return out
+
+
+WB = "https://web.archive.org/web/{ts}/https://www.ceuni.uni.edu.pe/images/{p}"
+# (clave, url, archivo, fecha de la fuente, periodo, descripción, nota)
+PROC_EST = [
+    ("p2021", WB.format(ts="20220301221232", p="CEUNI2021/PROCLAMACIN-DE-GANADORES.pdf"), "2021-11-03",
+     "2021-2022", "elección general del 26-10-2021",
+     "Copia archivada (Wayback Machine) del PDF que el CEUNI publicó en su portal anterior."),
+    ("p2022c", WB.format(ts="20230119065609", p="CEUNI2022/RESULTADOS-Y-PROCLAMACIN-DEL-ESCRUTINIO.pdf"), "2022",
+     "2021-2022", "elección complementaria de 2022; ciclo inferido por la fecha",
+     "Copia archivada del portal anterior del CEUNI; el PDF no trae fecha (incluye la 1.ª vuelta de decano FAUA 2022)."),
+    ("p2022", WB.format(ts="20230119070015", p="CEUNI2022/PROCLAMACIN-DEL-ESCRUTINIO.pdf"), "2022-11-11",
+     "2022-2023", "elección general del 04-11-2022", "Copia archivada del portal anterior del CEUNI."),
+    ("p2023c", WB.format(ts="20250124174442", p="CEUNI2023/Resultado-unin.pdf"), "2023-06-02",
+     "2022-2023", "elección complementaria del 26-05-2023; ciclo inferido por la fecha", "Copia archivada del portal anterior del CEUNI."),
+    ("p2023", WB.format(ts="20250124174442", p="CEUNI2023/elecciones2023/PROCLAMACIN-DEL-GANADORES.pdf"), "2023-10-19",
+     "2023-2024", "elección general del 13-10-2023",
+     "Copia archivada del portal anterior del CEUNI. Esta elección no incluyó representantes estudiantiles ante la AU."),
+    ("p2024c", SP_INSC + "IQDFY966fc7ISq0YDPCNBfVKAZFIEg8sTqrCUKsQ7aIC8OU?e=mehOlM", "2024-05-27",
+     "2023-2024", "elección complementaria del 22-05-2024; ciclo inferido por la fecha", None),
+    ("p2024", SP_INSC + "IQDELnB_ZutpSrDrvsopSiJyAZMyd_YFiBp6OwobRzO2Zpc?e=lemmoX", "2024-12-10",
+     "2024-2025", "elección general del 04-12-2024",
+     "La proclamación no trae la lista de la FIC ante su consejo de facultad (se eligió en la complementaria de mayo de 2025)."),
+    ("p2025c", SP_INSC + "IQAS7LKdfgSjR5wN8lmhhdb1AemP35h54Cks6ypPbH9CtPY?e=MZhlRK", "2025-05-20",
+     "2024-2025", "elección complementaria del 20-05-2025; ciclo inferido por la fecha", None),
+]
+F["gaceta209"] = SP_INSC + "IQDKk8HcTSOzQYjeULfmNCi7AWfkaRCDcCTx4Dqrq2wzzJI?e=dAWhsA"
+F["listas2026"] = SP_INSC + "IQBRw9W2xYWUTZg6mpLG_sGOAVQe74SZriNxHssGNuYc_ro?e=dah4ex"
+F["ceuni2021"] = WB.format(ts="20220302025203", p="CEUNI2021/Comunicado-nuevo-ceuni-GACETA.pdf")
+
+# La Gaceta N.º 209 (27-10-2025) es un PDF escaneado; la pág. 03 (estudiantes
+# ante la AU 2025-2026) se transcribe a mano. Las demás páginas coinciden con
+# las listas en texto del CEUNI ya cargadas (CU y consejos de facultad).
+G209_AU = [
+    ("FRANCO RAFAEL ESPINOZA ALVARADO", "FIEE"), ("VALERIA CALDERON GUEVARA", "FC"),
+    ("ALANIS AMANDA MERMA MUÑOZ", "FIGMM"), ("JOHANN DANIEL RIOS SANTIAGO", "FIEE"),
+    ("ADRIAN ALONSO RIOS HERRERA", "FIECS"), ("EINSTEIN DILFREDO PEREZ MENA", "FIP"),
+    ("DIEGO FELIX SOTELO JUAREZ", "FIIS"), ("JESUS ANDRES TOMAS RAMIREZ", "FIP"),
+    ("ANGEL SEBASTIAN ALFARO VASQUEZ", "FIM"), ("CLIF JEFFERSON ALVAREZ GALVAN", "FIM"),
+    ("KEVIN BRAYAMS SORIANO FERNANDEZ", "FIC"), ("NOELIA SOFIA ROJAS AVILA", "FIGMM"),
+    ("FABRICIO WASHINGTON PECEROS MALLMA", "FAUA"), ("ROCIO NICOL OBISPO CARRILLO", "FAUA"),
+    ("JOSE MARTIN ROJAS SANCHEZ", "FIIS"), ("ALDAIR ALESSANDRO LARA GIRALDO", "FIA"),
+    ("ANTHONY DANIEL GALLEGOS GUERRERO", "FIA"), ("JOSE MANUEL RAMIREZ OSCCO", "FIC"),
+    ("FLAVIA FERNANDA CAVERO BENITES", "FC"), ("JERAMYR URIEL CHAVEZ QUISPE", "FIECS"),
+    ("REYMUNDO JESUS VILCAPOMA HUALPA", "FIQT"), ("ARNOLD BRANDON BETTETA CAMPOS", "FIQT"),
+    ("ELVIS FRANZ HUANCHI MAMANI", "POSGRADO"),
+]
+G209_AU_ACC = [
+    ("ARIANNA MICAELA YAURI AZABACHE", "FIEE"), ("EDDY ANTONY CHUQUIMAMANI PALOMINO", "FIC"),
+    ("ANTONIO FERNANDO ESPINOZA ROCHA", "FIP"), ("JESUS ALESANDRO VELEZ DE VILLA SANTIAGO", "FAUA"),
+    ("JUAN MATIAS COSTERIAL TIMANA", "FIECS"), ("JOSUA CARIN CANCAPA LUQUE", "FIQT"),
+    ("EDGAR ALONSSO HUAYTA TTITO", "FIIS"),
+]
+# Comunicado del CEUNI (06-04-2021): conformación 2021. La fuente no indica el
+# estamento de cada integrante.
+CEUNI_2021 = [("ANTONIO NOLBERTO LAZO JARA", "presidente"), ("LUÍS ALBERTO MOSQUERA LEIVA", "vicepresidente"),
+              ("LEANDRO JOSUE GAMEZ RAMOS", "secretario"), ("ABEL ELIAS TORRES MORA", "prosecretario"),
+              ("MODESTO TOMÁS PALMA GARCÍA", "relator"), ("CARLOS EDUARDO ARÁMBULO OSTOS", "vocal"),
+              ("OSCAR GUILLERMO MIRANDA HOSPINAL", "vocal"), ("LEOPOLDO PAREDES SORIA", "vocal"),
+              ("RENZO GILBERT AQUINO JULCARIMA", "vocal")]
 
 
 # ------------------------------------------------------------ transcritos ---
@@ -374,26 +522,48 @@ def build(raw, offline):
                 M.append(m(n, CF, f, "estudiante", "accesitario" if a else "miembro titular (tercio estudiantil)",
                            per26, False, g, "2026-11-04", "proclamacion", estado="electo_por_asumir", nota=nota))
 
-    # --- Estudiantes ante la AU 2024-2025 (constan en comisiones de la AU) ---
-    au_est_25 = [
-        ("Alum. YANSSYN JETLY GÓMEZ ORDOÑEZ", "FIECS", "rr0158_2025", "2025-01-14", "Comisión Ejecutiva de la AU"),
-        ("Alum. MAXWELL JOEL PAREDES LÓPEZ", "FC", "rr0158_2025", "2025-01-14", "Comisión Ejecutiva de la AU"),
-        ("Alum. ALEX OBED GONZÁLES TRUCIOS", "FIECS", "rr0158_2025", "2025-01-14", "Comisión Ejecutiva de la AU"),
-        ("Alum. CAMILA VARILLAS CAMARGO", "FAUA", "rr0158_2025", "2025-01-14", "Comisión Ejecutiva de la AU"),
-        ("Bach. JAIME EDILBERTO GUZMAN SALINAS", None, "rr0549_2025", "2025-02-17", "Comisión de Investigación y Posgrado (posgrado)"),
-        ("Alum. NICOLAS VALENTINO BANCES CAMACHO", "FIGMM", "rr0549_2025", "2025-02-17", "Comisión de Investigación y Posgrado"),
-        ("Alum. OSCAR ADRIANO MENDOZA CENTURION", "FIM", "rr0549_2025", "2025-02-17", "Comisión de Investigación y Posgrado"),
-        ("Alum. JOSE LUIS BORJA GUERRA", "FIA", "rr0549_2025", "2025-02-17", "Comisión de Investigación y Posgrado (accesitario de la comisión)"),
-        ("Alum. DIEGO CASTILLO CORDOVA", "FIEE", "rr0550_2025", "2025-02-17", "Comisión de Presupuesto, Economía, Infraestructura y Asuntos Administrativos"),
-        ("Alum. BELEN ROJAS VASQUEZ", "FIM", "rr0550_2025", "2025-02-17", "Comisión de Presupuesto, Economía, Infraestructura y Asuntos Administrativos"),
-        ("Alum. PAUL DAVID QUIÑE LOYOLA", "FIQT", "rr0550_2025", "2025-02-17", "Comisión de Presupuesto, Economía, Infraestructura y Asuntos Administrativos"),
-        ("Alum. ANGHIE FRANCHESKA PEREZ ARTEAGA", "FIQT", "rr0551_2025", "2025-02-17", "Comisión Académica y de Calidad Universitaria (accesitaria de la comisión)"),
-        ("Alum. ALEXANDER BRYAN VELIZ SARAPURA", "FIM", "rr0804_2025", "2025-03-26", "Comisión de Bienestar Universitario, Proyección Social y Extensión"),
-    ]
-    for n, f, k, fe, com in au_est_25:
-        M.append(m(n, AU, f, "estudiante", f"miembro (estudiante integrante de la {com})",
-                   "2024-2025 (consta como miembro en ene-mar 2025)", False, F[k], fe, "resolucion",
-                   nota="Inferido de su designación en una comisión de la AU, que se integra con miembros de la Asamblea."))
+    # --- Estudiantes 2021-2025 según las proclamaciones del CEUNI -------------
+    # (reemplaza la inferencia anterior de la AU 2024-2025 a partir de las RR de
+    # comisiones: la proclamación del 10-12-2024 trae la lista completa)
+    ORG = {"AU": AU, "CU": CU, "CF": CF}
+    for clave, url, fecha, periodo, desc, nota_src in PROC_EST:
+        dest = P(clave + ".pdf")
+        if not offline and not os.path.exists(dest):
+            if "web.archive.org" in url:
+                curl(url.replace("/https://", "id_/https://", 1), dest)
+            else:
+                descarga_sp(url, dest)
+        filas = parse_proclamacion_estudiantes(pdftext(dest))
+        if not filas:
+            notas.append(f"No se pudo leer la proclamación {desc} ({url}).")
+        for org, f, acc, n, posg in filas:
+            cargo = ("accesitario" if acc else "miembro titular (tercio estudiantil)") + (" – posgrado" if posg else "")
+            M.append(m(n, ORG[org], f, "estudiante", cargo, f"{periodo} ({desc})", False, url, fecha,
+                       "proclamacion", nota=nota_src))
+    # AU 2025-2026 (La Gaceta 209, transcrita a mano)
+    for lst, acc in ((G209_AU, False), (G209_AU_ACC, True)):
+        for n, f in lst:
+            M.append(m(n, AU, None if f == "POSGRADO" else f, "estudiante",
+                       ("accesitario" if acc else "miembro titular (tercio estudiantil)") + (" – posgrado" if f == "POSGRADO" else ""),
+                       "2025-2026 (elección general del 21-10-2025)", True, F["gaceta209"], "2025-10-27", "proclamacion",
+                       nota="La Gaceta N.° 209, pág. 03 (PDF escaneado, transcrito a mano). Mandato no indicado en la fuente; "
+                            "se asume el de los demás representantes estudiantiles 2025-2026 (10/12/2025 - 09/12/2026)."))
+
+    # --- Candidatos estudiantiles 2026 (publicación definitiva de candidaturas) ---
+    dest = P("listas2026.pdf")
+    if not offline and not os.path.exists(dest):
+        descarga_sp(F["listas2026"], dest)
+    for org, f, lista, acc, n, posg in parse_listas_candidatos(pdftext(dest)):
+        M.append(m(n, ORG[org], f, "estudiante",
+                   "candidato" + (" accesitario" if acc else " titular") + (f" – Lista {lista}" if lista else "") + (" – posgrado" if posg else ""),
+                   "elección general 2026 (votación del 16-10-2026)", False, F["listas2026"], "2026-10-01",
+                   "proclamacion", estado="candidato",
+                   nota="Publicación definitiva de candidaturas del CEUNI; no implica que haya sido elegido (ver filas 'electo_por_asumir')."))
+
+    # --- CEUNI 2021 (comunicado del 06-04-2021) ------------------------------
+    for n, c in CEUNI_2021:
+        M.append(m(n, CEU, None, "otro", c, "2021 (desde el 05-04-2021)", False, F["ceuni2021"], "2021-04-06", "proclamacion",
+                   nota="Comunicado del CEUNI (copia archivada del portal anterior). La fuente no indica si cada integrante es docente o estudiante."))
 
     # --- Autoridades ---------------------------------------------------------
     gob, gobf = F["gobpe_dir"], "2026-11-18"
@@ -540,7 +710,7 @@ def build(raw, offline):
 
     # Orden estable
     orden = {AU: 0, CU: 1, CF: 2, CEU: 3, TH: 4, DU: 5, CDU: 6, CPF: 7}
-    M.sort(key=lambda r: (orden.get(r["organo"], 9), r["facultad"] or "", {"en_funciones": 0, "incierto": 1, "electo_por_asumir": 2, "concluido": 3}[r["estado"]],
+    M.sort(key=lambda r: (orden.get(r["organo"], 9), r["facultad"] or "", {"en_funciones": 0, "incierto": 1, "electo_por_asumir": 2, "concluido": 3, "candidato": 4}[r["estado"]],
                           r["estamento"], r["cargo"]))
 
     fuentes = sorted({(r["fuente_url"], r["fuente_tipo"]) for r in M})
@@ -553,10 +723,17 @@ def build(raw, offline):
         DU: "completa",
         CPF: "parcial",
         "Representantes de graduados (AU, CU y CF)": "sin_fuente",
+        "Estudiantes AU 2021-2026 (por periodo)": "completa: 2021-22, 2022-23, 2023-24 (complementaria de mayo-2024), 2024-25, 2025-26 y electos 2026-27",
+        "Estudiantes CU 2021-2026 (por periodo)": "completa: 2021-22, 2022-23, 2023-24, 2024-25, 2025-26 y electos 2026-27",
+        "Estudiantes consejos de facultad 2021-2026": "completa: las 11 facultades en cada ciclo, sumando la elección general y la complementaria",
+        "Estudiantes CEUNI 2021-2026": "parcial: 2021 sin estamento; 2022 sin fuente; 2023-2026 completa",
+        "Estudiantes Comisión Permanente de Fiscalización 2021-2026": "parcial: solo 2023, 2025 y la reconformación de nov-2025",
+        "Candidatos estudiantiles 2026": "completa (AU, CU y 11 consejos de facultad)",
+        "Personeros de listas 2026": "sin_fuente",
     }
     notas = [
         "Fecha de corte: 2026-11-18. 'vigente' = true si el mandato está en curso a esa fecha; false si concluyó o aún no empieza; null si es incierto.",
-        "Campo adicional 'estado': en_funciones | concluido | electo_por_asumir | incierto.",
+        "Campo adicional 'estado': en_funciones | concluido | electo_por_asumir | incierto | candidato.",
         "Los nombres se copian tal como figuran en la fuente; la mayoría de las listas oficiales usan el orden NOMBRES APELLIDOS (no APELLIDOS, NOMBRES), por lo que no se invierte el orden para no introducir errores en apellidos compuestos.",
         "No se guardan DNI, códigos de estudiante ni datos de contacto, aunque figuren en las fuentes.",
         "Siglas de facultad normalizadas: FIPGNP -> FIP, FIEECS -> FIECS. 'facultad' = null para posgrado o miembros sin facultad indicada.",
@@ -566,9 +743,13 @@ def build(raw, offline):
         "Elección de rector y vicerrectores 2026-2031: la segunda vuelta (Lista 1 vs Lista 8) se repitió el 10-11-2026; el escrutinio y la proclamación del CEUNI solo están disponibles con cuenta institucional. No se registran ganadores hasta contar con una fuente abierta (los candidatos de la 2.ª vuelta figuran en La Gaceta 232, pág. 02).",
         "Consejo Universitario: por Ley 30220 (art. 58) lo integran 1/4 de los decanos elegidos por y entre ellos; no se encontró la resolución que los designa, por eso los decanos solo se cargan en la AU y en su consejo de facultad.",
         "Representantes de los graduados (AU, CU y consejos de facultad): no se encontró ninguna fuente abierta que los nombre.",
-        "Estudiantes ante la AU 2024-2025: se infieren de las RR que conforman comisiones de la AU (ene-mar 2025); no es la lista completa.",
+        "Estudiantes 2021-2025: se leen de las proclamaciones de ganadores del CEUNI (PDF con texto). Las de 2021-2023 ya no están en el portal actual del CEUNI; se usan las copias del Internet Archive (web.archive.org) del portal anterior, y la nota de cada fila lo indica.",
+        "Estudiantes ante la AU 2025-2026: La Gaceta N.° 209 (27-10-2025), pág. 03, transcrita a mano porque el enlace directo del CEUNI a esa lista está restringido.",
+        "Periodo 2023-2024: la elección general del 13-10-2023 no incluyó representantes estudiantiles ante la AU; la AU se completó en la complementaria del 22-05-2024.",
+        "Candidatos 2026: filas con estado 'candidato' (publicación definitiva de candidaturas, 01-10-2026). No son miembros. Los personeros de lista no se publicaron en fuente abierta.",
+        "Se eliminaron las 13 filas de estudiantes de la AU 2024-2025 que antes se inferían de las RR de comisiones de la AU: la proclamación del 10-12-2024 trae la lista completa y oficial.",
         "Comisión Permanente de Fiscalización: los representantes estudiantiles para 2026 no constan en fuente abierta (los anteriores cesaron el 12/01/2026).",
-        "El periodo 2021-2026 está cubierto de forma parcial: autoridades (RR 1353-2021), decanos 2021 de FIQT y FIECS, CEUNI 2023-2025, Tribunal de Honor 2023-2026 y CPF 2023-2025. Las listas docentes/estudiantiles 2021-2024 no se encontraron en fuente abierta.",
+        "Docentes 2021-2024: no se cargan (solo se pidió ampliar a estudiantes); las mismas proclamaciones archivadas los incluyen.",
     ] + notas
     meta = {
         "generado": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
@@ -596,6 +777,9 @@ def main():
     a = ap.parse_args()
     data = build(a.raw, a.offline)
     n = len(data["miembros"])
+    fallas = [x for x in data["_meta"]["notas"] if x.startswith("No se pudo leer")]
+    if fallas:
+        sys.exit("Fuentes no descargadas; no se escribe el archivo:\n" + "\n".join(fallas))
     if n < 100:
         sys.exit(f"Solo {n} miembros: ¿fallaron las descargas? No se escribe {a.out}")
     with open(a.out, "w", encoding="utf-8") as fh:
