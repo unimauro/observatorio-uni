@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>/* tema antes de pintar: preferencia guardada o la del sistema */(function(){try{var t=localStorage.getItem('obsuni_theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>/* tema antes de pintar: preferencia guardada; por defecto, claro */(function(){try{var t=localStorage.getItem('obsuni_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9TLNPZH2R2"></script>
 <script>
