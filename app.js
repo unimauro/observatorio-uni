@@ -50,7 +50,7 @@ themeIcon();
 // (etl/build_planilla_resumen.py); la lista nominal completa (planilla-uni.json, ~900 KB) solo la carga planilla.html.
 const FILES = {
   presu: 'presupuesto-uni.json', biblio: 'bibliometria.json', adm: 'admision-uni.json', prov: 'proveedores-uni.json',
-  plan: 'planilla-uni.json', planRes: 'planilla-resumen.json', elec: 'electoral-uni.json', facs: 'facultades-uni.json', vri: 'vri-proyectos.json', u36: 'uni2036.json', org: 'organos-cruce.json',
+  plan: 'planilla-uni.json', planRes: 'planilla-resumen.json', elec: 'electoral-uni.json', facs: 'facultades-uni.json', vri: 'vri-proyectos.json', u36: 'uni2036.json', org: 'organos-cruce.json', ord: 'ordenes-uni.json',
 };
 const PAGE_DATA = {
   index: ['presu', 'biblio', 'adm', 'prov', 'planRes', 'elec'],
@@ -114,7 +114,7 @@ const RENDERERS = [
   ['kpis', () => renderKpis()], ['areas', () => renderAreas()],
   ['presupuesto', () => renderPresu()], ['gasto', () => renderGasto()], ['proveedores', () => renderProv()],
   ['investigacion', () => renderInv()], ['valor', () => renderValor()], ['admision', () => renderAdm()],
-  ['eleccion', () => renderElec()], ['planilla', () => renderPlan()], ['orgTab', () => renderOrg()], ['facultades', () => renderFacs()], ['lidPlan', () => renderLid()], ['u36Obj', () => renderU36()],
+  ['eleccion', () => renderElec()], ['planilla', () => renderPlan()], ['orgTab', () => renderOrg()], ['osTab', () => initOrdenes()], ['facultades', () => renderFacs()], ['lidPlan', () => renderLid()], ['u36Obj', () => renderU36()],
 ];
 function render() {
   RENDERERS.forEach(([id, fn]) => { if ($(id)) { try { fn(); } catch (e) { console.error('render ' + id, e); } } });
@@ -918,5 +918,56 @@ function renderOrg() {
     $('orgNote').textContent = `${f.length} de ${L.length} personas. Cobertura de la planilla: ${M.cobertura_pagos?.planilla || '—'}; órdenes: ${M.cobertura_pagos?.ordenes || '—'}. Generado ${String(M.generado || '').slice(0, 10)} con etl/build_organos_cruce.py. ${(M.limites || []).join(' ')}`;
   };
   ['orgQ', 'orgOrg', 'orgEst', 'orgVig', 'orgOrd'].forEach(id => { $(id).oninput = draw; $(id).onchange = draw; });
+  draw();
+}
+
+// ---- Buscador de órdenes de compra/servicio (data/ordenes-uni.json, carga diferida) ----
+function initOrdenes() {
+  const T = $('osTab'); let started = false;
+  const go = () => { if (started) return; started = true; ensure(['ord']).then(() => renderOrdenes()); };
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); go(); } }, { rootMargin: '600px' });
+  io.observe(T); $('osQ').addEventListener('focus', go);
+  if (location.hash === '#ordenes') go();
+}
+function renderOrdenes() {
+  const D = DATA.ord, T = $('osTab');
+  if (!D?.o?.length) { T.innerHTML = '<tbody><tr><td style="padding:14px" class="note">Datos no disponibles.</td></tr></tbody>'; return; }
+  const P = D.p, O = D.o, ORG = D.org || {}, M = D._meta;
+  const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const NP = P.map(norm), NO = O.map(r => norm(r[4]));
+  const sol = v => 'S/ ' + fmtN(Math.round(v || 0));
+  const anios = [...new Set(O.map(r => r[1].slice(0, 4)))].sort().reverse();
+  $('osAnio').innerHTML = '<option value="">Todos los años</option>' + anios.map(a => `<option>${esc(a)}</option>`).join('');
+  const th = 'style="text-align:left;padding:8px;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:1"';
+  const td = 'style="padding:8px;border-bottom:1px solid var(--line);vertical-align:top"';
+  const tag = i => ORG[i] ? ` <span class="tag-org" title="${esc(ORG[i])}">órgano de gobierno</span><div class="note">${esc(ORG[i])}</div>` : '';
+  const draw = () => {
+    const q = norm($('osQ').value).trim(), an = $('osAnio').value, tp = $('osTipo').value, mn = +$('osMin').value, og = $('osOrg').checked, ver = $('osVer').value;
+    const idx = [];
+    for (let k = 0; k < O.length; k++) {
+      const r = O[k];
+      if (an && !r[1].startsWith(an)) continue; if (tp && r[2] !== tp) continue; if (r[3] < mn) continue; if (og && !ORG[r[0]]) continue;
+      if (q && !NP[r[0]].includes(q) && !NO[k].includes(q)) continue;
+      idx.push(k);
+    }
+    const val = idx.filter(k => !O[k][5]);
+    const tot = val.reduce((s, k) => s + O[k][3], 0), pers = new Set(val.map(k => O[k][0]));
+    $('osKpis').innerHTML = kpiHtml([['órdenes encontradas', fmtN(val.length), idx.length - val.length ? fmtN(idx.length - val.length) + ' anuladas aparte' : 'sin anuladas'], ['monto total', sol(tot), 'órdenes no anuladas'], ['personas', fmtN(pers.size), '']]);
+    let html;
+    if (ver === 'p') {
+      const g = new Map();
+      val.forEach(k => { const r = O[k]; const x = g.get(r[0]) || { n: 0, m: 0, d: new Map(), a: new Set() }; x.n++; x.m += r[3]; x.a.add(r[1].slice(0, 4)); x.d.set(r[4], (x.d.get(r[4]) || 0) + 1); g.set(r[0], x); });
+      const L = [...g.entries()].sort((a, b) => b[1].m - a[1].m).slice(0, 300);
+      html = `<thead><tr><th ${th}>Persona</th><th ${th}>Órdenes</th><th ${th}>Monto</th><th ${th}>Años</th><th ${th}>Servicios más frecuentes</th></tr></thead><tbody>` + L.map(([i, x]) => `<tr><td ${td}><a href="#" data-p="${i}"><strong>${esc(P[i])}</strong></a>${tag(i)}</td><td ${td}>${fmtN(x.n)}</td><td ${td}><strong>${sol(x.m)}</strong></td><td ${td}>${esc([...x.a].sort().join(', '))}</td><td ${td} class="note">${[...x.d.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([d, n]) => esc(d) + (n > 1 ? ` (×${n})` : '')).join('<br>')}</td></tr>`).join('') + '</tbody>';
+      $('osNote').textContent = `${g.size > 300 ? 'Se muestran las 300 personas con mayor monto de ' + fmtN(g.size) + '. ' : ''}Haz clic en un nombre para ver sus órdenes. ${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
+    } else {
+      const L = idx.slice(0, 1000);
+      html = `<thead><tr><th ${th}>Fecha</th><th ${th}>Persona</th><th ${th}>Tipo</th><th ${th}>Monto</th><th ${th}>Descripción</th></tr></thead><tbody>` + L.map(k => { const r = O[k]; return `<tr${r[5] ? ' style="opacity:.5"' : ''}><td ${td}>${esc(r[1])}</td><td ${td}><a href="#" data-p="${r[0]}">${esc(P[r[0]])}</a>${tag(r[0])}</td><td ${td}>${r[2] === 'S' ? 'OS' : 'OC'}${r[5] ? ' · anulada' : ''}</td><td ${td}>${sol(r[3])}</td><td ${td}>${esc(r[4])}</td></tr>`; }).join('') + '</tbody>';
+      $('osNote').textContent = `${idx.length > 1000 ? 'Se muestran las 1 000 más recientes de ' + fmtN(idx.length) + '. ' : ''}${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
+    }
+    T.innerHTML = html;
+    T.querySelectorAll('a[data-p]').forEach(a => a.onclick = e => { e.preventDefault(); $('osQ').value = P[+a.dataset.p]; $('osVer').value = 'o'; draw(); });
+  };
+  ['osQ', 'osAnio', 'osTipo', 'osMin', 'osVer', 'osOrg'].forEach(id => { $(id).oninput = draw; $(id).onchange = draw; });
   draw();
 }

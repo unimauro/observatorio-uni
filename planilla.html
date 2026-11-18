@@ -79,7 +79,7 @@
 <section id="organos"><div class="wrap">
   <div class="eyebrow">Quién gobierna</div>
   <h2>Órganos de gobierno: quién es quién y cuánto recibió de la UNI</h2>
-  <p class="lead">Integrantes de la Asamblea Universitaria, el Consejo Universitario, los 11 consejos de facultad, el Comité Electoral (CEUNI), el Tribunal de Honor, la Defensoría Universitaria y la Comisión de Fiscalización (docentes, estudiantes y autoridades), cruzados con lo que la UNI les pagó (planilla y órdenes de compra o servicio) y con las autoridades electas del JNE. Cada dato enlaza a su fuente.</p>
+  <p class="lead">Para buscar cualquier orden de servicio, ve al <a href="#ordenes">buscador de órdenes</a>. Integrantes de la Asamblea Universitaria, el Consejo Universitario, los 11 consejos de facultad, el Comité Electoral (CEUNI), el Tribunal de Honor, la Defensoría Universitaria y la Comisión de Fiscalización (docentes, estudiantes y autoridades), cruzados con lo que la UNI les pagó (planilla y órdenes de compra o servicio) y con las autoridades electas del JNE. Cada dato enlaza a su fuente.</p>
   <div class="kpis" id="orgKpis" style="margin-bottom:16px"></div>
   <div class="card" style="margin-bottom:16px;font-size:13.5px">
     <strong>Cómo leer esta tabla.</strong> El cruce es por <strong>nombre</strong>, sin DNI: una coincidencia puede ser un homónimo. Recibir pagos de la UNI o haber sido electo por un partido <strong>no implica ninguna irregularidad</strong>. Las órdenes de compra o servicio de SEACE llegan hasta abril de 2025 (cambio de plataforma por la Ley 32069). La columna JNE solo muestra a quienes fueron <strong>electos</strong> a un cargo público (2014–2026); no es la lista de afiliados. La afiliación partidaria se consulta por DNI en el <a href="https://sroppublico.jne.gob.pe/Consulta/Afiliado" target="_blank" rel="noopener">ROP del JNE</a>; si consultas a alguien, envíanos la captura y la fecha para agregarla.
@@ -97,6 +97,23 @@
   </div>
   <div style="overflow-x:auto"><table id="orgTab" style="width:100%;border-collapse:collapse;font-size:13.5px"></table></div>
   <p class="note" id="orgNote"></p>
+</div></section>
+
+<section id="ordenes"><div class="wrap">
+  <div class="eyebrow">Órdenes de servicio y de compra</div>
+  <h2>Buscador de órdenes de la UNI a personas naturales</h2>
+  <p class="lead">Todas las órdenes de servicio (OS) y de compra (OC) que la UNI emitió a personas naturales y que figuran en SEACE, de enero de 2021 a abril de 2025. Busca por nombre o por lo que se contrató (p. ej. «apoyo administrativo», «elecciones», «asesoría»). La etiqueta <span class="tag-org">órgano de gobierno</span> marca a quien también integra un órgano de gobierno (coincidencia de nombre).</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+    <input id="osQ" type="search" placeholder="Nombre o descripción del servicio…" aria-label="Buscar órdenes" style="flex:1;min-width:220px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)">
+    <select id="osAnio" aria-label="Año" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)"><option value="">Todos los años</option></select>
+    <select id="osTipo" aria-label="Tipo" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)"><option value="">Servicio y compra</option><option value="S">Solo servicio (OS)</option><option value="C">Solo compra (OC)</option></select>
+    <select id="osMin" aria-label="Monto mínimo" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)"><option value="0">Cualquier monto</option><option value="1000">≥ S/ 1 000</option><option value="5000">≥ S/ 5 000</option><option value="10000">≥ S/ 10 000</option><option value="30000">≥ S/ 30 000</option></select>
+    <select id="osVer" aria-label="Ver" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)"><option value="p">Agrupar por persona</option><option value="o">Ver cada orden</option></select>
+    <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="osOrg"> Solo integrantes de órganos de gobierno</label>
+  </div>
+  <div class="kpis" id="osKpis" style="margin-bottom:12px"></div>
+  <div style="overflow-x:auto;max-height:640px;overflow-y:auto;border:1px solid var(--line);border-radius:12px"><table id="osTab" style="width:100%;border-collapse:collapse;font-size:13.5px"><tbody><tr><td style="padding:14px" class="note">Cargando órdenes…</td></tr></tbody></table></div>
+  <p class="note" id="osNote"></p>
 </div></section>
 </main>
 
