@@ -25,10 +25,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#5c0013">
 <link rel="icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="assets/styles.css?v=20261118131258">
+<link rel="stylesheet" href="assets/styles.css?v=20261118131355">
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
 <script defer src="config.js"></script>
-<script defer src="app.js?v=20261118131258"></script>
+<script defer src="app.js?v=20261118131355"></script>
 </head>
 <body data-page="planilla">
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -59,13 +59,16 @@
 </div></header>
 
 
+<nav class="subnav" aria-label="Secciones de la página"><div class="wrap">
+  <a href="#planilla">Resumen</a><a href="#plan-graficos">Gráficos</a><a href="#planWrap">Lista nominal</a><a href="#organos">Órganos de gobierno</a><a href="#ordenes">Órdenes de servicio</a>
+</div></nav>
 <main id="main">
 <section id="planilla"><div class="wrap">
   <div class="eyebrow">Quiénes trabajan</div>
   <h1 class="sec">Planilla y remuneraciones</h1>
   <p class="lead">Personal de la UNI (docentes, funcionarios y administrativos) y sus remuneraciones mensuales, a partir de la lista nominal del Portal de Transparencia Estándar (PTE, regímenes CAS, 276 y «728/otros», donde el PTE publica a los docentes) y del agregado AIRHSP. Más abajo: <a href="#organos">integrantes de los órganos de gobierno y lo que recibieron de la UNI</a>.</p>
   <div class="kpis" id="planKpis" style="margin-bottom:20px"></div>
-  <div class="grid2">
+  <div class="grid2" id="plan-graficos">
     <div class="card"><h3>Masa salarial mensual 2026 por régimen (S/ M, PTE)</h3><div class="chart-box"><canvas id="cSerPlan"></canvas></div></div>
     <div class="card"><h3>Top 10 cargos por ingreso mensual promedio, entre los 20 cargos más frecuentes (S/)</h3><div class="chart-box"><canvas id="cTopCargo"></canvas></div></div>
   </div>

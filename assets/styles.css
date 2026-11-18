@@ -224,3 +224,5 @@ footer a:hover{color:var(--accent)}
 .pager .gap{padding:0 4px;color:var(--muted,#888)}
 .pager .info{margin-left:auto;font-size:13px;color:var(--muted,#666)}
 .pager select{padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)}
+
+section[id],#plan-graficos,#planWrap{scroll-margin-top:calc(var(--hh, 64px) + 64px)}
