@@ -28,7 +28,9 @@ def main():
     names, rows, org = [], [], {}
     for k, v in pag["personas"].items():
         ords = v.get("ordenes") or []
-        if not ords:
+        # contratos 2025-05+ a personas (OCDS-OECE): único rastro abierto tras el apagón de órdenes en SEACE
+        ocds = [a for a in (v.get("adjudicaciones") or []) if a.get("fuente") == "OCDS-OECE" and str(a.get("fecha", "")) >= "2025-05"]
+        if not ords and not ocds:
             continue
         i = len(names)
         names.append(v.get("nombre_fuente") or k)
@@ -38,14 +40,22 @@ def main():
             rows.append([i, o.get("fecha") or str(o.get("anio")), "S" if o.get("tipo") == "servicio" else "C",
                          round(o.get("monto") or 0, 2), re.sub(r"\s+", " ", (o.get("descripcion") or "").strip())[:140],
                          1 if (o.get("estado") or "").lower().startswith("anul") else 0])
+        for a in ocds:
+            rows.append([i, a.get("fecha"), "P", round(a.get("monto_contrato") or a.get("monto") or 0, 2),
+                         re.sub(r"\s+", " ", f'{a.get("descripcion") or ""} · {a.get("proceso") or ""} ({a.get("metodo") or ""})')[:160], 0])
     rows.sort(key=lambda r: r[1], reverse=True)
+    cob = pag["_meta"]["cobertura"]["ordenes_seace_por_mes"]
+    serie = [[m, cob[m]["filas"], cob[m]["persona_natural"]] for m in sorted(cob) if m <= "2026-10"]
     fo = pag["_meta"]["fuentes"]["ordenes"]
     out = {"_meta": {
         "generado": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
         "script": "etl/build_ordenes_publico.py",
         "fuente": fo.get("nombre"), "fuente_url": fo.get("url"), "url_patron": fo.get("url_patron"),
         "periodo": fo.get("periodo"),
-        "nota": "Órdenes de compra y de servicio de la UNI a personas naturales (RUC 10/15/17) registradas en SEACE. Sin RUC ni DNI. Montos en soles; las órdenes anuladas se muestran marcadas y no suman. Desde mayo de 2025 la UNI registra sus órdenes en la plataforma de la Ley 32069 y SEACE ya no las muestra. La marca de órgano de gobierno es una coincidencia de nombre.",
+        "nota": "Órdenes de compra y de servicio de la UNI a personas naturales (RUC 10/15/17) registradas en SEACE. Sin RUC ni DNI. Montos en soles; las órdenes anuladas se muestran marcadas y no suman. Cubre hasta abril de 2025. Desde mayo de 2025 la UNI no registra sus órdenes en SEACE: el buscador oficial devuelve 0 órdenes de la UNI cada mes de mayo de 2025 a octubre de 2026, mientras otras entidades (p. ej. MINEDU, 510 en setiembre de 2026) siguen registrándolas (verificado el 18-11-2026). La marca de órgano de gobierno es una coincidencia de nombre.",
+        "serie_seace": serie, "serie_nota": "Órdenes de compra y de servicio de la UNI registradas en SEACE por mes (todas y a personas naturales). Consulta al buscador oficial SEACE OCOS (ruc_entidad=20169004359) del 18-11-2026; se omite el mes en curso.",
+        "comparacion": {"entidad": "Ministerio de Educación (RUC 20131370998)", "mes": "2026-09", "ordenes": 510, "uni_mismo_mes": 0},
+        "ocds_nota": "Tipo «P»: contratos por procedimiento (no órdenes) adjudicados a personas naturales desde mayo de 2025, tomados de OECE Contrataciones Abiertas (OCDS). Es lo único abierto que existe de ese periodo.",
         "n_personas": len(names), "n_ordenes": len(rows)},
         "p": names, "o": rows, "org": org}
     OUT.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")))

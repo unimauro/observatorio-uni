@@ -226,3 +226,15 @@ footer a:hover{color:var(--accent)}
 .pager select{padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)}
 
 section[id],#plan-graficos,#planWrap{scroll-margin-top:calc(var(--hh, 64px) + 64px)}
+
+.alerta-card{position:relative;border-radius:18px;padding:22px 24px;margin:6px 0 22px;background:linear-gradient(135deg,#fff4e5,#ffe8ee);border:2px solid #e6336f;box-shadow:0 12px 30px rgba(230,51,111,.15)}
+:root[data-theme="dark"] .alerta-card{background:linear-gradient(135deg,#2a1218,#3a1020)}
+.alerta-card .alerta-kicker{font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#c2185b}
+.alerta-card h3{font-size:clamp(20px,2.6vw,26px);line-height:1.2;margin:8px 0 14px;color:#8a1538}
+:root[data-theme="dark"] .alerta-card h3{color:#ffb3c7}
+.alerta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin-bottom:14px}
+.alerta-grid div{background:var(--card);border-radius:14px;padding:12px 14px;border:1px solid var(--line)}
+.alerta-grid b{display:block;font:800 34px var(--sans);color:#8a1538;line-height:1.1}
+.alerta-grid b.cero{color:#e6336f}
+.alerta-grid span{font-size:13.5px;color:var(--muted)}
+.alerta-card p{font-size:14.5px;margin:12px 0 0}

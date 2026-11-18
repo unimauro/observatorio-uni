@@ -954,13 +954,18 @@ function renderOrdenes() {
   const D = DATA.ord, T = $('osTab');
   if (!D?.o?.length) { T.innerHTML = '<tbody><tr><td style="padding:14px" class="note">Datos no disponibles.</td></tr></tbody>'; return; }
   const P = D.p, O = D.o, ORG = D.org || {}, M = D._meta;
+  if (M.serie_seace && window.Chart && $('cOsSerie')) {
+    const S = M.serie_seace;
+    new Chart($('cOsSerie'), { type: 'bar', data: { labels: S.map(r => r[0]), datasets: [{ label: 'Órdenes registradas en SEACE', data: S.map(r => r[1]), backgroundColor: S.map(r => r[0] >= '2025-05' ? '#e6336f' : '#8a1538'), borderRadius: 3 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => fmtN(c.raw) + ' órdenes' + (c.label >= '2025-05' ? ' (la UNI dejó de registrar)' : '') } } }, scales: { x: { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 12 } }, y: { beginAtZero: true } } } });
+  }
   const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
   const NP = P.map(norm), NO = O.map(r => norm(r[4]));
   const sol = v => 'S/ ' + fmtN(Math.round(v || 0));
   const anios = [...new Set(O.map(r => r[1].slice(0, 4)))].sort().reverse();
   $('osAnio').innerHTML = '<option value="">Todos los años</option>' + anios.map(a => `<option>${esc(a)}</option>`).join('');
   const th = 'style="text-align:left;padding:8px;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:1"';
-  const td = 'style="padding:8px;border-bottom:1px solid var(--line);vertical-align:top"';
+  const td = 'style="padding:8px;border-bottom:1px solid var(--line);vertical-align:top"', tdn = 'style="padding:8px;border-bottom:1px solid var(--line);vertical-align:top;white-space:nowrap"';
   const tag = i => ORG[i] ? ` <span class="tag-org" title="${esc(ORG[i])}">órgano de gobierno</span><div class="note">${esc(ORG[i])}</div>` : '';
   const st = { page: 1, size: 25 };
   const draw = () => {
@@ -981,12 +986,12 @@ function renderOrdenes() {
       val.forEach(k => { const r = O[k]; const x = g.get(r[0]) || { n: 0, m: 0, d: new Map(), a: new Set() }; x.n++; x.m += r[3]; x.a.add(r[1].slice(0, 4)); x.d.set(r[4], (x.d.get(r[4]) || 0) + 1); g.set(r[0], x); });
       const G = [...g.entries()].sort((a, b) => b[1].m - a[1].m), L = G.slice((st.page - 1) * st.size, st.page * st.size);
       pager($('osTab').parentElement, 'osPager', G.length, st, draw);
-      html = `<thead><tr><th ${th}>Persona</th><th ${th}>Órdenes</th><th ${th}>Monto</th><th ${th}>Años</th><th ${th}>Servicios más frecuentes</th></tr></thead><tbody>` + L.map(([i, x]) => `<tr><td ${td}><a href="#" data-p="${i}"><strong>${esc(P[i])}</strong></a>${tag(i)}</td><td ${td}>${fmtN(x.n)}</td><td ${td} style="white-space:nowrap"><strong>${sol(x.m)}</strong></td><td ${td}>${esc([...x.a].sort().join(', '))}</td><td ${td} class="note">${[...x.d.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([d, n]) => esc(d) + (n > 1 ? ` (×${n})` : '')).join('<br>')}</td></tr>`).join('') + '</tbody>';
+      html = `<thead><tr><th ${th}>Persona</th><th ${th}>Órdenes</th><th ${th}>Monto</th><th ${th}>Años</th><th ${th}>Servicios más frecuentes</th></tr></thead><tbody>` + L.map(([i, x]) => `<tr><td ${td}><a href="#" data-p="${i}"><strong>${esc(P[i])}</strong></a>${tag(i)}</td><td ${td}>${fmtN(x.n)}</td><td ${tdn}><strong>${sol(x.m)}</strong></td><td ${td}>${esc([...x.a].sort().join(', '))}</td><td ${td} class="note">${[...x.d.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([d, n]) => esc(d) + (n > 1 ? ` (×${n})` : '')).join('<br>')}</td></tr>`).join('') + '</tbody>';
       $('osNote').textContent = `Ordenado de mayor a menor monto. Haz clic en un nombre para ver sus órdenes. ${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
     } else {
       const L = idx.slice((st.page - 1) * st.size, st.page * st.size);
       pager($('osTab').parentElement, 'osPager', idx.length, st, draw);
-      html = `<thead><tr><th ${th}>Fecha</th><th ${th}>Persona</th><th ${th}>Tipo</th><th ${th}>Monto</th><th ${th}>Descripción</th></tr></thead><tbody>` + L.map(k => { const r = O[k]; return `<tr${r[5] ? ' style="opacity:.5"' : ''}><td ${td} style="white-space:nowrap">${esc(r[1])}</td><td ${td}><a href="#" data-p="${r[0]}">${esc(P[r[0]])}</a>${tag(r[0])}</td><td ${td}>${r[2] === 'S' ? 'OS' : 'OC'}${r[5] ? ' · anulada' : ''}</td><td ${td} style="white-space:nowrap">${sol(r[3])}</td><td ${td}>${esc(r[4])}</td></tr>`; }).join('') + '</tbody>';
+      html = `<thead><tr><th ${th}>Fecha</th><th ${th}>Persona</th><th ${th}>Tipo</th><th ${th}>Monto</th><th ${th}>Descripción</th></tr></thead><tbody>` + L.map(k => { const r = O[k]; return `<tr${r[5] ? ' style="opacity:.5"' : ''}><td ${tdn}>${esc(r[1])}</td><td ${td}><a href="#" data-p="${r[0]}">${esc(P[r[0]])}</a>${tag(r[0])}</td><td ${td}>${r[2] === 'S' ? 'OS' : r[2] === 'P' ? 'Contrato' : 'OC'}${r[5] ? ' · anulada' : ''}</td><td ${tdn}>${sol(r[3])}</td><td ${td}>${esc(r[4])}</td></tr>`; }).join('') + '</tbody>';
       $('osNote').textContent = `De la más reciente a la más antigua. ${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
     }
     T.innerHTML = html;

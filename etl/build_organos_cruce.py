@@ -105,7 +105,7 @@ def main():
             "cobertura_pagos": {"planilla": pag["_meta"]["fuentes"]["planilla"].get("periodo"), "ordenes": pag["_meta"]["fuentes"]["ordenes"].get("periodo")},
             "limites": [
                 "Sin DNI: las coincidencias son por nombre y pueden ser homónimos.",
-                "Órdenes de servicio de la UNI en SEACE solo hasta abril de 2025 (cambio de plataforma por la Ley 32069).",
+                "Órdenes de compra/servicio solo hasta abril de 2025: desde mayo de 2025 la UNI no registra sus órdenes en SEACE: el buscador oficial devuelve 0 órdenes de la UNI cada mes de mayo de 2025 a octubre de 2026, mientras otras entidades (p. ej. MINEDU, 510 en setiembre de 2026) siguen registrándolas (verificado el 18-11-2026).",
                 "JNE: solo personas ELECTAS a un cargo público (no lista completa de candidatos ni afiliados).",
                 "La afiliación partidaria se consulta por DNI en el ROP del JNE (con captcha); se registra a mano en data/afiliacion-manual.json con fecha y evidencia.",
                 "Recibir pagos de la UNI o haber sido electo por un partido no implica irregularidad.",

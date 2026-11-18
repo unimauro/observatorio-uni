@@ -25,10 +25,10 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#5c0013">
 <link rel="icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="assets/styles.css?v=20261118131617">
+<link rel="stylesheet" href="assets/styles.css?v=20261118132902">
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-9nhczxUqK87bcKHh20fSQcTGD4qq5GhayNYSYWqwBkINBhOfQLg/P5HG5lF1urn4" crossorigin="anonymous"></script>
 <script defer src="config.js"></script>
-<script defer src="app.js?v=20261118131617"></script>
+<script defer src="app.js?v=20261118132902"></script>
 </head>
 <body data-page="planilla">
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -85,7 +85,7 @@
   <p class="lead">Para buscar cualquier orden de servicio, ve al <a href="#ordenes">buscador de órdenes</a>. Integrantes de la Asamblea Universitaria, el Consejo Universitario, los 11 consejos de facultad, el Comité Electoral (CEUNI), el Tribunal de Honor, la Defensoría Universitaria y la Comisión de Fiscalización (docentes, estudiantes y autoridades), cruzados con lo que la UNI les pagó (planilla y órdenes de compra o servicio) y con las autoridades electas del JNE. Cada dato enlaza a su fuente.</p>
   <div class="kpis" id="orgKpis" style="margin-bottom:16px"></div>
   <div class="card" style="margin-bottom:16px;font-size:13.5px">
-    <strong>Cómo leer esta tabla.</strong> El cruce es por <strong>nombre</strong>, sin DNI: una coincidencia puede ser un homónimo. Recibir pagos de la UNI o haber sido electo por un partido <strong>no implica ninguna irregularidad</strong>. Las órdenes de compra o servicio de SEACE llegan hasta abril de 2025 (cambio de plataforma por la Ley 32069). La columna JNE solo muestra a quienes fueron <strong>electos</strong> a un cargo público (2014–2026); no es la lista de afiliados. La afiliación partidaria se consulta por DNI en el <a href="https://sroppublico.jne.gob.pe/Consulta/Afiliado" target="_blank" rel="noopener">ROP del JNE</a>; si consultas a alguien, envíanos la captura y la fecha para agregarla.
+    <strong>Cómo leer esta tabla.</strong> El cruce es por <strong>nombre</strong>, sin DNI: una coincidencia puede ser un homónimo. Recibir pagos de la UNI o haber sido electo por un partido <strong>no implica ninguna irregularidad</strong>. Las órdenes de compra o servicio llegan hasta abril de 2025 porque desde mayo de 2025 la UNI no registra sus órdenes en SEACE: el buscador oficial devuelve 0 órdenes de la UNI cada mes de mayo de 2025 a octubre de 2026, mientras otras entidades (p. ej. MINEDU, 510 en setiembre de 2026) siguen registrándolas (verificado el 18-11-2026). La columna JNE solo muestra a quienes fueron <strong>electos</strong> a un cargo público (2014–2026); no es la lista de afiliados. La afiliación partidaria se consulta por DNI en el <a href="https://sroppublico.jne.gob.pe/Consulta/Afiliado" target="_blank" rel="noopener">ROP del JNE</a>; si consultas a alguien, envíanos la captura y la fecha para agregarla.
   </div>
   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
     <input id="orgQ" type="search" placeholder="Buscar nombre, facultad u órgano…" aria-label="Buscar" style="flex:1;min-width:220px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)">
@@ -105,11 +105,24 @@
 <section id="ordenes"><div class="wrap">
   <div class="eyebrow">Órdenes de servicio y de compra</div>
   <h2>Buscador de órdenes de la UNI a personas naturales</h2>
-  <p class="lead">Todas las órdenes de servicio (OS) y de compra (OC) que la UNI emitió a personas naturales y que figuran en SEACE, de enero de 2021 a abril de 2025. Busca por nombre o por lo que se contrató (p. ej. «apoyo administrativo», «elecciones», «asesoría»). La etiqueta <span class="tag-org">órgano de gobierno</span> marca a quien también integra un órgano de gobierno (coincidencia de nombre).</p>
+  <p class="lead">Todas las órdenes de servicio (OS) y de compra (OC) que la UNI emitió a personas naturales y que figuran en SEACE, de enero de 2021 a abril de 2025. <strong>Desde mayo de 2025 la UNI dejó de registrar sus órdenes en SEACE</strong> (0 órdenes por mes hasta octubre de 2026, mientras otras entidades sí las registran; verificado el 18-11-2026), así que ese periodo no se puede consultar en fuentes abiertas. Busca por nombre o por lo que se contrató (p. ej. «apoyo administrativo», «elecciones», «asesoría»). La etiqueta <span class="tag-org">órgano de gobierno</span> marca a quien también integra un órgano de gobierno (coincidencia de nombre).</p>
+  <div class="alerta-card" id="osAlerta">
+    <div class="alerta-kicker">⚠ Hallazgo · verificado el 18-11-2026</div>
+    <h3>Desde mayo de 2025 la UNI dejó de registrar sus órdenes de servicio y de compra en SEACE</h3>
+    <div class="alerta-grid">
+      <div><b>695</b><span>órdenes registradas en abril de 2025</span></div>
+      <div><b class="cero">0</b><span>órdenes por mes de mayo de 2025 a octubre de 2026 (18 meses)</span></div>
+      <div><b>510</b><span>órdenes del MINEDU en setiembre de 2026, en el mismo buscador (la UNI: 0)</span></div>
+    </div>
+    <div class="chart-box" style="height:200px"><canvas id="cOsSerie" aria-label="Órdenes de la UNI registradas en SEACE por mes"></canvas></div>
+    <div class="note" style="text-align:right;margin-top:4px">Órdenes de la UNI registradas en SEACE por mes, ene-2021 a oct-2026. <strong style="color:#e6336f">De may-2025 a oct-2026: 0 cada mes.</strong></div>
+    <p>Las órdenes de compra y de servicio son información pública (Ley 27806 de Transparencia) y el Portal de Transparencia de la UNI las publica enlazando a SEACE. El enlace «órdenes de compra y servicio» del portal de la UNI sigue apuntando a SEACE, pero desde mayo de 2025 no muestra ninguna. Por eso <strong>no se puede saber, con fuentes abiertas, a quién pagó la UNI con órdenes de servicio en los últimos 18 meses</strong>: ni locadores ni compras menores. Lo único visible son 28 contratos por procedimiento a personas naturales (S/ 3,3 M, en OECE Contrataciones Abiertas), que aparecen en el buscador con el tipo «Contrato».</p>
+    <p class="note">Cómo verificarlo: <a href="https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublicoOCOS.xhtml?ruc_entidad=20169004359&amp;anio=2026&amp;mes=09&amp;theme=ongei" target="_blank" rel="noopener">UNI, setiembre 2026 (0)</a> · <a href="https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublicoOCOS.xhtml?ruc_entidad=20169004359&amp;anio=2025&amp;mes=04&amp;theme=ongei" target="_blank" rel="noopener">UNI, abril 2025 (695)</a> · <a href="https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/ongei/buscadorPublicoOCOS.xhtml?ruc_entidad=20131370998&amp;anio=2026&amp;mes=09&amp;theme=ongei" target="_blank" rel="noopener">MINEDU, setiembre 2026 (510)</a>. Cualquier persona puede pedir la lista a la UNI por acceso a la información pública (Ley 27806).</p>
+  </div>
   <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
     <input id="osQ" type="search" placeholder="Nombre o descripción del servicio…" aria-label="Buscar órdenes" style="flex:1;min-width:220px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)">
     <select id="osAnio" aria-label="Año" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)"><option value="">Todos los años</option></select>
-    <select id="osTipo" aria-label="Tipo" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)"><option value="">Servicio y compra</option><option value="S">Solo servicio (OS)</option><option value="C">Solo compra (OC)</option></select>
+    <select id="osTipo" aria-label="Tipo" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)"><option value="">Servicio y compra</option><option value="S">Solo servicio (OS)</option><option value="C">Solo compra (OC)</option><option value="P">Contratos 2025–2026 (OCDS)</option></select>
     <select id="osMin" aria-label="Monto mínimo" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)"><option value="0">Cualquier monto</option><option value="1000">≥ S/ 1 000</option><option value="5000">≥ S/ 5 000</option><option value="10000">≥ S/ 10 000</option><option value="30000">≥ S/ 30 000</option></select>
     <select id="osVer" aria-label="Ver" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--tinta)"><option value="p">Agrupar por persona</option><option value="o">Ver cada orden</option></select>
     <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="osOrg"> Solo integrantes de órganos de gobierno</label>
