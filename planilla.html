@@ -63,7 +63,7 @@
 <section id="planilla"><div class="wrap">
   <div class="eyebrow">Quiénes trabajan</div>
   <h1 class="sec">Planilla y remuneraciones</h1>
-  <p class="lead">Personal de la UNI (docentes, funcionarios y administrativos) y sus remuneraciones mensuales, a partir de la lista nominal del Portal de Transparencia Estándar (PTE, regímenes CAS, 276 y «728/otros», donde el PTE publica a los docentes) y del agregado AIRHSP. Nunca estudiantes.</p>
+  <p class="lead">Personal de la UNI (docentes, funcionarios y administrativos) y sus remuneraciones mensuales, a partir de la lista nominal del Portal de Transparencia Estándar (PTE, regímenes CAS, 276 y «728/otros», donde el PTE publica a los docentes) y del agregado AIRHSP. Más abajo: <a href="#organos">integrantes de los órganos de gobierno y lo que recibieron de la UNI</a>.</p>
   <div class="kpis" id="planKpis" style="margin-bottom:20px"></div>
   <div class="grid2">
     <div class="card"><h3>Masa salarial mensual 2026 por régimen (S/ M, PTE)</h3><div class="chart-box"><canvas id="cSerPlan"></canvas></div></div>
@@ -74,6 +74,29 @@
     <div class="card"><h3>Sueldo promedio por régimen (S/, AIRHSP)</h3><div class="chart-box"><canvas id="cRegS"></canvas></div></div>
   </div>
   <div id="planWrap" style="margin-top:20px"></div>
+</div></section>
+
+<section id="organos"><div class="wrap">
+  <div class="eyebrow">Quién gobierna</div>
+  <h2>Órganos de gobierno: quién es quién y cuánto recibió de la UNI</h2>
+  <p class="lead">Integrantes de la Asamblea Universitaria, el Consejo Universitario, los 11 consejos de facultad, el Comité Electoral (CEUNI), el Tribunal de Honor, la Defensoría Universitaria y la Comisión de Fiscalización (docentes, estudiantes y autoridades), cruzados con lo que la UNI les pagó (planilla y órdenes de compra o servicio) y con las autoridades electas del JNE. Cada dato enlaza a su fuente.</p>
+  <div class="kpis" id="orgKpis" style="margin-bottom:16px"></div>
+  <div class="card" style="margin-bottom:16px;font-size:13.5px">
+    <strong>Cómo leer esta tabla.</strong> El cruce es por <strong>nombre</strong>, sin DNI: una coincidencia puede ser un homónimo. Recibir pagos de la UNI o haber sido electo por un partido <strong>no implica ninguna irregularidad</strong>. Las órdenes de compra o servicio de SEACE llegan hasta abril de 2025 (cambio de plataforma por la Ley 32069). La columna JNE solo muestra a quienes fueron <strong>electos</strong> a un cargo público (2014–2026); no es la lista de afiliados. La afiliación partidaria se consulta por DNI en el <a href="https://sroppublico.jne.gob.pe/Consulta/Afiliado" target="_blank" rel="noopener">ROP del JNE</a>; si consultas a alguien, envíanos la captura y la fecha para agregarla.
+  </div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+    <input id="orgQ" type="search" placeholder="Buscar nombre, facultad u órgano…" aria-label="Buscar" style="flex:1;min-width:220px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)">
+    <select id="orgOrg" aria-label="Órgano" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)"></select>
+    <select id="orgEst" aria-label="Estamento" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)">
+      <option value="">Todos los estamentos</option><option value="docente">Docentes</option><option value="estudiante">Estudiantes</option><option value="autoridad">Autoridades</option>
+    </select>
+    <select id="orgVig" aria-label="Estado" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)">
+      <option value="">Vigentes, electos y pasados</option><option value="en_funciones">En funciones</option><option value="electo_por_asumir">Electos por asumir</option><option value="concluido">Periodo concluido</option>
+    </select>
+    <label style="display:flex;align-items:center;gap:6px;font-size:14px"><input type="checkbox" id="orgOrd"> Solo con órdenes de servicio</label>
+  </div>
+  <div style="overflow-x:auto"><table id="orgTab" style="width:100%;border-collapse:collapse;font-size:13.5px"></table></div>
+  <p class="note" id="orgNote"></p>
 </div></section>
 </main>
 

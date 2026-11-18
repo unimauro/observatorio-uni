@@ -50,13 +50,13 @@ themeIcon();
 // (etl/build_planilla_resumen.py); la lista nominal completa (planilla-uni.json, ~900 KB) solo la carga planilla.html.
 const FILES = {
   presu: 'presupuesto-uni.json', biblio: 'bibliometria.json', adm: 'admision-uni.json', prov: 'proveedores-uni.json',
-  plan: 'planilla-uni.json', planRes: 'planilla-resumen.json', elec: 'electoral-uni.json', facs: 'facultades-uni.json', vri: 'vri-proyectos.json', u36: 'uni2036.json',
+  plan: 'planilla-uni.json', planRes: 'planilla-resumen.json', elec: 'electoral-uni.json', facs: 'facultades-uni.json', vri: 'vri-proyectos.json', u36: 'uni2036.json', org: 'organos-cruce.json',
 };
 const PAGE_DATA = {
   index: ['presu', 'biblio', 'adm', 'prov', 'planRes', 'elec'],
   presupuesto: ['presu', 'biblio', 'adm', 'prov'],
   investigacion: ['biblio', 'facs', 'vri'],
-  planilla: ['plan'],
+  planilla: ['plan', 'org'],
   admision: ['adm'],
   eleccion: ['elec'],
   lider: ['biblio', 'facs', 'presu', 'planRes', 'u36'],
@@ -114,7 +114,7 @@ const RENDERERS = [
   ['kpis', () => renderKpis()], ['areas', () => renderAreas()],
   ['presupuesto', () => renderPresu()], ['gasto', () => renderGasto()], ['proveedores', () => renderProv()],
   ['investigacion', () => renderInv()], ['valor', () => renderValor()], ['admision', () => renderAdm()],
-  ['eleccion', () => renderElec()], ['planilla', () => renderPlan()], ['facultades', () => renderFacs()], ['lidPlan', () => renderLid()], ['u36Obj', () => renderU36()],
+  ['eleccion', () => renderElec()], ['planilla', () => renderPlan()], ['orgTab', () => renderOrg()], ['facultades', () => renderFacs()], ['lidPlan', () => renderLid()], ['u36Obj', () => renderU36()],
 ];
 function render() {
   RENDERERS.forEach(([id, fn]) => { if ($(id)) { try { fn(); } catch (e) { console.error('render ' + id, e); } } });
@@ -878,3 +878,45 @@ function buildCtx() {
 })();
 
 boot();
+
+// ---- Órganos de gobierno × pagos × JNE (data/organos-cruce.json, etl/build_organos_cruce.py) ----
+const ORG_EST = { en_funciones: 'en funciones', electo_por_asumir: 'electo, por asumir', concluido: 'concluido', incierto: 'por confirmar' };
+function renderOrg() {
+  const D = DATA.org, T = $('orgTab');
+  if (!D?.personas?.length) { T.innerHTML = '<tr><td class="note">Datos no disponibles.</td></tr>'; return; }
+  const M = D._meta, L = D.personas;
+  const sol = v => 'S/ ' + fmtN(Math.round(v || 0));
+  $('orgKpis').innerHTML = kpiHtml([
+    ['personas en órganos de gobierno', fmtN(M.n_personas), 'docentes, estudiantes y autoridades'],
+    ['figuran en la planilla de la UNI', fmtN(L.filter(p => p.pagos?.planilla_ultimo_mes).length), 'coincidencia de nombre (PTE)'],
+    ['recibieron órdenes de compra o servicio', fmtN(M.n_con_ordenes), 'SEACE, ene-2021 a abr-2025'],
+    ['electos a un cargo público (JNE)', fmtN(M.n_jne), 'autoridades electas 2014–2026'],
+  ]);
+  const orgs = [...new Set(L.flatMap(p => p.cargos.map(c => c.organo)))].sort();
+  $('orgOrg').innerHTML = '<option value="">Todos los órganos</option>' + orgs.map(o => `<option>${esc(o)}</option>`).join('');
+  const th = 'style="text-align:left;padding:8px;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--bg)"';
+  const td = 'style="padding:8px;border-bottom:1px solid var(--line);vertical-align:top"';
+  const link = (u, t) => u && /^https:\/\//.test(u) ? `<a href="${esc(u)}" target="_blank" rel="noopener">${t}</a>` : t;
+  const row = p => {
+    const cargos = p.cargos.map(c => `<div>${link(c.fuente_url, esc(c.organo))}${c.facultad ? ' · ' + esc(c.facultad) : ''} · ${esc(c.estamento)}${c.cargo ? ' (' + esc(c.cargo) + ')' : ''} <span class="note">${esc(ORG_EST[c.estado] || c.estado || '')}${c.periodo ? ' · ' + esc(c.periodo) : ''}</span></div>`).join('');
+    const pg = p.pagos || {};
+    const pl = pg.planilla_ultimo_mes ? `${sol(pg.planilla_ultimo_mes.total)}<div class="note">${esc(pg.planilla_ultimo_mes.mes)} · ${esc(pg.planilla_ultimo_mes.cargo || '')}</div>` : '<span class="note">—</span>';
+    const anios = Object.entries(pg.planilla_por_anio || {}).map(([a, v]) => `${esc(a)}: ${sol(v.total)} (${fmtN(v.meses)} meses)`).join(' · ');
+    const ord = pg.ordenes_n ? `<strong>${sol(pg.ordenes_total)}</strong> en ${fmtN(pg.ordenes_n)} órdenes<div class="note">${Object.entries(pg.ordenes_por_anio).map(([a, v]) => `${esc(a)}: ${sol(v.monto)} (${fmtN(v.n)})`).join(' · ')}</div><details><summary class="note">ver órdenes</summary>${(pg.ordenes_muestra || []).map(o => `<div class="note">${esc(o.fecha)} · ${sol(o.monto)} · ${esc(o.descripcion)}</div>`).join('')}</details>` : '<span class="note">—</span>';
+    const adj = pg.adjudicaciones_total ? `<div class="note">+ adjudicaciones: ${sol(pg.adjudicaciones_total)}</div>` : '';
+    const jne = (p.jne_electo || []).map(e => `<div>${link(e.fuente_url, esc(e.organizacion_politica))}<div class="note">${esc(e.cargo_postulado)} · ${esc(e.anio)}</div></div>`).join('') || '<span class="note">—</span>';
+    const rop = p.rop_manual ? `<div class="note">ROP: ${esc(p.rop_manual.partido || 'sin afiliación')} (${esc(p.rop_manual.fecha || '')})</div>` : '';
+    const flag = p.coincidencia_pagos === 'parcial' || pg.homonimos_en_fuente ? ' <span class="note" title="Coincidencia parcial de nombre u homónimos en la fuente">⚠ verificar</span>' : '';
+    return `<tr><td ${td}><strong>${esc(p.nombre)}</strong>${flag}</td><td ${td}>${cargos}</td><td ${td}>${pl}${anios ? `<div class="note">${anios}</div>` : ''}</td><td ${td}>${ord}${adj}</td><td ${td}>${jne}${rop}</td></tr>`;
+  };
+  const draw = () => {
+    const q = ($('orgQ').value || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
+    const o = $('orgOrg').value, e = $('orgEst').value, v = $('orgVig').value, od = $('orgOrd').checked;
+    const f = L.filter(p => (!o || p.cargos.some(c => c.organo === o)) && (!e || p.cargos.some(c => c.estamento === e)) && (!v || p.cargos.some(c => c.estado === v))
+      && (!od || p.pagos?.ordenes_n) && (!q || (p.nombre + ' ' + p.cargos.map(c => c.organo + ' ' + (c.facultad || '')).join(' ')).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').includes(q)));
+    T.innerHTML = `<thead><tr><th ${th}>Nombre</th><th ${th}>Órgano · estamento · estado (fuente)</th><th ${th}>Planilla UNI (último mes; suma de los meses con datos por año)</th><th ${th}>Órdenes de compra/servicio 2021–abr 2025</th><th ${th}>JNE: electo por</th></tr></thead><tbody>${f.map(row).join('')}</tbody>`;
+    $('orgNote').textContent = `${f.length} de ${L.length} personas. Cobertura de la planilla: ${M.cobertura_pagos?.planilla || '—'}; órdenes: ${M.cobertura_pagos?.ordenes || '—'}. Generado ${String(M.generado || '').slice(0, 10)} con etl/build_organos_cruce.py. ${(M.limites || []).join(' ')}`;
+  };
+  ['orgQ', 'orgOrg', 'orgEst', 'orgVig', 'orgOrd'].forEach(id => { $(id).oninput = draw; $(id).onchange = draw; });
+  draw();
+}

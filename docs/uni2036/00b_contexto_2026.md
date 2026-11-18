@@ -12,6 +12,7 @@
 | 31-10-2026 | La Defensoría del Pueblo recomienda pedir asistencia técnica a la ONPE. | Prensa |
 | 10-11-2026 | Nueva segunda vuelta, presencial, con asistencia técnica de la ONPE. | Convocatoria CEUNI |
 | 11/12-11-2026 | **Gana la Lista 8: Juan Martín Rodríguez Rodríguez (rector), Rafael Salinas Basualdo (vicerrector académico) y Jimmy Rosales Huamaní (vicerrector de investigación), con 59,05 % de los votos ponderados frente a 40,95 % de la Lista 1.** Mandato 2026–2031. | UNI en X (11-11); La Noticia (nov-2026). El acta del CEUNI solo es accesible con cuenta institucional. |
+| 12-11-2026 | Mientras la nueva gestión asume, el decano más antiguo, Alberto Landauro Abanto (FIGMM), ejerce el rectorado interino (Ley 32418). | RR 00002-2026-UNI-(i); directorio de gob.pe |
 
 El detalle de cada hecho, con fuentes, está en el [Observatorio Electoral Universitario](https://unimauro.github.io/observatorio-electoral-uni/).
 

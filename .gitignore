@@ -7,3 +7,5 @@ etl/cache_pte/
 etl/cache_openalex_*.json
 docs/uni2036/build/
 .claude/
+build/
+data/pagos-personas-uni.json
