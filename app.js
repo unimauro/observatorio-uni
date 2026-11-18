@@ -879,6 +879,23 @@ function buildCtx() {
 
 boot();
 
+
+// ---- paginación genérica: dibuja «‹ 1 2 … n ›» y selector de tamaño debajo de una tabla ----
+function pager(afterEl, id, total, st, redraw) {
+  let box = document.getElementById(id);
+  if (!box) { box = document.createElement('div'); box.id = id; box.className = 'pager'; afterEl.insertAdjacentElement('afterend', box); }
+  const pages = Math.max(1, Math.ceil(total / st.size)); st.page = Math.min(st.page, pages);
+  const nums = [...new Set([1, 2, st.page - 1, st.page, st.page + 1, pages - 1, pages])].filter(n => n >= 1 && n <= pages).sort((a, b) => a - b);
+  let html = `<button data-pg="${st.page - 1}" ${st.page === 1 ? 'disabled' : ''} aria-label="Página anterior">‹</button>`, prev = 0;
+  nums.forEach(n => { if (n - prev > 1) html += '<span class="gap">…</span>'; html += `<button data-pg="${n}" class="${n === st.page ? 'on' : ''}" ${n === st.page ? 'aria-current="page"' : ''}>${n}</button>`; prev = n; });
+  html += `<button data-pg="${st.page + 1}" ${st.page === pages ? 'disabled' : ''} aria-label="Página siguiente">›</button>`;
+  const from = total ? (st.page - 1) * st.size + 1 : 0, to = Math.min(total, st.page * st.size);
+  html += `<span class="info">${fmtN(from)}–${fmtN(to)} de ${fmtN(total)}</span><select aria-label="Filas por página">${[10, 25, 50, 100].map(n => `<option value="${n}" ${n === st.size ? 'selected' : ''}>${n} por página</option>`).join('')}</select>`;
+  box.innerHTML = html;
+  box.querySelectorAll('button[data-pg]').forEach(b => b.onclick = () => { st.page = +b.dataset.pg; redraw(); afterEl.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  box.querySelector('select').onchange = e => { st.size = +e.target.value; st.page = 1; redraw(); };
+}
+
 // ---- Órganos de gobierno × pagos × JNE (data/organos-cruce.json, etl/build_organos_cruce.py) ----
 const ORG_EST = { en_funciones: 'en funciones', electo_por_asumir: 'electo, por asumir', concluido: 'concluido', incierto: 'por confirmar' };
 function renderOrg() {
@@ -909,15 +926,18 @@ function renderOrg() {
     const flag = p.coincidencia_pagos === 'parcial' || pg.homonimos_en_fuente ? ' <span class="note" title="Coincidencia parcial de nombre u homónimos en la fuente">⚠ verificar</span>' : '';
     return `<tr><td ${td}><strong>${esc(p.nombre)}</strong>${flag}</td><td ${td}>${cargos}</td><td ${td}>${pl}${anios ? `<div class="note">${anios}</div>` : ''}</td><td ${td}>${ord}${adj}</td><td ${td}>${jne}${rop}</td></tr>`;
   };
+  const st = { page: 1, size: 25 };
   const draw = () => {
     const q = ($('orgQ').value || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').trim();
     const o = $('orgOrg').value, e = $('orgEst').value, v = $('orgVig').value, od = $('orgOrd').checked;
     const f = L.filter(p => (!o || p.cargos.some(c => c.organo === o)) && (!e || p.cargos.some(c => c.estamento === e)) && (!v || p.cargos.some(c => c.estado === v))
       && (!od || p.pagos?.ordenes_n) && (!q || (p.nombre + ' ' + p.cargos.map(c => c.organo + ' ' + (c.facultad || '')).join(' ')).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').includes(q)));
-    T.innerHTML = `<thead><tr><th ${th}>Nombre</th><th ${th}>Órgano · estamento · estado (fuente)</th><th ${th}>Planilla UNI (último mes; suma de los meses con datos por año)</th><th ${th}>Órdenes de compra/servicio 2021–abr 2025</th><th ${th}>JNE: electo por</th></tr></thead><tbody>${f.map(row).join('')}</tbody>`;
+    T.innerHTML = `<thead><tr><th ${th}>Nombre</th><th ${th}>Órgano · estamento · estado (fuente)</th><th ${th}>Planilla UNI (último mes; suma de los meses con datos por año)</th><th ${th}>Órdenes de compra/servicio 2021–abr 2025</th><th ${th}>JNE: electo por</th></tr></thead><tbody>${f.slice((st.page - 1) * st.size, st.page * st.size).map(row).join('')}</tbody>`;
+    pager(T.parentElement, 'orgPager', f.length, st, draw);
     $('orgNote').textContent = `${f.length} de ${L.length} personas. Cobertura de la planilla: ${M.cobertura_pagos?.planilla || '—'}; órdenes: ${M.cobertura_pagos?.ordenes || '—'}. Generado ${String(M.generado || '').slice(0, 10)} con etl/build_organos_cruce.py. ${(M.limites || []).join(' ')}`;
   };
-  ['orgQ', 'orgOrg', 'orgEst', 'orgVig', 'orgOrd'].forEach(id => { $(id).oninput = draw; $(id).onchange = draw; });
+  const reset = () => { st.page = 1; draw(); };
+  ['orgQ', 'orgOrg', 'orgEst', 'orgVig', 'orgOrd'].forEach(id => { $(id).oninput = reset; $(id).onchange = reset; });
   draw();
 }
 
@@ -941,6 +961,7 @@ function renderOrdenes() {
   const th = 'style="text-align:left;padding:8px;border-bottom:2px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:1"';
   const td = 'style="padding:8px;border-bottom:1px solid var(--line);vertical-align:top"';
   const tag = i => ORG[i] ? ` <span class="tag-org" title="${esc(ORG[i])}">órgano de gobierno</span><div class="note">${esc(ORG[i])}</div>` : '';
+  const st = { page: 1, size: 25 };
   const draw = () => {
     const q = norm($('osQ').value).trim(), an = $('osAnio').value, tp = $('osTipo').value, mn = +$('osMin').value, og = $('osOrg').checked, ver = $('osVer').value;
     const idx = [];
@@ -957,17 +978,20 @@ function renderOrdenes() {
     if (ver === 'p') {
       const g = new Map();
       val.forEach(k => { const r = O[k]; const x = g.get(r[0]) || { n: 0, m: 0, d: new Map(), a: new Set() }; x.n++; x.m += r[3]; x.a.add(r[1].slice(0, 4)); x.d.set(r[4], (x.d.get(r[4]) || 0) + 1); g.set(r[0], x); });
-      const L = [...g.entries()].sort((a, b) => b[1].m - a[1].m).slice(0, 300);
+      const G = [...g.entries()].sort((a, b) => b[1].m - a[1].m), L = G.slice((st.page - 1) * st.size, st.page * st.size);
+      pager($('osTab').parentElement, 'osPager', G.length, st, draw);
       html = `<thead><tr><th ${th}>Persona</th><th ${th}>Órdenes</th><th ${th}>Monto</th><th ${th}>Años</th><th ${th}>Servicios más frecuentes</th></tr></thead><tbody>` + L.map(([i, x]) => `<tr><td ${td}><a href="#" data-p="${i}"><strong>${esc(P[i])}</strong></a>${tag(i)}</td><td ${td}>${fmtN(x.n)}</td><td ${td}><strong>${sol(x.m)}</strong></td><td ${td}>${esc([...x.a].sort().join(', '))}</td><td ${td} class="note">${[...x.d.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3).map(([d, n]) => esc(d) + (n > 1 ? ` (×${n})` : '')).join('<br>')}</td></tr>`).join('') + '</tbody>';
-      $('osNote').textContent = `${g.size > 300 ? 'Se muestran las 300 personas con mayor monto de ' + fmtN(g.size) + '. ' : ''}Haz clic en un nombre para ver sus órdenes. ${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
+      $('osNote').textContent = `Ordenado de mayor a menor monto. Haz clic en un nombre para ver sus órdenes. ${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
     } else {
-      const L = idx.slice(0, 1000);
+      const L = idx.slice((st.page - 1) * st.size, st.page * st.size);
+      pager($('osTab').parentElement, 'osPager', idx.length, st, draw);
       html = `<thead><tr><th ${th}>Fecha</th><th ${th}>Persona</th><th ${th}>Tipo</th><th ${th}>Monto</th><th ${th}>Descripción</th></tr></thead><tbody>` + L.map(k => { const r = O[k]; return `<tr${r[5] ? ' style="opacity:.5"' : ''}><td ${td}>${esc(r[1])}</td><td ${td}><a href="#" data-p="${r[0]}">${esc(P[r[0]])}</a>${tag(r[0])}</td><td ${td}>${r[2] === 'S' ? 'OS' : 'OC'}${r[5] ? ' · anulada' : ''}</td><td ${td}>${sol(r[3])}</td><td ${td}>${esc(r[4])}</td></tr>`; }).join('') + '</tbody>';
-      $('osNote').textContent = `${idx.length > 1000 ? 'Se muestran las 1 000 más recientes de ' + fmtN(idx.length) + '. ' : ''}${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
+      $('osNote').textContent = `De la más reciente a la más antigua. ${M.nota} Fuente: ${M.fuente} (${M.periodo}).`;
     }
     T.innerHTML = html;
-    T.querySelectorAll('a[data-p]').forEach(a => a.onclick = e => { e.preventDefault(); $('osQ').value = P[+a.dataset.p]; $('osVer').value = 'o'; draw(); });
+    T.querySelectorAll('a[data-p]').forEach(a => a.onclick = e => { e.preventDefault(); $('osQ').value = P[+a.dataset.p]; $('osVer').value = 'o'; st.page = 1; draw(); });
   };
-  ['osQ', 'osAnio', 'osTipo', 'osMin', 'osVer', 'osOrg'].forEach(id => { $(id).oninput = draw; $(id).onchange = draw; });
+  const reset = () => { st.page = 1; draw(); };
+  ['osQ', 'osAnio', 'osTipo', 'osMin', 'osVer', 'osOrg'].forEach(id => { $(id).oninput = reset; $(id).onchange = reset; });
   draw();
 }
